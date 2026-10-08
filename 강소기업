@@ -1,0 +1,67 @@
+
+import requests
+import pandas as pd
+import xml.etree.ElementTree as ET
+from getpass import getpass
+from IPython.display import display
+
+# 1. 강소기업 API 인증키
+API_KEY = getpass("고용24 강소기업 API 인증키: ").strip()
+
+# 2. 강소기업 API 공식 URL
+url = (
+    "https://www.work24.go.kr/cm/openApi/call/wk/"
+    "callOpenApiSvcInfo216L01.do"
+)
+
+# 3. 요청 파라미터
+params = {
+    "authKey": API_KEY,
+    "returnType": "XML",
+    "startPage": 1,
+    "display": 10
+}
+
+try:
+    response = requests.get(url, params=params, timeout=20)
+    response.raise_for_status()
+
+    root = ET.fromstring(response.content)
+
+    # API 오류 확인
+    error = root.findtext(".//error")
+
+    if error:
+        print("API 오류:", error)
+
+    else:
+        companies = []
+
+        # 강소기업 목록 추출
+        for item in root.findall(".//smallGiant"):
+            companies.append({
+                "기업명": item.findtext("coNm"),
+                "지역": item.findtext("regionNm"),
+                "업종": item.findtext("indTpNm"),
+                "주소": item.findtext("coAddr"),
+                "상시근로자수": item.findtext("alwaysWorkerCnt"),
+                "선정연도": item.findtext("selYear"),
+                "기업홈페이지": item.findtext("coHomePage")
+            })
+
+        if companies:
+            df = pd.DataFrame(companies)
+            display(df)
+
+            print(f"총 {len(df)}개 강소기업 조회 성공!")
+
+        else:
+            print("기업 목록을 찾지 못했습니다.")
+            print(response.text[:2000])
+
+except requests.exceptions.RequestException as e:
+    print("API 요청 오류:", e)
+
+except ET.ParseError:
+    print("XML 파싱 오류")
+    print(response.text[:1500])
