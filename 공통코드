@@ -1,0 +1,88 @@
+
+import requests
+import pandas as pd
+import xml.etree.ElementTree as ET
+from getpass import getpass
+from IPython.display import display
+
+# 1. 공통코드 API 인증키
+API_KEY = getpass("고용24 공통코드 API 인증키: ").strip()
+
+# 2. 조회할 코드 선택
+print("1: 지역코드")
+print("2: 직종코드")
+print("3: 자격면허코드")
+print("9: 강소기업 분류코드")
+
+code_type = input("조회할 코드 번호 (기본값 3): ").strip() or "3"
+
+if code_type not in ["1", "2", "3", "9"]:
+    raise ValueError("1, 2, 3, 9 중 선택하세요.")
+
+# 3. 공식 공통코드 API
+url = (
+    "https://www.work24.go.kr/cm/openApi/call/wk/"
+    f"callOpenApiSvcInfo21L{int(code_type):02d}.do"
+)
+
+params = {
+    "authKey": API_KEY,
+    "returnType": "XML",
+    "target": "CMCD",
+    "dtlGb": code_type
+}
+
+try:
+    response = requests.get(url, params=params, timeout=30)
+    response.raise_for_status()
+
+    root = ET.fromstring(response.content)
+
+    error = root.findtext(".//error")
+
+    if error:
+        print("API 오류:", error)
+
+    else:
+        print("API 호출 성공!")
+
+        # XML에서 코드 정보 추출
+        if code_type == "1":
+            code_tag, name_tag = "regionCd", "regionNm"
+        elif code_type == "2":
+            code_tag, name_tag = "jobsCd", "jobsNm"
+        elif code_type == "3":
+            code_tag, name_tag = "certCd", "certNm"
+        else:
+            code_tag, name_tag = None, None
+
+        if code_tag:
+            records = []
+            for item in root.iter():
+                code = item.findtext(code_tag)
+                name = item.findtext(name_tag)
+
+                if code and name:
+                    records.append({
+                        "코드": code,
+                        "이름": name
+                    })
+
+            df = pd.DataFrame(records).drop_duplicates()
+
+            if not df.empty:
+                display(df.head(30))
+                print(f"총 {len(df)}개 코드 추출")
+            else:
+                print("코드를 추출하지 못했습니다.")
+                print(response.text[:3000])
+        else:
+            print("강소기업 분류 원본 XML:")
+            print(response.text[:3000])
+
+except requests.exceptions.RequestException as e:
+    print("API 요청 오류:", e)
+
+except ET.ParseError:
+    print("XML 파싱 오류")
+    print(response.text[:2000])
