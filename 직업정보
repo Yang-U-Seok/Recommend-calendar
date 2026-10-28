@@ -1,0 +1,66 @@
+
+import requests
+import pandas as pd
+import xml.etree.ElementTree as ET
+from getpass import getpass
+from IPython.display import display
+
+# 1. 직업정보 API 인증키 입력
+API_KEY = getpass("직업정보 API 인증키: ").strip()
+
+# 2. 고용24 직업정보 목록 API
+url = (
+    "https://www.work24.go.kr/cm/openApi/call/wk/"
+    "callOpenApiSvcInfo212L01.do"
+)
+
+# 3. 공식 문서의 필수 파라미터
+params = {
+    "authKey": API_KEY,
+    "returnType": "XML",
+    "target": "JOBCD"
+}
+
+try:
+    response = requests.get(url, params=params, timeout=20)
+    response.raise_for_status()
+
+    root = ET.fromstring(response.content)
+
+    # API 오류 메시지 확인
+    error = root.findtext(".//error")
+    if error:
+        print("API 오류:", error)
+    else:
+        print("API 응답 수신 성공!")
+
+        # XML 구조 확인
+        print("\n응답 데이터 미리보기:")
+        print(response.text[:2000])
+
+        # XML에서 직업명과 직업코드 추출
+        jobs = []
+        for item in root.iter():
+            job_name = item.findtext("jobNm")
+            job_code = item.findtext("jobCd")
+
+            if job_name and job_code:
+                jobs.append({
+                    "직업명": job_name,
+                    "직업코드": job_code
+                })
+
+        if jobs:
+            df = pd.DataFrame(jobs).drop_duplicates()
+            display(df.head(20))
+            print(f"총 {len(df)}개 직업 조회")
+        else:
+            print("직업 목록을 자동 추출하지 못했습니다.")
+            print("위 XML 응답 구조를 확인해 주세요.")
+
+except requests.exceptions.RequestException as e:
+    print("API 요청 오류:", e)
+
+except ET.ParseError:
+    print("XML 변환 오류")
+    print(response.text[:1000])

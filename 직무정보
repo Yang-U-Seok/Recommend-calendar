@@ -1,0 +1,69 @@
+
+import requests
+import pandas as pd
+from getpass import getpass
+from IPython.display import display
+
+# 1. 직무정보 API 인증키
+API_KEY = getpass("고용24 직무정보 API 인증키: ").strip()
+
+# 2. 표준직무기술서 API
+url = (
+    "https://www.work24.go.kr/cm/openApi/call/wk/"
+    "callOpenApiSvcInfo215L01.do"
+)
+
+# 3. 검색할 직무 내용
+job_content = "네트워크"
+
+params = {
+    "authKey": API_KEY,
+    "jobCont": job_content,
+    "limit": 10,
+    "returnType": "JSON"
+}
+
+try:
+    response = requests.get(url, params=params, timeout=30)
+    response.raise_for_status()
+
+    data = response.json()
+
+    if data.get("message_cd"):
+        print("API 응답:", data.get("message"))
+    else:
+        print("API 호출 성공!")
+
+        # 원본 데이터 확인
+        result = data.get("result", {})
+
+        if isinstance(result, dict):
+            records = []
+            for name, value in result.items():
+                if isinstance(value, dict):
+                    records.append({
+                        "능력단위명": value.get("job_sdvn", name),
+                        "능력단위 정의": value.get("ablt_def"),
+                        "NCS 대분류": value.get("job_lcfn"),
+                        "NCS 중분류": value.get("job_mcn"),
+                        "필요 지식·기술·태도": value.get("knwg_tchn_attd")
+                    })
+        elif isinstance(result, list):
+            records = result
+        else:
+            records = []
+
+        if records:
+            df = pd.DataFrame(records)
+            display(df)
+            print(f"총 {len(df)}개 결과")
+        else:
+            print("응답 구조 확인:")
+            print(str(data)[:3000])
+
+except requests.exceptions.RequestException as e:
+    print("요청 오류:", e)
+
+except ValueError:
+    print("JSON 변환 오류:")
+    print(response.text[:2000])
