@@ -1,6 +1,7 @@
 
 import { useState } from 'react'
 import './App.css'
+import QnetSearch from './QnetSearch'
 
 function App() {
   // 현재 페이지
@@ -140,6 +141,7 @@ function App() {
           <div>
             <h2>자격증 추천 페이지</h2>
             <p>관심 분야에 맞는 자격증을 추천합니다.</p>
+            <QnetSearch />
           </div>
         )}
 

@@ -67,7 +67,7 @@ body {
 nav {
   background-color: white;
   padding: 20px;
-}
+}git ad
 
 /* 공통 버튼 */
 button {
@@ -167,4 +167,117 @@ main {
     padding: 10px;
     margin: 5px;
   }
+}
+
+.qnet-search {
+  margin-top: 28px;
+  padding: 24px;
+  background: #ffffff;
+  border: 1px solid #e5e7eb;
+  border-radius: 12px;
+}
+
+.qnet-form {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 12px;
+  margin-top: 20px;
+}
+
+.qnet-form input,
+.qnet-form select,
+.qnet-results-header select {
+  padding: 12px;
+  border: 1px solid #d1d5db;
+  border-radius: 8px;
+  font-size: 14px;
+}
+
+.qnet-form input[type="text"] {
+  flex: 2;
+  min-width: 180px;
+}
+
+.qnet-form button {
+  padding: 12px 24px;
+  border: none;
+  border-radius: 8px;
+  background: #2563eb;
+  color: white;
+  cursor: pointer;
+}
+
+.qnet-form button:disabled {
+  opacity: 0.6;
+  cursor: wait;
+}
+
+.qnet-results-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  gap: 12px;
+  margin-top: 24px;
+}
+
+.qnet-table-wrap {
+  width: 100%;
+  overflow-x: auto;
+  margin-top: 12px;
+}
+
+.qnet-table {
+  width: 100%;
+  border-collapse: collapse;
+  min-width: 650px;
+}
+
+.qnet-table th,
+.qnet-table td {
+  padding: 12px;
+  text-align: center;
+  border-bottom: 1px solid #e5e7eb;
+}
+
+.qnet-table th {
+  background: #f1f5f9;
+}
+
+.qnet-table tbody tr:hover {
+  background: #f8fafc;
+}
+
+/* 상단 메뉴바 */
+.navbar {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 20px;
+  padding: 15px 20px;
+  background-color: #ffffff;
+  border-bottom: 1px solid #e5e7eb;
+}
+
+/* 메뉴 버튼 */
+.navbar button {
+  background-color: transparent;
+  color: #374151;
+  border: none;
+  border-radius: 8px;
+  padding: 12px 20px;
+  font-size: 16px;
+  font-weight: 500;
+  cursor: pointer;
+  transition: all 0.2s ease;
+}
+
+/* 마우스를 올렸을 때 */
+.navbar button:hover {
+  background-color: #eff6ff;
+  color: #2563eb;
+}
+
+/* 버튼 클릭 시 */
+.navbar button:active {
+  background-color: #dbeafe;
 }
