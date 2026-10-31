@@ -347,23 +347,38 @@ function App() {
 
       {/* 메뉴 */}
       <nav className="navbar">
-        <button onClick={() => movePage('home')}>
+        <button
+          className={page === 'home' ? 'active' : ''}
+          onClick={() => movePage('home')}
+        >
           홈
         </button>
 
-        <button onClick={() => movePage('certificate')}>
+        <button
+          className={page === 'certificate' || page === 'diagnosis' ? 'active' : ''}
+          onClick={() => movePage('certificate')}
+        >
           자격증 추천
         </button>
 
-        <button onClick={() => movePage('qnet')}>
+        <button
+          className={page === 'qnet' ? 'active' : ''}
+          onClick={() => movePage('qnet')}
+        >
           자격증 정보
         </button>
 
-        <button onClick={() => movePage('job')}>
+        <button
+          className={page === 'job' ? 'active' : ''}
+          onClick={() => movePage('job')}
+        >
           채용정보
         </button>
 
-        <button onClick={() => movePage('calendar')}>
+        <button
+          className={page === 'calendar' ? 'active' : ''}
+          onClick={() => movePage('calendar')}
+        >
           캘린더
         </button>
       </nav>
@@ -374,11 +389,58 @@ function App() {
         {/* 홈 */}
         {page === 'home' && (
           <div className="home-page">
-            <h2>환영합니다!</h2>
-            <p>
-              나에게 맞는 자격증과 취업 정보를 추천받고
-              맞춤형 학습 캘린더를 만들어보세요.
-            </p>
+            <section className="home-hero">
+              <h2>
+                취업 목표에 맞는 자격증부터
+                <br />
+                공부 일정까지 한 번에
+              </h2>
+              <p>
+                관심 분야와 희망 기업 규모를 고르면 채용공고를 분석해 자격증을 추천하고,
+                현재 실력에 맞춘 학습 캘린더를 만들어 드립니다.
+              </p>
+              <button
+                type="button"
+                className="home-cta"
+                onClick={() => movePage('certificate')}
+              >
+                자격증 추천 시작하기 →
+              </button>
+            </section>
+
+            <div className="home-features">
+              {[
+                {
+                  step: 'STEP 1',
+                  title: '맞춤형 자격증 추천',
+                  text: '관심 분야·기업 규모에 맞는 채용공고의 필수·우대 자격증을 분석해요.',
+                  target: 'certificate'
+                },
+                {
+                  step: 'STEP 2',
+                  title: '자격증 정보 확인',
+                  text: '합격률, 평균 취득소요기간, 시험일정을 Q-Net 데이터로 확인해요.',
+                  target: 'qnet'
+                },
+                {
+                  step: 'STEP 3',
+                  title: '나의 학습 캘린더',
+                  text: '진단 결과와 시험일까지 남은 기간으로 학습 일정을 관리해요.',
+                  target: 'calendar'
+                }
+              ].map((feature) => (
+                <button
+                  key={feature.target}
+                  type="button"
+                  className="home-feature"
+                  onClick={() => movePage(feature.target)}
+                >
+                  <span className="home-feature-step">{feature.step}</span>
+                  <strong>{feature.title}</strong>
+                  <span>{feature.text}</span>
+                </button>
+              ))}
+            </div>
           </div>
         )}
 
