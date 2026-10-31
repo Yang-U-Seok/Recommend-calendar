@@ -1,4 +1,4 @@
-<<<<<<< HEAD
+# ===== Node / React (Vite) =====
 # Logs
 logs
 *.log
@@ -23,7 +23,13 @@ dist-ssr
 *.njsproj
 *.sln
 *.sw?
-=======
+
+# 환경변수 (인증키) - 절대 올리지 않기
+.env
+.env.local
+!.env.example
+
+# ===== Python (데이터 수집 스크립트) =====
 # Byte-compiled / optimized / DLL files
 __pycache__/
 *.py[codz]
@@ -244,4 +250,3 @@ __marimo__/
 
 # Streamlit
 .streamlit/secrets.toml
->>>>>>> c78623bf69e15a4d1d48d04d3f9490704cc0b532
