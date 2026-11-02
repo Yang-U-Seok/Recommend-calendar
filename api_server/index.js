@@ -309,7 +309,12 @@ app.get('/api/qnet/acquisition-term', async (req, res) => {
   }
 });
 
+// 시험일정 API (examSchedule.js)
+app.use('/api/qnet', require('./examSchedule'));
+
 // 서버 실행
 app.listen(PORT, () => {
   console.log(`서버 실행 성공: http://localhost:${PORT}`);
 });
+const examScheduleRouter = require('./examSchedule');
+app.use('/api/qnet', examScheduleRouter);

@@ -1,0 +1,171 @@
+{
+  "updatedAt": "2026-11-02T06:55:45.103Z",
+  "source": "InquirySeriesSVC/getRule",
+  "count": 41,
+  "items": [
+    {
+      "seriesCd": "03",
+      "name": "기사"
+    },
+    {
+      "seriesCd": "05",
+      "name": "공인노무사"
+    },
+    {
+      "seriesCd": "07",
+      "name": "가맹거래사"
+    },
+    {
+      "seriesCd": "08",
+      "name": "공인중개사"
+    },
+    {
+      "seriesCd": "09",
+      "name": "경비지도사"
+    },
+    {
+      "seriesCd": "22",
+      "name": "세무사"
+    },
+    {
+      "seriesCd": "24",
+      "name": "관세사"
+    },
+    {
+      "seriesCd": "28",
+      "name": "방사성동위원소취급자특수면허"
+    },
+    {
+      "seriesCd": "29",
+      "name": "방사성동위원소취급자일반면허"
+    },
+    {
+      "seriesCd": "30",
+      "name": "방사선취급감독자면허"
+    },
+    {
+      "seriesCd": "31",
+      "name": "행정사"
+    },
+    {
+      "seriesCd": "33",
+      "name": "소방안전교육사"
+    },
+    {
+      "seriesCd": "34",
+      "name": "소방시설관리사"
+    },
+    {
+      "seriesCd": "35",
+      "name": "박물관 및 미술관 준학예사"
+    },
+    {
+      "seriesCd": "36",
+      "name": "한국어교육능력검정시험"
+    },
+    {
+      "seriesCd": "37",
+      "name": "관광통역안내사"
+    },
+    {
+      "seriesCd": "38",
+      "name": "호텔관리사"
+    },
+    {
+      "seriesCd": "39",
+      "name": "호텔경영사"
+    },
+    {
+      "seriesCd": "40",
+      "name": "국내여행안내사"
+    },
+    {
+      "seriesCd": "41",
+      "name": "호텔서비스사"
+    },
+    {
+      "seriesCd": "42",
+      "name": "국가유산수리기술자"
+    },
+    {
+      "seriesCd": "43",
+      "name": "국가유산수리기능자"
+    },
+    {
+      "seriesCd": "45",
+      "name": "농산물품질관리사"
+    },
+    {
+      "seriesCd": "46",
+      "name": "경매사"
+    },
+    {
+      "seriesCd": "49",
+      "name": "경영지도사"
+    },
+    {
+      "seriesCd": "50",
+      "name": "기술지도사"
+    },
+    {
+      "seriesCd": "51",
+      "name": "변리사"
+    },
+    {
+      "seriesCd": "52",
+      "name": "사회복지사 1급"
+    },
+    {
+      "seriesCd": "54",
+      "name": "정수시설운영관리사"
+    },
+    {
+      "seriesCd": "56",
+      "name": "산업안전지도사"
+    },
+    {
+      "seriesCd": "57",
+      "name": "산업보건지도사"
+    },
+    {
+      "seriesCd": "59",
+      "name": "주택관리사보"
+    },
+    {
+      "seriesCd": "60",
+      "name": "감정평가사"
+    },
+    {
+      "seriesCd": "61",
+      "name": "물류관리사"
+    },
+    {
+      "seriesCd": "62",
+      "name": "검수사"
+    },
+    {
+      "seriesCd": "63",
+      "name": "검량사"
+    },
+    {
+      "seriesCd": "64",
+      "name": "감정사"
+    },
+    {
+      "seriesCd": "66",
+      "name": "청소년지도사"
+    },
+    {
+      "seriesCd": "67",
+      "name": "청소년상담사"
+    },
+    {
+      "seriesCd": "72",
+      "name": "수산물품질관리사"
+    },
+    {
+      "seriesCd": "73",
+      "name": "손해평가사"
+    }
+  ]
+}
