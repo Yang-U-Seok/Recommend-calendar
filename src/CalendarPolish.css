@@ -1,0 +1,272 @@
+
+/* 기존 Calendar.css와의 충돌을 방지하는 보정 CSS */
+
+.calendar-page {
+  width: 100% !important;
+  min-width: 0 !important;
+  max-width: 100% !important;
+  box-sizing: border-box;
+}
+
+.calendar-page *,
+.calendar-page *::before,
+.calendar-page *::after {
+  box-sizing: border-box;
+}
+
+/* 달력 전체 컨테이너 */
+.calendar-page .calendar-container {
+  width: 100% !important;
+  max-width: 100% !important;
+  overflow: hidden !important;
+  padding: 22px !important;
+  border-radius: 22px !important;
+}
+
+/* 월 이동 버튼과 오늘 버튼 */
+.calendar-page .calendar-navigation {
+  display: flex !important;
+  flex-direction: row !important;
+  align-items: center !important;
+  justify-content: center !important;
+  gap: 14px !important;
+  margin: 0 0 24px !important;
+  flex-wrap: nowrap !important;
+}
+
+.calendar-page .calendar-navigation h3 {
+  font-size: clamp(20px, 2vw, 29px) !important;
+  line-height: 1.3 !important;
+  white-space: nowrap !important;
+  margin: 0 10px !important;
+}
+
+.calendar-page .calendar-navigation button {
+  display: inline-flex !important;
+  flex: 0 0 auto !important;
+  width: 46px !important;
+  min-width: 46px !important;
+  max-width: none !important;
+  height: 44px !important;
+  min-height: 44px !important;
+  padding: 0 !important;
+  align-items: center !important;
+  justify-content: center !important;
+  white-space: nowrap !important;
+  word-break: keep-all !important;
+  line-height: 1 !important;
+  font-size: 21px !important;
+  border: 1px solid #d7e0ee !important;
+  border-radius: 12px !important;
+  background: #fff !important;
+  color: #334155 !important;
+  cursor: pointer !important;
+}
+
+.calendar-page .calendar-navigation button:last-child {
+  width: 66px !important;
+  min-width: 66px !important;
+  padding: 0 12px !important;
+  font-size: 14px !important;
+  font-weight: 700 !important;
+}
+
+.calendar-page .calendar-navigation button:hover {
+  background: #eff4ff !important;
+  border-color: #8da7f7 !important;
+}
+
+/* 달력 7열 고정 */
+.calendar-page .calendar-grid {
+  display: grid !important;
+  grid-template-columns: repeat(7, minmax(0, 1fr)) !important;
+  gap: 0 !important;
+  width: 100% !important;
+  min-width: 0 !important;
+  border-top: 1px solid #e5eaf2 !important;
+  border-left: 1px solid #e5eaf2 !important;
+  border-radius: 12px !important;
+  overflow: hidden !important;
+}
+
+/* 요일 */
+.calendar-page .calendar-grid > .calendar-weekday {
+  display: flex !important;
+  align-items: center !important;
+  justify-content: center !important;
+  height: 46px !important;
+  min-height: 46px !important;
+  padding: 0 !important;
+  margin: 0 !important;
+  border: 0 !important;
+  border-right: 1px solid #e5eaf2 !important;
+  border-bottom: 1px solid #e5eaf2 !important;
+  background: #f8faff !important;
+  font-size: 14px !important;
+}
+
+/* 날짜 칸 */
+.calendar-page .calendar-grid > .calendar-cell {
+  display: flex !important;
+  flex-direction: column !important;
+  align-items: stretch !important;
+  justify-content: flex-start !important;
+  width: 100% !important;
+  min-width: 0 !important;
+  min-height: 110px !important;
+  height: auto !important;
+  margin: 0 !important;
+  padding: 9px !important;
+  border: 0 !important;
+  border-radius: 0 !important;
+  border-right: 1px solid #e5eaf2 !important;
+  border-bottom: 1px solid #e5eaf2 !important;
+  background: #fff !important;
+  box-shadow: none !important;
+  text-align: left !important;
+  overflow: hidden !important;
+  cursor: pointer !important;
+}
+
+.calendar-page .calendar-grid > .calendar-cell.empty {
+  background: #f9fafc !important;
+  cursor: default !important;
+}
+
+.calendar-page .calendar-grid > .calendar-cell.today {
+  background: #f0f5ff !important;
+}
+
+.calendar-page .calendar-grid > .calendar-cell.selected {
+  outline: 2px solid #4c6ef5 !important;
+  outline-offset: -2px !important;
+  background: #f7f9ff !important;
+}
+
+.calendar-page .calendar-grid > .calendar-cell:not(.empty):hover {
+  background: #f6f9ff !important;
+}
+
+/* 날짜 숫자 */
+.calendar-page .calendar-grid .calendar-day-number {
+  flex: 0 0 auto !important;
+  align-self: flex-start !important;
+  font-size: 14px !important;
+  line-height: 27px !important;
+}
+
+/* 시험일정 카드 */
+.calendar-page .calendar-grid .calendar-cell > div {
+  width: 100% !important;
+  min-width: 0 !important;
+  overflow: hidden !important;
+}
+
+.calendar-page .calendar-grid .calendar-cell > div > span {
+  display: block !important;
+  max-width: 100% !important;
+  min-width: 0 !important;
+  overflow: hidden !important;
+  white-space: nowrap !important;
+  text-overflow: ellipsis !important;
+  font-size: 11px !important;
+  line-height: 1.5 !important;
+}
+
+.calendar-page .certificate-selector,
+.calendar-page .certificate-options,
+.calendar-page .calendar-detail {
+  max-width: 100% !important;
+}
+
+/* 작은 화면 대응 */
+@media (max-width: 800px) {
+  .calendar-page .calendar-container {
+    padding: 10px !important;
+  }
+
+  .calendar-page .calendar-navigation {
+    gap: 6px !important;
+  }
+
+  .calendar-page .calendar-navigation h3 {
+    font-size: 19px !important;
+    margin: 0 4px !important;
+  }
+
+  .calendar-page .calendar-navigation button {
+    width: 35px !important;
+    min-width: 35px !important;
+    height: 36px !important;
+    min-height: 36px !important;
+  }
+
+  .calendar-page .calendar-navigation button:last-child {
+    width: 49px !important;
+    min-width: 49px !important;
+    padding: 0 5px !important;
+    font-size: 12px !important;
+  }
+
+  .calendar-page .calendar-grid > .calendar-cell {
+    min-height: 78px !important;
+    padding: 4px !important;
+  }
+
+  .calendar-page .calendar-grid > .calendar-weekday {
+    height: 36px !important;
+    min-height: 36px !important;
+    font-size: 12px !important;
+  }
+
+  .calendar-page .calendar-grid .calendar-cell > div > span {
+    font-size: 10px !important;
+  }
+}
+
+/* 나의 캘린더 제목 가운데 정렬 */
+.calendar-page .calendar-header {
+  position: relative !important;
+  display: flex !important;
+  flex-direction: column !important;
+  align-items: center !important;
+  justify-content: center !important;
+  text-align: center !important;
+  width: 100% !important;
+  padding: 25px 20px !important;
+  gap: 12px !important;
+}
+
+/* 제목 */
+.calendar-page .calendar-header h2 {
+  margin: 0 !important;
+  text-align: center !important;
+  font-size: 36px !important;
+  font-weight: 800 !important;
+}
+
+/* 설명 문구 */
+.calendar-page .calendar-header p {
+  margin-top: 10px !important;
+  text-align: center !important;
+  color: #64748b !important;
+}
+
+/* 맞춤형 캘린더 배지 */
+.calendar-page .calendar-header .calendar-status {
+  position: absolute !important;
+  right: 20px !important;
+  top: 30px !important;
+}
+
+@media (max-width: 700px) {
+  .calendar-page .calendar-header {
+    padding-top: 75px !important;
+  }
+
+  .calendar-page .calendar-header .calendar-status {
+    top: 15px !important;
+    right: 15px !important;
+  }
+}
+

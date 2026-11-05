@@ -1,0 +1,26 @@
+
+[
+  {
+    "id": "sample-001",
+    "company": "테스트기업",
+    "companySize": "미확인",
+    "title": "2026년 신입사원 채용 테스트",
+    "startDate": "2026-11-01",
+    "endDate": "2026-11-30",
+    "location": "서울",
+    "employmentType": "신입",
+    "qualifications": "대학교 졸업 예정자 및 졸업자",
+    "applicationProcess": "서류전형 → 면접전형 → 최종합격",
+    "positions": [
+      {
+        "name": "소프트웨어 개발",
+        "description": "웹 서비스 개발 및 유지보수",
+        "qualifications": "JavaScript 또는 Python 활용 가능",
+        "preferences": "React 또는 Node.js 경험",
+        "location": "서울"
+      }
+    ],
+    "source": "테스트 데이터",
+    "url": ""
+  }
+]
