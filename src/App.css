@@ -898,3 +898,11 @@ main {
     white-space: nowrap;
   }
 }
+
+/* 모의고사 과목별 입력 */
+.cbt-subjects { grid-column:1/-1; display:flex; flex-direction:column; gap:12px; }
+.cbt-subject-row { display:grid; grid-template-columns:minmax(0,2fr) minmax(85px,1fr) auto; gap:10px; }
+.cbt-subject-row input { min-width:0; padding:12px; border:1px solid #cbd5e1; border-radius:8px; box-sizing:border-box; }
+.cbt-subject-row button { margin:0; padding:8px 12px; }
+.cbt-subjects > button { align-self:flex-start; margin:0; }
+@media(max-width:650px) { .cbt-subject-row { grid-template-columns:minmax(0,1fr) 85px auto; gap:5px; } }

@@ -215,7 +215,7 @@ router.post('/logout', (req, res) => {
       });
     }
 
-    res.clearCookie('connect.sid');
+    res.clearCookie('recommender.sid');
 
     res.json({
       success: true,

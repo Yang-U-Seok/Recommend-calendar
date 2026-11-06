@@ -140,6 +140,11 @@ function App() {
   const [cbtScore, setCbtScore] = useState('')
   const [cbtMaxScore, setCbtMaxScore] = useState('')
   const [diagnosisResult, setDiagnosisResult] = useState(null)
+  const [subjectScores, setSubjectScores] = useState([{ name: '', score: '' }])
+  const [examType, setExamType] = useState('written')
+  const [mockDate, setMockDate] = useState(() => { const d=new Date(); return `${d.getFullYear()}-${String(d.getMonth()+1).padStart(2,'0')}-${String(d.getDate()).padStart(2,'0')}` })
+  const [mockSaving, setMockSaving] = useState(false)
+  const [mockError, setMockError] = useState('')
 
   // ==========================================
   // 1. 페이지 이동
@@ -371,44 +376,49 @@ function App() {
   // ==========================================
 
   const calculateCbtScore = () => {
-    if (!selectedCertificate) {
-      alert('준비할 자격증을 선택해주세요.')
-      return
+    if (!selectedCertificate) { alert('자격증을 선택해주세요.'); return }
+    let normalizedScore, subjects = []
+    if (scoreInputType === 'subject') {
+      if (subjectScores.length > 30) {
+  alert('과목은 최대 30개까지 입력할 수 있습니다.')
+  return
+}
+      if (!subjectScores.length || subjectScores.some(s => !s.name.trim() || s.score === '' || !Number.isFinite(Number(s.score)) || Number(s.score) < 0 || Number(s.score) > 100)) {
+        alert('모든 과목의 이름과 0~100점 성적을 입력해주세요.'); return
+      }
+      if (new Set(subjectScores.map(s => s.name.trim())).size !== subjectScores.length) {
+        alert('과목명이 중복되었습니다.'); return
+      }
+      subjects = subjectScores.map(s => ({ name: s.name.trim(), score: Number(s.score) }))
+      normalizedScore = subjects.reduce((sum, s) => sum + s.score, 0) / subjects.length
+    } else {
+      if (cbtScore.trim() === '' || cbtMaxScore.trim() === '') { alert('점수와 만점을 입력해주세요.'); return }
+      const score = Number(cbtScore), maxScore = Number(cbtMaxScore)
+      if (!Number.isFinite(score) || !Number.isFinite(maxScore) || maxScore <= 0 || score < 0 || score > maxScore ||
+          (scoreInputType === 'count' && (!Number.isInteger(score) || !Number.isInteger(maxScore)))) {
+        alert('점수를 올바르게 입력해주세요.'); return
+      }
+      normalizedScore = score / maxScore * 100
     }
+    setMockError('')
+    setDiagnosisResult({ certificate: selectedCertificate, score: normalizedScore.toFixed(1), subjects, examType, mockDate })
+  }
 
-    if (cbtScore.trim() === '' || cbtMaxScore.trim() === '') {
-      alert('획득 점수와 만점을 입력해주세요.')
-      return
-    }
-
-    const score = Number(cbtScore)
-    const maxScore = Number(cbtMaxScore)
-
-    if (
-      !Number.isFinite(score) ||
-      !Number.isFinite(maxScore) ||
-      maxScore <= 0 ||
-      score < 0 ||
-      score > maxScore
-    ) {
-      alert('점수를 올바르게 입력해주세요.')
-      return
-    }
-
-    if (
-      scoreInputType === 'count' &&
-      (!Number.isInteger(score) || !Number.isInteger(maxScore))
-    ) {
-      alert('문항 수는 정수로 입력해주세요.')
-      return
-    }
-
-    const normalizedScore = (score / maxScore) * 100
-
-    setDiagnosisResult({
-      certificate: selectedCertificate,
-      score: normalizedScore.toFixed(1)
-    })
+  const saveMockAndGoCalendar = async () => {
+    if (!user?.id) { alert('성적을 저장하려면 로그인해주세요.'); setPage('login'); return }
+    if (!diagnosisResult) return
+    setMockSaving(true); setMockError('')
+    try {
+      const response = await fetch(`${API_BASE}/api/study/mock-results`, {
+        method: 'POST', credentials: 'include', headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify({ certificateName: diagnosisResult.certificate, examType: diagnosisResult.examType,
+          mockDate: diagnosisResult.mockDate, score: Number(diagnosisResult.score), subjects: diagnosisResult.subjects })
+      })
+      const data = await response.json()
+      if (!response.ok || !data.success) throw new Error(data.message || '성적 저장 실패')
+      setPage('calendar')
+    } catch (error) { setMockError(error.message) }
+    finally { setMockSaving(false) }
   }
 
   // ==========================================
@@ -799,13 +809,20 @@ function App() {
                       <option value="score">
                         점수로 입력
                       </option>
-                      <option value="count">
-                        맞힌 문항 수로 입력
-                      </option>
+                      <option value="count">맞힌 문항 수로 입력</option>
+                      <option value="subject">과목별 점수로 입력</option>
                     </select>
                   </label>
 
-                  <label className="cbt-field">
+                  <label className="cbt-field"><span>시험 유형</span>
+                    <select value={examType} onChange={e=>{setExamType(e.target.value);setDiagnosisResult(null)}}>
+                      <option value="written">필기</option><option value="practical">실기</option>
+                    </select>
+                  </label>
+                  <label className="cbt-field"><span>모의고사 응시일</span>
+                    <input type="date" value={mockDate} onChange={e=>{setMockDate(e.target.value);setDiagnosisResult(null)}} />
+                  </label>
+                  {scoreInputType !== 'subject' && <label className="cbt-field">
                     <span>
                       {scoreInputType === 'score'
                         ? '획득 점수'
@@ -827,9 +844,9 @@ function App() {
                         setDiagnosisResult(null)
                       }}
                     />
-                  </label>
+                  </label>}
 
-                  <label className="cbt-field">
+                  {scoreInputType !== 'subject' && <label className="cbt-field">
                     <span>
                       {scoreInputType === 'score'
                         ? '만점'
@@ -851,7 +868,19 @@ function App() {
                         setDiagnosisResult(null)
                       }}
                     />
-                  </label>
+                  </label>}
+                  {scoreInputType === 'subject' && <div className="cbt-subjects">
+                    <strong>외부 모의고사 과목별 점수 (100점 환산)</strong>
+                    {subjectScores.map((s, i) => <div className="cbt-subject-row" key={i}>
+                      <input aria-label={`과목 ${i+1} 이름`} placeholder="과목명" value={s.name}
+                        onChange={e => { setSubjectScores(prev => prev.map((x,j)=>j===i?{...x,name:e.target.value}:x)); setDiagnosisResult(null) }} />
+                      <input aria-label={`과목 ${i+1} 점수`} type="number" min="0" max="100" placeholder="점수" value={s.score}
+                        onChange={e => { setSubjectScores(prev => prev.map((x,j)=>j===i?{...x,score:e.target.value}:x)); setDiagnosisResult(null) }} />
+                      <button type="button" disabled={subjectScores.length===1} onClick={()=>{setSubjectScores(prev=>prev.filter((_,j)=>j!==i));setDiagnosisResult(null)}}>삭제</button>
+                    </div>)}
+                    <button type="button" onClick={()=>{setSubjectScores(prev=>[...prev,{name:'',score:''}]);setDiagnosisResult(null)}}>+ 과목 추가</button>
+                    <p>과목별 점수가 없는 자격증은 총점 입력을 이용하세요.</p>
+                  </div>}
 
                 </div>
 
@@ -877,10 +906,14 @@ function App() {
                     </div>
 
                     <p>
-                      현재는 CBT 점수 환산 결과만 지원하며,
-                      학습 부담도 계산은 추후 추가될 예정입니다.
+                      과목별 점수가 있으면 취약 과목을 우선 배정합니다. 총점만 입력하면 전체 학습량을 보정합니다.
                     </p>
 
+                    {diagnosisResult.subjects.length > 0 && <p>우선 보완 과목: {[...diagnosisResult.subjects].sort((a,b)=>a.score-b.score)[0].name}</p>}
+                    <button type="button" className="cbt-calculate-btn" onClick={saveMockAndGoCalendar} disabled={mockSaving}>
+                      {mockSaving ? '저장 중...' : '성적 저장하고 캘린더로 이동'}
+                    </button>
+                    {mockError && <p style={{color:'#dc2626'}}>{mockError}</p>}
                   </div>
                 )}
 

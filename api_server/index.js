@@ -1,4 +1,3 @@
-
 const express = require('express');
 const cors = require('cors');
 const { XMLParser } = require('fast-xml-parser');
@@ -49,6 +48,9 @@ app.use(cors({
 
  // 회원가입 및 로그인 API 연결
  app.use('/api/auth', require('./auth'));
+
+// 개인 맞춤형 학습계획 API
+app.use('/api/study', require('./studyPlanner'));
 
 
 const parser = new XMLParser({
