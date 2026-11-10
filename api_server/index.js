@@ -1,11 +1,18 @@
 const express = require('express');
 const cors = require('cors');
 const { XMLParser } = require('fast-xml-parser');
-require('dotenv').config();
 const session = require('express-session');
+const fs = require('fs');
+const path = require('path');
+
+require('dotenv').config();
 
 const app = express();
 const PORT = process.env.PORT || 3001;
+
+// ==========================================
+// 1. 기본 서버 설정
+// ==========================================
 
 app.use(cors({
   origin: [
@@ -15,78 +22,112 @@ app.use(cors({
   credentials: true
 }));
 
- // ==========================================
- // 로그인 / 회원가입 API 설정
- // ==========================================
+app.use(express.json({ limit: '100kb' }));
 
- // React에서 전송한 JSON 데이터 읽기
- app.use(express.json({ limit: '100kb' }));
+if (
+  !process.env.SESSION_SECRET ||
+  process.env.SESSION_SECRET.length < 32
+) {
+  throw new Error(
+    'SESSION_SECRET을 32자 이상의 값으로 설정하세요.'
+  );
+}
 
- // 세션 비밀키 확인
- if (
-   !process.env.SESSION_SECRET ||
-   process.env.SESSION_SECRET.length < 32
- ) {
-   throw new Error(
-     'SESSION_SECRET 환경변수를 32자 이상의 무작위 값으로 설정해주세요.'
-   );
- }
+app.use(session({
+  name: 'recommender.sid',
+  secret: process.env.SESSION_SECRET,
+  resave: false,
+  saveUninitialized: false,
+  cookie: {
+    httpOnly: true,
+    secure: process.env.NODE_ENV === 'production',
+    sameSite: 'lax',
+    maxAge: 24 * 60 * 60 * 1000
+  }
+}));
 
- // 로그인 세션 설정
- app.use(session({
-   name: 'recommender.sid',
-   secret: process.env.SESSION_SECRET,
-   resave: false,
-   saveUninitialized: false,
-   cookie: {
-     httpOnly: true,
-     secure: false,
-     sameSite: 'lax',
-     maxAge: 24 * 60 * 60 * 1000
-   }
- }));
-
- // 회원가입 및 로그인 API 연결
- app.use('/api/auth', require('./auth'));
-
-// 개인 맞춤형 학습계획 API
+// 로그인 및 학습계획
+app.use('/api/auth', require('./auth'));
 app.use('/api/study', require('./studyPlanner'));
 
+// ==========================================
+// 2. Q-Net 공통 함수
+// ==========================================
 
 const parser = new XMLParser({
   ignoreAttributes: false,
   trimValues: true
 });
 
-const sleep = ms => new Promise(resolve => setTimeout(resolve, ms));
+const sleep = ms =>
+  new Promise(resolve => setTimeout(resolve, ms));
 
 function toArray(value) {
   if (value == null) return [];
   return Array.isArray(value) ? value : [value];
 }
 
+// 여러 가지 XML 응답 구조 처리
 function getItems(body) {
-  return toArray(body?.items?.item);
+  const candidates = [
+    body?.items?.item,
+    body?.items,
+    body?.item,
+    body?.data?.items?.item,
+    body?.data?.items,
+    body?.data?.item
+  ];
+
+  for (const candidate of candidates) {
+    if (Array.isArray(candidate)) {
+      return candidate;
+    }
+
+    if (candidate && typeof candidate === 'object') {
+      if (Array.isArray(candidate.item)) {
+        return candidate.item;
+      }
+
+      if (
+        candidate.item &&
+        typeof candidate.item === 'object'
+      ) {
+        return [candidate.item];
+      }
+
+      return [candidate];
+    }
+  }
+
+  return [];
 }
 
 function checkApiResponse(parsed, serviceName) {
   const response = parsed?.response;
 
   if (!response) {
-    throw new Error(`${serviceName} 응답 형식이 올바르지 않습니다.`);
+    throw new Error(
+      `${serviceName} 응답 형식이 올바르지 않습니다.`
+    );
   }
 
   const code = response.header?.resultCode;
 
-  if (code != null && !['0', '00'].includes(String(code))) {
+  if (
+    code != null &&
+    !['0', '00'].includes(String(code))
+  ) {
     throw new Error(
-      `${serviceName}: ${response.header?.resultMsg || code}`
+      `${serviceName}: ${
+        response.header?.resultMsg || code
+      }`
     );
   }
 
   return response.body || {};
 }
 
+// API 오류 발생 시 재시도
 async function fetchXml(url, retries = 3) {
   let lastError;
 
@@ -103,8 +144,11 @@ async function fetchXml(url, retries = 3) {
       const xml = await response.text();
       const parsed = parser.parse(xml);
 
-      if (parsed?.OpenAPI_ServiceResponse?.cmmMsgHeader) {
-        const header = parsed.OpenAPI_ServiceResponse.cmmMsgHeader;
+      if (
+        parsed?.OpenAPI_ServiceResponse?.cmmMsgHeader
+      ) {
+        const header =
+          parsed.OpenAPI_ServiceResponse.cmmMsgHeader;
 
         throw new Error(
           header.returnAuthMsg ||
@@ -138,17 +182,20 @@ function createUrl(baseUrl, apiKey, params = {}) {
   url.searchParams.set('serviceKey', apiKey);
 
   for (const [key, value] of Object.entries(params)) {
-    url.searchParams.set(key, String(value));
+    if (value !== null && value !== undefined) {
+      url.searchParams.set(key, String(value));
+    }
   }
 
   return url;
 }
 
-// ==========================================
-// Q-Net 전체 데이터 조회 공통 함수
-// ==========================================
-
-async function fetchAllQnetItems(apiUrl, apiKey, params) {
+// Q-Net 전체 페이지 수집
+async function fetchAllQnetItems(
+  apiUrl,
+  apiKey,
+  params
+) {
   const allItems = [];
   const pageSize = 100;
   let totalCount = 0;
@@ -160,18 +207,48 @@ async function fetchAllQnetItems(apiUrl, apiKey, params) {
       numOfRows: pageSize
     });
 
-    const parsed = await fetchXml(url, 5);
-    const body = checkApiResponse(parsed, 'Q-Net');
+    let body;
+    let lastError;
+
+    for (let attempt = 1; attempt <= 3; attempt++) {
+      try {
+        const parsed = await fetchXml(url, 3);
+        body = checkApiResponse(parsed, 'Q-Net');
+        lastError = null;
+        break;
+
+      } catch (error) {
+        lastError = error;
+
+        console.warn(
+          `Q-Net 페이지 ${page} 재시도 ${attempt}/3:`,
+          error.message
+        );
+
+        if (attempt < 3) {
+          await sleep(attempt * 1500);
+        }
+      }
+    }
+
+    if (lastError) throw lastError;
 
     totalCount = Number(body.totalCount || 0);
 
     const items = getItems(body);
+
     allItems.push(...items);
 
     if (
       items.length === 0 ||
-      (totalCount > 0 && allItems.length >= totalCount) ||
-      (totalCount === 0 && items.length < pageSize)
+      (
+        totalCount > 0 &&
+        allItems.length >= totalCount
+      ) ||
+      (
+        totalCount === 0 &&
+        items.length < pageSize
+      )
     ) {
       break;
     }
@@ -179,17 +256,52 @@ async function fetchAllQnetItems(apiUrl, apiKey, params) {
     await sleep(300);
   }
 
-  if (totalCount > 0 && allItems.length < totalCount) {
+  if (
+    totalCount > 0 &&
+    allItems.length < totalCount
+  ) {
     throw new Error(
-      `전체 데이터 조회 미완료: ${allItems.length}/${totalCount}`
+      `전체 데이터 조회 미완료: ${
+        allItems.length
+      }/${totalCount}`
     );
   }
 
   return { allItems, totalCount };
 }
 
+// 자격증 이름 정규화
+function normalizeCertificateName(value) {
+  return String(value ?? '')
+    .normalize('NFKC')
+    .replace(/\s+/g, '')
+    .trim()
+    .toLowerCase();
+}
+
+// 자격증 이름 필드 확인
+function getCertificateName(item) {
+  const candidates = [
+    item.jmNm,
+    item.jmFldNm,
+    item.qualName,
+    item.qualificationName,
+    item.certificateName,
+    item.name
+  ];
+
+  return String(
+    candidates.find(
+      value =>
+        value !== null &&
+        value !== undefined &&
+        String(value).trim() !== ''
+    ) ?? ''
+  ).trim();
+}
+
 // ==========================================
-// 기본 서버 확인
+// 3. 서버 확인
 // ==========================================
 
 app.get('/', (req, res) => {
@@ -197,7 +309,7 @@ app.get('/', (req, res) => {
 });
 
 // ==========================================
-// 1. Q-Net 합격률 조회
+// 4. Q-Net 합격률 조회
 // ==========================================
 
 app.get('/api/qnet/pass-rate', async (req, res) => {
@@ -208,33 +320,39 @@ app.get('/api/qnet/pass-rate', async (req, res) => {
     if (!apiKey || !apiUrl) {
       return res.status(500).json({
         success: false,
-        message: 'Q-Net API 환경변수가 설정되지 않았습니다.'
+        message: 'Q-Net API 환경변수가 없습니다.'
       });
     }
 
     const year = String(req.query.year || '2020');
     const grade = String(req.query.grade || '30');
-    const keyword = String(req.query.keyword || '').trim();
+    const keyword = String(
+      req.query.keyword || ''
+    ).trim();
 
     const validGrades = [
       '10', '20', '30', '31', '32', '33', '40'
     ];
 
-    if (!/^\d{4}$/.test(year) || !validGrades.includes(grade)) {
+    if (
+      !/^\d{4}$/.test(year) ||
+      !validGrades.includes(grade)
+    ) {
       return res.status(400).json({
         success: false,
         message: '연도 또는 등급이 올바르지 않습니다.'
       });
     }
 
-    const { allItems, totalCount } = await fetchAllQnetItems(
-      apiUrl,
-      apiKey,
-      {
-        grdCd: grade,
-        baseYY: year
-      }
-    );
+    const { allItems, totalCount } =
+      await fetchAllQnetItems(
+        apiUrl,
+        apiKey,
+        {
+          grdCd: grade,
+          baseYY: year
+        }
+      );
 
     const grouped = {};
 
@@ -243,8 +361,13 @@ app.get('/api/qnet/pass-rate', async (req, res) => {
 
       if (!name.includes(keyword)) continue;
 
-      const examType = String(item.examTypCcd || '');
-      const itemYear = String(item.implYy || year);
+      const examType = String(
+        item.examTypCcd || ''
+      );
+
+      const itemYear = String(
+        item.implYy || year
+      );
 
       const key = JSON.stringify([
         name,
@@ -273,13 +396,20 @@ app.get('/api/qnet/pass-rate', async (req, res) => {
         Number(item.examPassCnt) || 0;
     }
 
-    const integrated = Object.values(grouped).map(item => ({
-      ...item,
-      round: `${item.rounds}개 회차 통합`,
-      passRate: item.applicants > 0
-        ? `${((item.passed / item.applicants) * 100).toFixed(2)}%`
-        : 'N/A'
-    }));
+    const integrated = Object.values(grouped)
+      .map(item => ({
+        ...item,
+        round: `${item.rounds}개 회차 통합`,
+        passRate: item.applicants > 0
+          ? `${
+              (
+                item.passed /
+                item.applicants *
+                100
+              ).toFixed(2)
+            }%`
+          : 'N/A'
+      }));
 
     integrated.sort((a, b) => {
       const x = parseFloat(a.passRate);
@@ -309,117 +439,213 @@ app.get('/api/qnet/pass-rate', async (req, res) => {
   }
 });
 
- // ==========================================
- // Q-Net 실제 자격증 목록
- // ==========================================
+// ==========================================
+// 5. Q-Net 자격증 목록
+// ==========================================
 
- let certificateCache = {
-   expiresAt: 0,
-   items: []
- };
-
- app.get('/api/qnet/certificates', async (req, res) => {
-   try {
-     const keyword = String(req.query.keyword || '').trim();
-     const year = String(req.query.year || '2025');
-
-     const apiKey = process.env.QNET_API_KEY;
-     const apiUrl = process.env.QNET_API_URL;
-
-     if (!apiKey || !apiUrl) {
-       return res.status(500).json({
-         success: false,
-         message: 'Q-Net API 환경변수가 없습니다.'
-       });
-     }
-
-     // API 호출을 줄이기 위한 24시간 캐시
-     if (
-       Date.now() > certificateCache.expiresAt ||
-       certificateCache.year !== year
-     ) {
-       const grades = [
-         '10', '20', '30', '31', '32', '33', '40'
-       ];
-
-       const certificates = new Map();
-       const errors = [];
-
-       for (const grade of grades) {
-         try {
-           const { allItems } = await fetchAllQnetItems(
-             apiUrl,
-             apiKey,
-             {
-               grdCd: grade,
-               baseYY: year
-             }
-           );
-
-           for (const item of allItems) {
-             const name = String(item.jmFldNm || '').trim();
-
-             if (!name) continue;
-
-             const key = `${grade}:${name}`;
-
-             certificates.set(key, {
-               id: key,
-               name,
-               grade: String(item.grdNm || ''),
-               gradeCode: grade
-             });
-           }
-         } catch (error) {
-           console.error(`등급 ${grade} 조회 실패:`, error);
-           errors.push(grade);
-         }
-       }
-
-       // 일부 등급이 실패했으면 완전한 캐시로 간주하지 않음
-      
-
-       certificateCache = {
-  year,
-  items: [...certificates.values()].sort(
-    (a, b) => a.name.localeCompare(b.name, 'ko')
-  ),
-  expiresAt: errors.length > 0
-    ? Date.now() + 5 * 60 * 1000
-    : Date.now() + 24 * 60 * 60 * 1000,
-  failedGrades: errors
+let certificateCache = {
+  expiresAt: 0,
+  year: null,
+  items: [],
+  failedGrades: []
 };
-     }
 
-     const filtered = certificateCache.items.filter(cert =>
-       cert.name.includes(keyword)
-     );
+app.get('/api/qnet/certificates', async (req, res) => {
+  try {
+    const keyword = String(
+      req.query.keyword || ''
+    ).trim();
 
- res.json({
-  success: true,
-  source: 'Q-Net 합격률 API',
-  year,
-  totalCount: certificateCache.items.length,
-  count: filtered.length,
-  failedGrades: certificateCache.failedGrades || [],
-  partial: (certificateCache.failedGrades || []).length > 0,
-  items: filtered
+    const year = String(
+      req.query.year || '2025'
+    );
+
+    const apiKey = process.env.QNET_API_KEY;
+    const apiUrl = process.env.QNET_API_URL;
+
+    if (!apiKey || !apiUrl) {
+      return res.status(500).json({
+        success: false,
+        message: 'Q-Net API 환경변수가 없습니다.'
+      });
+    }
+
+    if (
+      Date.now() > certificateCache.expiresAt ||
+      certificateCache.year !== year
+    ) {
+      const grades = [
+        '10', '20', '30', '31', '32', '33', '40'
+      ];
+
+      const certificates = new Map();
+      const errors = [];
+
+      for (const grade of grades) {
+        try {
+          const { allItems } =
+            await fetchAllQnetItems(
+              apiUrl,
+              apiKey,
+              {
+                grdCd: grade,
+                baseYY: year
+              }
+            );
+
+          for (const item of allItems) {
+            const name = String(
+              item.jmFldNm || ''
+            ).trim();
+
+            if (!name) continue;
+
+            const key = `${grade}:${name}`;
+
+            certificates.set(key, {
+              id: key,
+              name,
+              grade: String(item.grdNm || ''),
+              gradeCode: grade
+            });
+          }
+
+        } catch (error) {
+          console.error(
+            `등급 ${grade} 조회 실패:`,
+            error
+          );
+
+          errors.push(grade);
+        }
+      }
+
+      certificateCache = {
+        year,
+        items: [...certificates.values()].sort(
+          (a, b) =>
+            a.name.localeCompare(b.name, 'ko')
+        ),
+        expiresAt: Date.now() + (
+          errors.length > 0
+            ? 5 * 60 * 1000
+            : 24 * 60 * 60 * 1000
+        ),
+        failedGrades: errors
+      };
+    }
+
+    const filtered = certificateCache.items.filter(
+      cert => cert.name.includes(keyword)
+    );
+
+    res.json({
+      success: true,
+      source: 'Q-Net 합격률 API',
+      year,
+      totalCount: certificateCache.items.length,
+      count: filtered.length,
+      failedGrades:
+        certificateCache.failedGrades,
+      partial:
+        certificateCache.failedGrades.length > 0,
+      items: filtered
+    });
+
+  } catch (error) {
+    console.error('자격증 목록 오류:', error);
+
+    res.status(500).json({
+      success: false,
+      message: error.message
+    });
+  }
 });
 
-   } catch (error) {
-     console.error('자격증 목록 오류:', error);
-
-     res.status(500).json({
-       success: false,
-       message: error.message
-     });
-   }
- });
-
 // ==========================================
-// 2. Q-Net 자격증 취득소요기간
+// 6. Q-Net 취득소요기간 조회 (수정)
 // ==========================================
 
+// 여러 후보 필드 중 실제 값이 있는 필드를 찾음
+function firstPresent(item, names) {
+  for (const name of names) {
+    const value = item?.[name];
+
+    if (
+      value !== undefined &&
+      value !== null &&
+      String(value).trim() !== ''
+    ) {
+      return value;
+    }
+  }
+
+  return null;
+}
+
+// 취득소요기간 API 자격증 이름 추출
+function termCertificateName(item) {
+  const direct = getCertificateName(item);
+
+  if (direct) return direct;
+
+  return String(firstPresent(item, [
+    'jmFldName',
+    'jmName',
+    'qualNm',
+    'qfNm',
+    'certNm',
+    'certName',
+    'itemNm',
+    'jmfldnm'
+  ]) ?? '').trim();
+}
+
+// 취득소요기간 데이터 구조 통일
+function normalizeTermItem(item, fallbackYear) {
+  return {
+    name: termCertificateName(item),
+
+    grade: firstPresent(item, [
+      'grdNm',
+      'gradeNm',
+      'gradeName'
+    ]),
+
+    year: firstPresent(item, [
+      'statisYy',
+      'baseYY',
+      'baseYy',
+      'implYy',
+      'year'
+    ]) ?? fallbackYear,
+
+    averageDays: firstPresent(item, [
+      'accumAcquAvgTermDays',
+      'acquAvgTermDays',
+      'avgAcquTermDays',
+      'averageDays',
+      'avgDays'
+    ]),
+
+    year1Days: firstPresent(item, [
+      'yy1AcquAvgTermDays',
+      'year1Days'
+    ]),
+
+    year2Days: firstPresent(item, [
+      'yy2AcquAvgTermDays',
+      'year2Days'
+    ]),
+
+    year3Days: firstPresent(item, [
+      'yy3AcquAvgTermDays',
+      'year3Days'
+    ])
+  };
+}
+
+// 취득소요기간 API
 app.get('/api/qnet/acquisition-term', async (req, res) => {
   try {
     const apiKey = process.env.QNET_API_KEY;
@@ -434,11 +660,19 @@ app.get('/api/qnet/acquisition-term', async (req, res) => {
 
     const year = String(req.query.year || '2023');
     const grade = String(req.query.grade || '30');
-    const keyword = String(req.query.keyword || '').trim();
+    const keyword = String(
+      req.query.keyword || ''
+    ).trim();
+
+    const debug = req.query.debug === '1';
+
+    const validGrades = [
+      '10', '20', '30', '31', '32', '33', '40'
+    ];
 
     if (
       !/^\d{4}$/.test(year) ||
-      !['10', '20', '30', '31', '40'].includes(grade)
+      !validGrades.includes(grade)
     ) {
       return res.status(400).json({
         success: false,
@@ -446,34 +680,95 @@ app.get('/api/qnet/acquisition-term', async (req, res) => {
       });
     }
 
-    const { allItems, totalCount } = await fetchAllQnetItems(
-      apiUrl,
-      apiKey,
-      {
-        baseYY: year,
-        grdCd: grade
-      }
+    // Q-Net 데이터 조회
+    const { allItems, totalCount } =
+      await fetchAllQnetItems(
+        apiUrl,
+        apiKey,
+        {
+          baseYY: year,
+          grdCd: grade
+        }
+      );
+
+    // 응답 데이터 정규화
+    const normalized = allItems.map(
+      item => normalizeTermItem(item, year)
     );
 
-    const items = allItems
-      .filter(item =>
-        String(item.jmNm || '').includes(keyword)
-      )
-      .map(item => ({
-        name: item.jmNm,
-        grade: item.grdNm,
-        year: item.statisYy,
-        averageDays: item.accumAcquAvgTermDays,
-        year1Days: item.yy1AcquAvgTermDays,
-        year2Days: item.yy2AcquAvgTermDays,
-        year3Days: item.yy3AcquAvgTermDays
-      }));
+    // 검색어 정규화
+    const normalizedKeyword =
+      normalizeCertificateName(keyword);
 
+    // 자격증명 검색
+    const items = normalized.filter(item =>
+      normalizeCertificateName(item.name)
+        .includes(normalizedKeyword)
+    );
+
+    // 데이터 조회 진단
+    const diagnostics = {
+      year,
+      grade,
+      keyword,
+      reportedTotalCount: totalCount,
+      receivedCount: allItems.length,
+
+      namedCount: normalized.filter(
+        item => item.name
+      ).length,
+
+      matchedCount: items.length,
+
+      averageDaysCount: normalized.filter(
+        item => item.averageDays !== null
+      ).length,
+
+      sampleKeys: allItems.length
+        ? Object.keys(allItems[0])
+        : [],
+
+      sampleRawItem: allItems.length
+        ? allItems[0]
+        : null
+    };
+
+    console.log(
+      '[취득소요기간 진단]',
+      JSON.stringify(diagnostics, null, 2)
+    );
+
+    // 원본 데이터가 있지만 자격증명을 찾지 못한 경우
+    if (
+      allItems.length > 0 &&
+      diagnostics.namedCount === 0
+    ) {
+      return res.status(502).json({
+        success: false,
+        message:
+          '취득소요기간 API의 자격증 이름 필드를 인식하지 못했습니다.',
+        ...(debug ? { debug: diagnostics } : {})
+      });
+    }
+
+    // 평균 취득소요기간 필드 확인
+    if (
+      !keyword &&
+      allItems.length > 0 &&
+      diagnostics.averageDaysCount === 0
+    ) {
+      console.warn(
+        '취득소요기간 평균 일수 필드 미확인: debug=1로 원본 필드 확인 필요'
+      );
+    }
+
+    // 결과 반환
     res.json({
       success: true,
       totalCount,
       count: items.length,
-      items
+      items,
+      ...(debug ? { debug: diagnostics } : {})
     });
 
   } catch (error) {
@@ -488,28 +783,32 @@ app.get('/api/qnet/acquisition-term', async (req, res) => {
 });
 
 // ==========================================
-// 3. Q-Net 시험일정
+// 7. Q-Net 시험일정
 // ==========================================
 
 app.use('/api/qnet', require('./examSchedule'));
 
 // ==========================================
-// 4. 인사혁신처 채용공고 API
+// 8. 공공기관 채용정보
 // ==========================================
 
-// API 환경변수
 function getJobApiConfig() {
   return {
     apiKey: process.env.WORK_API_KEY,
 
-    apiUrl: process.env.WORK_API_LIST_URL ||
-      (process.env.WORK_API_URL
-        ? `${process.env.WORK_API_URL.replace(/\/$/, '')}/getList`
-        : '')
+    apiUrl:
+      process.env.WORK_API_LIST_URL ||
+      (
+        process.env.WORK_API_URL
+          ? `${
+              process.env.WORK_API_URL
+                .replace(/\/$/, '')
+            }/getList`
+          : ''
+      )
   };
 }
 
-// 한국 시간 기준 날짜 변환
 function dateToYmd(date) {
   return new Intl.DateTimeFormat('en-CA', {
     timeZone: 'Asia/Seoul',
@@ -519,25 +818,32 @@ function dateToYmd(date) {
   }).format(date);
 }
 
-// 최근 N일 날짜
 function daysAgoYmd(days) {
   return dateToYmd(
-    new Date(Date.now() - days * 86400000)
+    new Date(
+      Date.now() - days * 86400000
+    )
   );
 }
 
-// API 날짜 정규화
 function normalizeDate(value) {
-  const text = String(value ?? '').trim();
+  const text = String(
+    value ?? ''
+  ).trim();
 
   if (/^\d{8}$/.test(text)) {
-    return `${text.slice(0, 4)}-${text.slice(4, 6)}-${text.slice(6, 8)}`;
+    return `${
+      text.slice(0, 4)
+    }-${
+      text.slice(4, 6)
+    }-${
+      text.slice(6, 8)
+    }`;
   }
 
   return text;
 }
 
-// 채용공고 데이터 정리
 function normalizeJob(item) {
   const categoryMap = {
     g01: '국가공무원 채용',
@@ -551,37 +857,42 @@ function normalizeJob(item) {
     title: String(item.title ?? ''),
     company: String(item.insttname ?? ''),
     regionCode: String(item.areacode ?? ''),
-
     startDate: normalizeDate(item.regdate),
     endDate: normalizeDate(item.enddate),
     modifiedDate: normalizeDate(item.moddate),
-
-    category: categoryMap[item.type02] || '기타',
-    categoryCode: String(item.type02 ?? ''),
-    recruitmentType: String(item.type01 ?? '')
+    category:
+      categoryMap[item.type02] || '기타',
+    categoryCode:
+      String(item.type02 ?? ''),
+    recruitmentType:
+      String(item.type01 ?? '')
   };
 }
 
-// ==========================================
-// 채용정보 검색 API
-// ==========================================
-
 app.get('/api/jobs', async (req, res) => {
   try {
-    const { apiKey, apiUrl } = getJobApiConfig();
+    const { apiKey, apiUrl } =
+      getJobApiConfig();
 
     if (!apiKey || !apiUrl) {
       return res.status(500).json({
         success: false,
         message:
-          'WORK_API_KEY 또는 WORK_API_LIST_URL 환경변수가 없습니다.'
+          'WORK_API_KEY 또는 WORK_API_LIST_URL이 없습니다.'
       });
     }
 
-    // 검색 조건
-    const keyword = String(req.query.keyword || '').trim();
-    const page = Number(req.query.page ?? 1);
-    const size = Number(req.query.size ?? 10);
+    const keyword = String(
+      req.query.keyword || ''
+    ).trim();
+
+    const page = Number(
+      req.query.page ?? 1
+    );
+
+    const size = Number(
+      req.query.size ?? 10
+    );
 
     if (
       !Number.isInteger(page) ||
@@ -592,20 +903,23 @@ app.get('/api/jobs', async (req, res) => {
     ) {
       return res.status(400).json({
         success: false,
-        message: 'page는 1 이상, size는 1~100의 정수여야 합니다.'
+        message:
+          'page는 1 이상, size는 1~100이어야 합니다.'
       });
     }
 
-    // 기본 최근 30일
     const beginDate = String(
-      req.query.beginDate || daysAgoYmd(30)
+      req.query.beginDate ||
+      daysAgoYmd(30)
     );
 
     const endDate = String(
-      req.query.endDate || dateToYmd(new Date())
+      req.query.endDate ||
+      dateToYmd(new Date())
     );
 
-    const datePattern = /^\d{4}-\d{2}-\d{2}$/;
+    const datePattern =
+      /^\d{4}-\d{2}-\d{2}$/;
 
     if (
       !datePattern.test(beginDate) ||
@@ -614,40 +928,36 @@ app.get('/api/jobs', async (req, res) => {
     ) {
       return res.status(400).json({
         success: false,
-        message:
-          '날짜는 YYYY-MM-DD 형식이며 시작일은 종료일 이전이어야 합니다.'
+        message: '날짜 형식이 올바르지 않습니다.'
       });
     }
 
-    // 인사혁신처 API 요청
-    const url = createUrl(apiUrl, apiKey, {
-      pageNo: page,
-      numOfRows: size,
+    const url = createUrl(
+      apiUrl,
+      apiKey,
+      {
+        pageNo: page,
+        numOfRows: size,
+        Begin_de: beginDate,
+        End_de: endDate,
 
-      // 등록일 검색
-      Begin_de: beginDate,
-      End_de: endDate,
+        ...(keyword
+          ? { Kwrd: keyword }
+          : {}),
 
-      // 키워드 검색
-      ...(keyword
-        ? { Kwrd: keyword }
-        : {}),
+        ...(req.query.insttSe
+          ? { Instt_se: req.query.insttSe }
+          : {}),
 
-      // 기관 유형
-      ...(req.query.insttSe
-        ? { Instt_se: req.query.insttSe }
-        : {}),
+        ...(req.query.pblancTy
+          ? { Pblanc_ty: req.query.pblancTy }
+          : {}),
 
-      // 채용 유형
-      ...(req.query.pblancTy
-        ? { Pblanc_ty: req.query.pblancTy }
-        : {}),
-
-      // 기관명
-      ...(req.query.insttNm
-        ? { Instt_nm: req.query.insttNm }
-        : {})
-    });
+        ...(req.query.insttNm
+          ? { Instt_nm: req.query.insttNm }
+          : {})
+      }
+    );
 
     const parsed = await fetchXml(url);
 
@@ -658,11 +968,12 @@ app.get('/api/jobs', async (req, res) => {
 
     const rawItems = getItems(body);
 
-    // 오늘 날짜
-    const today = dateToYmd(new Date());
+    const today = dateToYmd(
+      new Date()
+    );
 
-    // 마감된 공고 제외
-    const activeOnly = req.query.activeOnly !== 'false';
+    const activeOnly =
+      req.query.activeOnly !== 'false';
 
     const jobs = rawItems
       .map(normalizeJob)
@@ -672,9 +983,10 @@ app.get('/api/jobs', async (req, res) => {
         job.endDate >= today
       );
 
-    const totalCount = Number(body.totalCount || 0);
+    const totalCount = Number(
+      body.totalCount || 0
+    );
 
-    // React로 응답 전달
     res.json({
       success: true,
       page,
@@ -682,26 +994,18 @@ app.get('/api/jobs', async (req, res) => {
       beginDate,
       endDate,
       activeOnly,
-
-      // API 전체 검색 건수
-      // 마감 공고 제외 전 기준
       totalCount,
-
-      // 현재 페이지 결과
       count: jobs.length,
-
-      // 다음 페이지 여부
       hasNext: totalCount > 0
         ? page * size < totalCount
         : rawItems.length === size,
-
       items: jobs
     });
 
   } catch (error) {
     console.error(
-      '인사혁신처 채용 API 오류:',
-      error.message
+      '공공기관 채용 API 오류:',
+      error
     );
 
     res.status(502).json({
@@ -713,163 +1017,193 @@ app.get('/api/jobs', async (req, res) => {
 });
 
 // ==========================================
-// 5. 서버 실행
+// 9. 해외 사기업 채용공고
 // ==========================================
 
+const {
+  refreshJobs,
+  getJobs
+} = require('./jobSources');
+
+app.get('/api/private-jobs', (req, res) => {
+  const { jobs, lastUpdated } = getJobs();
+
+  const keyword = String(
+    req.query.keyword || ''
+  ).trim().toLowerCase();
+
+  const filtered = jobs.filter(job =>
+    `${
+      job.company || ''
+    } ${
+      job.title || ''
+    } ${
+      job.location || ''
+    }`
+      .toLowerCase()
+      .includes(keyword)
+  );
+
+  res.json({
+    success: true,
+    total: filtered.length,
+    lastUpdated,
+    jobs: filtered
+  });
+});
+
 // ==========================================
-// 5. 사기업 채용공고 API
+// 10. 국내 사기업 채용공고
 // ==========================================
 
+function readJobsFile(filename) {
+  const filePath = path.join(
+    __dirname,
+    filename
+  );
 
- // ==========================================
- // 5. 해외 사기업 채용공고 API
- // ==========================================
+  if (!fs.existsSync(filePath)) {
+    console.warn(
+      `${filename} 파일이 없습니다.`
+    );
 
- const { refreshJobs, getJobs } = require('./jobSources');
+    return [];
+  }
 
- app.get('/api/private-jobs', (req, res) => {
-   const { jobs, lastUpdated } = getJobs();
+  const data = JSON.parse(
+    fs.readFileSync(filePath, 'utf8')
+  );
 
-   const keyword = String(req.query.keyword || '')
-     .trim()
-     .toLowerCase();
+  if (!Array.isArray(data)) {
+    throw new Error(
+      `${filename}은 배열 형식이어야 합니다.`
+    );
+  }
 
-   const filtered = jobs.filter(job =>
-     `${job.company || ''} ${job.title || ''} ${job.location || ''}`
-       .toLowerCase()
-       .includes(keyword)
-   );
+  return data;
+}
 
-   res.json({
-     success: true,
-     total: filtered.length,
-     lastUpdated,
-     jobs: filtered
-   });
- });
+app.get('/api/korean-jobs', (req, res) => {
+  try {
+    const samsungJobs =
+      readJobsFile('samsungJobs.json');
 
- // ==========================================
- // 6. 국내 사기업 채용공고 API
- // ==========================================
+    const koreanJobs =
+      readJobsFile('koreanJobs.json');
 
- const fs = require('fs');
- const path = require('path');
+    const allJobs = [
+      ...samsungJobs,
+      ...koreanJobs
+    ];
 
- function readJobsFile(filename) {
-   const filePath = path.join(__dirname, filename);
+    // 중복 제거
+    const uniqueJobs = Array.from(
+      new Map(
+        allJobs.map(job => [
+          `${
+            job.company || ''
+          }|${
+            job.id || job.title || ''
+          }`,
+          job
+        ])
+      ).values()
+    );
 
-   if (!fs.existsSync(filePath)) {
-     console.warn(`${filename} 파일이 없습니다.`);
-     return [];
-   }
+    const keyword = String(
+      req.query.keyword || ''
+    ).trim().toLowerCase();
 
-   const data = JSON.parse(
-     fs.readFileSync(filePath, 'utf8')
-   );
+    const company = String(
+      req.query.company || ''
+    ).trim().toLowerCase();
 
-   if (!Array.isArray(data)) {
-     throw new Error(`${filename}은 배열 형식이어야 합니다.`);
-   }
+    const activeOnly =
+      req.query.activeOnly === 'true';
 
-   return data;
- }
+    const today = dateToYmd(
+      new Date()
+    );
 
- app.get('/api/korean-jobs', (req, res) => {
-   try {
-     // 기존 삼성 채용공고
-     const samsungJobs = readJobsFile('samsungJobs.json');
+    const filtered = uniqueJobs.filter(job => {
+      const searchText = [
+        job.company,
+        job.title,
+        job.location,
+        ...(
+          Array.isArray(job.positions)
+            ? job.positions.map(
+                position => position.name
+              )
+            : []
+        )
+      ].join(' ').toLowerCase();
 
-     // 추가 국내기업 채용공고
-     const koreanJobs = readJobsFile('koreanJobs.json');
+      const matchesKeyword =
+        searchText.includes(keyword);
 
-     // 두 파일 통합
-     const allJobs = [...samsungJobs, ...koreanJobs];
+      const matchesCompany =
+        String(job.company || '')
+          .toLowerCase()
+          .includes(company);
 
-     // 중복 공고 제거
-     const uniqueJobs = Array.from(
-       new Map(
-         allJobs.map(job => [
-           `${job.company || ''}|${job.id || job.title || ''}`,
-           job
-         ])
-       ).values()
-     );
+      const matchesActive =
+        !activeOnly ||
+        !job.endDate ||
+        job.endDate >= today;
 
-     const keyword = String(req.query.keyword || '')
-       .trim()
-       .toLowerCase();
+      return (
+        matchesKeyword &&
+        matchesCompany &&
+        matchesActive
+      );
+    });
 
-     const company = String(req.query.company || '')
-       .trim()
-       .toLowerCase();
+    filtered.sort((a, b) => {
+      const dateA =
+        a.endDate || '9999-12-31';
 
-     const activeOnly = req.query.activeOnly === 'true';
+      const dateB =
+        b.endDate || '9999-12-31';
 
-     const today = dateToYmd(new Date());
+      return dateA.localeCompare(dateB);
+    });
 
-     const filtered = uniqueJobs.filter(job => {
-       const searchText = [
-         job.company,
-         job.title,
-         job.location,
-         ...(Array.isArray(job.positions)
-           ? job.positions.map(position => position.name)
-           : [])
-       ].join(' ').toLowerCase();
+    res.json({
+      success: true,
+      total: filtered.length,
+      jobs: filtered
+    });
 
-       const matchesKeyword = searchText.includes(keyword);
+  } catch (error) {
+    console.error(
+      '국내기업 채용정보 오류:',
+      error
+    );
 
-       const matchesCompany = String(job.company || '')
-         .toLowerCase()
-         .includes(company);
+    res.status(500).json({
+      success: false,
+      message:
+        '국내기업 채용정보 조회 실패',
+      error: error.message
+    });
+  }
+});
 
-       const matchesActive =
-         !activeOnly ||
-         !job.endDate ||
-         job.endDate >= today;
+// ==========================================
+// 11. 서버 실행
+// ==========================================
 
-       return matchesKeyword &&
-         matchesCompany &&
-         matchesActive;
-     });
+app.listen(PORT, () => {
+  console.log(
+    `서버 실행 성공: http://localhost:${PORT}`
+  );
 
-     // 마감일이 빠른 공고부터 정렬
-     filtered.sort((a, b) => {
-       const dateA = a.endDate || '9999-12-31';
-       const dateB = b.endDate || '9999-12-31';
+  // 해외 사기업 채용공고 최초 수집
+  refreshJobs().catch(console.error);
 
-       return dateA.localeCompare(dateB);
-     });
-
-     res.json({
-       success: true,
-       total: filtered.length,
-       jobs: filtered
-     });
-
-   } catch (error) {
-     console.error('국내기업 채용정보 오류:', error);
-
-     res.status(500).json({
-       success: false,
-       message: '국내기업 채용정보 조회 실패',
-       error: error.message
-     });
-   }
- });
-
- // ==========================================
- // 7. 서버 실행
- // ==========================================
-
- app.listen(PORT, () => {
-   console.log(`서버 실행 성공: http://localhost:${PORT}`);
-
-   // 해외 사기업 채용공고 최초 수집
-   refreshJobs().catch(console.error);
-
-   // 1시간마다 자동 갱신
-   setInterval(() => {
-     refreshJobs().catch(console.error);
-   }, 60 * 60 * 1000);
- });
+  // 1시간마다 자동 갱신
+  setInterval(() => {
+    refreshJobs().catch(console.error);
+  }, 60 * 60 * 1000);
+});
