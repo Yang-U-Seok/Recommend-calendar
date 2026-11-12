@@ -1,13 +1,20 @@
 
 const cheerio = require('cheerio');
+const fs = require('fs');
+const path = require('path');
 
 const BASE_URL = 'https://www.samsungcareers.com';
+const OUTPUT_FILE = path.join(__dirname, 'samsungJobs.json');
 
-// 날짜 변환: 202611161700 -> 2026-11-16 17:00
+// 처음에는 3페이지만 테스트
+const MAX_PAGES = 3;
+const REQUEST_DELAY = 1500;
+
+// 날짜 변환
 function formatDate(value) {
   if (!value) return null;
 
-  const str = String(value);
+  const str = String(value).trim();
 
   if (str.length < 8) return null;
 
@@ -21,10 +28,15 @@ function formatDate(value) {
   return date;
 }
 
-// 1. 채용공고 목록 조회
-async function getSamsungJobs() {
+// 서버에 요청을 너무 빠르게 보내지 않도록 대기
+function sleep(ms) {
+  return new Promise(resolve => setTimeout(resolve, ms));
+}
+
+// 1. 페이지별 채용공고 목록 조회
+async function getSamsungJobs(page = 1) {
   const params = new URLSearchParams({
-    currentPageNo: '1',
+    currentPageNo: String(page),
     intNo: '0',
     strVal: '',
     strTxt: '',
@@ -46,7 +58,9 @@ async function getSamsungJobs() {
   });
 
   if (!response.ok) {
-    throw new Error(`목록 조회 실패: HTTP ${response.status}`);
+    throw new Error(
+      `${page}페이지 조회 실패: HTTP ${response.status}`
+    );
   }
 
   const html = await response.text();
@@ -76,25 +90,28 @@ async function getSamsungJobs() {
   return jobs;
 }
 
-// 2. 채용공고 상세정보 조회
+// 2. 상세정보 조회
 async function getSamsungDetail(id) {
   const params = new URLSearchParams({
     seqno: String(id),
     strCode: ''
   });
 
-  const url = `${BASE_URL}/recruit/detail.data?${params}`;
-
-  const response = await fetch(url, {
-    method: 'GET',
-    headers: {
-      Accept: 'application/json'
-    },
-    signal: AbortSignal.timeout(15000)
-  });
+  const response = await fetch(
+    `${BASE_URL}/recruit/detail.data?${params}`,
+    {
+      method: 'GET',
+      headers: {
+        Accept: 'application/json'
+      },
+      signal: AbortSignal.timeout(15000)
+    }
+  );
 
   if (!response.ok) {
-    throw new Error(`상세 조회 실패: HTTP ${response.status}`);
+    throw new Error(
+      `상세정보 조회 실패: HTTP ${response.status}`
+    );
   }
 
   const json = await response.json();
@@ -107,15 +124,12 @@ async function getSamsungDetail(id) {
   const items = json.data.items || [];
 
   return {
-    company: result.cmpNameKr,
-    title: result.title,
-
+    company: result.cmpNameKr || '',
+    title: result.title || '',
     startDate: formatDate(result.startdate),
     endDate: formatDate(result.enddate),
-
     qualifications: result.qlfctKr || '',
     applicationProcess: result.processKr || '',
-
     positions: items.map(item => ({
       name: item.titleKr || '',
       description: item.taskKr || '',
@@ -126,22 +140,72 @@ async function getSamsungDetail(id) {
   };
 }
 
-// 3. 목록 + 상세정보 통합
+// 3. 전체 페이지 수집
+async function collectAllJobs() {
+  const allJobs = [];
+  const seenIds = new Set();
+
+  for (let page = 1; page <= MAX_PAGES; page++) {
+    console.log(`\n[목록 조회] ${page}페이지`);
+
+    let jobs;
+
+    try {
+      jobs = await getSamsungJobs(page);
+    } catch (error) {
+      console.error(error.message);
+      break;
+    }
+
+    console.log(`${jobs.length}건 발견`);
+
+    if (jobs.length === 0) {
+      console.log('더 이상 공고가 없어 종료합니다.');
+      break;
+    }
+
+    let newCount = 0;
+
+    for (const job of jobs) {
+      if (seenIds.has(job.id)) continue;
+
+      seenIds.add(job.id);
+      allJobs.push(job);
+      newCount++;
+    }
+
+    console.log(`신규 공고 ${newCount}건`);
+
+    if (newCount === 0) {
+      console.log('중복 페이지 감지, 수집 종료');
+      break;
+    }
+
+    await sleep(REQUEST_DELAY);
+  }
+
+  return allJobs;
+}
+
+// 4. 상세정보 수집 및 저장
 async function main() {
   try {
-    console.log('삼성 채용공고 목록 조회 중...');
+    console.log('삼성 채용공고 수집 시작');
 
-    const jobs = await getSamsungJobs();
+    const jobs = await collectAllJobs();
 
-    console.log(`목록 조회 성공: ${jobs.length}건`);
+    console.log(`\n중복 제거 후 ${jobs.length}건`);
 
     const results = [];
 
-    // 서버 부담을 줄이기 위해 순차 조회
-    for (const job of jobs) {
-      try {
-        console.log(`상세정보 조회: ${job.id}`);
+    for (let i = 0; i < jobs.length; i++) {
+      const job = jobs[i];
 
+      console.log(
+        `[${i + 1}/${jobs.length}] ${job.company} - ${job.title}`
+      );
+
+      try {
         const detail = await getSamsungDetail(job.id);
 
         results.push({
@@ -158,36 +222,39 @@ async function main() {
         });
 
       } catch (error) {
-        console.error(`${job.id} 상세조회 실패:`, error.message);
+        console.error(
+          `[상세 조회 실패] ${job.id}: ${error.message}`
+        );
 
-        // 상세조회 실패해도 목록 정보는 유지
         results.push({
           ...job,
           companySize: '미확인',
           detailError: error.message
         });
       }
+
+      await sleep(REQUEST_DELAY);
     }
 
-    console.log('\n===== 최종 통합 결과 =====');
-    console.log(JSON.stringify(results, null, 2));
-    const fs = require('fs');
-    const path = require('path');
-
-    const filePath = path.join(__dirname, 'samsungJobs.json');
+    // 수집 실패로 기존 데이터를 덮어쓰지 않도록 보호
+    if (results.length === 0) {
+      console.log('수집된 공고가 없어 기존 파일을 유지합니다.');
+      return;
+    }
 
     fs.writeFileSync(
-        filePath,
-        JSON.stringify(results, null, 2),
-        'utf8'
+      OUTPUT_FILE,
+      JSON.stringify(results, null, 2),
+      'utf8'
     );
 
-    console.log('JSON 파일 저장 완료:', filePath);
-
-    console.log(`\n총 ${results.length}건 처리 완료`);
+    console.log('\n===== 수집 완료 =====');
+    console.log(`총 ${results.length}건`);
+    console.log(`저장 위치: ${OUTPUT_FILE}`);
 
   } catch (error) {
-    console.error('오류:', error.message);
+    console.error('수집 오류:', error.message);
+    process.exitCode = 1;
   }
 }
 

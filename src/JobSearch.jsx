@@ -35,11 +35,58 @@ const initialFilters = {
   companySize: ''
 };
 
+function displayDate(date) {
+  if (!date) return '정보 없음';
+
+  const value = String(date);
+
+  if (/^\d{8}$/.test(value)) {
+    return (
+      `${value.slice(0, 4)}-` +
+      `${value.slice(4, 6)}-` +
+      `${value.slice(6, 8)}`
+    );
+  }
+
+  if (value.includes('T')) {
+    const parsed = new Date(value);
+
+    if (!Number.isNaN(parsed.getTime())) {
+      return parsed.toLocaleString('ko-KR', {
+        timeZone: 'Asia/Seoul'
+      });
+    }
+  }
+
+  return value;
+}
+
+// 삼성 채용공고는 한국시간 기준
+function isActiveJob(job) {
+  if (!job.endDate) return true;
+
+  const value = String(job.endDate).trim();
+
+  const normalized = value.includes('T')
+    ? value
+    : value.replace(' ', 'T');
+
+  const hasTimezone = /(?:Z|[+-]\d{2}:\d{2})$/i.test(
+    normalized
+  );
+
+  const date = new Date(
+    hasTimezone ? normalized : `${normalized}+09:00`
+  );
+
+  if (Number.isNaN(date.getTime())) return true;
+
+  return date.getTime() >= Date.now();
+}
+
 function JobSearch() {
-  // 채용정보 종류
   const [jobType, setJobType] = useState('public');
 
-  // 검색 조건
   const [keyword, setKeyword] = useState('');
   const [category, setCategory] = useState('');
   const [recruitmentType, setRecruitmentType] = useState('');
@@ -47,7 +94,6 @@ function JobSearch() {
   const [company, setCompany] = useState('');
   const [companySize, setCompanySize] = useState('');
 
-  // 검색 결과
   const [jobs, setJobs] = useState([]);
   const [privateJobs, setPrivateJobs] = useState([]);
   const [koreanJobs, setKoreanJobs] = useState([]);
@@ -56,22 +102,17 @@ function JobSearch() {
   const [error, setError] = useState('');
   const [searched, setSearched] = useState(false);
 
-  // 페이지 정보
   const [page, setPage] = useState(1);
   const [hasNext, setHasNext] = useState(false);
   const [totalCount, setTotalCount] = useState(0);
   const [lastUpdated, setLastUpdated] = useState(null);
 
-  // 국내기업 상세보기
   const [selectedJob, setSelectedJob] = useState(null);
 
-  // 마지막 검색 조건 보관
   const appliedFilters = useRef(initialFilters);
-
-  // 이전 요청 무효화
   const requestId = useRef(0);
 
-  // 공공기관 채용공고 검색
+  // 공공기관 채용정보 검색
   const searchPublicJobs = async (
     nextPage = 1,
     filters = appliedFilters.current
@@ -129,12 +170,14 @@ function JobSearch() {
       setPage(nextPage);
       setHasNext(Boolean(data.hasNext));
       setTotalCount(Number(data.totalCount || 0));
+      setLastUpdated(null);
 
     } catch (err) {
       if (id !== requestId.current) return;
 
       setJobs([]);
       setHasNext(false);
+      setTotalCount(0);
       setError(err.message);
 
     } finally {
@@ -144,7 +187,7 @@ function JobSearch() {
     }
   };
 
-  // 해외 사기업 채용공고 검색
+  // 해외기업 채용정보 검색
   const searchPrivateJobs = async (
     nextPage = 1,
     filters = appliedFilters.current
@@ -164,7 +207,7 @@ function JobSearch() {
 
       if (!response.ok || !data.success) {
         throw new Error(
-          data.message || '사기업 채용정보 조회 실패'
+          data.message || '해외기업 채용정보 조회 실패'
         );
       }
 
@@ -174,14 +217,16 @@ function JobSearch() {
         ? data.jobs
         : [];
 
-      const searchKeyword = filters.keyword.trim().toLowerCase();
+      const searchKeyword = filters.keyword
+        .trim()
+        .toLowerCase();
 
       let filtered = allJobs.filter(job => {
         const searchableText = [
           job.company,
           job.title,
           job.location
-        ].join(' ').toLowerCase();
+        ].filter(Boolean).join(' ').toLowerCase();
 
         const matchesKeyword =
           !searchKeyword ||
@@ -194,7 +239,7 @@ function JobSearch() {
         return matchesKeyword && matchesCompany;
       });
 
-      filtered = [...filtered].sort((a, b) => {
+      filtered.sort((a, b) => {
         const dateA = Date.parse(a.updatedAt || '') || 0;
         const dateB = Date.parse(b.updatedAt || '') || 0;
 
@@ -203,13 +248,11 @@ function JobSearch() {
 
       const startIndex = (nextPage - 1) * PAGE_SIZE;
 
-      const pageJobs = filtered.slice(
-        startIndex,
-        startIndex + PAGE_SIZE
+      setPrivateJobs(allJobs);
+      setJobs(
+        filtered.slice(startIndex, startIndex + PAGE_SIZE)
       );
 
-      setPrivateJobs(allJobs);
-      setJobs(pageJobs);
       setPage(nextPage);
       setTotalCount(filtered.length);
       setHasNext(
@@ -223,6 +266,7 @@ function JobSearch() {
 
       setJobs([]);
       setHasNext(false);
+      setTotalCount(0);
       setError(err.message);
 
     } finally {
@@ -232,7 +276,8 @@ function JobSearch() {
     }
   };
 
-  // 국내기업 채용공고 검색
+  // 국내기업 채용정보 검색
+  // 변경: /api/korean-jobs -> /api/samsung-jobs
   const searchKoreanJobs = async (
     nextPage = 1,
     filters = appliedFilters.current
@@ -245,36 +290,42 @@ function JobSearch() {
 
     try {
       const response = await fetch(
-        `${API_BASE}/api/korean-jobs`
+        `${API_BASE}/api/samsung-jobs`
       );
 
       const data = await response.json();
 
       if (!response.ok || !data.success) {
         throw new Error(
-          data.message || '국내기업 채용정보 조회 실패'
+          data.message || '삼성 채용공고 조회 실패'
         );
       }
 
       if (id !== requestId.current) return;
 
-      const allJobs = Array.isArray(data.jobs)
-        ? data.jobs
+      // 삼성 API는 items 배열을 반환
+      const allJobs = Array.isArray(data.items)
+        ? data.items
         : [];
 
-      const searchKeyword = filters.keyword.trim().toLowerCase();
+      const searchKeyword = filters.keyword
+        .trim()
+        .toLowerCase();
 
       let filtered = allJobs.filter(job => {
+        const positions = Array.isArray(job.positions)
+          ? job.positions
+          : [];
+
         const searchableText = [
           job.company,
           job.title,
-          ...(job.positions || []).map(position =>
-            [
-              position.name,
-              position.location
-            ].join(' ')
-          )
-        ].join(' ').toLowerCase();
+          ...positions.flatMap(position => [
+            position.name,
+            position.location,
+            position.description
+          ])
+        ].filter(Boolean).join(' ').toLowerCase();
 
         const matchesKeyword =
           !searchKeyword ||
@@ -286,20 +337,11 @@ function JobSearch() {
 
         const matchesSize =
           !filters.companySize ||
-          job.companySize === filters.companySize;
+          (job.companySize || '미확인') ===
+            filters.companySize;
 
-        let matchesActive = true;
-
-        if (filters.activeOnly && job.endDate) {
-          const endDate = new Date(
-            String(job.endDate).replace(' ', 'T') +
-            '+09:00'
-          );
-
-          if (!Number.isNaN(endDate.getTime())) {
-            matchesActive = endDate >= new Date();
-          }
-        }
+        const matchesActive =
+          !filters.activeOnly || isActiveJob(job);
 
         return (
           matchesKeyword &&
@@ -309,7 +351,7 @@ function JobSearch() {
         );
       });
 
-      filtered = [...filtered].sort((a, b) =>
+      filtered.sort((a, b) =>
         String(b.startDate || '').localeCompare(
           String(a.startDate || '')
         )
@@ -319,10 +361,7 @@ function JobSearch() {
 
       setKoreanJobs(allJobs);
       setJobs(
-        filtered.slice(
-          startIndex,
-          startIndex + PAGE_SIZE
-        )
+        filtered.slice(startIndex, startIndex + PAGE_SIZE)
       );
 
       setPage(nextPage);
@@ -338,6 +377,7 @@ function JobSearch() {
 
       setJobs([]);
       setHasNext(false);
+      setTotalCount(0);
       setError(err.message);
 
     } finally {
@@ -347,7 +387,7 @@ function JobSearch() {
     }
   };
 
-  // 검색 실행
+  // 채용정보 유형에 따른 검색
   const searchJobs = (
     nextPage = 1,
     filters = appliedFilters.current,
@@ -364,7 +404,7 @@ function JobSearch() {
     return searchPublicJobs(nextPage, filters);
   };
 
-  // 최초 진입 시 공공기관 자동 검색
+  // 최초 진입 시 공공기관 검색
   useEffect(() => {
     appliedFilters.current = { ...initialFilters };
 
@@ -396,14 +436,16 @@ function JobSearch() {
     setTotalCount(0);
     setError('');
     setLastUpdated(null);
+    setSearched(false);
 
     const filters = { ...initialFilters };
+
     appliedFilters.current = filters;
 
     searchJobs(1, filters, type);
   };
 
-  // 검색 버튼
+  // 검색 실행
   const handleSearch = (e) => {
     e.preventDefault();
 
@@ -417,6 +459,7 @@ function JobSearch() {
     };
 
     appliedFilters.current = filters;
+
     searchJobs(1, filters);
   };
 
@@ -434,37 +477,18 @@ function JobSearch() {
     searchJobs(nextPage, appliedFilters.current);
   };
 
-  // 날짜 표시
-  const displayDate = (date) => {
-    if (!date) return '정보 없음';
-
-    if (/^\d{8}$/.test(String(date))) {
-      const value = String(date);
-
-      return `${value.slice(0, 4)}-${value.slice(4, 6)}-${value.slice(6, 8)}`;
-    }
-
-    if (String(date).includes('T')) {
-      const parsed = new Date(date);
-
-      if (!Number.isNaN(parsed.getTime())) {
-        return parsed.toLocaleDateString('ko-KR', {
-          timeZone: 'Asia/Seoul'
-        });
-      }
-    }
-
-    return String(date);
-  };
-
   // 기업 선택 목록
-  const companies = [...new Set(
-    (
-      jobType === 'korean'
-        ? koreanJobs
-        : privateJobs
-    ).map(job => job.company).filter(Boolean)
-  )].sort();
+  const companies = [
+    ...new Set(
+      (
+        jobType === 'korean'
+          ? koreanJobs
+          : privateJobs
+      )
+        .map(job => job.company)
+        .filter(Boolean)
+    )
+  ].sort();
 
   const totalPages = Math.max(
     1,
@@ -621,10 +645,14 @@ function JobSearch() {
       {jobType === 'korean' && (
         <div className="job-source-info">
           <span>
-            삼성커리어스 채용공고 로컬 테스트 데이터
+            삼성커리어스 채용공고 수집 데이터
           </span>
           <span>
-            실제 모집 여부는 공식 사이트에서 확인하세요.
+            새로운 공고는 서버에서 수집 데이터를
+            갱신한 후 반영됩니다.
+          </span>
+          <span>
+            실제 모집 여부는 공식 채용사이트에서 확인하세요.
           </span>
         </div>
       )}
@@ -806,11 +834,13 @@ function JobSearch() {
           </button>
 
           <span className="job-page-number">
-            {page} / {jobType === 'public' && hasNext
-              ? '...'
-              : jobType === 'public'
-                ? page
-                : totalPages} 페이지
+            {page} / {
+              jobType === 'public' && hasNext
+                ? '...'
+                : jobType === 'public'
+                  ? page
+                  : totalPages
+            } 페이지
           </span>
 
           <button
@@ -870,7 +900,7 @@ function JobSearch() {
             {(selectedJob.positions || []).map(
               (position, index) => (
                 <div className="job-position" key={index}>
-                  <h4>{position.name}</h4>
+                  <h4>{position.name || '직무명 없음'}</h4>
 
                   <p>
                     <strong>근무지역:</strong>{' '}

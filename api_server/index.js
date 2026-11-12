@@ -1194,6 +1194,53 @@ app.get('/api/korean-jobs', (req, res) => {
 // 11. 서버 실행
 // ==========================================
 
+
+// 삼성 채용공고 조회
+app.get('/api/samsung-jobs', (req, res) => {
+  try {
+    const filePath = path.join(__dirname, 'samsungJobs.json');
+
+    if (!fs.existsSync(filePath)) {
+      return res.status(404).json({
+        success: false,
+        message: '삼성 채용공고 JSON 파일이 없습니다.'
+      });
+    }
+
+    const jobs = JSON.parse(
+      fs.readFileSync(filePath, 'utf8')
+    );
+
+    const keyword = String(req.query.keyword || '')
+      .trim()
+      .toLowerCase();
+
+    const filtered = jobs.filter(job => {
+      if (!keyword) return true;
+
+      return (
+        String(job.company || '').toLowerCase().includes(keyword) ||
+        String(job.title || '').toLowerCase().includes(keyword)
+      );
+    });
+
+    res.json({
+      success: true,
+      totalCount: filtered.length,
+      count: filtered.length,
+      items: filtered
+    });
+
+  } catch (error) {
+    console.error('삼성 채용공고 조회 오류:', error);
+
+    res.status(500).json({
+      success: false,
+      message: '삼성 채용공고 조회에 실패했습니다.'
+    });
+  }
+});
+
 app.listen(PORT, () => {
   console.log(
     `서버 실행 성공: http://localhost:${PORT}`
