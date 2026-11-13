@@ -44,3 +44,12 @@ build/
 
 # Streamlit
 .streamlit/secrets.toml
+
+# SQLite database
+*.db
+*.db-shm
+*.db-wal
+*.db-journal
+
+# AWS SSH private key
+*.pem
