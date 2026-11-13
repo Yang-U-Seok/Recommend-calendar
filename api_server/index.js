@@ -49,6 +49,11 @@ app.use(session({
 // 로그인 및 학습계획
 app.use('/api/auth', require('./auth'));
 app.use('/api/study', require('./studyPlanner'));
+// 기업 채용공고 기반 자격증 추천
+app.use(
+  '/api/certificate-recommendations',
+  require('./certificateRecommendations')
+);
 
 // ==========================================
 // 2. Q-Net 공통 함수
@@ -1194,6 +1199,85 @@ app.get('/api/korean-jobs', (req, res) => {
 // 11. 서버 실행
 // ==========================================
 
+/**
+ * LG 계열사 채용공고 조회 API
+ * GET /api/lg-jobs
+ */
+app.get('/api/lg-jobs', (req, res) => {
+  try {
+    const fs = require('fs');
+    const path = require('path');
+
+    const filePath = path.join(__dirname, 'lgJobs.json');
+
+    if (!fs.existsSync(filePath)) {
+      return res.status(404).json({
+        success: false,
+        message: 'LG 채용공고 JSON 파일이 없습니다.'
+      });
+    }
+
+    const data = JSON.parse(
+      fs.readFileSync(filePath, 'utf8')
+    );
+
+    res.json({
+      success: true,
+      group: 'LG',
+      totalCount: data.jobs?.length || 0,
+      updatedAt: data.updatedAt,
+      companyCounts: data.companyCounts || {},
+      jobs: data.jobs || []
+    });
+
+  } catch (error) {
+    console.error('LG 채용공고 조회 오류:', error);
+
+    res.status(500).json({
+      success: false,
+      message: 'LG 채용공고 조회 실패'
+    });
+  }
+});
+
+
+const fsHyundai = require('fs');
+const pathHyundai = require('path');
+
+app.get('/api/hyundai-jobs', (req, res) => {
+  try {
+    const filePath = pathHyundai.join(
+      __dirname,
+      'hyundaiJobs.json'
+    );
+
+    if (!fsHyundai.existsSync(filePath)) {
+      return res.status(404).json({
+        success: false,
+        message: '현대자동차 채용공고 JSON 파일이 없습니다.'
+      });
+    }
+
+    const data = JSON.parse(
+      fsHyundai.readFileSync(filePath, 'utf8')
+    );
+
+    res.json({
+      success: true,
+      company: '현대자동차',
+      totalCount: data.jobs?.length || 0,
+      updatedAt: data.updatedAt,
+      jobs: data.jobs || []
+    });
+  } catch (error) {
+    console.error('현대자동차 채용공고 조회 오류:', error);
+
+    res.status(500).json({
+      success: false,
+      message: '현대자동차 채용공고 조회 실패'
+    });
+  }
+});
 
 // 삼성 채용공고 조회
 app.get('/api/samsung-jobs', (req, res) => {

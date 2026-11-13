@@ -1,4 +1,3 @@
-
 import { useState } from 'react';
 import './QnetSearch.css';
 
@@ -424,6 +423,43 @@ function QnetSearch() {
   const [scheduleError, setScheduleError] = useState('');
   const [scheduleLoaded, setScheduleLoaded] = useState(false);
 
+  // 기업 채용공고 기반 자격증 추천
+  const [recommendCategory, setRecommendCategory] = useState('전체');
+  const [recommendSize, setRecommendSize] = useState('전체');
+  const [recommendCompany, setRecommendCompany] = useState('');
+  const [recommendResult, setRecommendResult] = useState(null);
+  const [recommendLoading, setRecommendLoading] = useState(false);
+  const [recommendError, setRecommendError] = useState('');
+
+  async function loadRecommendations() {
+    setRecommendLoading(true);
+    setRecommendError('');
+    setRecommendResult(null);
+
+    try {
+      const params = new URLSearchParams({
+        category: recommendCategory,
+        companySize: recommendSize
+      });
+      if (recommendCompany.trim()) {
+        params.set('company', recommendCompany.trim());
+      }
+
+      const response = await fetch(
+        `${API_BASE}/api/certificate-recommendations?${params}`
+      );
+      const result = await response.json();
+      if (!response.ok || !result.success) {
+        throw new Error(result.message || '자격증 추천 조회 실패');
+      }
+      setRecommendResult(result);
+    } catch (error) {
+      setRecommendError(error.message);
+    } finally {
+      setRecommendLoading(false);
+    }
+  }
+
   // 합격률/취득소요기간 API
   async function fetchJson(path, params) {
     const query = new URLSearchParams(params);
@@ -695,6 +731,11 @@ setSchedule(merged);
             key: 'schedule',
             label: '시험일정',
             count: null
+          },
+          {
+            key: 'recommend',
+            label: '기업별 자격증 추천',
+            count: recommendResult?.recommendations?.length ?? null
           }
         ].map((item) => (
           <button
@@ -991,6 +1032,110 @@ setSchedule(merged);
                 ※ 평균 취득소요기간은 Q-Net의
                 자격 취득 통계이며, 개인의 실제
                 공부 기간과 다를 수 있습니다.
+              </p>
+            </>
+          )}
+        </section>
+      )}
+
+      {/* 기업 채용공고 기반 자격증 추천 탭 */}
+      {tab === 'recommend' && (
+        <section role="tabpanel" className="qnet-panel">
+          <div className="qnet-toolbar">
+            <div className="qnet-toolbar-left qnet-schedule-filters">
+              <label className="qnet-inline-field">
+                <span>직무 분야</span>
+                <select
+                  value={recommendCategory}
+                  onChange={e => setRecommendCategory(e.target.value)}
+                >
+                  {['전체', 'IT', '보안', '전기', '전자통신', '기계', '안전', '건설', '환경', '품질'].map(value => (
+                    <option key={value} value={value}>{value}</option>
+                  ))}
+                </select>
+              </label>
+              <label className="qnet-inline-field">
+                <span>기업 규모</span>
+                <select
+                  value={recommendSize}
+                  onChange={e => setRecommendSize(e.target.value)}
+                >
+                  {['전체', '대기업', '중견기업', '중소기업', '미분류'].map(value => (
+                    <option key={value} value={value}>{value}</option>
+                  ))}
+                </select>
+              </label>
+              <label className="qnet-inline-field">
+                <span>기업명 (선택)</span>
+                <input
+                  type="search"
+                  value={recommendCompany}
+                  onChange={e => setRecommendCompany(e.target.value)}
+                  placeholder="예: LG CNS"
+                  onKeyDown={e => {
+                    if (e.key === 'Enter') loadRecommendations();
+                  }}
+                />
+              </label>
+              <button
+                type="button"
+                className="qnet-secondary"
+                disabled={recommendLoading}
+                onClick={loadRecommendations}
+              >
+                {recommendLoading ? '조회 중...' : '추천 순위 조회'}
+              </button>
+            </div>
+          </div>
+
+          {recommendLoading ? (
+            <StateMessage type="loading">추천 순위를 계산하고 있습니다...</StateMessage>
+          ) : recommendError ? (
+            <StateMessage type="error">추천 조회 오류: {recommendError}</StateMessage>
+          ) : !recommendResult ? (
+            <StateMessage>직무 분야와 기업 규모를 선택하고 추천 순위를 조회해 주세요.</StateMessage>
+          ) : recommendResult.recommendations.length === 0 ? (
+            <StateMessage>
+              해당 조건에서 명시된 자격증을 찾지 못했습니다.
+              기업 규모 미분류 여부도 확인해 주세요.
+            </StateMessage>
+          ) : (
+            <>
+              <p className="qnet-note">
+                분석 직무 {formatNumber(recommendResult.totalPositions)}개 ·
+                자격증 {formatNumber(recommendResult.totalCertificates)}종
+              </p>
+              <div className="qnet-table-wrap">
+                <table className="qnet-table">
+                  <thead>
+                    <tr>
+                      <th>순위</th>
+                      <th>자격증명</th>
+                      <th>등장 직무 수</th>
+                      <th>필수자격란</th>
+                      <th>우대사항</th>
+                      <th>기업명</th>
+                    </tr>
+                  </thead>
+                  <tbody>
+                    {recommendResult.recommendations.map(item => (
+                      <tr key={item.name}>
+                        <td className="cell-num">{item.rank}</td>
+                        <td className="cell-name">{item.name}</td>
+                        <td className="cell-num"><strong>{formatNumber(item.mentionCount)}</strong></td>
+                        <td className="cell-num">{formatNumber(item.requiredCount)}</td>
+                        <td className="cell-num">{formatNumber(item.preferredCount)}</td>
+                        <td>{(item.companies || []).join(', ') || '-'}</td>
+                      </tr>
+                    ))}
+                  </tbody>
+                </table>
+              </div>
+              <p className="qnet-note">
+                ※ 채용공고에 명시된 자격증을 기준으로 집계합니다.
+                동일 직무에서 동일 자격증을 여러 번 언급해도 1건으로 계산합니다.
+                필수자격란에 등장했다고 반드시 단독 필수 조건인 것은 아닙니다.
+                현재 추출 자료는 삼성·LG 계열 채용공고 기준입니다.
               </p>
             </>
           )}

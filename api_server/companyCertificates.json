@@ -1,0 +1,3366 @@
+{
+  "groups": [
+    "Samsung",
+    "LG"
+  ],
+  "updatedAt": "2026-11-13T07:18:20.042Z",
+  "dictionarySource": "starter",
+  "warning": "사전 기반 문자열 추출이며 Q-Net 공식 명칭 검증 전입니다. 포괄적 표현은 특정 자격증으로 변환하지 않습니다.",
+  "summary": {
+    "jobs": 95,
+    "positions": 205,
+    "positionsWithNamedCertificates": 23,
+    "uniqueNamedCertificates": 13,
+    "positionsWithGenericMentions": 78,
+    "byGroup": {
+      "Samsung": {
+        "jobs": 10,
+        "positions": 78
+      },
+      "LG": {
+        "jobs": 85,
+        "positions": 127
+      }
+    }
+  },
+  "certificates": [
+    {
+      "name": "정보보안기사",
+      "positionCount": 7,
+      "companyCount": 2,
+      "companies": [
+        "LG CNS",
+        "LG유플러스"
+      ],
+      "requiredPositionCount": 0,
+      "preferredPositionCount": 7
+    },
+    {
+      "name": "전기기사",
+      "positionCount": 5,
+      "companyCount": 3,
+      "companies": [
+        "LG CNS",
+        "비즈테크아이",
+        "삼성전자 DX부문"
+      ],
+      "requiredPositionCount": 3,
+      "preferredPositionCount": 2
+    },
+    {
+      "name": "전기공사기사",
+      "positionCount": 4,
+      "companyCount": 2,
+      "companies": [
+        "LG CNS",
+        "비즈테크아이"
+      ],
+      "requiredPositionCount": 3,
+      "preferredPositionCount": 1
+    },
+    {
+      "name": "산업안전기사",
+      "positionCount": 3,
+      "companyCount": 3,
+      "companies": [
+        "LG유플러스",
+        "삼성전자 DX부문",
+        "하이케어솔루션"
+      ],
+      "requiredPositionCount": 2,
+      "preferredPositionCount": 1
+    },
+    {
+      "name": "건설안전기사",
+      "positionCount": 2,
+      "companyCount": 2,
+      "companies": [
+        "LG유플러스",
+        "삼성E&A"
+      ],
+      "requiredPositionCount": 2,
+      "preferredPositionCount": 0
+    },
+    {
+      "name": "건축설비기사",
+      "positionCount": 2,
+      "companyCount": 2,
+      "companies": [
+        "LG CNS",
+        "삼성E&A"
+      ],
+      "requiredPositionCount": 1,
+      "preferredPositionCount": 1
+    },
+    {
+      "name": "공조냉동기계기사",
+      "positionCount": 2,
+      "companyCount": 2,
+      "companies": [
+        "LG CNS",
+        "삼성E&A"
+      ],
+      "requiredPositionCount": 1,
+      "preferredPositionCount": 1
+    },
+    {
+      "name": "수질환경기사",
+      "positionCount": 2,
+      "companyCount": 2,
+      "companies": [
+        "삼성E&A",
+        "삼성물산 건설부문"
+      ],
+      "requiredPositionCount": 0,
+      "preferredPositionCount": 2
+    },
+    {
+      "name": "일반기계기사",
+      "positionCount": 2,
+      "companyCount": 2,
+      "companies": [
+        "삼성E&A",
+        "삼성전자 DX부문"
+      ],
+      "requiredPositionCount": 0,
+      "preferredPositionCount": 2
+    },
+    {
+      "name": "산업위생관리기사",
+      "positionCount": 1,
+      "companyCount": 1,
+      "companies": [
+        "삼성E&A"
+      ],
+      "requiredPositionCount": 1,
+      "preferredPositionCount": 0
+    },
+    {
+      "name": "전자기사",
+      "positionCount": 1,
+      "companyCount": 1,
+      "companies": [
+        "삼성물산 건설부문"
+      ],
+      "requiredPositionCount": 0,
+      "preferredPositionCount": 1
+    },
+    {
+      "name": "정보처리기사",
+      "positionCount": 1,
+      "companyCount": 1,
+      "companies": [
+        "비즈테크아이"
+      ],
+      "requiredPositionCount": 0,
+      "preferredPositionCount": 1
+    },
+    {
+      "name": "품질경영기사",
+      "positionCount": 1,
+      "companyCount": 1,
+      "companies": [
+        "삼성E&A"
+      ],
+      "requiredPositionCount": 0,
+      "preferredPositionCount": 1
+    }
+  ],
+  "positions": [
+    {
+      "group": "Samsung",
+      "jobNoticeId": "23440",
+      "company": "삼성전자 DX부문",
+      "title": "경력사원 채용(Visual Display, Digital Appliances, 생산기술연구소, Global CS센터, Global EHS실, 한국총괄)",
+      "positionIndex": 0,
+      "positionName": "[VD] 매거진 평가 대응",
+      "requiredCertificates": [],
+      "preferredCertificates": [],
+      "genericRequiredMentions": [],
+      "genericPreferredMentions": [],
+      "requiredQualifications": "- Display 개발 등 4년 이상 유관경력 보유하신 분",
+      "preferredQualifications": "- 전자공학, Display공학 등 유관전공 학사 이상 학위 보유하신 분\n- OLED Display 및 물성 특성 관련 개발 경험 보유하신 분\n- WOLED 서브픽셀 렌더링 알고리즘에 대한 경험 보유하신 분\n- TV 매거진 평가 기준 및 방법론에 대한 지식 보유하신 분\n\n※ 근무지역 및 근무형태 관련 보다 자세한 사항은 '참고사항' 확인 부탁드립니다."
+    },
+    {
+      "group": "Samsung",
+      "jobNoticeId": "23440",
+      "company": "삼성전자 DX부문",
+      "title": "경력사원 채용(Visual Display, Digital Appliances, 생산기술연구소, Global CS센터, Global EHS실, 한국총괄)",
+      "positionIndex": 1,
+      "positionName": "[VD] 컬러 화질 개발",
+      "requiredCertificates": [],
+      "preferredCertificates": [],
+      "genericRequiredMentions": [],
+      "genericPreferredMentions": [],
+      "requiredQualifications": "- 신호 및 영상 처리 등 4년 이상 유관경력 보유하신 분",
+      "preferredQualifications": "- 전자/컴퓨터 공학 등 유관전공 박사 학위 보유하신 분\n- CIE/ICDM 등에서 제정한 컬러 표준 및 평가 방법에 대한 지식 보유하신 분\n- 인간의 시각 특성 및 색 인지 메커니즘에 대한 지식 보유하신 분\n\n※ 근무지역 및 근무형태 관련 보다 자세한 사항은 '참고사항' 확인 부탁드립니다."
+    },
+    {
+      "group": "Samsung",
+      "jobNoticeId": "23440",
+      "company": "삼성전자 DX부문",
+      "title": "경력사원 채용(Visual Display, Digital Appliances, 생산기술연구소, Global CS센터, Global EHS실, 한국총괄)",
+      "positionIndex": 2,
+      "positionName": "[VD] Power 회로 설계",
+      "requiredCertificates": [],
+      "preferredCertificates": [],
+      "genericRequiredMentions": [],
+      "genericPreferredMentions": [],
+      "requiredQualifications": "- 전원 회로 설계 및 제품 개발 등 4년 이상 유관경력 보유하신 분",
+      "preferredQualifications": "- Converter, Inverter, SPMS 등 전력 변환 회로 설계 경험 보유하신 분\n- 자성체 부품 설계, 부품 소재 개발, PCB Layout 설계 경험 보유하신 분\n- 국내외 대학 전력전자 연구실 또는 연구소에서 연구 경험 보유하신 분\n- 해외 업체와 업무 수행 경험 보유하신 분\n\n※ 근무지역 및 근무형태 관련 보다 자세한 사항은 '참고사항' 확인 부탁드립니다."
+    },
+    {
+      "group": "Samsung",
+      "jobNoticeId": "23440",
+      "company": "삼성전자 DX부문",
+      "title": "경력사원 채용(Visual Display, Digital Appliances, 생산기술연구소, Global CS센터, Global EHS실, 한국총괄)",
+      "positionIndex": 3,
+      "positionName": "[VD] TV Plus 솔루션/서비스 기획",
+      "requiredCertificates": [],
+      "preferredCertificates": [],
+      "genericRequiredMentions": [],
+      "genericPreferredMentions": [],
+      "requiredQualifications": "- 콘텐츠/미디어 서비스 분야 근무 등 4년 이상 유관경력 보유하신 분",
+      "preferredQualifications": "- FAST (Free Ad-Supported Streaming TV) 서비스에 대한 경험 보유하신 분\n- 실시간 콘텐츠 Streaming 시스템 및 관련 상용 서비스(AWS 등)에 대한 경험 보유하신 분\n- 콘텐츠 인코딩/DRM/광고 등 제반 기술에 대한 경험 보유하신 분\n- 미디어 서비스 운영 경험 보유하신 분\n- OPIc IH 수준 이상의 영어회화 등급 보유하신 분\n\n※ 근무지역 및 근무형태 관련 보다 자세한 사항은 '참고사항' 확인 부탁드립니다."
+    },
+    {
+      "group": "Samsung",
+      "jobNoticeId": "23440",
+      "company": "삼성전자 DX부문",
+      "title": "경력사원 채용(Visual Display, Digital Appliances, 생산기술연구소, Global CS센터, Global EHS실, 한국총괄)",
+      "positionIndex": 4,
+      "positionName": "[VD] TV Plus 콘텐츠 전략 및 파트너십",
+      "requiredCertificates": [],
+      "preferredCertificates": [],
+      "genericRequiredMentions": [],
+      "genericPreferredMentions": [],
+      "requiredQualifications": "- 파트너십/계약 업무 등 4년 이상 유관경력 보유하신 분",
+      "preferredQualifications": "- 스트리밍 서비스업계 및 광고업계 근무 경험 보유하신 분\n- 컨설팅, Investment Banking, Private Equity 근무 경험 보유하신 분\n- 서비스/제품 출시 관련 유관 부서, 해외 개발/영업 조직 소통 경험 보유하신 분\n- OPIc IH 수준 이상의 영어회화 등급 보유하신 분\n\n※ 근무지역 및 근무형태 관련 보다 자세한 사항은 '참고사항' 확인 부탁드립니다."
+    },
+    {
+      "group": "Samsung",
+      "jobNoticeId": "23440",
+      "company": "삼성전자 DX부문",
+      "title": "경력사원 채용(Visual Display, Digital Appliances, 생산기술연구소, Global CS센터, Global EHS실, 한국총괄)",
+      "positionIndex": 5,
+      "positionName": "[VD] 광고 서비스 데이터 엔지니어",
+      "requiredCertificates": [],
+      "preferredCertificates": [],
+      "genericRequiredMentions": [],
+      "genericPreferredMentions": [],
+      "requiredQualifications": "- Ad Tech 개발 등 4년 이상 유관경력 보유하신 분",
+      "preferredQualifications": "- SW 및 데이터 등 유관전공 학사 이상 학위 보유하신 분\n- 데이터 파이프라인, 분석 환경의 개발 및 운영 경험 보유하신 분\n- AWS, Snowflake, Airflow, Kafka 등의 데이터 처리 기술에 대한 실무 경험 보유하신 분\n- 대규모 트래픽 환경에서 시스템 성능 개선 및 확장성 확보 경험 보유하신 분\n- AI를 활용한 개발/운영 업무 경험 보유하신 분\n\n※ 근무지역 및 근무형태 관련 보다 자세한 사항은 '참고사항' 확인 부탁드립니다."
+    },
+    {
+      "group": "Samsung",
+      "jobNoticeId": "23440",
+      "company": "삼성전자 DX부문",
+      "title": "경력사원 채용(Visual Display, Digital Appliances, 생산기술연구소, Global CS센터, Global EHS실, 한국총괄)",
+      "positionIndex": 6,
+      "positionName": "[VD] 광고 플랫폼 개발",
+      "requiredCertificates": [],
+      "preferredCertificates": [],
+      "genericRequiredMentions": [],
+      "genericPreferredMentions": [],
+      "requiredQualifications": "- 디지털 광고업계 개발 등 4년 이상 유관경력 보유하신 분",
+      "preferredQualifications": "- 컴퓨터공학 등 유관전공 학사 이상 학위 보유하신 분\n- AWS를 포함한 클라우드 서비스 실무 경험 보유하신 분\n- 대규모 트래픽 환경에서의 시스템 성능 개선 및 확장성 확보 경험 보유하신 분\n- 분산 시스템 및 데이터 플랫폼에 대한 경험 보유하신 분\n- AI를 활용한 개발/운영 업무 효율화 경험 보유하신 분\n- OPIc IH 수준 이상의 영어회화 등급 보유하신 분\n\n※ 근무지역 및 근무형태 관련 보다 자세한 사항은 '참고사항' 확인 부탁드립니다."
+    },
+    {
+      "group": "Samsung",
+      "jobNoticeId": "23440",
+      "company": "삼성전자 DX부문",
+      "title": "경력사원 채용(Visual Display, Digital Appliances, 생산기술연구소, Global CS센터, Global EHS실, 한국총괄)",
+      "positionIndex": 7,
+      "positionName": "[VD] TV 파트너십(OTT/Product 등)",
+      "requiredCertificates": [],
+      "preferredCertificates": [],
+      "genericRequiredMentions": [],
+      "genericPreferredMentions": [],
+      "requiredQualifications": "- 해외/국내 서비스 파트너십(OTT 등) 등 4년 이상 유관경력 보유하신 분",
+      "preferredQualifications": "- 파트너/외부 업체와 협상 및 다양한 커뮤니케이션 경험 보유하신 분\n- 대형 프로젝트에서 유관 부서 간 Workflow 조율 경험 보유하신 분\n- 미디어, 기술, TV 시장 및 서비스 전략에 대한 높은 이해도 보유하신 분\n- 협상 전략 및 계약서 관련 기본 지식 보유하신 분\n- 주요 OTT 파트너와 협상 경력 보유하신 분\n- TV 플랫폼 사업에 대한 높은 이해도와 관련 경력 보유하신 분\n- OPIc IH 수준 이상의 영어회화 등급 보유하신 분\n\n※ 근무지역 및 근무형태 관련 보다 자세한 사항은 '참고사항' 확인 부탁드립니다."
+    },
+    {
+      "group": "Samsung",
+      "jobNoticeId": "23440",
+      "company": "삼성전자 DX부문",
+      "title": "경력사원 채용(Visual Display, Digital Appliances, 생산기술연구소, Global CS센터, Global EHS실, 한국총괄)",
+      "positionIndex": 8,
+      "positionName": "[DA] Home Appliances B2B 영업",
+      "requiredCertificates": [],
+      "preferredCertificates": [],
+      "genericRequiredMentions": [],
+      "genericPreferredMentions": [],
+      "requiredQualifications": "아래 항목 중 한 가지 이상의 경험이 있으신 분\n- 가전 또는 유관 산업의 B2B 영업·관리 및 프로젝트 수행 등 3년 이상 유관경력 보유하신 분\n- 주거·건설, 호텔, 코인 세탁 등 버티컬 고객 대응 등 3년 이상 유관경력 보유하신 분",
+      "preferredQualifications": "- 마케팅 및 경영·경제 등 유관전공 학사 이상 학위 보유하신 분\n- 수주 파이프라인, BO, 매출·손익 데이터 관리 및 분석 경험 보유하신 분\n- 제품·공급·가격 관련 부서 및 해외 법인과의 협업·조율 경험 보유하신 분\n- OPIc IH 수준 이상의 영어회화 등급 보유하신 분\n\n※ 근무지역 및 근무형태 관련 보다 자세한 사항은 '참고사항' 확인 부탁드립니다."
+    },
+    {
+      "group": "Samsung",
+      "jobNoticeId": "23440",
+      "company": "삼성전자 DX부문",
+      "title": "경력사원 채용(Visual Display, Digital Appliances, 생산기술연구소, Global CS센터, Global EHS실, 한국총괄)",
+      "positionIndex": 9,
+      "positionName": "[DA] 중앙공조 및 SAC 기술영업",
+      "requiredCertificates": [],
+      "preferredCertificates": [],
+      "genericRequiredMentions": [],
+      "genericPreferredMentions": [
+        "- 냉동공조 관련 기사/기술사 자격증 소지하신 분"
+      ],
+      "requiredQualifications": "아래 항목 중 한 가지 이상의 경험이 있으신 분\n- HVAC 또는 VRF 장비 수주 활동 등 3년 이상 유관경력 보유하신 분\n- HVAC 또는 건축설비 설계/영업 활동 등 3년 이상 유관경력 보유하신 분",
+      "preferredQualifications": "- 열유체 및 기계 등 유관전공 석사 이상 학위 보유하신 분\n- 아래 항목 중 한 가지 이상의 경험이 있으신 분\n   · 산업용 HVAC 프로젝트 또는 시스템에어컨(VRF) 대형 PJT 현장 지도 경험을 보유하신 분\n   · LEED(Leadership in Energy and Environmental Design) 또는 친환경 관련 업무 경험을 보유하신 분\n   · 한국 건설사/설계사 HVAC 프로젝트 수주 영업 경험을 보유하신 분\n- 냉동공조 관련 기사/기술사 자격증 소지하신 분\n- OPIc IH 수준 이상의 영어회화 등급 보유하신 분\n\n※ 근무지역 및 근무형태 관련 보다 자세한 사항은 '참고사항' 확인 부탁드립니다."
+    },
+    {
+      "group": "Samsung",
+      "jobNoticeId": "23440",
+      "company": "삼성전자 DX부문",
+      "title": "경력사원 채용(Visual Display, Digital Appliances, 생산기술연구소, Global CS센터, Global EHS실, 한국총괄)",
+      "positionIndex": 10,
+      "positionName": "[생산기술연구소] Data 플랫폼 및 분석",
+      "requiredCertificates": [],
+      "preferredCertificates": [],
+      "genericRequiredMentions": [],
+      "genericPreferredMentions": [],
+      "requiredQualifications": "아래 항목 중 한 가지 이상의 경험이 있으신 분\n- Spark, Trino, Kafka, Airflow 등을 사용한 대용량 데이터 파이프라인 설계/구축/운영 등 4년 이상 유관경력 보유하신 분\n- 메타데이터, 데이터 표준, 데이터 품질, 리니지 관련 체계 수립 및 운영 등 4년 이상 유관경력 보유하신 분\n- Datahub, OpenMetadata 등 카탈로그 도구 도입/운영 등 4년 이상 유관경력 보유하신 분\n- 클라우드 플랫폼(AWS, GCP, Azure 등) 데이터 솔루션 관련 프로젝트 등 4년 이상 유관경력 보유하신 분",
+      "preferredQualifications": "- 컴퓨터공학, 소프트웨어공학, 전산학, 산업공학, AI 데이터사이언스 등 유관전공 학사 이상 학위 보유하신 분\n- RDF/OWL 기반 온톨로지 모델링 및 SPARQL 실무 활용 경험 보유하신 분\n- 제조 도메인의 설비, 품질, 생산계획 데이터 분석/모델링 경험 보유하신 분\n- Milvus, Qdrant 등을 활용한 벡터 임베딩 파이프라인 및 검색(RAG) 구축 지식을 보유하신 분\n\n※ 근무지역 및 근무형태 관련 보다 자세한 사항은 '참고사항' 확인 부탁드립니다."
+    },
+    {
+      "group": "Samsung",
+      "jobNoticeId": "23440",
+      "company": "삼성전자 DX부문",
+      "title": "경력사원 채용(Visual Display, Digital Appliances, 생산기술연구소, Global CS센터, Global EHS실, 한국총괄)",
+      "positionIndex": 11,
+      "positionName": "[G-CS] 양산 공정·설비 검증 및 데이터 분석",
+      "requiredCertificates": [],
+      "preferredCertificates": [],
+      "genericRequiredMentions": [],
+      "genericPreferredMentions": [],
+      "requiredQualifications": "아래 항목 중 한 가지 이상의 경험이 있으신 분\n- 제품기술·공정설계 등 5년 이상 유관경력 보유하신 분 (학술연구 포함)\n- AI Agent 설계·개발 및 머신러닝 등 5년 이상 유관경력 보유하신 분 (학술연구 포함)",
+      "preferredQualifications": "- 산업공학, 컴퓨터공학, 기계공학, 전기/전자공학, 시스템공학, 전산학, 로보틱스, 경영정보(MIS) 등 유관전공 석사 이상 학위 보유하신 분\n- 생활가전 제품 제조현장에서 출하승인, 양산 전 공정 점검, 설비 검증 실무 경험 보유하신 분\n- 딥러닝, 강화학습 알고리즘 등의 데이터 분석 기술 보유하신 분\n- Python, C#, Java 등 프로그래밍 역량 보유하신 분\n- 제조 시뮬레이션 모델링 및 최적화 프로젝트 경험 보유하신 분\n- 제조 현장 데이터를 활용한 디지털트윈 시뮬레이션 수행 경험 보유하신 분\n\n※ 근무지역 및 근무형태 관련 보다 자세한 사항은 '참고사항' 확인 부탁드립니다."
+    },
+    {
+      "group": "Samsung",
+      "jobNoticeId": "23440",
+      "company": "삼성전자 DX부문",
+      "title": "경력사원 채용(Visual Display, Digital Appliances, 생산기술연구소, Global CS센터, Global EHS실, 한국총괄)",
+      "positionIndex": 12,
+      "positionName": "[G-EHS] 위험기계 안전관리",
+      "requiredCertificates": [],
+      "preferredCertificates": [
+        {
+          "name": "산업안전기사",
+          "evidence": "- 산업안전기사, 전기기사, 일반기계기사 등 안전 관련 자격 보유하신 분 -"
+        },
+        {
+          "name": "일반기계기사",
+          "evidence": "- 산업안전기사, 전기기사, 일반기계기사 등 안전 관련 자격 보유하신 분 - 산업안전, 전기, 기계 등"
+        },
+        {
+          "name": "전기기사",
+          "evidence": "- 산업안전기사, 전기기사, 일반기계기사 등 안전 관련 자격 보유하신 분 - 산업안전,"
+        }
+      ],
+      "genericRequiredMentions": [],
+      "genericPreferredMentions": [
+        "- 산업안전기사, 전기기사, 일반기계기사 등 안전 관련 자격 보유하신 분"
+      ],
+      "requiredQualifications": "- 산업안전관리, 설비 자동화, PLC 제어 등 4년 이상 유관경력 보유하신 분",
+      "preferredQualifications": "- 산업안전기사, 전기기사, 일반기계기사 등 안전 관련 자격 보유하신 분\n- 산업안전, 전기, 기계 등 안전 관리 유관전공 학사 이상 학위 보유하신 분\n\n※ 근무지역 및 근무형태 관련 보다 자세한 사항은 '참고사항' 확인 부탁드립니다."
+    },
+    {
+      "group": "Samsung",
+      "jobNoticeId": "23440",
+      "company": "삼성전자 DX부문",
+      "title": "경력사원 채용(Visual Display, Digital Appliances, 생산기술연구소, Global CS센터, Global EHS실, 한국총괄)",
+      "positionIndex": 13,
+      "positionName": "[한국총괄] 라이브커머스 쇼호스트",
+      "requiredCertificates": [],
+      "preferredCertificates": [],
+      "genericRequiredMentions": [],
+      "genericPreferredMentions": [],
+      "requiredQualifications": "- 주요 라이브커머스, 홈쇼핑 방송 호스트/게스트 등 2년 이상 유관경력 보유하신 분",
+      "preferredQualifications": "- 라이브커머스 방송 프로세스에 대한 이해 보유하신 분\n- 시나리오 작성 및 방송기획 경험 보유하신 분\n\n※ 근무지역 및 근무형태 관련 보다 자세한 사항은 '참고사항' 확인 부탁드립니다."
+    },
+    {
+      "group": "Samsung",
+      "jobNoticeId": "23427",
+      "company": "삼성E&A",
+      "title": "경력사원 채용(안전관리, 보건관리, 중장비 기술안전, 품질관리)",
+      "positionIndex": 0,
+      "positionName": "안전관리",
+      "requiredCertificates": [
+        {
+          "name": "건설안전기사",
+          "evidence": "- 4년 이상 유관경력 보유하신 분 - 건설안전기사 등 산업안전보건법상 선임요건 충족 가능하신 분"
+        }
+      ],
+      "preferredCertificates": [],
+      "genericRequiredMentions": [],
+      "genericPreferredMentions": [],
+      "requiredQualifications": "- 4년 이상 유관경력 보유하신 분\n- 건설안전기사 등 산업안전보건법상 선임요건 충족 가능하신 분",
+      "preferredQualifications": "- 산업안전지도사, 건설안전기술사, NEBOSH 등 유관 자격 보유하신 분\n- 중급 영어 회화 능력 보유하신 분\n- 화공 플랜트 및 해외현장 프로젝트 경험 보유하신 분\n\n※ 근무지역 및 근무형태 관련 보다 자세한 사항은 '참고사항' 확인 부탁드립니다."
+    },
+    {
+      "group": "Samsung",
+      "jobNoticeId": "23427",
+      "company": "삼성E&A",
+      "title": "경력사원 채용(안전관리, 보건관리, 중장비 기술안전, 품질관리)",
+      "positionIndex": 1,
+      "positionName": "보건관리",
+      "requiredCertificates": [
+        {
+          "name": "산업위생관리기사",
+          "evidence": "- 4년 이상 유관경력 보유하신 분 - 간호사, 산업위생관리기사 등 산업안전보건법상 선임요건 충족 가능하신 분"
+        }
+      ],
+      "preferredCertificates": [],
+      "genericRequiredMentions": [],
+      "genericPreferredMentions": [],
+      "requiredQualifications": "- 4년 이상 유관경력 보유하신 분\n- 간호사, 산업위생관리기사 등 산업안전보건법상 선임요건 충족 가능하신 분",
+      "preferredQualifications": "- 중급 영어 회화 능력 보유하신 분\n- 건설업 보건관리 및 건강증진 사업 경험 보유하신 분 \n- 데이터 기반 건강관리 분석 경험 보유하신 분\n\n※ 근무지역 및 근무형태 관련 보다 자세한 사항은 '참고사항' 확인 부탁드립니다."
+    },
+    {
+      "group": "Samsung",
+      "jobNoticeId": "23427",
+      "company": "삼성E&A",
+      "title": "경력사원 채용(안전관리, 보건관리, 중장비 기술안전, 품질관리)",
+      "positionIndex": 2,
+      "positionName": "기술안전(중장비)",
+      "requiredCertificates": [],
+      "preferredCertificates": [],
+      "genericRequiredMentions": [],
+      "genericPreferredMentions": [
+        "- 건설기계기술사 등 관련자격 보유하신 분"
+      ],
+      "requiredQualifications": "- 4년 이상 유관경력 보유하신 분",
+      "preferredQualifications": "- 건설기계기술사 등 관련자격 보유하신 분\n- 중급 영어 회화 능력 보유하신 분\n- 중장비 안전관리 업무 경험 보유하신 분\n\n※ 근무지역 및 근무형태 관련 보다 자세한 사항은 '참고사항' 확인 부탁드립니다."
+    },
+    {
+      "group": "Samsung",
+      "jobNoticeId": "23427",
+      "company": "삼성E&A",
+      "title": "경력사원 채용(안전관리, 보건관리, 중장비 기술안전, 품질관리)",
+      "positionIndex": 3,
+      "positionName": "품질관리(첨단산업)",
+      "requiredCertificates": [],
+      "preferredCertificates": [
+        {
+          "name": "품질경영기사",
+          "evidence": "자공학, 산업공학 등 유관전공 학사 학위 이상 보유하신 분 - 품질경영기사, 품질경영기술사 등 관련자격 보유하신 분 - QMS 심사원 자"
+        }
+      ],
+      "genericRequiredMentions": [],
+      "genericPreferredMentions": [
+        "- 품질경영기사, 품질경영기술사 등 관련자격 보유하신 분",
+        "- IWE/IWI, 용접기술사, CSWIP3.1/AWS CWI 등 용접 관련자격 보유하신 분"
+      ],
+      "requiredQualifications": "- 첨단산업 플랜트 품질관리 등 4년 이상 유관경력 보유하신 분",
+      "preferredQualifications": "- 토목/건축공학, 금속/재료공학, 기계공학, 전기/전자공학, 산업공학 등 유관전공 학사 학위 이상 보유하신 분\n- 품질경영기사, 품질경영기술사 등 관련자격 보유하신 분\n- QMS 심사원 자격(IRCA ISO 9001 Lead Auditor) 보유하신 분\n- IWE/IWI, 용접기술사, CSWIP3.1/AWS CWI 등 용접 관련자격 보유하신 분\n- 중급 영어 회화 능력 보유하신 분\n- 품질 현안, 트랜드 분석 및 재발방지 대책 수립 경험 보유하신 분\n- 발주처 대응 및 현장 품질 기술지원 경험 보유하신 분\n\n※ 근무지역 및 근무형태 관련 보다 자세한 사항은 '참고사항' 확인 부탁드립니다."
+    },
+    {
+      "group": "Samsung",
+      "jobNoticeId": "23426",
+      "company": "삼성E&A",
+      "title": "경력사원 채용(첨단산업 설계, 시공, 공무)",
+      "positionIndex": 0,
+      "positionName": "공무(Cost/Planning)",
+      "requiredCertificates": [],
+      "preferredCertificates": [],
+      "genericRequiredMentions": [],
+      "genericPreferredMentions": [],
+      "requiredQualifications": "- 4년 이상 유관경력 보유하신 분",
+      "preferredQualifications": "- Primavera P6, SAP 시스템, 공정관리, Power BI 사용 경험 보유하신 분\n- 반도체 프로젝트 경험 보유하신 분\n\n※ 근무지역 및 근무형태 관련 보다 자세한 사항은 '참고사항' 확인 부탁드립니다."
+    },
+    {
+      "group": "Samsung",
+      "jobNoticeId": "23426",
+      "company": "삼성E&A",
+      "title": "경력사원 채용(첨단산업 설계, 시공, 공무)",
+      "positionIndex": 1,
+      "positionName": "시공관리(첨단산업)",
+      "requiredCertificates": [],
+      "preferredCertificates": [],
+      "genericRequiredMentions": [],
+      "genericPreferredMentions": [],
+      "requiredQualifications": "- 4년 이상 유관경력 보유하신 분",
+      "preferredQualifications": "- 반도체 프로젝트 경험 보유하신 분\n- 하/폐수, 초순수, 대기방지 프로젝트 수행 경험 보유하신 분\n- 초고압 시공 경험 보유하신 분\n\n※ 근무지역 및 근무형태 관련 보다 자세한 사항은 '참고사항' 확인 부탁드립니다."
+    },
+    {
+      "group": "Samsung",
+      "jobNoticeId": "23426",
+      "company": "삼성E&A",
+      "title": "경력사원 채용(첨단산업 설계, 시공, 공무)",
+      "positionIndex": 2,
+      "positionName": "시공BIM관리(첨단산업)",
+      "requiredCertificates": [],
+      "preferredCertificates": [],
+      "genericRequiredMentions": [],
+      "genericPreferredMentions": [],
+      "requiredQualifications": "- 4년 이상 유관경력 보유하신 분",
+      "preferredQualifications": "- 기계공학, 전기전자공학 등 유관전공 학사 이상 학위 보유하신 분 \n- Fuzor, Dynamo, Power BI 사용 경험 보유하신 분\n\n※ 근무지역 및 근무형태 관련 보다 자세한 사항은 '참고사항' 확인 부탁드립니다."
+    },
+    {
+      "group": "Samsung",
+      "jobNoticeId": "23426",
+      "company": "삼성E&A",
+      "title": "경력사원 채용(첨단산업 설계, 시공, 공무)",
+      "positionIndex": 3,
+      "positionName": "토목설계(첨단산업)",
+      "requiredCertificates": [],
+      "preferredCertificates": [],
+      "genericRequiredMentions": [],
+      "genericPreferredMentions": [
+        "- 토질 및 기초기술사, 토목구조기술사 등 관련 자격 보유하신 분"
+      ],
+      "requiredQualifications": "- 4년 이상 유관경력 보유하신 분",
+      "preferredQualifications": "- 토목공학, 건축공학, 지질공학 등 유관전공 석사 학위 이상 보유하신 분\n- 토질 및 기초기술사, 토목구조기술사 등 관련 자격 보유하신 분\n- 중급 영어 회화 능력 보유하신 분\n- 국내외 현장 토목 분야 설계 및 시공업무 경험 보유하신 분\n\n※ 근무지역 및 근무형태 관련 보다 자세한 사항은 '참고사항' 확인 부탁드립니다."
+    },
+    {
+      "group": "Samsung",
+      "jobNoticeId": "23426",
+      "company": "삼성E&A",
+      "title": "경력사원 채용(첨단산업 설계, 시공, 공무)",
+      "positionIndex": 4,
+      "positionName": "구조설계(첨단산업)",
+      "requiredCertificates": [],
+      "preferredCertificates": [],
+      "genericRequiredMentions": [],
+      "genericPreferredMentions": [
+        "- 구조설계기술사 등 관련자격 보유하신 분"
+      ],
+      "requiredQualifications": "- 4년 이상 유관경력 보유하신 분",
+      "preferredQualifications": "- 건축공학, 건축구조, 토목구조 등 유관전공 학사 이상 학위 보유하신 분\n- 구조설계기술사 등 관련자격 보유하신 분\n\n※ 근무지역 및 근무형태 관련 보다 자세한 사항은 '참고사항' 확인 부탁드립니다."
+    },
+    {
+      "group": "Samsung",
+      "jobNoticeId": "23426",
+      "company": "삼성E&A",
+      "title": "경력사원 채용(첨단산업 설계, 시공, 공무)",
+      "positionIndex": 5,
+      "positionName": "건축설계(첨단산업)",
+      "requiredCertificates": [],
+      "preferredCertificates": [],
+      "genericRequiredMentions": [],
+      "genericPreferredMentions": [
+        "- 건축사 등 관련자격 보유하신 분"
+      ],
+      "requiredQualifications": "- 4년 이상 유관경력 보유하신 분",
+      "preferredQualifications": "- 건축공학, 건축구조, 토목구조 등 유관전공 학사 이상 학위 보유하신 분\n- 건축사 등 관련자격 보유하신 분\n- FAB설계, BIM 수행 경험 보유하신 분\n\n※ 근무지역 및 근무형태 관련 보다 자세한 사항은 '참고사항' 확인 부탁드립니다."
+    },
+    {
+      "group": "Samsung",
+      "jobNoticeId": "23426",
+      "company": "삼성E&A",
+      "title": "경력사원 채용(첨단산업 설계, 시공, 공무)",
+      "positionIndex": 6,
+      "positionName": "설비설계(첨단산업)",
+      "requiredCertificates": [],
+      "preferredCertificates": [
+        {
+          "name": "건축설비기사",
+          "evidence": "등 유관전공 학사 학위 이상 보유하신 분 - 공조냉동기계기사, 건축설비기사 등 관련 자격 보유하신 분 - 국내외 현장 대기방지 덕트 및"
+        },
+        {
+          "name": "공조냉동기계기사",
+          "evidence": "경공학, 기계공학 등 유관전공 학사 학위 이상 보유하신 분 - 공조냉동기계기사, 건축설비기사 등 관련 자격 보유하신 분 - 국내외 현장 대기"
+        }
+      ],
+      "genericRequiredMentions": [],
+      "genericPreferredMentions": [
+        "- 공조냉동기계기사, 건축설비기사 등 관련 자격 보유하신 분"
+      ],
+      "requiredQualifications": "- 4년 이상 유관경력 보유하신 분",
+      "preferredQualifications": "- 건축설비공학, 환경공학, 기계공학 등 유관전공 학사 학위 이상 보유하신 분\n- 공조냉동기계기사, 건축설비기사 등 관련 자격 보유하신 분\n- 국내외 현장 대기방지 덕트 및 배관 설계 경험 보유하신 분\n- 첨단산업(반도체, 디스플레이 등) 분야 대기방지 설계 경험 보유하신 분\n\n※ 근무지역 및 근무형태 관련 보다 자세한 사항은 '참고사항' 확인 부탁드립니다."
+    },
+    {
+      "group": "Samsung",
+      "jobNoticeId": "23426",
+      "company": "삼성E&A",
+      "title": "경력사원 채용(첨단산업 설계, 시공, 공무)",
+      "positionIndex": 7,
+      "positionName": "소방설계(첨단산업)",
+      "requiredCertificates": [],
+      "preferredCertificates": [],
+      "genericRequiredMentions": [],
+      "genericPreferredMentions": [
+        "- 소방기술사 등 관련 자격 보유하신 분"
+      ],
+      "requiredQualifications": "- 4년 이상 유관경력 보유하신 분",
+      "preferredQualifications": "- 건축설비공학, 기계공학 등 유관전공 학사 학위 이상 보유하신 분\n- 소방기술사 등 관련 자격 보유하신 분\n- FAB설계 경험 보유하신 분\n\n※ 근무지역 및 근무형태 관련 보다 자세한 사항은 '참고사항' 확인 부탁드립니다."
+    },
+    {
+      "group": "Samsung",
+      "jobNoticeId": "23426",
+      "company": "삼성E&A",
+      "title": "경력사원 채용(첨단산업 설계, 시공, 공무)",
+      "positionIndex": 8,
+      "positionName": "배관설계(첨단산업)",
+      "requiredCertificates": [],
+      "preferredCertificates": [],
+      "genericRequiredMentions": [],
+      "genericPreferredMentions": [],
+      "requiredQualifications": "- 4년 이상 유관경력 보유하신 분",
+      "preferredQualifications": "- 기계설계, 건축공학 등 유관전공 학사 이상 학위 보유하신 분\n- FAB, GCS 설계 경험 보유하신 분\n- 반도체 프로젝트 경험 보유하신 분\n\n※ 근무지역 및 근무형태 관련 보다 자세한 사항은 '참고사항' 확인 부탁드립니다."
+    },
+    {
+      "group": "Samsung",
+      "jobNoticeId": "23426",
+      "company": "삼성E&A",
+      "title": "경력사원 채용(첨단산업 설계, 시공, 공무)",
+      "positionIndex": 9,
+      "positionName": "전기설계(첨단산업)",
+      "requiredCertificates": [],
+      "preferredCertificates": [],
+      "genericRequiredMentions": [],
+      "genericPreferredMentions": [
+        "Electrical and Computer : Power PE 등 관련 자격 보유하신 분"
+      ],
+      "requiredQualifications": "- 4년 이상 유관경력 보유하신 분",
+      "preferredQualifications": "- 전기공학, 전자공학 등 유관전공 학사 이상 학위 보유하신 분\n- 발송 배전/건축전기설비 기술사, 전기/전기공사/소방전기 기사, \n  Electrical and Computer : Power PE 등 관련 자격 보유하신 분\n- 중급 영어 회화 능력 보유하신 분 \n- FAB, GCS, 초고압 변전소 설계 경험 보유하신 분\n- 미국/유럽 등 해외 프로젝트 경험 보유하신 분\n\n※ 근무지역 및 근무형태 관련 보다 자세한 사항은 '참고사항' 확인 부탁드립니다."
+    },
+    {
+      "group": "Samsung",
+      "jobNoticeId": "23426",
+      "company": "삼성E&A",
+      "title": "경력사원 채용(첨단산업 설계, 시공, 공무)",
+      "positionIndex": 10,
+      "positionName": "제어설계(첨단산업)",
+      "requiredCertificates": [],
+      "preferredCertificates": [],
+      "genericRequiredMentions": [],
+      "genericPreferredMentions": [
+        "- 산업계측제어기사 및 기술사, Control Systems PE 등 관련 자격 보유하신 분"
+      ],
+      "requiredQualifications": "- 4년 이상 유관경력 보유하신 분",
+      "preferredQualifications": "- 전기공학, 전자공학, 계측제어공학 등 유관 전공 학사 학위 이상 보유하신 분\n- 산업계측제어기사 및 기술사, Control Systems PE 등 관련 자격 보유하신 분 \n- 중급 영어 회화 능력 보유하신 분 \n- FAB, Gas, Chemical 및 Life Safety System 설계 경험 보유하신 분\n- 해외(미국, 유럽 등) 프로젝트 수행 경험 보유하신 분\n\n※ 근무지역 및 근무형태 관련 보다 자세한 사항은 '참고사항' 확인 부탁드립니다."
+    },
+    {
+      "group": "Samsung",
+      "jobNoticeId": "23426",
+      "company": "삼성E&A",
+      "title": "경력사원 채용(첨단산업 설계, 시공, 공무)",
+      "positionIndex": 11,
+      "positionName": "공정/기계설계(첨단산업)",
+      "requiredCertificates": [],
+      "preferredCertificates": [],
+      "genericRequiredMentions": [],
+      "genericPreferredMentions": [
+        "- 공조냉동기계/건설기계/화공 기술사, Mechanical & Chemical PE 등 관련 자격 보유하신 분"
+      ],
+      "requiredQualifications": "- 4년 이상 유관경력 보유하신 분",
+      "preferredQualifications": "- 화학공학, 기계공학, 환경공학 등 유관 전공 학사 학위 이상 보유하신 분\n- 공조냉동기계/건설기계/화공 기술사, Mechanical & Chemical PE 등 관련 자격 보유하신 분 \n- 중급 영어 회화 능력 보유하신 분 \n- FAB, GCS 설계 경험 보유하신 분\n- 해외 수처리 프로젝트 수행 또는 입찰 참여 경험 보유하신 분\n- 공정 시뮬레이션 프로그램 또는 CFD 해석, AutoCAD 활용 경험 보유하신 분\n\n※ 근무지역 및 근무형태 관련 보다 자세한 사항은 '참고사항' 확인 부탁드립니다."
+    },
+    {
+      "group": "Samsung",
+      "jobNoticeId": "23426",
+      "company": "삼성E&A",
+      "title": "경력사원 채용(첨단산업 설계, 시공, 공무)",
+      "positionIndex": 12,
+      "positionName": "기계설계(하/폐수처리)",
+      "requiredCertificates": [],
+      "preferredCertificates": [
+        {
+          "name": "수질환경기사",
+          "evidence": "지환경시스템공학 등 유관 전공 학사 학위 이상 보유하신 분 - 수질환경기사, 일반기계기사 등 관련 자격 보유하신 분 - 중급 영어 회화"
+        },
+        {
+          "name": "일반기계기사",
+          "evidence": "등 유관 전공 학사 학위 이상 보유하신 분 - 수질환경기사, 일반기계기사 등 관련 자격 보유하신 분 - 중급 영어 회화 능력 보유하신"
+        }
+      ],
+      "genericRequiredMentions": [],
+      "genericPreferredMentions": [
+        "- 수질환경기사, 일반기계기사 등 관련 자격 보유하신 분"
+      ],
+      "requiredQualifications": "- 4년 이상 유관경력 보유하신 분",
+      "preferredQualifications": "- 환경공학, 화학공학, 에너지환경시스템공학 등 유관 전공 학사 학위 이상 보유하신 분\n- 수질환경기사, 일반기계기사 등 관련 자격 보유하신 분\n- 중급 영어 회화 능력 보유하신 분\n- 수처리 플랜트(EPC) 설계, AutoCAD, 3D Model Review 경험 보유하신 분\n\n※ 근무지역 및 근무형태 관련 보다 자세한 사항은 '참고사항' 확인 부탁드립니다."
+    },
+    {
+      "group": "Samsung",
+      "jobNoticeId": "23426",
+      "company": "삼성E&A",
+      "title": "경력사원 채용(첨단산업 설계, 시공, 공무)",
+      "positionIndex": 13,
+      "positionName": "공정설계(하/폐수처리)",
+      "requiredCertificates": [],
+      "preferredCertificates": [],
+      "genericRequiredMentions": [],
+      "genericPreferredMentions": [
+        "- 수질관리기술사, 상하수도기술사 등 관련 자격 보유하신 분"
+      ],
+      "requiredQualifications": "- 4년 이상 유관경력 보유하신 분",
+      "preferredQualifications": "- 환경공학, 화학공학, 에너지환경시스템공학 등 유관 전공 학사 학위 이상 보유하신 분\n- 수질관리기술사, 상하수도기술사 등 관련 자격 보유하신 분\n- 중급 영어 회화 능력 보유하신 분\n- 폐수처리 설계 업무 경험 보유하신 분\n\n※ 근무지역 및 근무형태 관련 보다 자세한 사항은 '참고사항' 확인 부탁드립니다."
+    },
+    {
+      "group": "Samsung",
+      "jobNoticeId": "23426",
+      "company": "삼성E&A",
+      "title": "경력사원 채용(첨단산업 설계, 시공, 공무)",
+      "positionIndex": 14,
+      "positionName": "공정/기계설계(초순수)",
+      "requiredCertificates": [],
+      "preferredCertificates": [],
+      "genericRequiredMentions": [],
+      "genericPreferredMentions": [
+        "- 수질관리기술사, 상하수도기술사 등 관련 자격 보유하신 분"
+      ],
+      "requiredQualifications": "- 4년 이상 유관경력 보유하신 분",
+      "preferredQualifications": "- 환경공학, 화학공학, 에너지환경시스템공학 등 유관 전공 학사 학위 이상 보유하신 분\n- 수질관리기술사, 상하수도기술사 등 관련 자격 보유하신 분\n- 중급 영어 회화 능력 보유하신 분\n- 초순수처리 설계 업무 경험 보유하신 분\n\n※ 근무지역 및 근무형태 관련 보다 자세한 사항은 '참고사항' 확인 부탁드립니다."
+    },
+    {
+      "group": "Samsung",
+      "jobNoticeId": "23426",
+      "company": "삼성E&A",
+      "title": "경력사원 채용(첨단산업 설계, 시공, 공무)",
+      "positionIndex": 15,
+      "positionName": "공정설계(재이용/ZLD)",
+      "requiredCertificates": [],
+      "preferredCertificates": [],
+      "genericRequiredMentions": [],
+      "genericPreferredMentions": [
+        "- 수질관리기술사, 상하수도기술사 등 관련 자격 보유하신 분"
+      ],
+      "requiredQualifications": "- 4년 이상 유관경력 보유하신 분",
+      "preferredQualifications": "- 환경공학, 화학공학, 에너지환경시스템공학 등 유관 전공 학사 학위 이상 보유하신 분\n- 수질관리기술사, 상하수도기술사 등 관련 자격 보유하신 분\n- 중급 영어 회화 능력 보유하신 분\n- 재이용 및 ZLD 프로젝트 수행 경험 보유하신 분\n\n※ 근무지역 및 근무형태 관련 보다 자세한 사항은 '참고사항' 확인 부탁드립니다."
+    },
+    {
+      "group": "Samsung",
+      "jobNoticeId": "23428",
+      "company": "삼성E&A",
+      "title": "경력사원 채용(화공 사업관리, 연구개발, 분석)",
+      "positionIndex": 0,
+      "positionName": "화공플랜트 사업관리",
+      "requiredCertificates": [],
+      "preferredCertificates": [],
+      "genericRequiredMentions": [],
+      "genericPreferredMentions": [],
+      "requiredQualifications": "- 4년 이상 유관경력 보유하신 분",
+      "preferredQualifications": "- 중급 영어 회화 능력 보유하신 분\n- CIS 지역 프로젝트 수행 경험 보유하신 분\n- 비료(Ammonia/Urea) 부문 상품 경험 보유하신 분\n\n※ 근무지역 및 근무형태 관련 보다 자세한 사항은 '참고사항' 확인 부탁드립니다."
+    },
+    {
+      "group": "Samsung",
+      "jobNoticeId": "23428",
+      "company": "삼성E&A",
+      "title": "경력사원 채용(화공 사업관리, 연구개발, 분석)",
+      "positionIndex": 1,
+      "positionName": "연구개발 (폐수처리공정)",
+      "requiredCertificates": [],
+      "preferredCertificates": [],
+      "genericRequiredMentions": [],
+      "genericPreferredMentions": [],
+      "requiredQualifications": "- 폐수처리 공정 Simulation 등 4년 이상 유관경력 보유하신 분",
+      "preferredQualifications": "- 화공, 환경, 기계공학등 유관전공 석/박사 이상 학위 보유하신 분\n- AI 강화학습을 접목한 Smart 제어 및 특허 도출 경험 보유하신 분 \n- 단위 공정 용량계산서 및 Mass balance 작성 경험 보유하신 분\n- 공정 최적화 프로그래밍 (MATLAB, Python 등) 경험 보유하신 분\n\n※ 근무지역 및 근무형태 관련 보다 자세한 사항은 '참고사항' 확인 부탁드립니다."
+    },
+    {
+      "group": "Samsung",
+      "jobNoticeId": "23428",
+      "company": "삼성E&A",
+      "title": "경력사원 채용(화공 사업관리, 연구개발, 분석)",
+      "positionIndex": 2,
+      "positionName": "연구개발 (폐수흡착소재)",
+      "requiredCertificates": [],
+      "preferredCertificates": [],
+      "genericRequiredMentions": [],
+      "genericPreferredMentions": [],
+      "requiredQualifications": "- 수처리용 미량오염물질 (PFAS 등) 흡착 신소재 기술개발 등 4년 이상 유관경력 보유하신 분",
+      "preferredQualifications": "- 화공, 환경, 기계, 재료공학, 화학등 유관전공 박사 학위 보유하신 분\n- 소재 합성/개발 관련 기업체 R&D Project 경험 보유하신 분 \n- 소재 개발 관련 특허 도출 경험 보유하신 분\n- 경제성 평가 경험 보유하신 분\n\n※ 근무지역 및 근무형태 관련 보다 자세한 사항은 '참고사항' 확인 부탁드립니다."
+    },
+    {
+      "group": "Samsung",
+      "jobNoticeId": "23428",
+      "company": "삼성E&A",
+      "title": "경력사원 채용(화공 사업관리, 연구개발, 분석)",
+      "positionIndex": 3,
+      "positionName": "연구개발 (고효율 흡착제)",
+      "requiredCertificates": [],
+      "preferredCertificates": [],
+      "genericRequiredMentions": [],
+      "genericPreferredMentions": [],
+      "requiredQualifications": "- 흡착제 개발 및 공정 개발 등 4년 이상 유관경력 보유하신 분",
+      "preferredQualifications": "- 화공, 화학등 유관전공 박사 이상 학위 보유하신 분\n- 흡착 소재 개발 및 분석/평가, 공정 개발 경험 보유하신 분\n- 소재 펠렛 또는 허니컴 성형체 개발 경험 보유하신 분 \n- 국책/산학 과제 수행 경험 보유하신 분\n\n※ 근무지역 및 근무형태 관련 보다 자세한 사항은 '참고사항' 확인 부탁드립니다."
+    },
+    {
+      "group": "Samsung",
+      "jobNoticeId": "23428",
+      "company": "삼성E&A",
+      "title": "경력사원 채용(화공 사업관리, 연구개발, 분석)",
+      "positionIndex": 4,
+      "positionName": "연구개발 (배가스처리)",
+      "requiredCertificates": [],
+      "preferredCertificates": [],
+      "genericRequiredMentions": [],
+      "genericPreferredMentions": [
+        "- 대기기술사 자격증 등 관련자격 보유하신 분"
+      ],
+      "requiredQualifications": "- 대기방지시설 기술 연구 개발 등 4년 이상 유관경력 보유하신 분",
+      "preferredQualifications": "- 환경(대기처리기술 등) 유관전공 박사 이상 학위 보유하신 분\n- 대기기술사 자격증 등 관련자격 보유하신 분\n\n※ 근무지역 및 근무형태 관련 보다 자세한 사항은 '참고사항' 확인 부탁드립니다."
+    },
+    {
+      "group": "Samsung",
+      "jobNoticeId": "23428",
+      "company": "삼성E&A",
+      "title": "경력사원 채용(화공 사업관리, 연구개발, 분석)",
+      "positionIndex": 5,
+      "positionName": "분석 (초순수)",
+      "requiredCertificates": [],
+      "preferredCertificates": [],
+      "genericRequiredMentions": [],
+      "genericPreferredMentions": [
+        "- 수질, 분석 등 환경/분석 기사 자격증 등 관련자격 보유하신 분"
+      ],
+      "requiredQualifications": "- 극미량 물질 분석법 개발 등 4년 이상 유관경력 보유하신 분",
+      "preferredQualifications": "- 수질, 분석 등 환경/분석 기사 자격증 등 관련자격 보유하신 분\n- 반도체급 초순수 분석/평가 경험 보유하신 분\n\n※ 근무지역 및 근무형태 관련 보다 자세한 사항은 '참고사항' 확인 부탁드립니다."
+    },
+    {
+      "group": "Samsung",
+      "jobNoticeId": "23435",
+      "company": "삼성증권",
+      "title": "경력사원 채용(유선 고객상담)",
+      "positionIndex": 0,
+      "positionName": "유선 고객 상담직",
+      "requiredCertificates": [],
+      "preferredCertificates": [],
+      "genericRequiredMentions": [],
+      "genericPreferredMentions": [
+        "- 증권업 관련자격 보유하신 분"
+      ],
+      "requiredQualifications": "- 4년 이상 유관경력 보유하신 분\n  (금융거래에 결격 사유가 없으신 분)",
+      "preferredQualifications": "- 증권사 고객센터 근무 경력을 보유하신 분\n- 증권업 관련자격 보유하신 분\n\n※ 근무지역 및 근무형태 관련 보다 자세한 사항은 '참고사항' 확인 부탁드립니다.\n※ 근무지역 : 서울 서초구, 대구 수성구"
+    },
+    {
+      "group": "Samsung",
+      "jobNoticeId": "23409",
+      "company": "삼성물산 건설부문",
+      "title": "경력사원 채용(AI서비스개발, 정보기술, 데이터)",
+      "positionIndex": 0,
+      "positionName": "AI서비스 개발",
+      "requiredCertificates": [],
+      "preferredCertificates": [],
+      "genericRequiredMentions": [],
+      "genericPreferredMentions": [],
+      "requiredQualifications": "- AI 서비스 개발 또는 소프트웨어 개발 등 7년 이상 유관경력 보유하신 분",
+      "preferredQualifications": "- Agentic AI 또는 LLM 기반 서비스 개발 및 운영 경험하신 분\n- Context 및 Harness Engineering 실무 적용 경험하신 분\n- AI Agent Framework 활용 역량 보유하신 분\n- RAG 시스템 구축 및 Vector DB 연동 경험하신 분\n- 클라우드 환경 내 AI 서비스의 Production 배포 및 운영 경험하신 분\n\n※ 근무지역 및 근무형태 관련 보다 자세한 사항은 '참고사항' 확인 부탁드립니다."
+    },
+    {
+      "group": "Samsung",
+      "jobNoticeId": "23409",
+      "company": "삼성물산 건설부문",
+      "title": "경력사원 채용(AI서비스개발, 정보기술, 데이터)",
+      "positionIndex": 1,
+      "positionName": "정보시스템 개발/운영",
+      "requiredCertificates": [],
+      "preferredCertificates": [],
+      "genericRequiredMentions": [],
+      "genericPreferredMentions": [
+        "- 전산 관련자격 보유하신 분"
+      ],
+      "requiredQualifications": "- Low/No Code기반 시스템 개발/운영 수행 등 4년이상 유관경력 보유하신 분",
+      "preferredQualifications": "- 컴퓨터, 정보통신, 소프트웨어학과 등 전산 유관전공 학사 이상 학위 보유하신 분\n- 전산 관련자격 보유하신 분\n- 건설 산업의 IT 시스템 개발 및 운영 업무 및 AI 관련 업무 경험하신 분\n\n※ 근무지역 및 근무형태 관련 보다 자세한 사항은 '참고사항' 확인 부탁드립니다."
+    },
+    {
+      "group": "Samsung",
+      "jobNoticeId": "23409",
+      "company": "삼성물산 건설부문",
+      "title": "경력사원 채용(AI서비스개발, 정보기술, 데이터)",
+      "positionIndex": 2,
+      "positionName": "정보기술기획",
+      "requiredCertificates": [],
+      "preferredCertificates": [],
+      "genericRequiredMentions": [],
+      "genericPreferredMentions": [
+        "- MS, AWS 등 전산 및 클라우드 관련자격 보유하신 분"
+      ],
+      "requiredQualifications": "- SI/SM 관련 업무 등 7년 이상 유관경력 보유하신 분",
+      "preferredQualifications": "- MS, AWS 등 전산 및 클라우드 관련자격 보유하신 분\n- Digital Transformation업무 수행(클라우드 전환/MSA/AI/ML 등) 경험하신 분\n- SW 공학, 자료구조 등 IT 개발을 위한 전문지식 보유하신 분\n- Web/Mobile 등 개발 및 운영 역량 보유하신 분\n- Plant, 토목 등 건설 사업의 IT 시스템 개발 및 운영(CAD add-in 등) 경험하신 분\n- 클라우드 기반 시스템 구축, 운영 역량 및 경험 보유하신 분\n- Agile, PI/IT개발 방법론 역량 보유하신 분\n- DevOps 구축 및 운영 역량 보유하신 분\n- Cloud Solution 아키텍처 및 Full stack 역량 보유하신 분\n\n※ 근무지역 및 근무형태 관련 보다 자세한 사항은 '참고사항' 확인 부탁드립니다."
+    },
+    {
+      "group": "Samsung",
+      "jobNoticeId": "23409",
+      "company": "삼성물산 건설부문",
+      "title": "경력사원 채용(AI서비스개발, 정보기술, 데이터)",
+      "positionIndex": 3,
+      "positionName": "건설 디지털 기술(기술 연구)",
+      "requiredCertificates": [],
+      "preferredCertificates": [],
+      "genericRequiredMentions": [],
+      "genericPreferredMentions": [],
+      "requiredQualifications": "- AI를 활용한 이미지 또는 Point Cloud 데이터 분석 등 4년 이상 유관경력 보유하신 분",
+      "preferredQualifications": "- 건설 관련 또는 컴퓨터/인공지능 등 유관전공 학사 이상 학위 보유하신 분\n- 건설사, 건설IT/Tech기업 등에서 Reality Capture 데이터 처리·분석 관련경험을 보유하신 분\n- 프로그래밍/AI 분석 역량 보유하신 분\n\n※ 근무지역 및 근무형태 관련 보다 자세한 사항은 '참고사항' 확인 부탁드립니다."
+    },
+    {
+      "group": "Samsung",
+      "jobNoticeId": "23409",
+      "company": "삼성물산 건설부문",
+      "title": "경력사원 채용(AI서비스개발, 정보기술, 데이터)",
+      "positionIndex": 4,
+      "positionName": "데이터 엔지니어",
+      "requiredCertificates": [],
+      "preferredCertificates": [],
+      "genericRequiredMentions": [],
+      "genericPreferredMentions": [],
+      "requiredQualifications": "- 데이터 파이프라인 또는 데이터 플랫폼 설계/구축·운영 등 7년 이상 유관경력 보유하신 분",
+      "preferredQualifications": "- 클라우드 환경 데이터 처리 및 배포 경험하신 분\n- Airflow 등 워크플로우 오케스트레이션 도구 활용 역량 보유하신 분\n- 기간계, ERP 등 이기종 소스 시스템 데이터 분석 및 수집, 연동 파이프라인 설계 경험하신 분\n- 데이터레이크, 데이터웨어하우스 설계 및 데이터 모델링 경험하신 분\n- SQL 기반 대용량 데이터 처리 및 쿼리 최적화 역량 보유하신 분\n- AI, 분석 활용 데이터 파이프라인 지원 경험하신 분\n\n※ 근무지역 및 근무형태 관련 보다 자세한 사항은 '참고사항' 확인 부탁드립니다."
+    },
+    {
+      "group": "Samsung",
+      "jobNoticeId": "23405",
+      "company": "삼성물산 건설부문",
+      "title": "경력사원 채용(건축시공/공무, 정비사업영업/주택구조, 안전)",
+      "positionIndex": 0,
+      "positionName": "건축 시공/공무",
+      "requiredCertificates": [],
+      "preferredCertificates": [],
+      "genericRequiredMentions": [],
+      "genericPreferredMentions": [
+        "- 건축, 안전, 품질 기술사 등 관련자격 보유하신 분"
+      ],
+      "requiredQualifications": "- 건축 시공/공무 등 5년 이상 유관경력 보유하신 분",
+      "preferredQualifications": "- 건축학 등 유관전공 석사 이상 학위 보유하신 분\n- 건축, 안전, 품질 기술사 등 관련자격 보유하신 분\n- 현장 공정관리 경험 보유하신 분\n- 현장 경험 5년 이상 보유하신 분\n\n※ 근무지역 및 근무형태 관련 보다 자세한 사항은 '참고사항' 확인 부탁드립니다."
+    },
+    {
+      "group": "Samsung",
+      "jobNoticeId": "23405",
+      "company": "삼성물산 건설부문",
+      "title": "경력사원 채용(건축시공/공무, 정비사업영업/주택구조, 안전)",
+      "positionIndex": 1,
+      "positionName": "정비사업 수주영업 및 사업관리",
+      "requiredCertificates": [],
+      "preferredCertificates": [],
+      "genericRequiredMentions": [],
+      "genericPreferredMentions": [],
+      "requiredQualifications": "- 주택 정비사업 수주영업 및 사업관리 등 10년 이상 유관경력 보유하신 분",
+      "preferredQualifications": "- 부동산, 도시계획 등 유관전공 학사 이상 학위 보유하신 분\n- 정비사업 수주, 사업관리 PM 경험하신 분\n\n※ 근무지역 및 근무형태 관련 보다 자세한 사항은 '참고사항' 확인 부탁드립니다."
+    },
+    {
+      "group": "Samsung",
+      "jobNoticeId": "23405",
+      "company": "삼성물산 건설부문",
+      "title": "경력사원 채용(건축시공/공무, 정비사업영업/주택구조, 안전)",
+      "positionIndex": 2,
+      "positionName": "주택 BIM",
+      "requiredCertificates": [],
+      "preferredCertificates": [],
+      "genericRequiredMentions": [],
+      "genericPreferredMentions": [
+        "- 건축사, 기술사 등 건설분야 관련자격을 보유하신 분"
+      ],
+      "requiredQualifications": "- 설계 또는 시공분야 BIM실무경력 등 5년 이상 유관경력 보유하신 분",
+      "preferredQualifications": "- 건축사, 기술사 등 건설분야 관련자격을 보유하신 분\n- BIM·AI 융합 기술개발 및 업무혁신 프로젝트 기획/수행 경험 보유하신 분\n- BIM연계 기술 및 플랫폼 개발 프로젝트 기획/수행 경험 보유하신 분 (설계자동화, Digital Twin 등)\n* 기술개발 및 서비스 구축관련 설명자료가 있으신 경우, 파일첨부 부탁드립니다.\n\n※ 근무지역 및 근무형태 관련 보다 자세한 사항은 '참고사항' 확인 부탁드립니다."
+    },
+    {
+      "group": "Samsung",
+      "jobNoticeId": "23405",
+      "company": "삼성물산 건설부문",
+      "title": "경력사원 채용(건축시공/공무, 정비사업영업/주택구조, 안전)",
+      "positionIndex": 3,
+      "positionName": "주택건축구조",
+      "requiredCertificates": [],
+      "preferredCertificates": [],
+      "genericRequiredMentions": [],
+      "genericPreferredMentions": [
+        "- 건축구조기술사 등 관련자격 보유하신 분"
+      ],
+      "requiredQualifications": "- 구조설계, 기술개발 등 10년 이상 유관경력 보유하신 분",
+      "preferredQualifications": "- 건축공학, 구조공학 등 유관전공 석사 이상 학위 보유하신 분\n- 건축구조기술사 등 관련자격 보유하신 분\n- 중급 영어 회화 능력 보유하신 분\n- 현장 근무 경험하신 분\n\n※ 근무지역 및 근무형태 관련 보다 자세한 사항은 '참고사항' 확인 부탁드립니다."
+    },
+    {
+      "group": "Samsung",
+      "jobNoticeId": "23405",
+      "company": "삼성물산 건설부문",
+      "title": "경력사원 채용(건축시공/공무, 정비사업영업/주택구조, 안전)",
+      "positionIndex": 4,
+      "positionName": "현장 안전관리",
+      "requiredCertificates": [],
+      "preferredCertificates": [],
+      "genericRequiredMentions": [],
+      "genericPreferredMentions": [
+        "- 건설안전(산업)기사, 산업안전(산업)기사, 산업 안전지도사, 건설안전기술사 등 관련 자격 보유하신 분"
+      ],
+      "requiredQualifications": "- 건설안전 실무 등 5년 이상 유관경력 보유하신 분",
+      "preferredQualifications": "- 건설 및 안전 등 유관전공 학사 이상 학위 보유하신 분\n- 건설안전(산업)기사, 산업안전(산업)기사, 산업 안전지도사, 건설안전기술사 등 관련 자격 보유하신 분\n- 상급 영어 회화 능력 보유하신 분\n- 해외현장 또는 반도체, 공항, 발전, 신재생 안전관리 수행 경험하신 분\n\n※ 근무지역 및 근무형태 관련 보다 자세한 사항은 '참고사항' 확인 부탁드립니다."
+    },
+    {
+      "group": "Samsung",
+      "jobNoticeId": "23388",
+      "company": "삼성물산 건설부문",
+      "title": "경력사원 채용(원전기술/설계/영업, 플랜트시운전/설계, 물류/구매)",
+      "positionIndex": 0,
+      "positionName": "원전사업개발 (프로포잘)",
+      "requiredCertificates": [],
+      "preferredCertificates": [],
+      "genericRequiredMentions": [],
+      "genericPreferredMentions": [],
+      "requiredQualifications": "- 발전, 원자력 사업개발 등 5년 이상 유관경력 보유하신 분",
+      "preferredQualifications": "- 해외 발전, 원자력 프로젝트 입찰 및 수행 경험 보유하신 분\n- 유럽, 북미, 중동, 동남아 등 해외 원전, SMR 사업개발 및 제안 경험 보유하신 분\n- 사업비 산정, EPC계약조건 검토 경험 보유하신 분\n- 상급 영어 회화 능력 보유하신 분\n\n※ 근무지역 및 근무형태 관련 보다 자세한 사항은 '참고사항' 확인 부탁드립니다."
+    },
+    {
+      "group": "Samsung",
+      "jobNoticeId": "23388",
+      "company": "삼성물산 건설부문",
+      "title": "경력사원 채용(원전기술/설계/영업, 플랜트시운전/설계, 물류/구매)",
+      "positionIndex": 1,
+      "positionName": "수출입/물류",
+      "requiredCertificates": [],
+      "preferredCertificates": [],
+      "genericRequiredMentions": [],
+      "genericPreferredMentions": [
+        "- 무역/물류 등 관련자격 보유하신 분"
+      ],
+      "requiredQualifications": "- 8년 이상 유관경력 보유하신 분",
+      "preferredQualifications": "- 경영(무역), 인문학, 건설분야 등 유관전공 학사 이상 학위 보유하신 분\n- 무역/물류 등 관련자격 보유하신 분\n- 중급 영어 회화 능력 보유하신 분\n- 해외 현장 경험 2년 이상 보유하신 분\n- 통합 운송사 계약/운송관리3년이상 경험하신 분\n\n※ 근무지역 및 근무형태 관련 보다 자세한 사항은 '참고사항' 확인 부탁드립니다."
+    },
+    {
+      "group": "Samsung",
+      "jobNoticeId": "23388",
+      "company": "삼성물산 건설부문",
+      "title": "경력사원 채용(원전기술/설계/영업, 플랜트시운전/설계, 물류/구매)",
+      "positionIndex": 2,
+      "positionName": "기자재 구매 검사",
+      "requiredCertificates": [],
+      "preferredCertificates": [],
+      "genericRequiredMentions": [],
+      "genericPreferredMentions": [
+        "- 용접/비파괴, 도장/부식(NACE(AMPP) Level), 국제품질(ISO 9001 Auditor/Lead Auditor), API(510, 570, 653등) 등 관련자격 보유하신 분"
+      ],
+      "requiredQualifications": "- 건설사, 플랜트 기자재 제조업체, 또는 제3자 검사기관(TPI)에서 QS/Vendor Inspection 등 5년 이상 유관경력 보유하신 분",
+      "preferredQualifications": "- 기계공학, 금속/재료공학, 화학공학 등 유관전공 학사 이상 학위 보유하신 분\n- 중급 영어 회화 능력 보유하신 분\n- 용접/비파괴, 도장/부식(NACE(AMPP) Level), 국제품질(ISO 9001 Auditor/Lead Auditor), API(510, 570, 653등) 등 관련자격 보유하신 분\n- International Standard 해석, 적용 가능하신 분\n- ITP, NDE(비파괴검사), 용접 절차서(WPS/PQR) 및 재료 성적서(MTR) 검토, 승인 경험하신 분\n\n※ 근무지역 및 근무형태 관련 보다 자세한 사항은 '참고사항' 확인 부탁드립니다."
+    },
+    {
+      "group": "Samsung",
+      "jobNoticeId": "23388",
+      "company": "삼성물산 건설부문",
+      "title": "경력사원 채용(원전기술/설계/영업, 플랜트시운전/설계, 물류/구매)",
+      "positionIndex": 3,
+      "positionName": "원전 SMR 기술 (노형/계통/ 모듈화)",
+      "requiredCertificates": [],
+      "preferredCertificates": [],
+      "genericRequiredMentions": [],
+      "genericPreferredMentions": [
+        "- ASME/KEPIC 등록 기술자 등 관련자격 보유하신 분"
+      ],
+      "requiredQualifications": "- 아래 분야에서 경력 5년 이상 유관경력 보유하신 분\n  · 노형·계통 설계, R&D, 안전성 분석 또는 인허가 업무\n  · 원전·발전/화공/해양 플랜트 MEP(기계/전기/배관) 모듈화 설계 또는 모듈 제작/설치",
+      "preferredQualifications": "- 전기, 화학공학 등 유관전공 학사 이상 학위 보유하신 분\n- ASME/KEPIC 등록 기술자 등 관련자격 보유하신 분\n- 상급 영어 회화 능력 보유하신 분\n- 해외 프로젝트 수행 또는 영문 기술문서 작성·검토 경험 하신 분\n- 3D 모델링·설계 협업 툴 활용 가능하신 분\n\n※ 근무지역 및 근무형태 관련 보다 자세한 사항은 '참고사항' 확인 부탁드립니다."
+    },
+    {
+      "group": "Samsung",
+      "jobNoticeId": "23388",
+      "company": "삼성물산 건설부문",
+      "title": "경력사원 채용(원전기술/설계/영업, 플랜트시운전/설계, 물류/구매)",
+      "positionIndex": 4,
+      "positionName": "가스플랜트 시운전(LNG/수소/ 암모니아Process)",
+      "requiredCertificates": [],
+      "preferredCertificates": [],
+      "genericRequiredMentions": [],
+      "genericPreferredMentions": [
+        "- 기술사/기사 등 관련자격 보유하신 분"
+      ],
+      "requiredQualifications": "- LNG/LPG/Petrochemical 시운전 3개 이상 경험하고 경력 7년 이상 유관경력 보유하신 분",
+      "preferredQualifications": "- 수소/암모니아 시운전 수행 경험 보유하신 분\n- 기술사/기사 등 관련자격 보유하신 분\n- 중급 영어 회화 능력 보유하신 분\n- 가스처리설비 시운전 계획, 수행 역량 보유하신 분\n\n※ 근무지역 및 근무형태 관련 보다 자세한 사항은 '참고사항' 확인 부탁드립니다."
+    },
+    {
+      "group": "Samsung",
+      "jobNoticeId": "23388",
+      "company": "삼성물산 건설부문",
+      "title": "경력사원 채용(원전기술/설계/영업, 플랜트시운전/설계, 물류/구매)",
+      "positionIndex": 5,
+      "positionName": "원전/SMR설계 (EM/기계/전기)",
+      "requiredCertificates": [],
+      "preferredCertificates": [],
+      "genericRequiredMentions": [],
+      "genericPreferredMentions": [
+        "- 기술사/PE 또는 ASME/KEPIC 등록기술자 등 관련 자격 보유하신 분"
+      ],
+      "requiredQualifications": "-  아래 분야에서 5년 이상 유관경력 보유하신 분\n  · 발전플랜트 설계관리/설계\n  · 발전플랜트 시스템/기계 설계 \n  · 발전플랜트 전기 설계",
+      "preferredQualifications": "- 기계학, 전기학 등 유관전공 학사 이상 학위 보유하신 분\n- 기술사/PE 또는 ASME/KEPIC 등록기술자 등 관련 자격 보유하신 분\n- 원전/SMR PJT 설계관리 또는 설계경험 보유하신 분\n- 전력계통 해석 프로그램(ETAP) 경험하신 분\n\n※ 근무지역 및 근무형태 관련 보다 자세한 사항은 '참고사항' 확인 부탁드립니다."
+    },
+    {
+      "group": "Samsung",
+      "jobNoticeId": "23388",
+      "company": "삼성물산 건설부문",
+      "title": "경력사원 채용(원전기술/설계/영업, 플랜트시운전/설계, 물류/구매)",
+      "positionIndex": 6,
+      "positionName": "플랜트/신재생 설계(계장/지반/송변전)",
+      "requiredCertificates": [],
+      "preferredCertificates": [],
+      "genericRequiredMentions": [],
+      "genericPreferredMentions": [
+        "- 기술사/PE/기사 등 관련 자격 보유하신 분"
+      ],
+      "requiredQualifications": "-  아래 분야에서 5년 이상 유관경력 보유하신 분\n  · LNG/화공, 복합화력 계장\n  · 플랜트/일반 토목설계\n  · 변전소/송전선로/발전/신재생/유화 등 해외PJT 전기설계",
+      "preferredQualifications": "- 전기/전자/토목 등 유관전공 학사 이상 학위 보유하신 분\n- 기술사/PE/기사 등 관련 자격 보유하신 분\n- 중급 영어 회화 능력 보유하신 분\n- 해외 PJT EPC 설계/수행 경험 보유하신 분\n- PLAXIS, MIDAS, HEC-RAS, HEC-HMS, XPSWMM 등 설계프로그램 경험하신 분\n- PLS CADD 활용 가능하신 분\n\n※ 근무지역 및 근무형태 관련 보다 자세한 사항은 '참고사항' 확인 부탁드립니다."
+    },
+    {
+      "group": "Samsung",
+      "jobNoticeId": "23389",
+      "company": "삼성물산 건설부문",
+      "title": "경력사원 채용(하이테크 시공/공무/설계)",
+      "positionIndex": 0,
+      "positionName": "하이테크 건축 시공/공무",
+      "requiredCertificates": [],
+      "preferredCertificates": [],
+      "genericRequiredMentions": [],
+      "genericPreferredMentions": [
+        "- 건축시공 관련 기술사/기사 등 관련자격 보유하신 분"
+      ],
+      "requiredQualifications": "- 플랜트(산업, 화공, 전력 등) 건축 시공/공무 등 4년 이상 유관경력 보유하신 분",
+      "preferredQualifications": "- 건축공학 등 유관전공 학사 이상 학위 보유하신 분\n- 건축시공 관련 기술사/기사 등 관련자격 보유하신 분\n- 중급 영어 회화 능력 보유하신 분\n- 해외현장 근무 경험 보유하신 분\n- 첨단 생산시설(FAB) 현장 경험하신 분\n\n※ 근무지역 및 근무형태 관련 보다 자세한 사항은 '참고사항' 확인 부탁드립니다."
+    },
+    {
+      "group": "Samsung",
+      "jobNoticeId": "23389",
+      "company": "삼성물산 건설부문",
+      "title": "경력사원 채용(하이테크 시공/공무/설계)",
+      "positionIndex": 1,
+      "positionName": "하이테크 기계 시공/공무",
+      "requiredCertificates": [],
+      "preferredCertificates": [],
+      "genericRequiredMentions": [],
+      "genericPreferredMentions": [],
+      "requiredQualifications": "- 플랜트(산업, 화공, 전력 등) 기계 시공/공무 등 4년 이상 유관경력 보유하신 분",
+      "preferredQualifications": "- 기계공학 등 유관전공 학사 이상 학위 보유하신 분 \n- 중급 영어 회화 능력 보유하신 분\n- 해외현장 근무 경험하신 분\n- 첨단 생산시설(FAB) 현장 경험하신 분\n\n※ 근무지역 및 근무형태 관련 보다 자세한 사항은 '참고사항' 확인 부탁드립니다."
+    },
+    {
+      "group": "Samsung",
+      "jobNoticeId": "23389",
+      "company": "삼성물산 건설부문",
+      "title": "경력사원 채용(하이테크 시공/공무/설계)",
+      "positionIndex": 2,
+      "positionName": "하이테크 전기 시공/공무",
+      "requiredCertificates": [],
+      "preferredCertificates": [],
+      "genericRequiredMentions": [],
+      "genericPreferredMentions": [],
+      "requiredQualifications": "- 플랜트(산업, 화공, 전력 등) 전기 시공/공무 등 4년 이상 유관경력 보유하신 분",
+      "preferredQualifications": "- 전기공학 등 유관전공 학사 이상 학위 보유하신 분\n- 전기/발송배전 관련 기술사/기사 자격 보유하신 분\n- 중급 영어 회화 능력 보유하신 분\n- 해외현장 근무 경험 보유하신 분\n- 첨단 생산시설(FAB) 현장 경험하신 분\n- 승강기 시공/설계 경험하신 분\n- 154kV 이상 전력설비 시공관리 경험하신 분\n- 전력 시설물 진단경험 보유하신 분\n\n※ 근무지역 및 근무형태 관련 보다 자세한 사항은 '참고사항' 확인 부탁드립니다."
+    },
+    {
+      "group": "Samsung",
+      "jobNoticeId": "23389",
+      "company": "삼성물산 건설부문",
+      "title": "경력사원 채용(하이테크 시공/공무/설계)",
+      "positionIndex": 3,
+      "positionName": "하이테크 건축설계",
+      "requiredCertificates": [],
+      "preferredCertificates": [],
+      "genericRequiredMentions": [],
+      "genericPreferredMentions": [
+        "- 건축사, AIA, RIBA 관련 자격 보유하신 분"
+      ],
+      "requiredQualifications": "- 건축설계(현장포함) 등 10년 이상 유관경력 보유하신 분",
+      "preferredQualifications": "- 건축공학, 건축설계 등 유관전공 학사 이상 학위 보유하신 분\n- 건축사, AIA, RIBA 관련 자격 보유하신 분\n- 건축법규, 기준수립, ISO 인증 공장관련 수행 경험하신 분\n- 반도체/디스플레이 생산시설 수주/수행 단계 설계수행 및 설계관리 경험하신 분\n\n※ 근무지역 및 근무형태 관련 보다 자세한 사항은 '참고사항' 확인 부탁드립니다."
+    },
+    {
+      "group": "Samsung",
+      "jobNoticeId": "23389",
+      "company": "삼성물산 건설부문",
+      "title": "경력사원 채용(하이테크 시공/공무/설계)",
+      "positionIndex": 4,
+      "positionName": "하이테크  Utility 설계 (CCSS/UPW/공정)",
+      "requiredCertificates": [],
+      "preferredCertificates": [
+        {
+          "name": "수질환경기사",
+          "evidence": "등 유관전공 학사 이상 학위 보유하신 분 - 환경/기계/배관, 수질환경기사 등 관련자격 보유하신 분 - 중급 영어 회화 능력 보유하신 분"
+        }
+      ],
+      "genericRequiredMentions": [],
+      "genericPreferredMentions": [
+        "- 환경/기계/배관, 수질환경기사 등 관련자격 보유하신 분"
+      ],
+      "requiredQualifications": "- 5년 이상 유관경력 보유하신 분",
+      "preferredQualifications": "- 화공/화학, 기계 공학 등 유관전공 학사 이상 학위 보유하신 분\n- 환경/기계/배관, 수질환경기사 등 관련자격 보유하신 분\n- 중급 영어 회화 능력 보유하신 분\n- 산업 플랜트 및 반도체 관련 설계 경험하신 분\n- 해외 프로젝트 또는 국제 Code(ASHRAE 등) 적용 설계 경험하신 분\n\n※ 근무지역 및 근무형태 관련 보다 자세한 사항은 '참고사항' 확인 부탁드립니다."
+    },
+    {
+      "group": "Samsung",
+      "jobNoticeId": "23389",
+      "company": "삼성물산 건설부문",
+      "title": "경력사원 채용(하이테크 시공/공무/설계)",
+      "positionIndex": 5,
+      "positionName": "하이테크 제어 설계",
+      "requiredCertificates": [],
+      "preferredCertificates": [
+        {
+          "name": "전자기사",
+          "evidence": "- 제어설계 등 유관전공 학사 이상 학위 보유하신 분 - 전자기사 등 제어 관련 기술사/기사, 안전 등 관련자격 보유하신 분 -"
+        }
+      ],
+      "genericRequiredMentions": [],
+      "genericPreferredMentions": [
+        "- 전자기사 등 제어 관련 기술사/기사, 안전 등 관련자격 보유하신 분"
+      ],
+      "requiredQualifications": "- 제어 분야 실무(설계/시공/시운전) 등 5년 이상 유관경력 보유하신 분",
+      "preferredQualifications": "- 제어설계 등 유관전공 학사 이상 학위 보유하신 분\n- 전자기사 등 제어 관련 기술사/기사, 안전 등 관련자격 보유하신 분\n- 중급 영어 회화 능력 보유하신 분\n- 하이테크(반도체 등 산업플랜트) 분야 제어 설계 업무 경험 보유하신 분\n- 해외 프로젝트 수행 경험하신 분\n\n※ 근무지역 및 근무형태 관련 보다 자세한 사항은 '참고사항' 확인 부탁드립니다."
+    },
+    {
+      "group": "Samsung",
+      "jobNoticeId": "23407",
+      "company": "삼성바이오에피스",
+      "title": "경력사원 채용(R&D, Medical/임상, 기술이전, Commercial, AI)",
+      "positionIndex": 0,
+      "positionName": "생산 세포주 개발",
+      "requiredCertificates": [],
+      "preferredCertificates": [],
+      "genericRequiredMentions": [],
+      "genericPreferredMentions": [],
+      "requiredQualifications": "- 8년 이상 유관경력 보유하신 분",
+      "preferredQualifications": "- 생명과학, 단백질공학, 항체공학, 생화학 등 유관전공 학/석/박사 이상 학위 보유하신 분\n- 동물 세포주 개발 경험 보유하신 분\n\n※ 근무지역 및 근무형태 관련 보다 자세한 사항은 '참고사항' 확인 부탁드립니다."
+    },
+    {
+      "group": "Samsung",
+      "jobNoticeId": "23407",
+      "company": "삼성바이오에피스",
+      "title": "경력사원 채용(R&D, Medical/임상, 기술이전, Commercial, AI)",
+      "positionIndex": 1,
+      "positionName": "배양공정 개발",
+      "requiredCertificates": [],
+      "preferredCertificates": [],
+      "genericRequiredMentions": [],
+      "genericPreferredMentions": [],
+      "requiredQualifications": "- 8년 이상 유관경력 보유하신 분",
+      "preferredQualifications": "- 생물학, 화학 등 유관전공 학/석/박사 이상 학위 보유하신 분\n- 동물세포 배양, 재조합 단백질 공정 개발 경험 보유하신 분\n- 이중항체 배양 공정 개발 경험 보유하신 분\n- 데이터 분석 및 배양 예측 모델 구축 경험 보유하신 분\n\n※ 근무지역 및 근무형태 관련 보다 자세한 사항은 '참고사항' 확인 부탁드립니다."
+    },
+    {
+      "group": "Samsung",
+      "jobNoticeId": "23407",
+      "company": "삼성바이오에피스",
+      "title": "경력사원 채용(R&D, Medical/임상, 기술이전, Commercial, AI)",
+      "positionIndex": 2,
+      "positionName": "정제공정 개발",
+      "requiredCertificates": [],
+      "preferredCertificates": [],
+      "genericRequiredMentions": [],
+      "genericPreferredMentions": [],
+      "requiredQualifications": "- 8년 이상 유관경력 보유하신 분",
+      "preferredQualifications": "- 생물학, 화학 등 유관전공 학/석/박사 이상 학위 보유하신 분\n- 바이오시밀러 및 신약 항체, 이중항체 정제 공정 개발 경험 보유하신 분\n- ADC 정제 공정 개발 경험 보유하신 분\n- 데이터 분석 및 정제 예측 모델 구축 경험 보유하신 분\n\n※ 근무지역 및 근무형태 관련 보다 자세한 사항은 '참고사항' 확인 부탁드립니다."
+    },
+    {
+      "group": "Samsung",
+      "jobNoticeId": "23407",
+      "company": "삼성바이오에피스",
+      "title": "경력사원 채용(R&D, Medical/임상, 기술이전, Commercial, AI)",
+      "positionIndex": 3,
+      "positionName": "제형 및 DP 공정 개발",
+      "requiredCertificates": [],
+      "preferredCertificates": [],
+      "genericRequiredMentions": [],
+      "genericPreferredMentions": [],
+      "requiredQualifications": "- 8년 이상 유관경력 보유하신 분",
+      "preferredQualifications": "- 생명과학, 생화학, 물리학, 기계공학 등 유관전공 학/석/박사 이상 학위 보유하신 분\n- 완제의약품 및 의료 기기 디자인 공정 개발 경험 보유하신 분\n\n※ 근무지역 및 근무형태 관련 보다 자세한 사항은 '참고사항' 확인 부탁드립니다."
+    },
+    {
+      "group": "Samsung",
+      "jobNoticeId": "23407",
+      "company": "삼성바이오에피스",
+      "title": "경력사원 채용(R&D, Medical/임상, 기술이전, Commercial, AI)",
+      "positionIndex": 4,
+      "positionName": "비임상 개발",
+      "requiredCertificates": [],
+      "preferredCertificates": [],
+      "genericRequiredMentions": [],
+      "genericPreferredMentions": [],
+      "requiredQualifications": "- 8년 이상 유관경력 보유하신 분",
+      "preferredQualifications": "- 생명공학, 생물학, 생화학, 면역학, 약학 등 유관전공 박사 이상 학위 보유하신 분\n- ADC 관련 업무, QSP 모델링 수행, IND-enabling Study 경험 보유하신 분\n\n※ 근무지역 및 근무형태 관련 보다 자세한 사항은 '참고사항' 확인 부탁드립니다."
+    },
+    {
+      "group": "Samsung",
+      "jobNoticeId": "23407",
+      "company": "삼성바이오에피스",
+      "title": "경력사원 채용(R&D, Medical/임상, 기술이전, Commercial, AI)",
+      "positionIndex": 5,
+      "positionName": "임상 개발",
+      "requiredCertificates": [],
+      "preferredCertificates": [],
+      "genericRequiredMentions": [],
+      "genericPreferredMentions": [],
+      "requiredQualifications": "- 8년 이상 유관경력 보유하신 분",
+      "preferredQualifications": "- 생명과학, 약학, 보건 등 유관전공 학/석/박사 이상 학위 보유하신 분\n- 임상시험 계획 및 수행 경험 보유하신 분\n\n※ 근무지역 및 근무형태 관련 보다 자세한 사항은 '참고사항' 확인 부탁드립니다."
+    },
+    {
+      "group": "Samsung",
+      "jobNoticeId": "23407",
+      "company": "삼성바이오에피스",
+      "title": "경력사원 채용(R&D, Medical/임상, 기술이전, Commercial, AI)",
+      "positionIndex": 6,
+      "positionName": "Therapeutic Area Physician",
+      "requiredCertificates": [],
+      "preferredCertificates": [],
+      "genericRequiredMentions": [],
+      "genericPreferredMentions": [],
+      "requiredQualifications": "- 8년 이상 유관경력 보유하신 분\n- 의사 면허 보유하신 분",
+      "preferredQualifications": "- 내과 전문의 자격 보유하신 분\n- 상급 영어 회화 능력 보유하신 분\n- 제약회사 경력 및 임상시험 경력 보유하신 분\n\n※ 근무지역 및 근무형태 관련 보다 자세한 사항은 '참고사항' 확인 부탁드립니다."
+    },
+    {
+      "group": "Samsung",
+      "jobNoticeId": "23407",
+      "company": "삼성바이오에피스",
+      "title": "경력사원 채용(R&D, Medical/임상, 기술이전, Commercial, AI)",
+      "positionIndex": 7,
+      "positionName": "배양공정 기술이전",
+      "requiredCertificates": [],
+      "preferredCertificates": [],
+      "genericRequiredMentions": [],
+      "genericPreferredMentions": [],
+      "requiredQualifications": "- 8년 이상 유관경력 보유하신 분",
+      "preferredQualifications": "- GMP 생산 및 기술 이전 경험 보유하신 분\n- Bioprocessing 데이터 분석 및 통계 처리 프로그램 수행 경험 보유하신 분\n\n※ 근무지역 및 근무형태 관련 보다 자세한 사항은 '참고사항' 확인 부탁드립니다."
+    },
+    {
+      "group": "Samsung",
+      "jobNoticeId": "23407",
+      "company": "삼성바이오에피스",
+      "title": "경력사원 채용(R&D, Medical/임상, 기술이전, Commercial, AI)",
+      "positionIndex": 8,
+      "positionName": "정제공정 기술이전",
+      "requiredCertificates": [],
+      "preferredCertificates": [],
+      "genericRequiredMentions": [],
+      "genericPreferredMentions": [],
+      "requiredQualifications": "- 8년 이상 유관경력 보유하신 분",
+      "preferredQualifications": "- 바이오의약품 CMO 기술이전 관련 프로젝트 리딩 경험 보유하신 분\n- 기술이전 문서 작성 및 Validation 수행 경험 보유하신 분\n- GMP 및 관련 규제 요건에 대한 이해도가 높으신 분\n\n※ 근무지역 및 근무형태 관련 보다 자세한 사항은 '참고사항' 확인 부탁드립니다."
+    },
+    {
+      "group": "Samsung",
+      "jobNoticeId": "23407",
+      "company": "삼성바이오에피스",
+      "title": "경력사원 채용(R&D, Medical/임상, 기술이전, Commercial, AI)",
+      "positionIndex": 9,
+      "positionName": "유럽 커머셜 담당",
+      "requiredCertificates": [],
+      "preferredCertificates": [],
+      "genericRequiredMentions": [],
+      "genericPreferredMentions": [],
+      "requiredQualifications": "- 8년 이상 유관경력 보유하신 분",
+      "preferredQualifications": "- 유럽 대상 글로벌 마케팅 경험 보유하신 분\n- 유럽 헬스케어 시스템, 바이오시밀러 산업에 대한 이해도 보유하신 분\n- 비즈니스 영어 회화 가능하신 분\n\n※ 근무지역 및 근무형태 관련 보다 자세한 사항은 '참고사항' 확인 부탁드립니다."
+    },
+    {
+      "group": "Samsung",
+      "jobNoticeId": "23407",
+      "company": "삼성바이오에피스",
+      "title": "경력사원 채용(R&D, Medical/임상, 기술이전, Commercial, AI)",
+      "positionIndex": 10,
+      "positionName": "미국 커머셜 담당",
+      "requiredCertificates": [],
+      "preferredCertificates": [],
+      "genericRequiredMentions": [],
+      "genericPreferredMentions": [],
+      "requiredQualifications": "- 8년 이상 유관경력 보유하신 분",
+      "preferredQualifications": "- 국내/외 제품 판매 전략 및 약가 전략 수립 등 제품 출시 경험 보유하신 분\n- 미국 시장 Commercial 업무 및 포트폴리오 판매 경험 보유하신 분\n- 비즈니스 영어 회화 가능하신 분\n\n※ 근무지역 및 근무형태 관련 보다 자세한 사항은 '참고사항' 확인 부탁드립니다."
+    },
+    {
+      "group": "Samsung",
+      "jobNoticeId": "23407",
+      "company": "삼성바이오에피스",
+      "title": "경력사원 채용(R&D, Medical/임상, 기술이전, Commercial, AI)",
+      "positionIndex": 11,
+      "positionName": "아시아/중남미 커머셜 담당",
+      "requiredCertificates": [],
+      "preferredCertificates": [],
+      "genericRequiredMentions": [],
+      "genericPreferredMentions": [],
+      "requiredQualifications": "- 8년 이상 유관경력 보유하신 분",
+      "preferredQualifications": "- 제약/바이오 산업 내 사업 전략 수립 또는 마케팅 경험 보유하신 분\n- 시장 분석, 사업성 평가 등 프로젝트 수행 경험 보유하신 분\n- 비즈니스 영어 회화 가능하신 분\n\n※ 근무지역 및 근무형태 관련 보다 자세한 사항은 '참고사항' 확인 부탁드립니다."
+    },
+    {
+      "group": "Samsung",
+      "jobNoticeId": "23407",
+      "company": "삼성바이오에피스",
+      "title": "경력사원 채용(R&D, Medical/임상, 기술이전, Commercial, AI)",
+      "positionIndex": 12,
+      "positionName": "Bio AI Scientist",
+      "requiredCertificates": [],
+      "preferredCertificates": [],
+      "genericRequiredMentions": [],
+      "genericPreferredMentions": [],
+      "requiredQualifications": "- 8년 이상 유관경력 보유하신 분",
+      "preferredQualifications": "- 구조생물학, 생물정보학, 계산생물학, 컴퓨터공학 등 유관전공 박사 이상 학위 보유하신 분\n- 머신러닝(ML)을 활용한 신약 타깃 및 후보물질 도출 경험이 있으며, 실제 실험(Wet Lab) 피드백을 통해 AI 모델을 개선해 본 경험 보유하신 분\n- 단백질·항체 3D 구조 모델링, 생성형 AI 기반 분자 설계(ADC/이중항체 등), 또는 단일세포 및 공간전사체 분석을 통한 타깃 발굴 경험 보유하신 분\n\n※ 근무지역 및 근무형태 관련 보다 자세한 사항은 '참고사항' 확인 부탁드립니다."
+    },
+    {
+      "group": "Samsung",
+      "jobNoticeId": "23407",
+      "company": "삼성바이오에피스",
+      "title": "경력사원 채용(R&D, Medical/임상, 기술이전, Commercial, AI)",
+      "positionIndex": 13,
+      "positionName": "AI Engineer",
+      "requiredCertificates": [],
+      "preferredCertificates": [],
+      "genericRequiredMentions": [],
+      "genericPreferredMentions": [],
+      "requiredQualifications": "- 8년 이상 유관경력 보유하신 분",
+      "preferredQualifications": "- 컴퓨터공학, 인공지능 등 유관전공 학/석/박사 이상 학위 보유하신 분\n- 실제 서비스 환경(Production)에서의 LLM 기반 시스템 및 자율형 AI 에이전트를 설계, 배포, 운영해 본 경험 보유하신 분\n- AI 에이전트 실행 환경(Harness)을 구축하고, 다단계(Multi-step) 추론 과정에 대한 품질 평가 및 배포 검증을 수행해 본 경험 보유하신 분\n\n※ 근무지역 및 근무형태 관련 보다 자세한 사항은 '참고사항' 확인 부탁드립니다."
+    },
+    {
+      "group": "LG",
+      "jobNoticeId": 1002391,
+      "company": "LG유플러스",
+      "title": "[CTO] 클라우드 인프라 엔지니어 경력채용",
+      "positionIndex": 0,
+      "positionName": "클라우드 인프라 엔지니어",
+      "requiredCertificates": [],
+      "preferredCertificates": [],
+      "genericRequiredMentions": [],
+      "genericPreferredMentions": [],
+      "requiredQualifications": "✦ 경력사항 \n - 클라우드 인프라/DevOps/SRE 관련 경력 3년 이상\n ✦ 업무경험 \n - AWS 등 퍼블릭 클라우드 인프라 구축 및 운영 경험\n - Kubernetes/EKS 등 컨테이너 환경 구축 및 운영 경험\n - 대규모 서비스의 인프라 운영 및 장애 대응 경험\n - Terraform 등 IaC 기반 인프라 구성 경험\n - Monitoring/Logging/Alert 환경 구축 및 운영 경험\n ✦ 필요역량 \n - 고가용성·확장성·장애복구를 고려한 인프라 설계 역량\n - 시스템 장애에 대한 원인 분석 및 Troubleshooting 역량\n - Kubernetes Architecture 및 Container Runtime에 대한 이해",
+      "preferredQualifications": "- 클라우드 인프라/DevOps/SRE 관련 경력 7년 이상\n - Prometheus, Grafana, Datadog, OpenTelemetry 등 Observability 구축 경험\n - AWS Organizations/Multi-account 환경 구축 경험"
+    },
+    {
+      "group": "LG",
+      "jobNoticeId": 1002392,
+      "company": "LG유플러스",
+      "title": "[CTO] 클라우드 자동화 엔지니어 경력채용",
+      "positionIndex": 0,
+      "positionName": "클라우드 자동화 엔지니어",
+      "requiredCertificates": [],
+      "preferredCertificates": [],
+      "genericRequiredMentions": [],
+      "genericPreferredMentions": [],
+      "requiredQualifications": "✦ 경력사항 \n - 클라우드 인프라/DevOps/SRE 관련 경력 3년 이상\n ✦ 업무경험 \n - Terraform 등 IaC를 활용한 Infrastructure Automation 경험\n - AWS 기반 클라우드 시스템 구축 및 운영 경험\n - CI/CD Pipeline 구축 및 개선 경험\n - Kubernetes/EKS 기반 서비스 배포 및 운영 경험\n - Git 기반 Infrastructure/Application 형상관리 경험\n - Python, Go, TypeScript 등 하나 이상의 언어를 활용한 자동화 Tool 개발 경험\n ✦ 필요역량 \n - SDLC 전반에 대한 이해\n - API/Event 기반 자동화 시스템 설계 및 개발 역량\n - 반복되는 운영업무를 코드화·제품화할 수 있는 문제해결 역량\n - Prometheus/Grafana/Datadog/OpenTelemetry 기반 Observability Automation 경험",
+      "preferredQualifications": "- 클라우드 인프라/DevOps/SRE 관련 경력 7년 이상\n - Argo CD/Flux 등 GitOps 환경 구축 경험\n - Karpenter/KEDA 등 Kubernetes 운영 자동화 경험\n - LLM/AI Agent를 활용한 인프라 운영 또는 개발자동화 경험"
+    },
+    {
+      "group": "LG",
+      "jobNoticeId": 1002393,
+      "company": "LG유플러스",
+      "title": "[CTO] SRE 경력채용",
+      "positionIndex": 0,
+      "positionName": "SRE",
+      "requiredCertificates": [],
+      "preferredCertificates": [],
+      "genericRequiredMentions": [],
+      "genericPreferredMentions": [],
+      "requiredQualifications": "✦ 경력사항 \n - SRE / DevOps / Cloud Infrastructure / Backend Engineering 관련 경력 3년 이상\n ✦ 업무경험 \n - AWS 등 퍼블릭 클라우드 기반 Production 서비스 운영 경험\n - Kubernetes/EKS 구축 또는 운영 경험\n - 대규모 서비스의 장애 분석 및 대응 경험\n - Monitoring/Logging/Tracing 환경 구축 및 운영 경험\n - CI/CD Pipeline 구축 또는 운영 경험\n - Python, Go, Java 등 하나 이상의 언어를 활용한 자동화 개발 경험\n ✦ 필요역량 \n - Kubernetes, Network, Linux 및 Distributed System에 대한 기술적 이해\n - 장애를 Infrastructure/Application 전체 관점에서 분석할 수 있는 역량\n - 서비스의 가용성·확장성·성능·비용 간 Trade-off를 판단할 수 있는 역량\n - 장애를 Infrastructure/Application 전체 관점에서 분석할 수 있는 역량",
+      "preferredQualifications": "- 관련 직무 경력 5년 이상\n - Prometheus, Grafana, Datadog, OpenTelemetry 등 Observability 환경 구축 경험\n - 대규모 서비스 SRE 경험\n - Chaos Engineering/Resilience Test 경험"
+    },
+    {
+      "group": "LG",
+      "jobNoticeId": 1002394,
+      "company": "LG유플러스",
+      "title": "[CTO] TPM 경력채용",
+      "positionIndex": 0,
+      "positionName": "TPM",
+      "requiredCertificates": [],
+      "preferredCertificates": [],
+      "genericRequiredMentions": [],
+      "genericPreferredMentions": [],
+      "requiredQualifications": "✦ 경력사항 \n - Technical Program Management / Technical PM / Software·Platform Engineering 관련 5년 이상 경력\n ✦ 업무경험 \n - Software/AI/Cloud 등 기술제품의 End-to-End 개발·출시 경험\n - 다수 Engineering 조직이 참여하는 복잡한 프로젝트/프로그램 관리 경험\n - 개발일정, Dependency, Technical Risk 및 Release 관리 경험\n - Engineer/Product/Business Stakeholder 간 요구사항 및 기술적 의사결정 조율 경험\n - 개발조직과 기술 Architecture에 대해 실질적인 Communication을 수행한 경험\n ✦ 필요역량 \n - 복잡한 기술과제를 구조화하고 실행 가능한 프로그램으로 전환하는 능력\n - AI/Software/Cloud Architecture에 대한 기술적 이해\n - 복수 조직 간 Dependency 및 우선순위 조정 역량\n - Engineering 조직과 깊이 있는 기술 커뮤니케이션이 가능한 역량\n - SDLC에 대한 풍부한 이해",
+      "preferredQualifications": "- 관련 직무 경력 8년 이상\n - B2C 대규모 서비스 제품 출시 경험\n - BE/Application Architect/ML Engineer 등 개발자로서 근무한 경험\n - Agile/Scrum 기반 Software Organization 경험"
+    },
+    {
+      "group": "LG",
+      "jobNoticeId": 1001889,
+      "company": "LG유플러스",
+      "title": "[정보보안센터] AI보안 담당자 경력채용",
+      "positionIndex": 0,
+      "positionName": "AI보안",
+      "requiredCertificates": [],
+      "preferredCertificates": [
+        {
+          "name": "정보보안기사",
+          "evidence": "✦ 경력사항 - 관련 직무 경력 7년 이상 ✦ 자격증 - 정보보안기사, CISSP, CISA 등 자격증 보유"
+        }
+      ],
+      "genericRequiredMentions": [],
+      "genericPreferredMentions": [
+        "✦ 자격증",
+        "- 정보보안기사, CISSP, CISA 등 자격증 보유"
+      ],
+      "requiredQualifications": "✦ 학력사항 \n - 학사(4년제) 이상\n ✦ 경력사항 \n- 관련직무 경력 5년 이상\n ✦ 필요 업무 경험 \n- 정보보안 기획, 운영, 취약점 진단 또는 보안 아키텍처 수립 경험\n- 최신 IT/보안 기술 동향을 분석하고 이를 바탕으로 도입 기획안이나 분석 보고서를 작성해 본 경험\n- 해외 벤더사와의 기술 미팅을 주도하고 영문 솔루션 원문을 원활하게 분석할 수 있는 비즈니스 영어 활용 경험\n- AI 보안 관련 실무/프로젝트를 수행하거나, 신규 보안 AI 솔루션 도입(구축)을 직접 기획 및 실행한 경험\n ✦ 필요 역량 \n- Agentic AI, AI SOC, AI Pentesting 등 글로벌 AI 보안 트렌드를 빠르게 학습하고 사내 환경에 접목할 수 있는 능력\n- 복잡한 기술 분석 결과를 타 부서가 이해하기 쉽게 구조화하고 시각화할 수 있는 기획 역량\n- 유관 부서와의 명확한 R&R 조율 및 업무 협조를 이끌어낼 수 있는 유연하고 적극적인 소통 능력",
+      "preferredQualifications": "✦ 경력사항 \n - 관련 직무 경력 7년 이상\n ✦ 자격증 \n- 정보보안기사, CISSP, CISA 등 자격증 보유"
+    },
+    {
+      "group": "LG",
+      "jobNoticeId": 1001907,
+      "company": "LG유플러스",
+      "title": "[정보보안센터] 클라우드 보안 구축 및 운영 경력채용",
+      "positionIndex": 0,
+      "positionName": "클라우드 및 AI 보안 아키텍쳐 설계",
+      "requiredCertificates": [],
+      "preferredCertificates": [
+        {
+          "name": "정보보안기사",
+          "evidence": "석사이상 ✦ 경력 - 관련 직무 경력 7년 이상 ✦ 자격증 - 정보보안기사, AWS, ISMS-P 등 자격증 보유"
+        }
+      ],
+      "genericRequiredMentions": [],
+      "genericPreferredMentions": [
+        "✦ 자격증",
+        "- 정보보안기사, AWS, ISMS-P 등 자격증 보유"
+      ],
+      "requiredQualifications": "✦ 학력 \n - 학사(4년제) 이상\n ✦ 경력 \n- 관련직무 경력 4년 이상\n ✦ 필요 업무 경험 \n - 보안 솔루션 구축 및 운영 경험\n- 보안 관제(모니터링) 체계 구축 및 운영 경험\n- 퍼블릭(AWS) 클라우드 기반 아키텍쳐 설계 및 구축 경험\n- 클라우드 환경 보안 정책 설계 및 운영 경험\n- 퍼블릭(AWS) 클라우드 보안솔루션 구축 / 운영 및 관리 경험 \n ✦ 필요 역량 \n - 보안 기술에 대한 이해 역량\n- 보안 솔루션 구축 전과정에 대한 이해 역량\n- AWS 환경 아키텍쳐 구축 / 운영 역량\n- 클라우드 보안 위협 및 통제에 대한 지식\n- 퍼블릭 클라우드 보안솔루션 구축 / 운영 역량\n- 장애조치 및 통제 정책 수립 역량",
+      "preferredQualifications": "✦ 학력 \n - 석사이상\n ✦ 경력 \n - 관련 직무 경력 7년 이상\n ✦ 자격증 \n- 정보보안기사, AWS, ISMS-P 등 자격증 보유"
+    },
+    {
+      "group": "LG",
+      "jobNoticeId": 1002174,
+      "company": "LG유플러스",
+      "title": "[Enterprise부문] 안전관리자 계약직 채용",
+      "positionIndex": 0,
+      "positionName": "안전관리자",
+      "requiredCertificates": [
+        {
+          "name": "건설안전기사",
+          "evidence": "력사항 - 관련직무 경력 3년 이상 ✦ 자격증 - 산업안전기사/건설안전기사 자격증 보유"
+        },
+        {
+          "name": "산업안전기사",
+          "evidence": ")이상 ✦ 경력사항 - 관련직무 경력 3년 이상 ✦ 자격증 - 산업안전기사/건설안전기사 자격증 보유"
+        }
+      ],
+      "preferredCertificates": [],
+      "genericRequiredMentions": [
+        "✦ 자격증",
+        "- 산업안전기사/건설안전기사 자격증 보유"
+      ],
+      "genericPreferredMentions": [],
+      "requiredQualifications": "✦ 학력사항 \n - 학사(4년제)이상\n ✦ 경력사항 \n - 관련직무 경력 3년 이상\n ✦ 자격증 \n - 산업안전기사/건설안전기사 자격증 보유",
+      "preferredQualifications": "✦ 학력사항 \n - 박사이상\n ✦ 경력사항 \n - 관련직무 경력 5년 이상\n ✦ 기타 \n - 영어 능통자 혹은 영어로 업무 소통 가능자 우대"
+    },
+    {
+      "group": "LG",
+      "jobNoticeId": 1002380,
+      "company": "LG Magna",
+      "title": "LG마그나 IPGM Development / Converter Development 경력사원 수시채용",
+      "positionIndex": 0,
+      "positionName": "IPGM Development",
+      "requiredCertificates": [],
+      "preferredCertificates": [],
+      "genericRequiredMentions": [],
+      "genericPreferredMentions": [],
+      "requiredQualifications": "√ 시스템 냉각/NVH/내구/강도 개발 경험자\n√ 시스템 기구/구조 설계 경험\n• 통합시스템 Package 설계 경험자\n• Die Casting 공법 Housing 설계 및 개발 경험자\n• 양산도면 작도 및 공차설계/분석 경험자\n √ 기어 개발 경험\n • 요소 부품(Gear / Bearing / Differential / Parking) 설계 가능자\n • 변속기(수동/자동/HEV) 및 감속기(BEV/FCEV) 양산 경험 보유자\n √ 외국어(영어)\n • 비즈니스 영어 Communication 가능자(TOEIC Speaking IM3 이상)",
+      "preferredQualifications": "• 영어 TOEIC Speaking IH 이상\n • 일본어 비즈니스 회화 가능자 우대"
+    },
+    {
+      "group": "LG",
+      "jobNoticeId": 1002380,
+      "company": "LG Magna",
+      "title": "LG마그나 IPGM Development / Converter Development 경력사원 수시채용",
+      "positionIndex": 1,
+      "positionName": "Vehicle Converter Development",
+      "requiredCertificates": [],
+      "preferredCertificates": [],
+      "genericRequiredMentions": [],
+      "genericPreferredMentions": [],
+      "requiredQualifications": "• 전력전자 분야 석사 이상의 학위 관련 부야 5년 이상의 업무경험을 보유하신 분\n • AC-DC 및 DC-DC 컨버터 토폴로지 설계/해석 역량과 실무 경험을 보유하신 분\n • SiC MOSFET, GaN HEMT 등 WBG 소자 기반 회로 설계 역량을 보유하신 분\n • 고전압/고주파 변압기 및 인덕터 설계/최적화 경험을 보유하신 분\n • PSIM, Ansys, Matlab 등 시뮬레이션 툴을 활용한 시스템 설계 역량을 보유하신 분\n • 자동차 기능안전 규격인 ISO 26262에 따른 설계 경험을 보유하신 분\n • 비즈니스 영어 커뮤니케이션 역량을 보유하신 분 (TOEIC Speaking IM3 이상)",
+      "preferredQualifications": "• 전력전자 전공 박사학위 이상 소지자 우대\n • 영어 TOEIC Speaking IH 이상"
+    },
+    {
+      "group": "LG",
+      "jobNoticeId": 1002298,
+      "company": "LG유플러스",
+      "title": "[정보보안센터] 보안사업지원 TF 리더 경력채용",
+      "positionIndex": 0,
+      "positionName": "보안 서비스 기획 및  품질 지원",
+      "requiredCertificates": [],
+      "preferredCertificates": [
+        {
+          "name": "정보보안기사",
+          "evidence": "석사 이상 ✦ 경력 - 관련직무 경력 7년 이상 ✦ 자격증 - 정보보안기사, ITIL 등의 자격증 보유"
+        }
+      ],
+      "genericRequiredMentions": [],
+      "genericPreferredMentions": [
+        "✦ 자격증",
+        "- 정보보안기사, ITIL 등의 자격증 보유"
+      ],
+      "requiredQualifications": "✦ 학력 \n - 학사(4년제)이상\n ✦ 경력 \n - 관련직무 경력 4년 이상\n ✦ 필요 업무 경험 \n - 조직 운영(리더) 경험\n- 유관 조직 커뮤니케이션 경험\n- 보안 서비스/솔루션 기획 및 운영 경험\n- 정보보안 아키텍쳐 또는 보안관제 체계 수립 경험\n- 보안 서비스 품질 지표 수립 및 관리 경험\n- 장애 및 운영 이슈 분석 및 개선 경험\n- B2B 고객 대상 기술 지원 및 구축/운영 지원 경험\n- 고객 이슈 조정 및 커뮤니케이션 경험\n ✦ 필요 역량 \n - 조직 운영 역량\n- 커뮤니케이션 및 업무 추진 역량\n- 보안 솔루션과 구성 아키텍쳐에 대한 이해\n- 요구사항 분석 및 구성 방안 기획 역량\n- 서비스 품질 관리 및 개선 방향 수립 역량\n- 이슈 원인 분석 및 개선 경험\n- 고객 요구사항 구조화 및 기술 커뮤니케이션 역량\n- 문서 작성 및 고객 의사소통 역량",
+      "preferredQualifications": "✦ 학력 \n - 석사 이상\n ✦ 경력 \n - 관련직무 경력 7년 이상\n ✦ 자격증 \n - 정보보안기사, ITIL 등의 자격증 보유"
+    },
+    {
+      "group": "LG",
+      "jobNoticeId": 1002382,
+      "company": "LG유플러스",
+      "title": "[법무실] 사내변호사(영미권 변호사) 경력채용",
+      "positionIndex": 0,
+      "positionName": "변호사",
+      "requiredCertificates": [],
+      "preferredCertificates": [],
+      "genericRequiredMentions": [
+        "✦ 자격증",
+        "- 영미권(미국, 호주, 영국 등) 변호사 자격증 보유자"
+      ],
+      "genericPreferredMentions": [],
+      "requiredQualifications": "✦ 학력사항 \n - 석사 이상\n ✦ 경력사항 \n- 관련 직무 경력 3년 ~ 10년\n ✦ 자격증 \n- 영미권(미국, 호주, 영국 등) 변호사 자격증 보유자\n ✦ 필요 업무 경험 \n- 국제거래 계약 (영문계약) 검토, 협상 경험\n- 투자, M&A, 서비스 및 물품 거래 계약, 각종 라이선스 계약 경험\n- 해외법률자문 제공 경험\n- 해외법, 판례 등에 기반한 자문 의견서 작성 경험\n- Sanction, Trade, Privacy, IP, Anti-Corruption 등\n 국제 규제 compliance 업무수행 경험, 해외 자회사 관리경험\n- 소송 전 대응, 해외 소송, 중재 대응, 분쟁 대응 관리 경험\n- 프로젝트 발굴, 수행 경험\n ✦ 필요 역량 \n- 원어민수준의 언어(영어, 한국어) 구사 및 계약서 작성 및 협상 능력\n- 영미 contract law, privacy law, intellectual property law\n (개발/라이선스/소유권 등), 각국의 분쟁제도에 대한 이해 \n- 통신 등 관련 법령 및 대상 사업에 대한 이해 \n- 계약 주요 조항과 관련 리스크에 대한 깊은 이해\n- 국내외법률, 판례 등을 이해하고 활용할 수 있는 능력\n- 자문 이슈에 대한 이해 \n- 자문의견 작성 방법에 대한 이해\n- 국제 규제에 대한 이해 (sanction, trade, privacy, IP, anti-corruption law 등)\n 와 국내 상황에 적용능력\n- 각 단계별 상황 파악 능력, 적절한 대응을 위한 판단능력, 각국의 소송제도와\n 국제중재 절차 이해\n- 계약서 주요 조항에 대한 깊이 있는 이해 \n- 중요 법률 이슈 포착과 이해 \n- legal research skill\n- legal writing skill",
+      "preferredQualifications": "✦ 경력사항 \n - 중대형로펌 근무, 관련 사업(영상/게임, SW, 통신회사, M&A) 사내변호사 근무 경력"
+    },
+    {
+      "group": "LG",
+      "jobNoticeId": 1002378,
+      "company": "HSAD",
+      "title": "[HSAD] 2026년 하반기 AI Director 신입사원 채용 ",
+      "positionIndex": 0,
+      "positionName": "AI Director",
+      "requiredCertificates": [],
+      "preferredCertificates": [],
+      "genericRequiredMentions": [],
+      "genericPreferredMentions": [],
+      "requiredQualifications": "■ 이런 분과 함께 하고 싶어요. \n - 다양한 AI Tool과 MCP 활용하여 영상 실무 작업 가능한 분\n - 영상 편집 및 후반 작업 역량 (AE/PR 편집 및 모션그래픽) 보유한 분\n (※ 포토폴리오 필수로 제출하여 주시기 바랍니다.)",
+      "preferredQualifications": "■ 이런 경험/역량이 있다면 좋습니다. \n - 언리얼, 블렌더 등의 3D+AI MCP활용 작업 경험\n - ComfyUI 플랫폼 활용 작업 경험\n - AI 영상 공모전 및 AI 영화제 입상 포트폴리오"
+    },
+    {
+      "group": "LG",
+      "jobNoticeId": 1001518,
+      "company": "LG유플러스",
+      "title": "[정보보안센터] 침해사고 예방 및 대응 경력채용",
+      "positionIndex": 0,
+      "positionName": "침해사고 예방 및 대응",
+      "requiredCertificates": [],
+      "preferredCertificates": [],
+      "genericRequiredMentions": [],
+      "genericPreferredMentions": [
+        "✦ 자격증",
+        "AWS, GCP 관련 자격증 보유"
+      ],
+      "requiredQualifications": "✦ 경력사항 \n 관련직무 경력 5년 이상\n ✦ 필요 경험 \n EDR 기반 위협 대응(IR) 또는 보안관제(SOC) 실무 경험 \n 위협 발생 시 분석 결과를 근거로 대응 방향을 판단하고 실행한 경험 \n 디스크·메모리 등 포렌식 분석을 통해 실시간 분석으로 확인하기 어려운 공격 흔적을 분석한 경험 \n 악성 파일 또는 스크립트에 대한 정적·동적 분석을 통해 위협 행위를 이해하고 대응에 활용한 경험 \n ✦ 필요 역량 \n EDR 및 다양한 보안 로그를 기반으로 보안 위협을 분석하고, 공격 흐름과 행위 연관성을 종합적으로 해석할 수 있는 분석 역량 (필수) \n 퍼블릭 클라우드 및 온프레미스 환경 위협 분석 또는 대응 경험 (필수) \n 오픈소스/상용 포렌식 도구를 이용한분석 역량 및 파일시스템에 대한 전문적 지식 보유 (필수) \n 위협 헌팅 과정에서 확보된 악성 파일 또는 스크립트에 대해 정적·동적 분석을 수행하여 주요 기능과 공격 행위를 파악하고, 분석 결과를 위협 대응 판단에 활용할 수 있는 역량",
+      "preferredQualifications": "✦ 학력사항 \n 학사(4년제) 이상\n ✦ 자격증 \n AWS, GCP 관련 자격증 보유"
+    },
+    {
+      "group": "LG",
+      "jobNoticeId": 1002373,
+      "company": "엘지에니바이오리파이닝",
+      "title": "운영기술직(현장직) 경력사원 채용",
+      "positionIndex": 0,
+      "positionName": "공정운전관리(Foreman급)",
+      "requiredCertificates": [],
+      "preferredCertificates": [],
+      "genericRequiredMentions": [],
+      "genericPreferredMentions": [
+        "에너지, 화공, 환경, 산업안전 등 관련 자격 보유자"
+      ],
+      "requiredQualifications": "-. Board 3년 이상 근무경력",
+      "preferredQualifications": "-. 정유/석유화학 경험자 \n -. Foreman 근무경력 보유자 \n -. 화학공학/기계공학/화학 전공자 \n -. 에너지, 화공, 환경, 산업안전 등 관련 자격 보유자"
+    },
+    {
+      "group": "LG",
+      "jobNoticeId": 1002373,
+      "company": "엘지에니바이오리파이닝",
+      "title": "운영기술직(현장직) 경력사원 채용",
+      "positionIndex": 1,
+      "positionName": "공정운전관리(Board급)",
+      "requiredCertificates": [],
+      "preferredCertificates": [],
+      "genericRequiredMentions": [],
+      "genericPreferredMentions": [
+        "에너지, 화공, 환경, 산업안전 등 관련 자격 보유자"
+      ],
+      "requiredQualifications": "-. Field 3년, Board 1년 이상 근무경력",
+      "preferredQualifications": "-. 정유/석유화학 경험자 \n -. 화학공학/기계공학/화학 전공자 \n -. 에너지, 화공, 환경, 산업안전 등 관련 자격 보유자"
+    },
+    {
+      "group": "LG",
+      "jobNoticeId": 1002362,
+      "company": "하이엠솔루텍",
+      "title": "[정규직] HVAC 현장 PM 담당자 모집(현장설계)",
+      "positionIndex": 0,
+      "positionName": "PM(현장설계)",
+      "requiredCertificates": [],
+      "preferredCertificates": [],
+      "genericRequiredMentions": [],
+      "genericPreferredMentions": [
+        "공조냉동·기계설비 관련 자격증 보유자"
+      ],
+      "requiredQualifications": "1. 기계설비·공조 관련 설계 또는 샵드로잉 경력 5년 이상 \n 2. CAD 활용 가능자 \n 3. 기계설비 및 공조설비 도면 해독 가능자 \n 4. 현장 실측 및 현장 출장 업무 수행 가능자 \n 5. MS Office 등 기본적인 문서작성 가능자 \n 6. 운전면허 보유 및 운전 가능자",
+      "preferredQualifications": "1. 경력 상 업무수행 사항 포트폴리오 (파일형식) \n 2. 공조냉동·기계설비 관련 자격증 보유자 \n 3. HVAC 및 기계설비 샵드로잉 경험자 \n 4. AutoCAD 활용 능숙자 \n 5. BIM/Revit 활용 가능자 \n 6. 공조설비 배관·덕트 설계 경험자 \n 7. 현장 시공 및 PM 업무 경험자 \n 8. 설계변경·준공도면 작성 경험자 \n 9. 대형 프로젝트 또는 기계설비 공사 경험자"
+    },
+    {
+      "group": "LG",
+      "jobNoticeId": 1002360,
+      "company": "하이엠솔루텍",
+      "title": "[하이엠솔루텍] 상주현장 서비스보조 엔지니어 모집(서산지역/계약직)",
+      "positionIndex": 0,
+      "positionName": "서비스엔지니어",
+      "requiredCertificates": [],
+      "preferredCertificates": [],
+      "genericRequiredMentions": [],
+      "genericPreferredMentions": [],
+      "requiredQualifications": "1. 현장별 출입패스 발급 관련 이상이 없는 자",
+      "preferredQualifications": "1. 냉,난방기 수리 실무 경력자"
+    },
+    {
+      "group": "LG",
+      "jobNoticeId": 1002361,
+      "company": "하이엠솔루텍",
+      "title": "[하이엠솔루텍] 시스템에어컨 제품 기술상담사 모집",
+      "positionIndex": 0,
+      "positionName": "기술상담/고객응대",
+      "requiredCertificates": [],
+      "preferredCertificates": [],
+      "genericRequiredMentions": [],
+      "genericPreferredMentions": [],
+      "requiredQualifications": "경력 : 무관 (신입도 지원 가능)",
+      "preferredQualifications": "- 기술상담/아운바운드 상담 경력자 \n - 전산활용 및 컴퓨터 활용 능력 우수자 \n - 고객 상담실 근무 경력자 \n - 인근 거주자 \n - 해당직무 근무경험 \n - 장애인/보훈 대상자 등 취업보훈 대상자"
+    },
+    {
+      "group": "LG",
+      "jobNoticeId": 1002359,
+      "company": "LG이노텍",
+      "title": "[패키지솔루션] 일본어 통번역 담당자 (계약직)",
+      "positionIndex": 0,
+      "positionName": "사무지원(계약직)",
+      "requiredCertificates": [],
+      "preferredCertificates": [],
+      "genericRequiredMentions": [],
+      "genericPreferredMentions": [],
+      "requiredQualifications": "전문학사 이상\n 한국어↔일본어 통·번역이 가능한 자\n 업무 현장에서 원활한 커뮤니케이션이 가능한 자\n외국 국적자의 경우 관계 법령에 따라 국내 취업 및 근무가 가능한 자",
+      "preferredQualifications": "한·일 통번역 실무 경험 보유자\n 제조·생산·설비 등 산업현장 통번역 경험 보유자\nMS Office 활용역량 우수자"
+    },
+    {
+      "group": "LG",
+      "jobNoticeId": 1002119,
+      "company": "LG유플러스",
+      "title": "[CFO/CRO] 자금/금융 담당자 경력채용",
+      "positionIndex": 0,
+      "positionName": "자금/금융",
+      "requiredCertificates": [],
+      "preferredCertificates": [],
+      "genericRequiredMentions": [],
+      "genericPreferredMentions": [
+        "자금/회계 관련 자격증 보유"
+      ],
+      "requiredQualifications": "✦ 학력 \n - 학사(4년제)이상\n ✦ 경력 \n - 관련직무 경력 5년 이상\n ✦ 업무경험 \n - 자금/금융 업무 경력 5년 이상 \n- 국내 회사채 또는 은행차입의 주도적 실행 경험 \n- 해외조달 등 다양한 조달수단 경험 우대 \n- 금융기관·신용평가사·주관사 협상 및 대응 경험 \n - 월별/연간 자금수지 및 사업계획 수립 경험\n - M&A, 신사업 투자검토, 사업타당성 검토 등 관련 경험, 지주사 커뮤니케이션, 금융시장 및 경쟁사 분석\n - 자회사 자금관리 업무, 내부통제점검 업무 경험\n ✦ 필요역량 \n - 금융시장·금리·신용평가 및 채권/대출 구조에 대한 이해 \n - 조달조건 비교·분석 및 협상 능력 \n- Excel/PPT 및 SAP 활용능력 \n- 정확성과 책임감을 갖춘 실행 태도 \n - 본 사업을 빠르게 이해하며 재무제표와 연관지을 수 있는 회계 지식, 직간접법을 이용한 현금흐름표 작성 능력, 별도/연결/지분법의 이해 등\n - 기업가치평가에 대한 지식, 합리적 비판적 사고\n - SOD, 적격증빙 등 자금관련 내부통제에 대한 이해도 보유",
+      "preferredQualifications": "자금/회계 관련 자격증 보유"
+    },
+    {
+      "group": "LG",
+      "jobNoticeId": 1002358,
+      "company": "하이케어솔루션",
+      "title": "[하이케어솔루션] 안전관리 담당자 채용",
+      "positionIndex": 0,
+      "positionName": "안전관리",
+      "requiredCertificates": [
+        {
+          "name": "산업안전기사",
+          "evidence": "업자 경력 : 신입 ~ 경력 4년 이하 안전관리 자격증 보유 (산업안전기사 이상)"
+        }
+      ],
+      "preferredCertificates": [],
+      "genericRequiredMentions": [
+        "안전관리 자격증 보유 (산업안전기사 이상)"
+      ],
+      "genericPreferredMentions": [
+        "OA관련 자격증 보유 및 활용 능력 우수자"
+      ],
+      "requiredQualifications": "학력 : 4년제 정규 대학(학사) 이상 기졸업자\n 경력 : 신입 ~ 경력 4년 이하\n 안전관리 자격증 보유 (산업안전기사 이상)",
+      "preferredQualifications": "OA관련 자격증 보유 및 활용 능력 우수자\n 주도적이고 유연한 커뮤니케이션 역량 보유자"
+    },
+    {
+      "group": "LG",
+      "jobNoticeId": 1001513,
+      "company": "LG유플러스",
+      "title": "[정보보안센터] 퍼블릭 클라우드 보안 경력채용",
+      "positionIndex": 0,
+      "positionName": "퍼블릭 클라우드 보안 ",
+      "requiredCertificates": [],
+      "preferredCertificates": [
+        {
+          "name": "정보보안기사",
+          "evidence": "사이상 ✦ 경력사항 - 관련직무 경력 7년 이상 ✦ 자격증 - 정보보안기사, AWS 등 자격증 보유"
+        }
+      ],
+      "genericRequiredMentions": [],
+      "genericPreferredMentions": [
+        "✦ 자격증",
+        "- 정보보안기사, AWS 등 자격증 보유"
+      ],
+      "requiredQualifications": "✦ 학력사항 \n - 학사(4년제)이상\n ✦ 경력사항 \n - 관련직무 경력 4년 이상",
+      "preferredQualifications": "✦ 학력사항 \n - 석사이상\n ✦ 경력사항 \n - 관련직무 경력 7년 이상\n ✦ 자격증 \n - 정보보안기사, AWS 등 자격증 보유"
+    },
+    {
+      "group": "LG",
+      "jobNoticeId": 1002355,
+      "company": "LG CNS",
+      "title": "[LG CNS] 보안 분야 전 영역 전문가 모집(경력)",
+      "positionIndex": 0,
+      "positionName": "침해사고 분석 전문가",
+      "requiredCertificates": [],
+      "preferredCertificates": [],
+      "genericRequiredMentions": [],
+      "genericPreferredMentions": [],
+      "requiredQualifications": "- 보안관제센터 근무 경험 등 보안관제 업무 경험이 있으신 분 (EDR, SIEM, IPS, WAF 등 포함)\n - 보안솔루션 로그 분석, 위협 행위 식별, 침해지표(IOC) 기반 탐지/분석 등 보안 이벤트 분석이 가능하신 분\n - OS 및 WEB/WAS, DB 로그 등을 통한 침해사고 조사 업무가 가능하신 분",
+      "preferredQualifications": "- Python, PowerShell, Bash 등을 활용한 로그 분석·탐지 자동화/스크립팅 능력이 있으신 분\n - 리버스 엔지니어링을 통한 악성 파일 분석이 가능하신 분\n - 클라우드 환경(AWS, Azure, GCP 등)에 대한 경험이 있으신 분"
+    },
+    {
+      "group": "LG",
+      "jobNoticeId": 1002355,
+      "company": "LG CNS",
+      "title": "[LG CNS] 보안 분야 전 영역 전문가 모집(경력)",
+      "positionIndex": 1,
+      "positionName": "침해사고 분석 전문가(EDR 분석) ",
+      "requiredCertificates": [],
+      "preferredCertificates": [],
+      "genericRequiredMentions": [],
+      "genericPreferredMentions": [],
+      "requiredQualifications": "[침해사고 조사·분석 및 EDR 분석 전문가 (CERT)]\n 보안관제센터 근무 경험 등 보안관제 업무 경험이 있으신 분 (EDR, SIEM, IPS, WAF 등 포함)\n 주요 EDR 제품(Carbon Black, CrowdStrike, SentinelOne, MDE, Trendmicro EDR, 안랩 EDR 등) 중 1개 이상 운영 경험이 있으신 분\n 엔드포인트 로그 분석, 위협 행위 식별, 침해지표(IOC) 기반 탐지/분석 등 보안 이벤트 분석 능력이 뛰어난 분\n Windows, Linux 보안 이벤트 및 프로세스/레지스트리/파일 행위 분석이 가능한 운영체제 지식을 보유하신 분\n TCP/IP, 포트/프로토콜, IDS/IPS 탐지 패턴 이해 등 기본 네트워크 지식이 뛰어나신 분\n 침해사고 분석 또는 EDR 분석 업무 [3년] 이상, 보안관제 관련 업무 [5년] 이상의 경력을 보유하신 분\n [EDR/EPP 구축·확산 PM]\n EDR 솔루션 구축 및 운영 경험이 있으신 분\n 정책 설정, 정책 튜닝, 최적화 등 솔루션 운영 업무 경험이 있으신 분\n 다양한 서버 환경(Windows, Linux 등)에 대한 이해도가 높고 트러블슈팅 지원 경험이 있으신 분\n 보안 솔루션 구축 프로젝트의 PM 또는 이에 준하는 수행 경험이 있으신 분\n 고객사 담당자와 원활하게 소통하고 보고할 수 있는 커뮤니케이션 역량을 갖추신 분\n 보안 솔루션 구축/운영 관련 경력 [5년] 이상이신 분\n 글로벌 벤더 기술 문서 및 위협 정보를 이해할 수 있는 수준의 영어 능력",
+      "preferredQualifications": "복수 EDR/EPP 솔루션 운영 경험이 있으신 분 (예: Carbon Black, CrowdStrike, MDE, TrendMicro 등)\n 클라우드 및 가상화 환경에서의 보안 관제 또는 Agent 배포 경험, 자동화(Python, PowerShell, Ansible 등) 경험이 있으신 분\n 침해사고 포렌식 분석 경험 또는 대형 고객사 EDR/EPP 구축 레퍼런스를 보유하신 분\n 고객사·유관 부서와 소통하며 이슈 조율 및 보고서 작성 역량이 뛰어나신 분"
+    },
+    {
+      "group": "LG",
+      "jobNoticeId": 1002355,
+      "company": "LG CNS",
+      "title": "[LG CNS] 보안 분야 전 영역 전문가 모집(경력)",
+      "positionIndex": 2,
+      "positionName": "보안 아키텍처",
+      "requiredCertificates": [],
+      "preferredCertificates": [
+        {
+          "name": "정보보안기사",
+          "evidence": "1 정보보안기사 등 정보보안 자격증을 보유하신 분 2 클라우드 등 DX환경에"
+        }
+      ],
+      "genericRequiredMentions": [],
+      "genericPreferredMentions": [
+        "① 정보보안기사 등 정보보안 자격증을 보유하신 분"
+      ],
+      "requiredQualifications": "① 정보보안, 네트워크, 시스템 등 IT 기본 지식을 보유하신 분 \n ② 보안솔루션 또는 보안 아키텍처에 관심이 있고, 관련 업무를 배우고자 하시는 분 \n ③ 고객 및 유관 부서와 원활하게 소통하고 협업할 수 있는 분 \n ④ 제안서, 설계서 등 기술 문서를 작성하고 내용을 정리할 수 있는 분 \n ⑤ 공공·금융 등 다양한 프로젝트 환경에 유연하게 대응할 수 있는 분 \n ※ 관련 전공 또는 보안솔루션·시스템·네트워크 분야 경험이 있다면 더욱 좋습니다.",
+      "preferredQualifications": "① 정보보안기사 등 정보보안 자격증을 보유하신 분\n ② 클라우드 등 DX환경에 대한 보안 아키텍트 설계/구축 업무를 수행해보신 분\n ③ 공공/금융 등 대규모 차세대 프로젝트에서 보안 구축 업무를 수행해보신 분"
+    },
+    {
+      "group": "LG",
+      "jobNoticeId": 1002355,
+      "company": "LG CNS",
+      "title": "[LG CNS] 보안 분야 전 영역 전문가 모집(경력)",
+      "positionIndex": 3,
+      "positionName": "보안솔루션 운영",
+      "requiredCertificates": [],
+      "preferredCertificates": [],
+      "genericRequiredMentions": [],
+      "genericPreferredMentions": [],
+      "requiredQualifications": "보안솔루션 운영 또는 구축 경험이 5년 이상이거나, 보안 운영 업무를 주도적으로 수행한 경험이 있으신 분\n 다양한 보안솔루션의 기능과 운영 방식에 대한 이해를 보유하신 분\n 보안솔루션 운영 중 발생하는 이슈·장애에 대한 원인 분석 및 대응 경험이 있으신 분\n 다양한 이해관계자와 운영 이슈, 장애, 개선과제를 조율해 본 경험이 있으신 분\n SLA/SLO 등 운영 품질 지표를 기반으로 서비스 수준을 관리하고 개선한 경험이 있으신 분\n 네트워크·인프라 등 보안솔루션 운영에 필요한 기본 기술 지식을 보유하신 분",
+      "preferredQualifications": "- 보안솔루션 운영 PM/PL 또는 운영 리더 역할을 수행한 경험이 있으신 분\n - 보안 아키텍처 설계, 보안솔루션 구축·전환·통합·안정화 경험이 있으신 분\n - 다수의 고객 또는 여러 보안솔루션을 통합 운영한 경험이 있으신 분\n - 네트워크·시스템·클라우드 인프라에 대한 높은 이해도를 보유하신 분"
+    },
+    {
+      "group": "LG",
+      "jobNoticeId": 1002355,
+      "company": "LG CNS",
+      "title": "[LG CNS] 보안 분야 전 영역 전문가 모집(경력)",
+      "positionIndex": 4,
+      "positionName": "화이트해커",
+      "requiredCertificates": [],
+      "preferredCertificates": [],
+      "genericRequiredMentions": [],
+      "genericPreferredMentions": [],
+      "requiredQualifications": "웹/앱 모의해킹 경험 최소 3년 이상\n 소스코드를 읽고 이해하는 역량 보유",
+      "preferredQualifications": "블랙박스 침투테스트 리딩 경험\n 데프콘 등 메이저 CTF 대회 입상 경험"
+    },
+    {
+      "group": "LG",
+      "jobNoticeId": 1002355,
+      "company": "LG CNS",
+      "title": "[LG CNS] 보안 분야 전 영역 전문가 모집(경력)",
+      "positionIndex": 5,
+      "positionName": "그룹보안담당",
+      "requiredCertificates": [],
+      "preferredCertificates": [
+        {
+          "name": "정보보안기사",
+          "evidence": ". 경력 : 관련직무 경력 7년 이상 . 정보보안기사 등 정보보안 자격증을 보유하신분 . 클라우드 등 DX환경에 대"
+        }
+      ],
+      "genericRequiredMentions": [],
+      "genericPreferredMentions": [
+        "정보보안기사 등 정보보안 자격증을 보유하신분",
+        "자격증 : 정보보안기사, ITIL 등의 자격증 보유"
+      ],
+      "requiredQualifications": "정보보호, 컴퓨터 공학 또는 관련 분야\n 학사(4년제)이상\n 관련직무 경력 4년 이상",
+      "preferredQualifications": ". 경력 : 관련직무 경력 7년 이상\n . 정보보안기사 등 정보보안 자격증을 보유하신분\n . 클라우드 등 DX환경에 대한 보안 아키텍트 설계/구축 업무를 수행해보신분\n . 자격증 : 정보보안기사, ITIL 등의 자격증 보유"
+    },
+    {
+      "group": "LG",
+      "jobNoticeId": 1002355,
+      "company": "LG CNS",
+      "title": "[LG CNS] 보안 분야 전 영역 전문가 모집(경력)",
+      "positionIndex": 6,
+      "positionName": "보안사업개발",
+      "requiredCertificates": [],
+      "preferredCertificates": [
+        {
+          "name": "정보보안기사",
+          "evidence": "- 정보보안기사, CISSP, CISA, CCSP 등 사이버보안 관련 자격증"
+        }
+      ],
+      "genericRequiredMentions": [],
+      "genericPreferredMentions": [
+        "- 정보보안기사, CISSP, CISA, CCSP 등 사이버보안 관련 자격증"
+      ],
+      "requiredQualifications": "- 보안관제, 클라우드 보안, 네트워크 보안, 엔드포인트 보안, IAM, 개인정보보호, OT·ICS 보안 등 관련 경험\n - 공공기관·금융·제조·통신·대기업 대상 영업 경험\n - 보안 컨설팅, 구축 프로젝트 또는 보안 운영서비스 영업 경험\n - 클라우드 및 SaaS 기반 보안 서비스 영업 경험",
+      "preferredQualifications": "- 정보보안기사, CISSP, CISA, CCSP 등 사이버보안 관련 자격증\n - 영어를 활용한 고객·파트너 커뮤니케이션 능력"
+    },
+    {
+      "group": "LG",
+      "jobNoticeId": 1002344,
+      "company": "비즈테크아이",
+      "title": "[비즈테크아이] 26년 하반기 신입 인턴 채용(전환형) ",
+      "positionIndex": 0,
+      "positionName": "SAP 모듈 개발·운영",
+      "requiredCertificates": [],
+      "preferredCertificates": [],
+      "genericRequiredMentions": [],
+      "genericPreferredMentions": [
+        "SAP 모듈 Certification 자격증 보유하신 분"
+      ],
+      "requiredQualifications": "4년제 대학교 기졸업자 혹은 27년 2월 졸업예정자",
+      "preferredQualifications": "SAP 모듈 Certification 자격증 보유하신 분\n ABAP, Fiori, CDS View, RAP Skill 보유하신 분"
+    },
+    {
+      "group": "LG",
+      "jobNoticeId": 1002344,
+      "company": "비즈테크아이",
+      "title": "[비즈테크아이] 26년 하반기 신입 인턴 채용(전환형) ",
+      "positionIndex": 1,
+      "positionName": "MES 개발·운영(구미), MES 개발·운영(오창)",
+      "requiredCertificates": [],
+      "preferredCertificates": [],
+      "genericRequiredMentions": [],
+      "genericPreferredMentions": [],
+      "requiredQualifications": "4년제 대학교 기졸업자 혹은 27년 2월 졸업예정자",
+      "preferredQualifications": "AI 활용 능력 우수한 분(업무/학습/개발에서 ChatGPT, Claude, Copilot 등 생성형 AI 도구 적극 활용 경험 보유하신 분)\n 스마트팩토리, 제조 자동화, MES, 설비 데이터 연동 관련 프로젝트 경험하신 분"
+    },
+    {
+      "group": "LG",
+      "jobNoticeId": 1002344,
+      "company": "비즈테크아이",
+      "title": "[비즈테크아이] 26년 하반기 신입 인턴 채용(전환형) ",
+      "positionIndex": 2,
+      "positionName": "Web 기반 AI 에이전트 개발·운영",
+      "requiredCertificates": [],
+      "preferredCertificates": [],
+      "genericRequiredMentions": [],
+      "genericPreferredMentions": [],
+      "requiredQualifications": "4년제 대학교 기졸업자 혹은 27년 2월 졸업예정자",
+      "preferredQualifications": "AI 관련 학과 전공자 또는 AI 교육 이수하신 분\n React, Python 기반 개발 및 AI/ML 라이브러리 활용 경험 보유하신 분\n LLM API(OpenAI, Anthropic 등) 또는 Agent 프레임워크(LangChain, LangGraph 등) 활용 경험 보유하신 분\n AI Agent 개발 프로젝트 또는 클라우드(AWS/Azure/GCP) 기반 개발·배포 경험 보유하신 분\n SI/SM 프로젝트 또는 기업 업무시스템(ERP·MIS·재무 등)에 대한 기본 이해 보유하신 분"
+    },
+    {
+      "group": "LG",
+      "jobNoticeId": 1002344,
+      "company": "비즈테크아이",
+      "title": "[비즈테크아이] 26년 하반기 신입 인턴 채용(전환형) ",
+      "positionIndex": 3,
+      "positionName": "금융 애플리케이션 개발·운영",
+      "requiredCertificates": [],
+      "preferredCertificates": [],
+      "genericRequiredMentions": [],
+      "genericPreferredMentions": [],
+      "requiredQualifications": "4년제 대학교 기졸업자 혹은 27년 2월 졸업예정자",
+      "preferredQualifications": "국내 대형 시중은행 IT 구축 및 유지보수 수행 경험 보유하신 분\n 전업계 카드사 차세대 구축 및 유지보수 수행 경험 보유하신 분\n LG CNS 금융 사업 협업 경험 보유하신 분"
+    },
+    {
+      "group": "LG",
+      "jobNoticeId": 1002344,
+      "company": "비즈테크아이",
+      "title": "[비즈테크아이] 26년 하반기 신입 인턴 채용(전환형) ",
+      "positionIndex": 4,
+      "positionName": "AI 엔지니어",
+      "requiredCertificates": [],
+      "preferredCertificates": [],
+      "genericRequiredMentions": [],
+      "genericPreferredMentions": [],
+      "requiredQualifications": "4년제 대학교 기졸업자 혹은 27년 2월 졸업예정자",
+      "preferredQualifications": "Python, JavaScript/TypeScript 등 프로그래밍 언어에 대한 기본 이해 및 학습 경험이 있는 분\n LLM API(OpenAI, Claude, Gemini 등)를 활용한 실습·개인 프로젝트 경험이 있는 분\n AI 코딩 도구(Claude Code, Cursor, GitHub Copilot 등)에 관심이 있고 활용해 본 경험이 있는 분\n RAG, AI 에이전트, MCP 등 LLM 기반 기술에 관심이 있거나 관련 프로젝트·학습 경험이 있는 분\n 프롬프트 엔지니어링 및 LangChain, LlamaIndex 등 AI 개발 프레임워크를 학습하거나 활용해 본 경험이 있는 분"
+    },
+    {
+      "group": "LG",
+      "jobNoticeId": 1002344,
+      "company": "비즈테크아이",
+      "title": "[비즈테크아이] 26년 하반기 신입 인턴 채용(전환형) ",
+      "positionIndex": 5,
+      "positionName": "애플리케이션 아키텍트",
+      "requiredCertificates": [],
+      "preferredCertificates": [],
+      "genericRequiredMentions": [],
+      "genericPreferredMentions": [
+        "CKA(Certified Kubernetes Administrator) 자격증 보유하신 분",
+        "AWS Certified Solutions Architect - Professional 자격증 보유하신 분"
+      ],
+      "requiredQualifications": "4년제 대학교 기졸업자 혹은 27년 2월 졸업예정자",
+      "preferredQualifications": "CKA(Certified Kubernetes Administrator) 자격증 보유하신 분\n AWS Certified Solutions Architect - Professional 자격증 보유하신 분"
+    },
+    {
+      "group": "LG",
+      "jobNoticeId": 1002344,
+      "company": "비즈테크아이",
+      "title": "[비즈테크아이] 26년 하반기 신입 인턴 채용(전환형) ",
+      "positionIndex": 6,
+      "positionName": "AX 솔루션 개발",
+      "requiredCertificates": [],
+      "preferredCertificates": [],
+      "genericRequiredMentions": [],
+      "genericPreferredMentions": [],
+      "requiredQualifications": "4년제 대학교 기졸업자 혹은 27년 2월 졸업예정자",
+      "preferredQualifications": "수업·캡스톤디자인·동아리·개인 프로젝트 등에서 프로그래밍 언어 활용한 기능 구현 경험 보유하신 분\n SQL을 활용한 데이터 처리 또는 API 연계 개발 경험 보유하신 분\n 생성형 AI 도구·API를 활용한 프로젝트 또는 업무 자동화 경험 보유하신 분\n Git 등 협업 도구를 활용한 팀 프로젝트 경험 보유하신 분"
+    },
+    {
+      "group": "LG",
+      "jobNoticeId": 1002344,
+      "company": "비즈테크아이",
+      "title": "[비즈테크아이] 26년 하반기 신입 인턴 채용(전환형) ",
+      "positionIndex": 7,
+      "positionName": "M365 운영",
+      "requiredCertificates": [],
+      "preferredCertificates": [
+        {
+          "name": "정보처리기사",
+          "evidence": "한 기본 이해 보유하신 분 IT 관련 전공자 또는 관련 자격증(정보처리기사, Azure, Microsoft 등) 보유하신 분 문제 해결을"
+        }
+      ],
+      "genericRequiredMentions": [],
+      "genericPreferredMentions": [
+        "IT 관련 전공자 또는 관련 자격증(정보처리기사, Azure, Microsoft 등) 보유하신 분"
+      ],
+      "requiredQualifications": "4년제 대학교 기졸업자 혹은 27년 2월 졸업예정자",
+      "preferredQualifications": "Microsoft 365, Azure 등 클라우드 서비스에 대한 기본 이해 보유하신 분\n IT 관련 전공자 또는 관련 자격증(정보처리기사, Azure, Microsoft 등) 보유하신 분\n 문제 해결을 위한 분석적 사고와 원활한 커뮤니케이션 역량 보유하신 분\n 새로운 기술(AI, 클라우드 등)에 대한 학습 의지와 관심이 높은 분"
+    },
+    {
+      "group": "LG",
+      "jobNoticeId": 1002344,
+      "company": "비즈테크아이",
+      "title": "[비즈테크아이] 26년 하반기 신입 인턴 채용(전환형) ",
+      "positionIndex": 8,
+      "positionName": "클라우드 운영",
+      "requiredCertificates": [],
+      "preferredCertificates": [],
+      "genericRequiredMentions": [],
+      "genericPreferredMentions": [
+        "클라우드 관련 자격증 보유하신 분"
+      ],
+      "requiredQualifications": "4년제 대학교 기졸업자 혹은 27년 2월 졸업예정자",
+      "preferredQualifications": "퍼블릭 클라우드 사용 경험 보유하신 분\n 클라우드 관련 자격증 보유하신 분\n 운영 자동화 및 스크립트 활용 경험 보유하신 분"
+    },
+    {
+      "group": "LG",
+      "jobNoticeId": 1002344,
+      "company": "비즈테크아이",
+      "title": "[비즈테크아이] 26년 하반기 신입 인턴 채용(전환형) ",
+      "positionIndex": 9,
+      "positionName": "IT인프라 운영",
+      "requiredCertificates": [],
+      "preferredCertificates": [],
+      "genericRequiredMentions": [],
+      "genericPreferredMentions": [],
+      "requiredQualifications": "4년제 대학교 기졸업자 혹은 27년 2월 졸업예정자",
+      "preferredQualifications": "Python, JavaScript/TypeScript 등 프로그래밍 언어에 대한 기본 이해 및 학습 경험 보유하신 분\n LLM API(OpenAI, Claude, Gemini 등)를 활용한 실습·개인 프로젝트 경험 보유하신 분\n AI 코딩 도구(Claude Code, Cursor, GitHub Copilot 등)에 관심이 있고 활용해본 경험 보유하신 분\n RAG, AI 에이전트, MCP 등 LLM 기반 기술에 관심이 있거나 관련 프로젝트·학습 경험 보유하신 분\n 프롬프트 엔지니어링 및 LangChain, LlamaIndex 등 AI 개발 프레임워크를 학습하거나 활용해본 경험 보유하신 분"
+    },
+    {
+      "group": "LG",
+      "jobNoticeId": 1002335,
+      "company": "하이케어솔루션",
+      "title": "[하이케어솔루션] 사내변호사 채용",
+      "positionIndex": 0,
+      "positionName": "변호사(법무관리)",
+      "requiredCertificates": [],
+      "preferredCertificates": [],
+      "genericRequiredMentions": [
+        "대한민국 변호사 자격증 보유자"
+      ],
+      "genericPreferredMentions": [],
+      "requiredQualifications": "■ 이런 분과 함께하고 싶어요 \n 대한민국 변호사 자격증 보유자\n 변호사 실무경력 2년 이상자",
+      "preferredQualifications": "기업법무(로펌, 사내변호사) 업무 경험자"
+    },
+    {
+      "group": "LG",
+      "jobNoticeId": 1002323,
+      "company": "LG에너지솔루션",
+      "title": "[ESS전지] ESS 시스템 개발 경력 모집 (10월)",
+      "positionIndex": 0,
+      "positionName": "전장제품설계",
+      "requiredCertificates": [],
+      "preferredCertificates": [],
+      "genericRequiredMentions": [],
+      "genericPreferredMentions": [],
+      "requiredQualifications": "■ 이런 분을 찾고 있어요 \n - 4년제 학사 이상 \n - 소방/전기/전자/전장/전력 설계 계열 전공자",
+      "preferredQualifications": "■ 이런 분을 선호해요 \n - 국제 규격 기반 전력망 PCS 개발 경험자 (UL 1741, IEEE 1547 기반 개발 경험자) \n- PCS 기구 설계 및 열관리 시뮬레이션 개발 경험자 \n- PCS 양산 및 품질 개선, 관리 경력자 \n - 외국어 능력 : 영어 \n ※ 직무면접 Tool : PT면접"
+    },
+    {
+      "group": "LG",
+      "jobNoticeId": 1002176,
+      "company": "LG에너지솔루션",
+      "title": "[CDO] AI/빅데이터 분야 상시 모집",
+      "positionIndex": 0,
+      "positionName": "AI기술개발",
+      "requiredCertificates": [],
+      "preferredCertificates": [],
+      "genericRequiredMentions": [],
+      "genericPreferredMentions": [],
+      "requiredQualifications": "■ 이런 분을 찾고 있어요 \n[필요역량]\n- AI관련 연구로 석/박사 학위자\n- Deep Learning 모형에 대한 이해\n- Python 프로그래밍 경험, AI Toolkit 사용 경험\n- Pytorch, Tensorflow 등 딥러닝 프레임워크 경험",
+      "preferredQualifications": "■ 이런 분이면 더 좋아요 \n [우대역량]\n- Top-tier AI conference 논문 제출\n- Multimodal 데이터를 활용한 DL/ML 모형개발\n- Multiphysics 해석 기법을 이해하고, 이를 AI 모형개발에 접목(Physics-informed AI) 경험\n ※ 직무면접 Tool : PT 면접, 코딩테스트"
+    },
+    {
+      "group": "LG",
+      "jobNoticeId": 1002176,
+      "company": "LG에너지솔루션",
+      "title": "[CDO] AI/빅데이터 분야 상시 모집",
+      "positionIndex": 1,
+      "positionName": "비전AI기술개발",
+      "requiredCertificates": [],
+      "preferredCertificates": [],
+      "genericRequiredMentions": [],
+      "genericPreferredMentions": [],
+      "requiredQualifications": "■ 이런 분을 찾고 있어요 \n[필요역량]\n- 전자공학, 컴퓨터공학, 산업공학 등 AI, Vision 관련 석사이상(박사 우대) 학위 보유자\n- Pytorch 등의 프레임워크를 활용한 딥러닝 기반의 모델 개발 경험자\n- Python, C++ 등의 S/W 개발 경험자",
+      "preferredQualifications": "■ 이런 분이면 더 좋아요 \n [우대역량]\n- Modern C++에 능숙한 분\n- Pytorch 등의 딥러닝 프레임워크 활용에 능숙한 분\n- Classification/Detection/Segmentation 등 이미지 관련 Deep Learning 전문지식/기술 보유\n- OpenCV 기빈의 Conventional Computer Vision 보유\n- Computer Vision, Robot Vision 및 Camera Geometric 관련 프로젝트 경험자\n- Vision 관련 시스템 System Architecture 설계 역량 보유\n- VLM, LLM, Generative Model 등의 개발 및 활용 경험\n- Anomaly Detection 기반의 제조 이미지 분석 프로젝트 유경험자 또는 유사 이미지 분석 프로젝트 유경험자\n ※ 직무면접 Tool : PT 면접, 코딩테스트"
+    },
+    {
+      "group": "LG",
+      "jobNoticeId": 1002176,
+      "company": "LG에너지솔루션",
+      "title": "[CDO] AI/빅데이터 분야 상시 모집",
+      "positionIndex": 2,
+      "positionName": "AI Agent 개발",
+      "requiredCertificates": [],
+      "preferredCertificates": [],
+      "genericRequiredMentions": [],
+      "genericPreferredMentions": [],
+      "requiredQualifications": "■ 이런 분을 찾고 있어요 \n[필요역량]\n - LangChain 기반 오케스트레이터 개발 역량 보유\n - 지식 검색 및 RAG(Retrieval-Augmented Generation) 설계 및 개발 경험 보유\n - FastAPI 기반 백엔드 구축 경험 보유\n - NLP관련 AI 서비스 개발 경험 보유",
+      "preferredQualifications": "■ 이런 분이면 더 좋아요 \n [우대역량]\n - LangGraph 기반 AI Agent 개발 및 서비스 경험 보유\n - LLM 파인튜닝 경험 보유 (SFT, DPO)\n - MCP 관련 어플리케이션 개발 경험 보유\n※ 직무면접 Tool : PT 면접, 코딩테스트"
+    },
+    {
+      "group": "LG",
+      "jobNoticeId": 1002176,
+      "company": "LG에너지솔루션",
+      "title": "[CDO] AI/빅데이터 분야 상시 모집",
+      "positionIndex": 3,
+      "positionName": "소재개발AI",
+      "requiredCertificates": [],
+      "preferredCertificates": [],
+      "genericRequiredMentions": [],
+      "genericPreferredMentions": [],
+      "requiredQualifications": "■ 이런 분을 찾고 있어요 \n- 배터리 수명 예측을 위한 ML/DL 모델 개발 경험(시계열, 생존분석 모델 포함)\n- Physics-Informed Neural Network(PINN)관련 연구 또는 프로젝트 경험\n- 실험데이터 기반 모델 학습 및 검증 경험\n- Python 기반 ML/DL 프로그래밍 능숙",
+      "preferredQualifications": "■ 이런 분이면 더 좋아요 \n[우대역량]\n - 셀기반 성능/수명 예측을 위한 AI기반 가상검증(Virtual Validation) 또는 디지털 트윈(Digital Twin) 경험 보유\n- Graph Neural Network(GNN), Neural PDE Solver 분야의 전문성\n- MLIP 등 최신 딥러닝 인터랙티브 포텐셜 라이브러리 활용 경험\n- 소재개발 전 주기 DX/AX과제 리딩 경험(데이터 수집, 모델링, 의사결정 연계)\n- 배터리 성능/수명 예측 관련 논문 게재 또는 특허 출원 경험\n ※ 직무면접 Tool : PT 면접"
+    },
+    {
+      "group": "LG",
+      "jobNoticeId": 1002176,
+      "company": "LG에너지솔루션",
+      "title": "[CDO] AI/빅데이터 분야 상시 모집",
+      "positionIndex": 4,
+      "positionName": "Physical AI",
+      "requiredCertificates": [],
+      "preferredCertificates": [],
+      "genericRequiredMentions": [],
+      "genericPreferredMentions": [],
+      "requiredQualifications": "■ 이런 분을 찾고 있어요 \n[로봇 AI]\n- 로봇 시스템(AMR, 협동로봇 등) 실무 경력\n- ROS/ROS2 기반 로봇 SW 구조 이해 및 개발 역량\n- 로봇–AI–IT/OT 통합 아키텍처 설계 경험\n- 로봇 제어 로직(Behavior/Task/Motion) 설계 및 예외 처리 경험\n- 실제 운용 환경에서의 실패/중단 케이스 대응 경험\n- 로봇 안전성 및 휴먼 인터랙션에 대한 이해\n [AI 비전]\n- 산업 환경 Vision AI 실무 경력\n- 2D/3D Vision 기반 객체 인식 및 환경 변화 대응 튜닝 역량\n- 모델 재현성·안정성 확보를 위한 데이터 파이프라인 구축 역량\n- 센서(카메라·Depth·LiDAR) 특성 이해 및 오차 분석 역량\n- 로봇 제어 연계를 고려한 인식 인터페이스 설계 경험\n- 카메라·조명·렌즈 등 하드웨어에 대한 기본 이해",
+      "preferredQualifications": "■ 이런 분이면 더 좋아요 \n[우대역량]\n- 유관 전공 박사학위자\n※ 직무면접 Tool : PT 면접"
+    },
+    {
+      "group": "LG",
+      "jobNoticeId": 1002176,
+      "company": "LG에너지솔루션",
+      "title": "[CDO] AI/빅데이터 분야 상시 모집",
+      "positionIndex": 5,
+      "positionName": "Data Science",
+      "requiredCertificates": [],
+      "preferredCertificates": [],
+      "genericRequiredMentions": [],
+      "genericPreferredMentions": [],
+      "requiredQualifications": "■ 이런 분을 찾고 있어요 \n- 통계학, AI, 컴퓨팅, 수학, 최적화 관련 연구 석/박사 학위자\n- 통계학, AI, 최적화 방법론에 대한 이해\n- Python 프로그래밍 경험, Pytorch/Tensorflow 등 딥러닝 프레임워크 경험\n- 대용량 데이터 분석, 예측 모델 개발 경험",
+      "preferredQualifications": "■ 이런 분이면 더 좋아요 \n- 현장에서 발생하는 문제 해결을 위한 적절한 가설을 세우고 데이터 기반으로 검증 후 솔루션 배포 경험\n- 이차전지에 관심이 있으시거나 이차전지 원리 이해가 가능하신 분\n- 시계열 데이터 처리, 분석하고 예측 모형 개발한 경험이나 관련 전문 지식이 있으신 분\n- (Data Science) 통계적 혹은 AIML 방법론 연구 논문 출판 경험\n- (최적화기술개발) Gurobi, Xpress 등 최적화 Solver 사용 경험\n※ 직무면접 Tool : PT 면접"
+    },
+    {
+      "group": "LG",
+      "jobNoticeId": 1001992,
+      "company": "LG CNS",
+      "title": "[LG CNS] 마케팅 분야 Staff 모집 (경력)",
+      "positionIndex": 0,
+      "positionName": "Digital Marketing",
+      "requiredCertificates": [],
+      "preferredCertificates": [],
+      "genericRequiredMentions": [],
+      "genericPreferredMentions": [],
+      "requiredQualifications": "B2B 마케팅 업무 인사이트 및 경험을 보유하신 분\n 고객 행사, 세미나, 전시, 캠페인 등 마케팅 프로그램을 직접 기획·운영한 경험이 있으신 분\n 새로운 아이디어를 실행 가능한 마케팅 프로그램으로 구체화하고 실행할 수 있는 분\n 콘텐츠 기획 및 스토리텔링 역량을 보유하신 분\n 다양한 이해관계자와 원활하게 협업하며 프로젝트를 추진할 수 있는 분",
+      "preferredQualifications": "IT, AI, 클라우드 등 B2B 산업에 대한 이해 또는 관련 경험\n 홈페이지, 뉴스룸 등 디지털 채널 운영 경험\n 고객 참여형 행사(Pop-up, Showcase, Experience Zone 등) 기획 경험\n 9년 이상 경력자"
+    },
+    {
+      "group": "LG",
+      "jobNoticeId": 1001928,
+      "company": "하이엠솔루텍",
+      "title": "[정규직] 해외 칠러서비스 기술지원 담당자 모집 _인재 Pool",
+      "positionIndex": 0,
+      "positionName": "해외지원",
+      "requiredCertificates": [],
+      "preferredCertificates": [],
+      "genericRequiredMentions": [],
+      "genericPreferredMentions": [],
+      "requiredQualifications": "[ 필수조건 ] \n 1. 전기식(터보/스크류) 칠러 서비스 경력 3년 이상 \n 2. 해외 출장 가능자(연간 6개월 이상)",
+      "preferredQualifications": "[ 우대사항 ] \n 1. 국가 기술 자격 보유자 \n 2. 해외 근무 경험자 \n 3. 어학 역량 우수자 \n 4. OA(Excel/PPT) 활용 능력 우수자"
+    },
+    {
+      "group": "LG",
+      "jobNoticeId": 1001893,
+      "company": "LG화학",
+      "title": "[상시접수] LG화학 상시 인재등록 (전 직무)",
+      "positionIndex": 0,
+      "positionName": "R&D, 생산/품질, 영업/마케팅, Staff",
+      "requiredCertificates": [],
+      "preferredCertificates": [],
+      "genericRequiredMentions": [],
+      "genericPreferredMentions": [],
+      "requiredQualifications": "모집 분야 관련 전공 학위 또는 관련 경험",
+      "preferredQualifications": "-"
+    },
+    {
+      "group": "LG",
+      "jobNoticeId": 1001743,
+      "company": "하이엠솔루텍",
+      "title": "[정규직] 해외 BMS(빌딩자동제어) 엔지니어 모집 _인재 Pool",
+      "positionIndex": 0,
+      "positionName": "BMS(자동제어 엔지니어)",
+      "requiredCertificates": [],
+      "preferredCertificates": [],
+      "genericRequiredMentions": [],
+      "genericPreferredMentions": [],
+      "requiredQualifications": "[ 필수조건 ] \n 1. BMS 또는 자동제어 관련 실무 경력 3년 이상 \n 2. HVAC, 공조, 전력 설비 자동제어 시스템 이해보유 \n 3. BMS 설계, 로직 구성, 시운전 및 장애 대응 가능자 \n 4. 산업용 통신(Modbus, BACnet 등)이해 및 적용 경험 \n 5. 해외 출장 및 현장 근무 가능자 \n 6. 기술 문서(한/영) 작성 및 기본적인 영어 커뮤니케이션 가능자",
+      "preferredQualifications": "[ 우대사항 ] \n 1. BMS 또는 스마트 팩토리 프로젝트 수행 경험자 \n 2. GMP, GLP, 연구시설, 반도체, 공장 자동화 경험자 \n 3. 전기 전자 기계 자동제어 관련 전공자 \n 4. 에너지 관리 시스템(FEMS, BEMS경험자 \n 5. 스페인어 또는 영어 커뮤니케이션 가능자"
+    },
+    {
+      "group": "LG",
+      "jobNoticeId": 1001744,
+      "company": "하이엠솔루텍",
+      "title": "[정규직] 현장PM 각 담당자 모집(기계설비,전기,정보통신) - 인재 Pool",
+      "positionIndex": 0,
+      "positionName": "PM(기계설비공사)",
+      "requiredCertificates": [],
+      "preferredCertificates": [],
+      "genericRequiredMentions": [
+        "1.산업기사 이상 해당 분야 3년 이상 실무 종사자"
+      ],
+      "genericPreferredMentions": [
+        "관련 자격 보유자"
+      ],
+      "requiredQualifications": "[ 필수조건 ] \n *1~3번 중 한 개 이상 해당하는 자 \n 1.산업기사 이상 해당 분야 3년 이상 실무 종사자 \n 2.해당 직무분야 중급기술인 이상 \n 3.해당 직무분야 초급기술인으로서 3년",
+      "preferredQualifications": "[ 우대사항 ] \n 1. 관련 자격 보유자 \n 2. 관련 학과 전공자 \n 3.영 어 회화 가능자"
+    },
+    {
+      "group": "LG",
+      "jobNoticeId": 1001744,
+      "company": "하이엠솔루텍",
+      "title": "[정규직] 현장PM 각 담당자 모집(기계설비,전기,정보통신) - 인재 Pool",
+      "positionIndex": 1,
+      "positionName": "PM(전기공사)",
+      "requiredCertificates": [],
+      "preferredCertificates": [],
+      "genericRequiredMentions": [],
+      "genericPreferredMentions": [
+        "관련 자격 보유자"
+      ],
+      "requiredQualifications": "[ 필수조건 ] \n 1.초급 전기공사기술자 이상 \n 2. 운전가능자",
+      "preferredQualifications": "[ 우대사항 ] \n 1. 관련 자격 보유자 \n 2. 관련 학과 전공자 \n 3.영 어 회화 가능자"
+    },
+    {
+      "group": "LG",
+      "jobNoticeId": 1001744,
+      "company": "하이엠솔루텍",
+      "title": "[정규직] 현장PM 각 담당자 모집(기계설비,전기,정보통신) - 인재 Pool",
+      "positionIndex": 2,
+      "positionName": "PM(정보통신공사)",
+      "requiredCertificates": [],
+      "preferredCertificates": [],
+      "genericRequiredMentions": [],
+      "genericPreferredMentions": [
+        "관련 자격 보유자"
+      ],
+      "requiredQualifications": "[ 필수조건 ] \n 1.초급 정보통신기술자 이상 \n 2. 운전가능자",
+      "preferredQualifications": "[ 우대사항 ] \n 1. 관련 자격 보유자 \n 2. 관련 학과 전공자 \n 3.영 어 회화 가능자"
+    },
+    {
+      "group": "LG",
+      "jobNoticeId": 1000552,
+      "company": "하이엠솔루텍",
+      "title": "[하이엠솔루텍] 장애인 특별 채용_사무직 모집(2026년 상시)",
+      "positionIndex": 0,
+      "positionName": "사무업무",
+      "requiredCertificates": [],
+      "preferredCertificates": [],
+      "genericRequiredMentions": [],
+      "genericPreferredMentions": [],
+      "requiredQualifications": "1) 해외 여행에 결격 사유가 없는 자\n 2) 장애인 등록증 보유자",
+      "preferredQualifications": "- 우대사항 : 보훈/취업보호 대상자"
+    },
+    {
+      "group": "LG",
+      "jobNoticeId": 1000553,
+      "company": "하이엠솔루텍",
+      "title": "[하이엠솔루텍] 장애인 특별 채용_시스템에어컨 서비스엔지니어 모집(2026년 상시)",
+      "positionIndex": 0,
+      "positionName": "서비스엔지니어",
+      "requiredCertificates": [],
+      "preferredCertificates": [],
+      "genericRequiredMentions": [],
+      "genericPreferredMentions": [
+        "- 냉동, 기계설비 또는 전기 관련 자격증 소지자"
+      ],
+      "requiredQualifications": "- 장애인 등록증 보유자\n - 운전 가능자\n - 해외 여행에 결격 사유가 없는 자\n - 공통 우대 사항 : 보훈/취업보호 대상자",
+      "preferredQualifications": "- 시스템에어컨 관련 업무 중수리 등 3년 이상 유경험자\n - 자동차 정비/용접 업무 5년 이상 유경험자\n - 냉동, 기계설비 또는 전기 관련 자격증 소지자"
+    },
+    {
+      "group": "LG",
+      "jobNoticeId": 1000948,
+      "company": "비즈테크아이",
+      "title": "[비즈테크아이] 상시 인재 채용 (인재 Pool)",
+      "positionIndex": 0,
+      "positionName": "IT인프라/클라우드 운영, AI 엔지니어, IT 인프라 (온프레미스/클라우드) TA, 어플리케이션 개발/유지 운영, ERP SM 운영, ABAP 개발, SAP BW, 아키텍트, PM/PL, 스마트팩토리, 영업",
+      "requiredCertificates": [],
+      "preferredCertificates": [],
+      "genericRequiredMentions": [],
+      "genericPreferredMentions": [],
+      "requiredQualifications": "📝 지원 방법 \n 인재POOL 등록 💫 \n 본 공고는 상시 인재풀 등록 을 위한 공고입니다.\n등록된 이력서는 인사팀에서 상시 검토 하며, 서류 전형 합격자에게 개별 안내 드립니다.\n 인재풀 등록을 통해 저희와 함께 새로운 기회를 경험 해보세요!\n여러분의 열정과 역량을 기다립니다. 🌟\n ※ 추천·소개 지원 시 유의사항 ※ \n 직원, 지인, 서치펌(헤드헌팅) 등을 통한 지원의 경우, \n 반드시 지원 채널을 선택하시고 소개/추천인의 소속과 성함을 반드시 기재해주세요!",
+      "preferredQualifications": "🔍 이런 분을 찾고 있어요 ! \n 비즈테크아이와 함께 성장하고자 하는 의지와 목표가 분명하신 분 \n 지원 분야에서 2 년 이상 실무 역량을 갖추신 분"
+    },
+    {
+      "group": "LG",
+      "jobNoticeId": 1002396,
+      "company": "LG전자",
+      "title": "[생산기술원] 3D 영상 그래픽 디자이너 (계약직)",
+      "positionIndex": 0,
+      "positionName": "스마트팩토리 마케팅",
+      "requiredCertificates": [],
+      "preferredCertificates": [],
+      "genericRequiredMentions": [],
+      "genericPreferredMentions": [],
+      "requiredQualifications": "- 3D 모델링 등 시각화 Tool 활용 가능자 \n (3ds Max, After Effects, Premiere Pro, CAD, sketch-up, 포토샵, 일러스트 등)",
+      "preferredQualifications": "- 제조업종 라인 / 물류 HW 및 운영 시스템 컨셉에 대한 3D 영상 그래픽 제작 경험"
+    },
+    {
+      "group": "LG",
+      "jobNoticeId": 1002389,
+      "company": "LG생활건강",
+      "title": "[LG생활건강] HR 신입사원 채용",
+      "positionIndex": 0,
+      "positionName": "HR",
+      "requiredCertificates": [],
+      "preferredCertificates": [],
+      "genericRequiredMentions": [],
+      "genericPreferredMentions": [],
+      "requiredQualifications": "▪ 인사관리 · 조직문화 · 인재육성 등 HR 전반에 대한 기본적인 이해와 직무에 대한 관심\n ▪ 데이터와 구성원의 의견을 바탕으로 문제를 파악하고, 개선 방향을 논리적으로 제시할 수 있는 역량\n ▪ 다양한 부서와 원활하게 소통하고 서로 다른 의견을 조율하며 협업할 수 있는 커뮤니케이션 스킬",
+      "preferredQualifications": "▪ 경영학, 심리학, 교육학 등 HR 관련 분야 전공 및 관련 과목 이수\n ▪ HR 관련 프로젝트 및 과제 수행 경험\n ▪ 데이터 분석 Tool 이나 콘텐츠 제작 Tool 활용 경험"
+    },
+    {
+      "group": "LG",
+      "jobNoticeId": 1002379,
+      "company": "D&O",
+      "title": "[레저] 곤지암리조트 마케팅팀 경력사원 채용",
+      "positionIndex": 0,
+      "positionName": "마케팅",
+      "requiredCertificates": [],
+      "preferredCertificates": [],
+      "genericRequiredMentions": [],
+      "genericPreferredMentions": [
+        "- 자격증 : 관련 자격증 소지자 우대 (데이터 분석 관련 자격증 등)"
+      ],
+      "requiredQualifications": "■ 이런 분에게 열려있는 기회입니다 \n- 4년제 대학 이상 졸업자\n- 경력 : CRM/DCRM 등 데이터 기반 고객 마케팅 경력 7년 이상",
+      "preferredQualifications": "■ 이런 경험과 역량을 가지신 분이면 더 좋습니다 \n- 자격증 : 관련 자격증 소지자 우대 (데이터 분석 관련 자격증 등)\n- 고객 세그먼트 기반 타깃 마케팅 및 CRM 캠페인 운영 경험\n- 멤버십 또는 고객 로열티 프로그램 기획 및 운영 경험\n- BI, GA4 등 데이터 분석 도구 활용 경험\n- 고객 데이터를 분석하여 마케팅 성과를 개선한 경험\n- 유관부서와 원활하게 소통하고 협업할 수 있는 역량"
+    },
+    {
+      "group": "LG",
+      "jobNoticeId": 1002397,
+      "company": "LG전자",
+      "title": "[생산기술원] 스마트팩토리 프로젝트 건설기술인 (계약직)",
+      "positionIndex": 0,
+      "positionName": "기계/건축관리",
+      "requiredCertificates": [],
+      "preferredCertificates": [],
+      "genericRequiredMentions": [],
+      "genericPreferredMentions": [],
+      "requiredQualifications": "- 건설기술인협회 등록 및 프로젝트 현장 배치가 가능한 분 (하기 4개 조건 중 1개 만족 필요)\n 1. 기술사 또는 기능장\n 2. 기사자격취득 후 해당 직무분야 5년 이상 종사자\n 3. 건설기술진흥법에 따른 직무분야 특급기술인 또는 고급기술인 (3년 이상) 종사자\n 4. 산업기사 자격 취득 후 해당 직무분야에서 7년 이상 종사한 자\n- 건설 현장 시공·공무·공정·품질 또는 현장관리 실무 경험\n- 발주처·협력사·관공서 등 다양한 이해관계자와 원활하게 협업할 수 있는 분\n- 프로젝트 현장 상주 및 국내 출장/이동이 가능한 분\n- 문서 작성과 일정·이슈 관리 역량을 보유한 분",
+      "preferredQualifications": "- 공장, 물류센터, 자동화설비 또는 생산시설 구축 프로젝트 경험\n- 기계설비·전기·건축·산업안전 관련 전공 또는 자격 보유\n- KISCON 신고, 착공·준공 서류, 하도급 및 건설업 행정 실무 경험\n- 자동화 설비 설치, 반입, 셋업 및 시운전 단계의 공정·안전 관리 경험\n- 스마트팩토리, 물류자동화, 로봇/FA 프로젝트 경험"
+    },
+    {
+      "group": "LG",
+      "jobNoticeId": 1002364,
+      "company": "LG전자",
+      "title": "[CTO부문 / 경력 채용] 차세대 가전 플랫폼용 모터·인버터 선행기술 개발",
+      "positionIndex": 0,
+      "positionName": "모터·인버터 개발",
+      "requiredCertificates": [],
+      "preferredCertificates": [],
+      "genericRequiredMentions": [],
+      "genericPreferredMentions": [],
+      "requiredQualifications": "전기·전자공학, 기계공학 등 관련 분야를 전공하신 분\n 모터, 인버터, 방열 관련 업무 경험을 보유하신 분\n 관련 분야에서 3년 이상의 실무 경험을 보유하신 분\n 석사학위 이상을 보유하신 분",
+      "preferredQualifications": "AI를 업무에 적극적으로 활용하며, AI Agent 등 다양한 AI 도구를 활용한 업무 효율화에 익숙하신 분이면 좋습니다."
+    },
+    {
+      "group": "LG",
+      "jobNoticeId": 1002370,
+      "company": "하이프라자",
+      "title": "[하이프라자] 노무사 경력사원 채용",
+      "positionIndex": 0,
+      "positionName": "노무담당자",
+      "requiredCertificates": [],
+      "preferredCertificates": [],
+      "genericRequiredMentions": [
+        "노무사 자격증 소지자"
+      ],
+      "genericPreferredMentions": [],
+      "requiredQualifications": "노무사 자격증 소지자\n 노무 업무 3년 이상 경험자",
+      "preferredQualifications": "동종업계(유통) 근무 경력자\n 기업 경력자\n 법학계역 전공자"
+    },
+    {
+      "group": "LG",
+      "jobNoticeId": 1002383,
+      "company": "LG유플러스",
+      "title": "[Consumer부문] 충북소매영업팀 계약직 채용",
+      "positionIndex": 0,
+      "positionName": "사무지원",
+      "requiredCertificates": [],
+      "preferredCertificates": [],
+      "genericRequiredMentions": [],
+      "genericPreferredMentions": [
+        "전산 회계 관련 자격증 보유자 우대"
+      ],
+      "requiredQualifications": "신입 및 경력 지원 가능\n OA 활용능력: Office(Excel, PPT, Word) 활용 가능자 필수\n 전산 시스템(ERP 등) 신속한 습득 및 활용 가능자",
+      "preferredQualifications": "각종 사무지원, 정산, CS 업무 경험자 우대\n 전산 회계 관련 자격증 보유자 우대\n OA 능력 우수자"
+    },
+    {
+      "group": "LG",
+      "jobNoticeId": 1002384,
+      "company": "LG유플러스",
+      "title": "[Consumer부문] 경인도매영업팀 전산/회계지원 및 사무보조 계약직  채용",
+      "positionIndex": 0,
+      "positionName": "사무지원",
+      "requiredCertificates": [],
+      "preferredCertificates": [],
+      "genericRequiredMentions": [],
+      "genericPreferredMentions": [
+        "전산 회계 관련 자격증 보유자 우대"
+      ],
+      "requiredQualifications": "신입 및 경력 지원 가능\n OA 활용능력: Office(Excel, PPT, Word) 활용 가능자 필수\n 전산 시스템(ERP 등) 신속한 습득 및 활용 가능자",
+      "preferredQualifications": "각종 사무지원, 정산, CS 업무 경험자 우대\n 전산 회계 관련 자격증 보유자 우대\n OA 능력 우수자"
+    },
+    {
+      "group": "LG",
+      "jobNoticeId": 1002372,
+      "company": "비즈테크아이",
+      "title": "[비즈테크아이] 데이터엔지니어링 PL 모집 (경력)",
+      "positionIndex": 0,
+      "positionName": "데이터 엔지니어",
+      "requiredCertificates": [],
+      "preferredCertificates": [],
+      "genericRequiredMentions": [],
+      "genericPreferredMentions": [],
+      "requiredQualifications": "학력 : 4년제 정규대학 학사학위 이상 보유자\n 데이터 마트 설계/개발 10년 이상\n ETL 설계/개발 10년 이상\n Databricks 설계/개발 경험\n Python 기반 Data Pipeline 구축 경험\n DW/빅데이터 정보계 프로젝트 분석/설계 경험\n DW/BI 프로젝트 PM 또는 PL역할 경험\n ETL (Informatica, Datastage 등) 또는 SQL, PL_SQL활용한 데이터 연동 경험",
+      "preferredQualifications": "AWS/GCP/AZURE 클라우드 기반 빅데이터 구축 경험이 있는 분 (S3, Redshift, GCS, Biq Query 수행 경험)\n Hadoop, ExaData, Vertica, Sybase등 DB기반 구축 경험이 있는 분\n 대용량 데이터 처리 경험이 있는 분"
+    },
+    {
+      "group": "LG",
+      "jobNoticeId": 1002363,
+      "company": "LG전자",
+      "title": "[로보틱스사업센터] 로보틱스 사업이행 (Field Engineer) 경력 채용",
+      "positionIndex": 0,
+      "positionName": "B2B Sales",
+      "requiredCertificates": [],
+      "preferredCertificates": [],
+      "genericRequiredMentions": [],
+      "genericPreferredMentions": [],
+      "requiredQualifications": "필요역량\n 1. AGV / AMR / MOMA / 협동로봇/ 휴머노이드 HW / SW 개발 유경험자\n2. AGV / AMR / MOMA / 협동로봇/ 휴머노이드 Field Engineer 유경험자 (Install / 유지 / 보수)\n3. B2B 고객사 대응과 엔지니어 역량 및 유경험자(PM & CS)",
+      "preferredQualifications": "이공계열 우대, 영어 / 중국어 어학 능력자"
+    },
+    {
+      "group": "LG",
+      "jobNoticeId": 1002367,
+      "company": "LG생활건강",
+      "title": "[코카콜라음료] SCM(공급망관리) 신입 채용",
+      "positionIndex": 0,
+      "positionName": "SCM",
+      "requiredCertificates": [],
+      "preferredCertificates": [],
+      "genericRequiredMentions": [],
+      "genericPreferredMentions": [],
+      "requiredQualifications": "▪ 내외부 고객과의 커뮤니케이션 및 협업 능력 우수자\n ▪ MS Office 활용 능력 우수자 (Excel 등)\n ▪ 데이터 기반의 분석적 사고력 보유자",
+      "preferredQualifications": "▪ FMCG 공급망 특성에 대한 이해 보유자\n ▪ S&OP 운영 경험 보유자\n ▪ AI 활용 역량 보유자"
+    },
+    {
+      "group": "LG",
+      "jobNoticeId": 1002371,
+      "company": "D&O",
+      "title": "[레저] 곤지암리조트 영업팀 해외영업 경력사원 채용",
+      "positionIndex": 0,
+      "positionName": "영업",
+      "requiredCertificates": [],
+      "preferredCertificates": [],
+      "genericRequiredMentions": [],
+      "genericPreferredMentions": [
+        "- 자격증 : 관광통역안내사 등 해외 관광 관련 자격증 우대"
+      ],
+      "requiredQualifications": "■ 이런 분에게 열려있는 기회입니다 \n- 4년제 대학 이상 졸업자\n- 전공 : 무관\n- 경력 : 유관 경력 최소 3년 이상 (리조트/스키장 해외 단체 영업 경력)\n- 어학 : 중국어(필수)",
+      "preferredQualifications": "■ 이런 경험과 역량을 가지신 분이면 더 좋습니다 \n - 어학 : 영어(우대)\n - 자격증 : 관광통역안내사 등 해외 관광 관련 자격증 우대 \n - 국내 스키 리조트 소속 해외 인바운드 단체 영업 경력자 우대"
+    },
+    {
+      "group": "LG",
+      "jobNoticeId": 1002354,
+      "company": "LG에너지솔루션",
+      "title": "[CFO] 해외법무 해외변호사 경력모집",
+      "positionIndex": 0,
+      "positionName": "법률자문",
+      "requiredCertificates": [],
+      "preferredCertificates": [],
+      "genericRequiredMentions": [],
+      "genericPreferredMentions": [],
+      "requiredQualifications": "■ 이런 분을 찾고 있어요. \n - 영미권 변호사 자격 보유자 (3년 이상) \n - 영어 능통자",
+      "preferredQualifications": "■ 이런 분이면 더 좋아요. \n - 로펌 또는 사내변호사 실무 경력 5년 이상 \n - 중요 투자 프로젝트 및 영문 계약 검토/협상 실무 경험 보유 \n ※ 직무면접 Tool : 구술면접"
+    },
+    {
+      "group": "LG",
+      "jobNoticeId": 1002339,
+      "company": "비즈테크아이",
+      "title": "[비즈테크아이] SAP BW 담당자 모집(경력)",
+      "positionIndex": 0,
+      "positionName": "SAP BW",
+      "requiredCertificates": [],
+      "preferredCertificates": [],
+      "genericRequiredMentions": [],
+      "genericPreferredMentions": [],
+      "requiredQualifications": "학력 : 4년제 정규대학 학사학위 이상 보유자\n 경력 : 관련 업무 1년 이상 \n 필수 역량 \n SAP BW/4HANA 모델링 및 구현 능력\n SAP Datasphere 구현 능력",
+      "preferredQualifications": "SAP ABAP 스킬 보유하신 분\n SAC 경험하신 분\n SAC Planning 경험하신 분"
+    },
+    {
+      "group": "LG",
+      "jobNoticeId": 1002307,
+      "company": "비즈테크아이",
+      "title": "[비즈테크아이] 경영기획 담당자 모집 (경력)",
+      "positionIndex": 0,
+      "positionName": "전략기획",
+      "requiredCertificates": [],
+      "preferredCertificates": [],
+      "genericRequiredMentions": [],
+      "genericPreferredMentions": [],
+      "requiredQualifications": "학력 : 4년제 정규대학 학사학위 이상 보유자\n 경력 : 관련 업무 3년 이상 ~ 6년 이하\n 내부 결산 경험을 보유하신 분(결산 보고서 작성 등)\n 엑셀 및 파워포인트 활용 능력을 보유하신 분\n 월별 실적·예상 자료·손익 구조 분석 등 재무 데이터 해석에 관심 있는 분\n 다양한 이해관계자와 협업하며 이슈를 파악·조율할 수 있는 커뮤니케이션 역량을 보유하신 분",
+      "preferredQualifications": "전략/기획 부서에서 근무한 경험이 있으신 분\n BPO 비즈니스 환경에서 재무적·법무적 관점의 문제 해결 경험이 있으신 분"
+    },
+    {
+      "group": "LG",
+      "jobNoticeId": 1002309,
+      "company": "LG유플러스",
+      "title": "[Consumer부문] 전남소매영업팀 회계/정산 계약직 채용",
+      "positionIndex": 0,
+      "positionName": "사무지원",
+      "requiredCertificates": [],
+      "preferredCertificates": [],
+      "genericRequiredMentions": [],
+      "genericPreferredMentions": [
+        "전산 회계 관련 자격증 보유자 우대"
+      ],
+      "requiredQualifications": "신입 및 경력 지원 가능 \n OA 활용능력: Office(Excel, PPT, Word) 활용 가능자 필수 \n 전산 시스템(ERP 등) 신속한 습득 및 활용 가능자",
+      "preferredQualifications": "각종 사무지원, 정산, CS 업무 경험자 우대 \n 전산 회계 관련 자격증 보유자 우대 \n OA 능력 우수자"
+    },
+    {
+      "group": "LG",
+      "jobNoticeId": 1002287,
+      "company": "비즈테크아이",
+      "title": "[비즈테크아이] QMS 구축 프로젝트  PM/PL 모집 (경력)",
+      "positionIndex": 0,
+      "positionName": "PM/PL, 생산/품질(MES/QMS/SPC/RMS/FDC) 설계/구축",
+      "requiredCertificates": [],
+      "preferredCertificates": [],
+      "genericRequiredMentions": [],
+      "genericPreferredMentions": [],
+      "requiredQualifications": "학력 : 4년제 정규대학 학사학위 이상 보유자 \n 경력 : IT 시스템 구축 프로젝트 경력 10년 이상 \n 구축 프로젝트 PM, PL 또는 업무 리딩 경험 3년 이상\n 제조 MES 경험하신 분\n 프로젝트 일정·이슈·리스크 관리 경험하신 분\n 고객 및 현업 부서와의 요구사항 조율 경험하신 분\n React 기반 웹 애플리케이션 구조에 대한 이해와 경험하신 분\n Spring Boot 기반 백엔드 및 REST API 구조에 대한 이해 보유하신 분\n 유관부서 및 외부 공급사와 원활하게 협업할 수 있는 커뮤니케이션 역량 및 문제 해결이 가능하신 분 \n 근무지 \n 서울 및 지방 \n (프로젝트에 따라 근무지가 변경될 수 있습니다.)",
+      "preferredQualifications": "LG 품질업무 또는 품질시스템 경험이 있으신 분\n 제조시스템 10년 이상 경험이 있으신 분\n 검사/Audit/변경관리/이슈관리/인정시험 업무 경험이 있으신 분\n React/DevOn 경험이 있으신 분\n REST API 연계 경험이 있으신 분"
+    },
+    {
+      "group": "LG",
+      "jobNoticeId": 1002288,
+      "company": "비즈테크아이",
+      "title": "[비즈테크아이] QMS 구축 프로젝트 분석/설계 담당자 모집 (경력)",
+      "positionIndex": 0,
+      "positionName": "생산/품질(MES/QMS/SPC/RMS/FDC) 설계/구축",
+      "requiredCertificates": [],
+      "preferredCertificates": [],
+      "genericRequiredMentions": [],
+      "genericPreferredMentions": [
+        "품질 관련 자격증 보유허신 분"
+      ],
+      "requiredQualifications": "학력 : 4년제 정규대학 학사학위 이상 보유하신 분\n 경력 : 제조업 품질관리, 품질기획 관련 IT 시스템 분석·설계 경력 3년 이상\n 업무 프로세스 분석 및 개선 경험하신 분\n 요구사항 정의 및 기능 설계 경험하신 분\n 시스템 구축 프로젝트 산출물 작성 경험하신 분\n 품질 관련 업무에 대한 이해를 갖추신 분\n 현업과의 협업을 통해 업무를 구체화하고 조율할 수 있는 역량을 보유하신 분\n 문서 작성 및 프레젠테이션 역량을 보유하신 분\n 근무지\n 서울 및 지방 \n(프로젝트에 따라 근무지가 변경될 수 있습니다.)",
+      "preferredQualifications": "LG 품질업무 또는 품질시스템 경험을 보유하신 분\n QMS, MES, ERP, PLM 구축 경험을 보유하신 분\n 수입검사, 공정검사, 출하검사 프로세스 설계 경험을 보유하신 분\n React 기반 화면 분석·설계 또는 개발 협업 경험을 보유하신 분\n Spring Boot 기반 업무서비스 분석·설계 경험을 보유하신 분\n 검사/Audit/변경관리/이슈관리/인정시험 업무 경험을 보유하신 분\n 제조시스템 경험 10년 경력을 보유하신 분\n 품질 관련 자격증 보유허신 분"
+    },
+    {
+      "group": "LG",
+      "jobNoticeId": 1002063,
+      "company": "LG CNS",
+      "title": "[LG CNS] 클라우드 데이터센터 구축/운영 분야 모집(경력)",
+      "positionIndex": 0,
+      "positionName": "데이터센터 구축/운영(전기)_수도권",
+      "requiredCertificates": [
+        {
+          "name": "전기공사기사",
+          "evidence": "분 전기 관련 전공자 또는 관련 자격이 있으신 분(전기기사, 전기공사기사 중 1개 필수)"
+        },
+        {
+          "name": "전기기사",
+          "evidence": "험이 있으신 분 전기 관련 전공자 또는 관련 자격이 있으신 분(전기기사, 전기공사기사 중 1개 필수)"
+        }
+      ],
+      "preferredCertificates": [],
+      "genericRequiredMentions": [
+        "전기 관련 전공자 또는 관련 자격이 있으신 분(전기기사, 전기공사기사 중 1개 필수)"
+      ],
+      "genericPreferredMentions": [],
+      "requiredQualifications": "데이터센터 및 건축 분야 전기 설비 구축/운영 실무 경력이 5년 이상\n 데이터센터 및 건축 분야 커미셔닝 실무 경험이 있으신 분\n 전기 관련 전공자 또는 관련 자격이 있으신 분(전기기사, 전기공사기사 중 1개 필수)",
+      "preferredQualifications": "유관업체 경력이 5년 이상\n 데이터센터 컨설팅/구축/운영, 관련 CM, 감리 업무 경험이 있으신 분\n * 유관업체 : 수배전반, UPS, 발전기, 냉동기, 항온항습기 등 장비 납품/제조 업체 등"
+    },
+    {
+      "group": "LG",
+      "jobNoticeId": 1002063,
+      "company": "LG CNS",
+      "title": "[LG CNS] 클라우드 데이터센터 구축/운영 분야 모집(경력)",
+      "positionIndex": 1,
+      "positionName": "데이터센터 구축/운영(기계)_수도권",
+      "requiredCertificates": [
+        {
+          "name": "건축설비기사",
+          "evidence": "계 관련 전공자 또는 관련 자격이 있으신 분(공조냉동기계기사, 건축설비기사, 건설기계설비기사 중 1개 필수)"
+        },
+        {
+          "name": "공조냉동기계기사",
+          "evidence": "험이 있으신 분 기계 관련 전공자 또는 관련 자격이 있으신 분(공조냉동기계기사, 건축설비기사, 건설기계설비기사 중 1개 필수)"
+        }
+      ],
+      "preferredCertificates": [],
+      "genericRequiredMentions": [
+        "기계 관련 전공자 또는 관련 자격이 있으신 분(공조냉동기계기사, 건축설비기사, 건설기계설비기사 중 1개 필수)"
+      ],
+      "genericPreferredMentions": [],
+      "requiredQualifications": "데이터센터 및 건축 분야 기계 설비 구축/운영 실무 경력이 5년 이상\n 데이터센터 및 건축 분야 커미셔닝 실무 경험이 있으신 분\n 기계 관련 전공자 또는 관련 자격이 있으신 분(공조냉동기계기사, 건축설비기사, 건설기계설비기사 중 1개 필수)",
+      "preferredQualifications": "유관업체 경력이 5년 이상\n 데이터센터 컨설팅/구축/운영, 관련 CM, 감리 업무 경험이 있으신 분\n * 유관업체 : 수배전반, UPS, 발전기, 냉동기, 항온항습기 등 장비 납품/제조 업체 등"
+    },
+    {
+      "group": "LG",
+      "jobNoticeId": 1002063,
+      "company": "LG CNS",
+      "title": "[LG CNS] 클라우드 데이터센터 구축/운영 분야 모집(경력)",
+      "positionIndex": 2,
+      "positionName": "데이터센터 구축/운영(전기)_창원/부산",
+      "requiredCertificates": [
+        {
+          "name": "전기공사기사",
+          "evidence": "분 전기 관련 전공자 또는 관련 자격이 있으신 분(전기기사, 전기공사기사 중 1개 필수)"
+        },
+        {
+          "name": "전기기사",
+          "evidence": "험이 있으신 분 전기 관련 전공자 또는 관련 자격이 있으신 분(전기기사, 전기공사기사 중 1개 필수)"
+        }
+      ],
+      "preferredCertificates": [],
+      "genericRequiredMentions": [
+        "전기 관련 전공자 또는 관련 자격이 있으신 분(전기기사, 전기공사기사 중 1개 필수)"
+      ],
+      "genericPreferredMentions": [],
+      "requiredQualifications": "데이터센터 및 건축 분야 전기 설비 구축/운영 실무 경력 5년 이상\n 데이터센터 및 건축 분야 커미셔닝 실무 경험이 있으신 분\n 전기 관련 전공자 또는 관련 자격이 있으신 분(전기기사, 전기공사기사 중 1개 필수)",
+      "preferredQualifications": "유관업체 경력이 5년 이상\n 데이터센터 컨설팅/구축/운영, 관련 CM, 감리 업무 경험이 있으신 분\n * 유관업체 : 수배전반, UPS, 발전기, 냉동기, 항온항습기 등 장비 납품/제조 업체 등"
+    },
+    {
+      "group": "LG",
+      "jobNoticeId": 1002063,
+      "company": "LG CNS",
+      "title": "[LG CNS] 클라우드 데이터센터 구축/운영 분야 모집(경력)",
+      "positionIndex": 3,
+      "positionName": "데이터센터 구축/운영(기계)_창원/부산",
+      "requiredCertificates": [
+        {
+          "name": "전기공사기사",
+          "evidence": "분 전기 관련 전공자 또는 관련 자격이 있으신 분(전기기사, 전기공사기사 중 1개 필수)"
+        },
+        {
+          "name": "전기기사",
+          "evidence": "험이 있으신 분 전기 관련 전공자 또는 관련 자격이 있으신 분(전기기사, 전기공사기사 중 1개 필수)"
+        }
+      ],
+      "preferredCertificates": [],
+      "genericRequiredMentions": [
+        "전기 관련 전공자 또는 관련 자격이 있으신 분(전기기사, 전기공사기사 중 1개 필수)"
+      ],
+      "genericPreferredMentions": [],
+      "requiredQualifications": "데이터센터 및 건축 분야 전기 설비 구축/운영 실무 경력 5년 이상\n 데이터센터 및 건축 분야 커미셔닝 실무 경험이 있으신 분\n 전기 관련 전공자 또는 관련 자격이 있으신 분(전기기사, 전기공사기사 중 1개 필수)",
+      "preferredQualifications": "유관업체 경력이 5년 이상\n 데이터센터 컨설팅/구축/운영, 관련 CM, 감리 업무 경험이 있으신 분\n * 유관업체 : 수배전반, UPS, 발전기, 냉동기, 항온항습기 등 장비 납품/제조 업체 등"
+    },
+    {
+      "group": "LG",
+      "jobNoticeId": 1002219,
+      "company": "비즈테크아이",
+      "title": "[비즈테크아이] VDI TA·인프라 운영 담당자 모집 (경력)",
+      "positionIndex": 0,
+      "positionName": "VDI 운영, IT인프라 TA",
+      "requiredCertificates": [],
+      "preferredCertificates": [],
+      "genericRequiredMentions": [],
+      "genericPreferredMentions": [],
+      "requiredQualifications": "학력: 4년제 정규대학 학사학위 이상 보유하신 분\n 경력: 관련 업무 4년 이상\n VMware / OpenStack / Nutanix 구축/운영 경험 하신 분\n Windows 또는 Linux서버 3년이상 구축/운영/트러블슈팅 경험 하신 분\n 서버/스토리지/Network에 대한 이해가 높으신 분",
+      "preferredQualifications": "Citrix, VMWare, 소만사 등 VDI 솔루션 운영 경험이 있으신 분 \n VDI 운영 경험(3,000 User 이상)이 있으신 분 \n 모니터링 시스템 구축 또는 운영 경험이 있으신 분 \n Open-source 운영 경험이 있으신 분 \n 스크립트 언어 활용 경험이 있으신 분 \n 적극적이고 긍정적인 마인드를 보유하신 분"
+    },
+    {
+      "group": "LG",
+      "jobNoticeId": 1002199,
+      "company": "비즈테크아이",
+      "title": "[비즈테크아이] AI 엔지니어 모집 (경력) ",
+      "positionIndex": 0,
+      "positionName": "AI 엔지니어",
+      "requiredCertificates": [],
+      "preferredCertificates": [],
+      "genericRequiredMentions": [],
+      "genericPreferredMentions": [],
+      "requiredQualifications": "학력 : 4년제 정규대학 학사학위 이상 보유하신 분\n 경력 : 관렵 업무 2년 이상\n GenAI/LLM, AI Agent, Vision AI 중 하나 이상 개발·운영 경험하신 분 \n Python/FastAPI 기반 API 및 REST/JSON 개발 경험하신 분 \n Git, Linux, Docker 활용 역량 있으신 분 \n AI 서비스 개발 및 운영에 대한 기본 이해가 있으신 분",
+      "preferredQualifications": "PM/PL 및 고객·현업 커뮤니케이션 경험이 있으신 분 \n MCP, Tool Calling, LangGraph/ADK 기반 Agent 개발 경험이 있으신 분 \n Vision AI, 멀티모달 또는 이미지·영상 처리 경험이 있으신 분 \n React 또는 Java/Spring 기반 시스템 연계 개발 경험이 있으신 분 \n 검색·RAG 구축 경험이 있으신 분"
+    },
+    {
+      "group": "LG",
+      "jobNoticeId": 1002187,
+      "company": "비즈테크아이",
+      "title": "[비즈테크아이] MES 구축/운영 프로젝트 PL 모집 (경력)",
+      "positionIndex": 0,
+      "positionName": "MES, 생산/품질(MES/QMS/SPC/RMS/FDC) 설계/구축",
+      "requiredCertificates": [],
+      "preferredCertificates": [],
+      "genericRequiredMentions": [],
+      "genericPreferredMentions": [],
+      "requiredQualifications": "학력: 4년제 정규대학 학사학위 이상 보유자 \n 경력: 실무 6년 이상 또는 PM / PL 경력 보유자\n MES 구축 및 운영 경험하신 분\n C#, Java, Oracle, SQL 스킬을 보유하신 분\n 국내 · 해외 출장 가능하신 분",
+      "preferredQualifications": "ERP(SAP, Oracle) 구축, 운영 또는 유지보수 경험을 보유하신 분\n 다양한 현장 요구사항에 유연하게 대응하며, 이슈 발생 시 이해관계자와 신속한 커뮤니케이션 및 문제 해결이 가능하신 분"
+    },
+    {
+      "group": "LG",
+      "jobNoticeId": 1002184,
+      "company": "비즈테크아이",
+      "title": "[비즈테크아이] 클라우드 운영 담당자 모집(경력)",
+      "positionIndex": 0,
+      "positionName": "클라우드 운영",
+      "requiredCertificates": [],
+      "preferredCertificates": [],
+      "genericRequiredMentions": [],
+      "genericPreferredMentions": [
+        "Public Cloud 관련 자격을 보유하신 분"
+      ],
+      "requiredQualifications": "학력 : 4년제 정규대학 학사학위 이상 보유자\n 경력 : 클라우드 운영 업무 2년 이상",
+      "preferredQualifications": "Public Cloud 사용경험 경험을 보유하신 분\n Public Cloud 관련 자격을 보유하신 분"
+    },
+    {
+      "group": "LG",
+      "jobNoticeId": 1002074,
+      "company": "D&O",
+      "title": "[F&B] 상시 인재 Pool 등록",
+      "positionIndex": 0,
+      "positionName": "식음서비스, 위생관리, 경영관리, 구매, 기획, 영양사, 조리",
+      "requiredCertificates": [],
+      "preferredCertificates": [],
+      "genericRequiredMentions": [],
+      "genericPreferredMentions": [],
+      "requiredQualifications": "-",
+      "preferredQualifications": "-"
+    },
+    {
+      "group": "LG",
+      "jobNoticeId": 1002076,
+      "company": "D&O",
+      "title": "[레저] 상시 인재 Pool 등록",
+      "positionIndex": 0,
+      "positionName": "보건관리, 디자인, 구매/외주, 인허가, 생물관리, 경기운영, 레포츠운영, 시설장비관리, PI(프로세스 혁신), 식음서비스, 위생관리, 경영관리, 조경시공, HRM, 상품기획(MD), 예약관리, SQM(레저 고객 서비스 품질관리), HRD, 기물관리, 기획, 마케팅, 안전관리, 영양사, 영업, 조리, 총무, 코스관리, 프론트",
+      "requiredCertificates": [],
+      "preferredCertificates": [],
+      "genericRequiredMentions": [],
+      "genericPreferredMentions": [],
+      "requiredQualifications": "-",
+      "preferredQualifications": "-"
+    },
+    {
+      "group": "LG",
+      "jobNoticeId": 1002079,
+      "company": "D&O",
+      "title": "[AM/리츠운용] 상시 인재 Pool 등록",
+      "positionIndex": 0,
+      "positionName": "공간사업개발, 공간운영, 부동산운용",
+      "requiredCertificates": [],
+      "preferredCertificates": [],
+      "genericRequiredMentions": [],
+      "genericPreferredMentions": [],
+      "requiredQualifications": "-",
+      "preferredQualifications": "-"
+    },
+    {
+      "group": "LG",
+      "jobNoticeId": 1002079,
+      "company": "D&O",
+      "title": "[AM/리츠운용] 상시 인재 Pool 등록",
+      "positionIndex": 1,
+      "positionName": "부동산운용(리츠운용)",
+      "requiredCertificates": [],
+      "preferredCertificates": [],
+      "genericRequiredMentions": [],
+      "genericPreferredMentions": [],
+      "requiredQualifications": "-",
+      "preferredQualifications": "-"
+    },
+    {
+      "group": "LG",
+      "jobNoticeId": 1002080,
+      "company": "D&O",
+      "title": "[D&O CM] 상시 인재 Pool 등록",
+      "positionIndex": 0,
+      "positionName": "공정CM, 구조CM, 안전CM, 건축CM , 기계CM , 기획, 전기CM ",
+      "requiredCertificates": [],
+      "preferredCertificates": [],
+      "genericRequiredMentions": [],
+      "genericPreferredMentions": [],
+      "requiredQualifications": "-",
+      "preferredQualifications": "-"
+    },
+    {
+      "group": "LG",
+      "jobNoticeId": 1002081,
+      "company": "D&O",
+      "title": "[본사] 상시 인재 Pool 등록",
+      "positionIndex": 0,
+      "positionName": " 노경, 보건관리, 경영관리, 조직문화, 위기관리, 회계, HRM, HRD, IT기획, 경영진단, 금융, 기획, 법무, 세무, 안전관리, 정보보안, 총무, 홍보",
+      "requiredCertificates": [],
+      "preferredCertificates": [],
+      "genericRequiredMentions": [],
+      "genericPreferredMentions": [],
+      "requiredQualifications": "-",
+      "preferredQualifications": "-"
+    },
+    {
+      "group": "LG",
+      "jobNoticeId": 1002107,
+      "company": "비즈테크아이",
+      "title": "[비즈테크아이] 어플리케이션 아키텍트(클라우드·컨테이너) 모집(경력)",
+      "positionIndex": 0,
+      "positionName": "아키텍트",
+      "requiredCertificates": [],
+      "preferredCertificates": [],
+      "genericRequiredMentions": [],
+      "genericPreferredMentions": [
+        "CKA 자격증 보유하신 분"
+      ],
+      "requiredQualifications": "학력 : 4년제 정규대학 학사학위 이상 보유자\n 경력 : 관련 업무 3년 이상\n Public Cloud (AWS, GCP, Azure) 프로젝트 경험 및 운영 역량을 보유하신 분\n 컨테이너(Docker, Kubernetes) 환경 구축 및 운영 경험하신 분",
+      "preferredQualifications": "CKA 자격증 보유하신 분"
+    },
+    {
+      "group": "LG",
+      "jobNoticeId": 1002072,
+      "company": "비즈테크아이",
+      "title": "[비즈테크아이] 금융IT PM/PL, 분석•설계•개발, 사업관리 담당자 모집(경력)",
+      "positionIndex": 0,
+      "positionName": "금융 : PM/PL, 금융 : 개발, 금융 : 분석/설계, 영업지원",
+      "requiredCertificates": [],
+      "preferredCertificates": [],
+      "genericRequiredMentions": [],
+      "genericPreferredMentions": [],
+      "requiredQualifications": "학력: 4년제 정규대학 학사학위 이상 보유자 \n 경력: 금 융 IT 업무 5년 이상 \n 금융 프로젝트 리딩 경험을 보유하고 개발자·비개발자와 원활한 커뮤니케이션이 가능한 분",
+      "preferredQualifications": "금융 대형 프로젝트 PM/PL 경험 있으신 분"
+    },
+    {
+      "group": "LG",
+      "jobNoticeId": 1002046,
+      "company": "LG CNS",
+      "title": "[LG CNS] SAP ERP 분야 모집 (경력)",
+      "positionIndex": 0,
+      "positionName": "SAP 프로젝트 관리자(PM/IM)",
+      "requiredCertificates": [],
+      "preferredCertificates": [],
+      "genericRequiredMentions": [],
+      "genericPreferredMentions": [],
+      "requiredQualifications": "20억 이상 프로젝트 PM/IM 경력자\n 5년 이상 PM/IM 경력자\n 제안서 작성 및 제안 과정 리딩 가능자",
+      "preferredQualifications": "New Install, Conversion, GSI 경험자 우대\n S/4HANA Public Cloud, S/4HANA Cloud Private 경험자 우대\n Pre-Sales 가능자(제안서 작성, 발표) 우대\n B2B, B2C 등 다양한 산업의 PI/ISP 프로젝트 경험자 우대\n 해외 프로젝트 경험자 우대"
+    },
+    {
+      "group": "LG",
+      "jobNoticeId": 1002046,
+      "company": "LG CNS",
+      "title": "[LG CNS] SAP ERP 분야 모집 (경력)",
+      "positionIndex": 1,
+      "positionName": "SAP 모듈 컨설턴트 / 운영",
+      "requiredCertificates": [],
+      "preferredCertificates": [],
+      "genericRequiredMentions": [],
+      "genericPreferredMentions": [],
+      "requiredQualifications": "모듈/AI컨설턴트\n SAP 컨설팅 경력 10년 이상\n 신규 구축 프로젝트 2회 이상\n SAP S/4HANA 구축 경험자(S/4HANA Public Cloud, S/4HANA Cloud Private)\n 모듈운영\n SAP ECC6.0 , S/4HANA SD/MM/FI/TR/CO/PP 모듈 SI, SM 유경험자\n SAP ERP 개선, 구축, PI 등 연관 프로젝트 경험 보유자\n SAP PCE, BPT 등 신기술 을 습득하여 기술역량을 고도화 하고자 하는 인원\n 신기술을 배우고 습득하고자 하는 열정이 있고 조직과 개인이 함께 성장하는 성취감을 찾는 인원",
+      "preferredQualifications": "모듈/AI컨설턴트\n S/4HANA Public Cloud, S/4HANA Cloud Private 경험자 우대\n Clean Core 경험자 우대 (CDS View, API, BTP기반 side-by-side Extension)\n Fiori 경험자 우대\n SAP 기반 AI 경험자 우대 (SAP Embedded AI 및 Custom AI, J4C, J4D 등)\n 모듈 리더 경험자 우대\n 해외 프로젝트 경험자 우대\n Pre-Sales 가능자 우대(제안서 작성, 제안 발표)\n 모듈 운영\n S/4HANA Fresh Install or Conversion 유경험자\n SAP PI 경험\n ERP 사업 제안 경험"
+    },
+    {
+      "group": "LG",
+      "jobNoticeId": 1002046,
+      "company": "LG CNS",
+      "title": "[LG CNS] SAP ERP 분야 모집 (경력)",
+      "positionIndex": 2,
+      "positionName": "SAP BC(Basis Consultant)",
+      "requiredCertificates": [],
+      "preferredCertificates": [],
+      "genericRequiredMentions": [],
+      "genericPreferredMentions": [],
+      "requiredQualifications": "SAP BC (Basis Consultant) 경력 4년 이상\n SAP BC로 SAP 솔루션(S/4HANA, ECC등) 기반의 ERP시스템 운영 및 기술지원, 프로젝트 경험 보유한 분",
+      "preferredQualifications": "SAP S/4HANA 구축 및 운영 경험이 있으신 분\n SAP PCE 기반 시스템 운영 경험 있으신 분\n SAP 업그레이드, 마이그레이션, 전환 프로젝트 경험이 있으신 분\n SAP 성능개선 및 Troubleshooting 역량을 보유하신 분\n 새로운 환경에 빠르게 적응하고, 협업을 통해 성과를 창출할 수 있는 분"
+    },
+    {
+      "group": "LG",
+      "jobNoticeId": 1002044,
+      "company": "비즈테크아이",
+      "title": "[비즈테크아이] 공정물류 전장/제어 엔지니어 모집 (경력)",
+      "positionIndex": 0,
+      "positionName": "전장/제어 설계 및 구축",
+      "requiredCertificates": [],
+      "preferredCertificates": [
+        {
+          "name": "전기공사기사",
+          "evidence": "기공학, 전자공학 등 관련 전공 지식을 보유하신 분 전기기사, 전기공사기사 등 전기 분야 관련 자격을 보유하신 분 2차전지, 반도체, 디"
+        },
+        {
+          "name": "전기기사",
+          "evidence": "전 기공학, 전자공학 등 관련 전공 지식을 보유하신 분 전기기사, 전기공사기사 등 전기 분야 관련 자격을 보유하신 분 2차전지"
+        }
+      ],
+      "genericRequiredMentions": [],
+      "genericPreferredMentions": [
+        "전기기사, 전기공사기사 등 전기 분야 관련 자격을 보유하신 분"
+      ],
+      "requiredQualifications": "학력: 4년제 정규대학 학사학위 이상 보유자 \n 경력: 관련 업무 5년 이상 \n 스킬: PLC제어(Mitsubishi, Siemens),전장/제어 설계, E-Plan 활용이 능숙하신 분\n 해외 및 지방 출장이 가능하신 분 (미국 출장은 연간 최대 6개월까지 가능)",
+      "preferredQualifications": "전 기공학, 전자공학 등 관련 전공 지식을 보유하신 분\n 전기기사, 전기공사기사 등 전기 분야 관련 자격을 보유하신 분 \n 2차전지, 반도체, 디스플레이 등 제조 산업 분야의 물류 설비 설계 및 구축 경험이 있으신 분 \n 원활한 영어 커뮤니케이션 역량을 보유하신 분\n 중규모 이상 프로젝트 수행 시 설계 제안 또는 기술 제안 경험이 있으신 분\n 동종 업계 생산라인 공정물류/자동화 설비 설계 및 현장 프로젝트 수행 경험이 있으신 분"
+    },
+    {
+      "group": "LG",
+      "jobNoticeId": 1001888,
+      "company": "비즈테크아이",
+      "title": "[비즈테크아이] 네트워크 운영 담당자 모집 (경력)",
+      "positionIndex": 0,
+      "positionName": "네트워크 운영",
+      "requiredCertificates": [],
+      "preferredCertificates": [],
+      "genericRequiredMentions": [],
+      "genericPreferredMentions": [
+        "CCNA, CCNP 또는 이에 준하는 네트워크 관련 자격증을 보유하신 분"
+      ],
+      "requiredQualifications": "(공통)\n 학력: 4년제 정규대학 학사학위 이상 보유자 \n (서울)\n 경력: 네트워크 인프라 운영 또는 구축 또는 유지보수 경험 2년 이상 \n LAN/WAN, VLAN, STP, LACP 등 네트워크 기본 프로토콜 실무 경험을 보유하신 분\n 라우팅 프로토콜(OSPF, BGP) 설계 및 운영 경험을 보유하신 분\n 방화벽, L4/L7 스위치 등 네트워크 장비 운영 경험을 보유하신 분\n 네트워크 장애 분석 및 트러블슈팅 능력을 보유하신 분\n (오창)\n 경력: 네트워크 관련 경력 1년 이상\n 네트워크에 대한 기본 지식을 보유하신 분\n 거주지: 인근 거주자 우대(별도 주거 지원 없음)",
+      "preferredQualifications": "(서울)\n SD-WAN, SDN 등 소프트웨어 기반 네트워크 경험이 있으신 분\n 보안 장비(IPS/IDS, NAC, VPN) 운영 경험이 있으신 분\n 클라우드 네트워크(AWS, Azure) 경험이 있으신 분\n 대규모 엔터프라이즈 환경 운영 경험이 있으신 분\n CCNA, CCNP 또는 이에 준하는 네트워크 관련 자격증을 보유하신 분"
+    },
+    {
+      "group": "LG",
+      "jobNoticeId": 1001890,
+      "company": "비즈테크아이",
+      "title": "[비즈테크아이] 데이터베이스 담당자 모집 (경력)",
+      "positionIndex": 0,
+      "positionName": "데이터 엔지니어",
+      "requiredCertificates": [],
+      "preferredCertificates": [],
+      "genericRequiredMentions": [],
+      "genericPreferredMentions": [],
+      "requiredQualifications": "학력: 4년제 정규대학 학사학위 이상 보유자\n 경력: DB 운영 경력 7년 이상 (대규모 서비스 환경 경험) \n Oracle / MariaDB / MS-SQL / Goldilocks / AWS Aurora / Altibase 중 1개 이상 전문 역량을 보유하신 분 \n SQL 튜닝 및 성능 분석 경험을 보유하신 분 \n 백업/복구 및 장애 대응 경험을 보유하신 분 \n Linux/Unix 환경 이해를 보유하신 분",
+      "preferredQualifications": "DataGuard, RAC, Replication 구성 경험이 있으신 분\n 클라우드 환경(DBaaS 포함) 운영 경험 (AWS, Azure, GCP)이 있으신 분\n 모니터링 솔루션 (WhaTap, Prometheus 등) 사용 경험이 있으신 분\n 대규모 트래픽 서비스 운영 경험이 있으신 분\n 금융/통신 등 미션 크리티컬 시스템 경험이 있으신 분"
+    },
+    {
+      "group": "LG",
+      "jobNoticeId": 1001854,
+      "company": "비즈테크아이",
+      "title": "[비즈테크아이] 구매 시스템 운영 및 온보딩 담당자(SAP BTP / Fiori) 모집(경력)",
+      "positionIndex": 0,
+      "positionName": "소프트웨어 엔지니어",
+      "requiredCertificates": [],
+      "preferredCertificates": [],
+      "genericRequiredMentions": [],
+      "genericPreferredMentions": [],
+      "requiredQualifications": "학력: 4년제 정규대학 학사학위 이상 보유자 \n 경력: 관련업무 8년 이상 \n 구매업무 경험을 보유하신 분\n SAP BTP 경험을 보유하신 분\n Java, Javascript 기반 개발 경험 및 기술 역량을 보유하신 분",
+      "preferredQualifications": "SAP HANA DB 경험을 보유하신 분\n PySAP ERP 구매 모듈 경험을 보유하신 분"
+    },
+    {
+      "group": "LG",
+      "jobNoticeId": 1001420,
+      "company": "비즈테크아이",
+      "title": "[비즈테크아이] SCP In-house  프로젝트 개발 PM/PL(경력)",
+      "positionIndex": 0,
+      "positionName": "PM/PL",
+      "requiredCertificates": [],
+      "preferredCertificates": [],
+      "genericRequiredMentions": [],
+      "genericPreferredMentions": [],
+      "requiredQualifications": "학력 : 4년제 정규대학 학사학위 이상 보유자 \n 경력 : 관련 업무 10년 이상\n SCM 전문가로 업무 리딩이 가능하신 분\n In-house 분석/설계 및 개발 경험이 있으신 분\n PM/PL 경험이 있으신 분",
+      "preferredQualifications": "생산 라인 및 물류 설비 구축 프로젝트의 PM 경험을 하신 분 \n 기계공학/기계설계/메카트로닉스 등 기계·설비 기반 전공하신 분"
+    },
+    {
+      "group": "LG",
+      "jobNoticeId": 1001798,
+      "company": "비즈테크아이",
+      "title": "[비즈테크아이] Web 기반 솔루션 운영 및 PM/PL 모집 (경력)",
+      "positionIndex": 0,
+      "positionName": "PM/PL",
+      "requiredCertificates": [],
+      "preferredCertificates": [],
+      "genericRequiredMentions": [],
+      "genericPreferredMentions": [],
+      "requiredQualifications": "학력: 4년제 정규대학 학사학위 이상 보유자 \n 경력: 관련업무 10년 이상 \n PM/PL 수행 경험 및 역량을 보유하신 분\n 고급 수준(Skill Level)의 기술 역량을 보유하신 분\n Java 기반 개발 경험 및 기술 역량을 보유하신 분\n 개발 프로젝트 리딩 경험 및 개발자·비개발자 간 원활한 커뮤니케이션 역량을 보유하신 분",
+      "preferredQualifications": "Bizactor 및 회계 시스템 관련 업무 경험이 있으신 분\n AI 기술을 활용한 솔루션 개발 경험이 있으신 분"
+    },
+    {
+      "group": "LG",
+      "jobNoticeId": 1001799,
+      "company": "비즈테크아이",
+      "title": "[비즈테크아이] Web 기반 솔루션 개발 및 운영 담당자 모집 (경력)",
+      "positionIndex": 0,
+      "positionName": "솔루션 엔지니어",
+      "requiredCertificates": [],
+      "preferredCertificates": [],
+      "genericRequiredMentions": [],
+      "genericPreferredMentions": [],
+      "requiredQualifications": "학력: 4년제 정규대학 학사학위 이상 보유자 \n 경력: 관련업무 5년 이상 \n 회계 시스템 구축 및 운영 경험을 보유하신 분\n 중급(Skill Level) 이상의 기술 역량을 보유하신 분\n Java 기반 개발 경험 및 기술 역량을 보유하신 분",
+      "preferredQualifications": "Bizactor 및 회계 시스템 관련 업무 경험이 있으신 분\n AI 기술을 활용한 솔루션 개발 경험이 있으신 분"
+    },
+    {
+      "group": "LG",
+      "jobNoticeId": 1001677,
+      "company": "LG CNS",
+      "title": "[LG CNS] 생명보험/손해보험/증권부문 모집 (경력)",
+      "positionIndex": 0,
+      "positionName": "생명보험 업무전문가 및 시스템엔지니어",
+      "requiredCertificates": [],
+      "preferredCertificates": [],
+      "genericRequiredMentions": [],
+      "genericPreferredMentions": [],
+      "requiredQualifications": "보험사 차세대 사업 구축 경험자\n 보험사 시스템 유지보수 근무자\n JAVA, Oracle, Spring Boot 경험자\n 프로젝트 매니저, 프로젝트 리더 경험자",
+      "preferredQualifications": "DevOps, CICD, Cloud, SVN, Git 경험자\n MSA 환경 서비스 개발/운영 경험자\n React, Vue.js, AngularJS, 상용UI툴 경험자"
+    },
+    {
+      "group": "LG",
+      "jobNoticeId": 1001677,
+      "company": "LG CNS",
+      "title": "[LG CNS] 생명보험/손해보험/증권부문 모집 (경력)",
+      "positionIndex": 1,
+      "positionName": "손해보험 업무전문가 및 시스템엔지니어",
+      "requiredCertificates": [],
+      "preferredCertificates": [],
+      "genericRequiredMentions": [],
+      "genericPreferredMentions": [],
+      "requiredQualifications": "보험사 차세대 사업 구축 경험자\n 보험사 시스템 유지보수 근무자\n JAVA, Oracle, Spring Boot 경험자",
+      "preferredQualifications": "DevOps, CICD, Cloud, SVN, Git 경험자\n MSA 환경 서비스 개발/운영 경험자\n React, Vue.js, AngularJS, 상용UI툴 경험자"
+    },
+    {
+      "group": "LG",
+      "jobNoticeId": 1001677,
+      "company": "LG CNS",
+      "title": "[LG CNS] 생명보험/손해보험/증권부문 모집 (경력)",
+      "positionIndex": 2,
+      "positionName": "증권 업무전문가 및 시스템엔지니어",
+      "requiredCertificates": [],
+      "preferredCertificates": [],
+      "genericRequiredMentions": [],
+      "genericPreferredMentions": [],
+      "requiredQualifications": "SI 3년 / SM 5년 이상의 경력 보유\n 탁월한 커뮤니케이션 역량으로 협업 및 리더십을 보유한 인원\n 증권사 아키텍처 유경험자",
+      "preferredQualifications": "C, JAVA 언어 개발 유경험\n 증권 Core 업무, SI개발 유경험\n ProFrame C 4.0, 5.0 유경험\n SI 프로젝트 PM/PL/분석/설계/개발 유경험"
+    },
+    {
+      "group": "LG",
+      "jobNoticeId": 1001677,
+      "company": "LG CNS",
+      "title": "[LG CNS] 생명보험/손해보험/증권부문 모집 (경력)",
+      "positionIndex": 3,
+      "positionName": "해외사업이행 PM",
+      "requiredCertificates": [],
+      "preferredCertificates": [],
+      "genericRequiredMentions": [],
+      "genericPreferredMentions": [],
+      "requiredQualifications": "금융 프로젝트 매니저, 프로젝트 리더 경험자\n 해외 사업 유경험자",
+      "preferredQualifications": "보험 프로젝트 이행 경험자\n 영어, 일본어 가능자"
+    },
+    {
+      "group": "LG",
+      "jobNoticeId": 1001678,
+      "company": "비즈테크아이",
+      "title": "[비즈테크아이] 서버 인프라 엔지니어(TA/SM) 모집 (경력)",
+      "positionIndex": 0,
+      "positionName": "IT인프라 TA",
+      "requiredCertificates": [],
+      "preferredCertificates": [],
+      "genericRequiredMentions": [],
+      "genericPreferredMentions": [],
+      "requiredQualifications": "학력: 4년제 대졸자 또는 학사 학위 보유자\n 경력: 관련 업무 3년 이상",
+      "preferredQualifications": "온프레미스 인프라환경 운영 경험을 보유하신 분\n 기본적인 네트워크/스토리지/시스템 구조에 대한 이해도가 있으신 분\n RHCSA(Red Hat Certified System Administrator) 자격을 보유하신 분\n RHCE(Red Hat Certified Engineer) 자격을 보유하신 분\n VCP(VMware Certified Professional) 자격을 보유하신 분"
+    },
+    {
+      "group": "LG",
+      "jobNoticeId": 1001568,
+      "company": "비즈테크아이",
+      "title": "[비즈테크아이] M365 구축·운영(SI·SM) 모집(경력)",
+      "positionIndex": 0,
+      "positionName": "M365 운영",
+      "requiredCertificates": [],
+      "preferredCertificates": [],
+      "genericRequiredMentions": [],
+      "genericPreferredMentions": [
+        "SC 300, SC900 자격증 보유자"
+      ],
+      "requiredQualifications": "학력 : 4년제 정규대학 학사학위 이상 보유자\n 경력 : 관련업무 7년 이상\n M365 E3/E5 라이선스 기반 고객 컨설팅(제안·발표), 구축/운영 경험자\n Hybrid 환경 구축/운영 경험자\n M365 보안서비스 및 메세징(Exchange) 시스템 구축/운영 경험자\n M365 로그 및 Dump 분석, NetMon, Fiddler 사용 경험 및 로그 분석 능력 보유자\n Powershell 사용 경험 보유자\n 인프라 기반의 보안서비스(방화벽, Anti-Ware, etc)에 대한 이해 보유자",
+      "preferredQualifications": "대규모 환경에서 M365 운영 경험자\n SC 300, SC900 자격증 보유자"
+    },
+    {
+      "group": "LG",
+      "jobNoticeId": 1001508,
+      "company": "비즈테크아이",
+      "title": "[비즈테크아이] SAP ABAP 개발자 모집(경력)",
+      "positionIndex": 0,
+      "positionName": "ABAP 개발",
+      "requiredCertificates": [],
+      "preferredCertificates": [],
+      "genericRequiredMentions": [],
+      "genericPreferredMentions": [],
+      "requiredQualifications": "학력 : 4년제 정규대학 학사학위 이상 보유자\n 경력 : 관련업무 2년 이상\n BTP / ODATA/ CDS VIEW 개발이 가능하신 분",
+      "preferredQualifications": "PL/PM 경험이 있으신 분 \n RAP / ODATA/ CDS VIEW 개발 경험이 있으신 분\n SAP S/4HANA 프로젝트 경험이 있으신 분"
+    },
+    {
+      "group": "LG",
+      "jobNoticeId": 1001506,
+      "company": "비즈테크아이",
+      "title": "[비즈테크아이] AI 엔지니어(PM/PL) 모집(경력)",
+      "positionIndex": 0,
+      "positionName": "AI 엔지니어",
+      "requiredCertificates": [],
+      "preferredCertificates": [],
+      "genericRequiredMentions": [],
+      "genericPreferredMentions": [],
+      "requiredQualifications": "학력 : 4년제 정규대학 학사학위 이상 보유자\n 경력: AI 관련업무 3년 이상\n NLP, LLM 기반 개발 경험 및 RAG 데이터, MCP 관련 프로젝트 경험하신 분\n 백엔드 프로그래밍 언어(Python, Java 등)에 능숙하며, MCP, ORM, Langchain, Langraph, FastAPI, JSON, REST I/F 등을 활용한 개발 경험하신 분\n Git을 활용한 버전 관리에 능숙하고, Docker 환경에서의 작업 경험 및 Linux 실무 경험하신 분",
+      "preferredQualifications": "Gen AI프로젝트 3년 이상 또는 PM/PL 경험이 있으신 분\n Java, JavaScript(react) 능숙하신 분\n OpenCV를 활용한 Vision AI 경험이 있으신 분\n MVC 패턴 및 Airflow에 대한 이해와 경험이 있으신 분\n CI/CD 테스트, 빌드, 배포 자동화 구축 경험이 있으신 분\n Kubernetes(K8s), Jenkins, Gitlab-runner script 등을 활용한 CI/CD 파이프라인 구축 경험이 있으신 분\n 업무에 대한 높은 책임감과 성실함을 갖추신 분"
+    },
+    {
+      "group": "LG",
+      "jobNoticeId": 1001514,
+      "company": "비즈테크아이",
+      "title": "[비즈테크아이] SAP 물류 모듈(eWM, TM) 컨설턴트 모집(경력)",
+      "positionIndex": 0,
+      "positionName": "SAP 물류컨설턴트",
+      "requiredCertificates": [],
+      "preferredCertificates": [],
+      "genericRequiredMentions": [],
+      "genericPreferredMentions": [
+        "SAP 모듈 Certification 자격증 보유하신 분"
+      ],
+      "requiredQualifications": "학력 : 4년제 정규대학 학사 학위 이상 보유하신 분\n 경력: SM운영 및 SI컨설턴트 5년 이상\n S/4 HANA 기반 eWM 운영 및 구축 경험하신 분\n SAP eWM 환경 및 전략 Configration 경험하신 분\n 창고 관리 업무 입출고 및 재고 프로세스 설계가 가능하신 분\n SAP 기반 SM운영 절차 및 SLA 서비스 제공 경험하신 분\n 제안서 작성 및 고객 커뮤니케이션 역량을 보유하신 분",
+      "preferredQualifications": "PI 및 전략 컨설팅 경험이 있으신 분\n 제조 및 리테일 업종 경험이 있으신 분\n PM/PL 역할 수행 경험이 있으신 분\n 물류회사 eWM 사업 수행 경험이 있으신 분\n SAP 모듈 Certification 자격증 보유하신 분"
+    },
+    {
+      "group": "LG",
+      "jobNoticeId": 1001499,
+      "company": "비즈테크아이",
+      "title": "[비즈테크아이] SAP SM 모듈 운영 담당자 모집(경력)",
+      "positionIndex": 0,
+      "positionName": "ERP SM 운영",
+      "requiredCertificates": [],
+      "preferredCertificates": [],
+      "genericRequiredMentions": [],
+      "genericPreferredMentions": [
+        "SAP 모듈 Certification 자격증을 보유하신 분"
+      ],
+      "requiredQualifications": "학력 : 4년제 정규대학 학사 학위 이상 보유하신 분\n 경력 : SAP모듈 운영 경력 3년 이상\n ABAP 개발 경험(중급 이상)이 있으신 분\n 프로세스 설계 및 개발 사양서 작성 능력을 보유하신 분\n 국내 지방 및 해외 출장이 가능하신 분",
+      "preferredQualifications": "TR,FM,PS,QM,PM,WM,ABAP,Fiori,CDS View 경험이 있으신 분\n S/4HANA 운영 및 Project 경험이 있으신 분\n Project Manager/ Project Leader 경험이 있으신 분\n SI Project 경험이 있으신 분\n 외부 시스템 I/F 연동 경험이 있으신 분\n SAP 모듈 Certification 자격증을 보유하신 분"
+    },
+    {
+      "group": "LG",
+      "jobNoticeId": 1001503,
+      "company": "비즈테크아이",
+      "title": "[비즈테크아이] 공정물류 기구설계 엔지니어 모집(경력)",
+      "positionIndex": 0,
+      "positionName": "기구 설계 및 구축",
+      "requiredCertificates": [],
+      "preferredCertificates": [],
+      "genericRequiredMentions": [],
+      "genericPreferredMentions": [],
+      "requiredQualifications": "학력: 4년제 정규대학 학사학위 이상 보유자\n 경력: 관련 업무 5년 이상\n 스킬: AutoCAD, SolidWorks, Inventor, Creo 등 2D/3D 설계 툴 활용이 능숙하신 분\n 해외 및 지방 출장이 가능하신 분 (미국 출장은 연간 최대 6개월까지 가능)",
+      "preferredQualifications": "2차전지, 반도체, 디스플레이 등 제조 산업 분야의 물류 설비 설계 및 구축 경험이 있으신 분\n 중규모 이상 프로젝트 수행 시 설계 제안 또는 기술 제안 경험이 있으신 분\n 동종 업계 생산라인 공정물류/자동화 설비 설계 및 현장 프로젝트 수행 경험이 있으신 분"
+    },
+    {
+      "group": "LG",
+      "jobNoticeId": 1001432,
+      "company": "LG CNS",
+      "title": "[LG CNS] 어플리케이션 아키텍트/AI 아키텍트 모집(경력)",
+      "positionIndex": 0,
+      "positionName": "Application Architect",
+      "requiredCertificates": [],
+      "preferredCertificates": [],
+      "genericRequiredMentions": [],
+      "genericPreferredMentions": [],
+      "requiredQualifications": "금융/공공 차세대(Enterprise급) 환경의 아키텍트 수행 경험자\n MSA 기반 클라우드 아키텍처 구축 경험자\n 시스템 전체 아키텍처 관점에서 구조를 이해하고 설계 방향성을 수립 경험자\n AI 관련 프로젝트 아키텍트로써 유경험자\n Application Architecture 기술 경험자\n - 프레임워크 설계 및 구축 경험자\n - 미들웨어 설계 및 구축 경험자\n - 인터페이스(MCI/FEP/EAI 등) 설계 및 구축 경험자\n - CICD 파이프라인 설계 및 구축 경험자\n - Cloud Native 기술 기반 설계 및 구축 경험자",
+      "preferredQualifications": "5년 이상 SI 프로젝트 경험자\n 대규모 프로젝트의 아키텍처 총괄 경험자\n 해외 프로젝트 유경험자"
+    },
+    {
+      "group": "LG",
+      "jobNoticeId": 1001432,
+      "company": "LG CNS",
+      "title": "[LG CNS] 어플리케이션 아키텍트/AI 아키텍트 모집(경력)",
+      "positionIndex": 1,
+      "positionName": "AI Architect",
+      "requiredCertificates": [],
+      "preferredCertificates": [],
+      "genericRequiredMentions": [],
+      "genericPreferredMentions": [],
+      "requiredQualifications": "AI 관련 솔루션 구축 경험자\n AI 관련 기술 경험자\n - LLM Agent Architecture (AI 에이전트 설계 기술)\n - Ontology Modeling (지식 구조 설계 기술)\n - Graph Database (Property Graph) (관계 중심 데이터베이스 설계 기술)\n - Prompt Engineering (AI 지시문 설계 기술)\n - RAG & LLM Application Development (Python) (AI 응용 개발 및 검색 결합 기술)\n - Python Programming (파이썬 개발 기술)\n - REST API Integration (API 연동 기술)\n - SQL / Database Basics (데이터베이스 기초 활용 기술)\n - Git & Version Control (형상관리 및 협업 기술)\n - Markdown Documentation (구조화 문서 작성 기술)",
+      "preferredQualifications": "AI 관련 전공자\n AI 관련 플랫폼 구축 또는 프로젝트 수행 경험자\n 영어 능통자"
+    },
+    {
+      "group": "LG",
+      "jobNoticeId": 1001414,
+      "company": "비즈테크아이",
+      "title": "[비즈테크아이] SAP 모듈(CO·FI·SD) 컨설턴트 모집(경력)",
+      "positionIndex": 0,
+      "positionName": "SAP-SM-운영컨설턴트",
+      "requiredCertificates": [],
+      "preferredCertificates": [],
+      "genericRequiredMentions": [],
+      "genericPreferredMentions": [
+        "SAP 모듈 자격증을 보유하신 분"
+      ],
+      "requiredQualifications": "학력: 4년제 정규대학 학사학위 이상 보유자\n 경력 : SAP 운영 경험 CO(5년 이상), FI/SD(8년 이상) \n ABAP 분석 가능하신 분 \n 프로세스 설계 및 개발 사양서 작성 능력 보유하신 분\n 해외 출장 가능하신 분",
+      "preferredQualifications": "ABAP 중급 이상 개발 역량을 보유하신 분\n SI Project 경험이 있으신 분\n S/4HANA 운영 및 Project 경험이 있으신 분\n 외부 시스템 I/F 연동 경험이 있으신 분\n PM/PL 경험이 있으신 분\n TR, FM, PS, QM, PM, WM, Fiori, CDS View 경험이 있으신 분\n SAP 모듈 자격증을 보유하신 분"
+    },
+    {
+      "group": "LG",
+      "jobNoticeId": 1001237,
+      "company": "LG Magna",
+      "title": "해외 및 국내 인재 상시 DB 등록용 (`26년)",
+      "positionIndex": 0,
+      "positionName": "Manufacturing Engineering, Vehicle Converter Development, 영어 통/번역, PM, CSMS(Cyber Security Management System), IPGM Development, Administration, Finance, Hardware R&D, Legal, Manufacturing, Mechanical R&D, Procurement, Quality, SCM",
+      "requiredCertificates": [],
+      "preferredCertificates": [],
+      "genericRequiredMentions": [],
+      "genericPreferredMentions": [],
+      "requiredQualifications": "□ Requirements \n 학력 : 학사학위 이상 소지자\n 경력 : 신입 또는 유관 경력 2년 이상 보유자\n 어학역량 : TOEIC Speaking IM2 이상 또는 이와 동등 수준(TOEIC 700, OPIc IM2 등) 이상\n 공인 어학성적 보유 여부에 관계없이 지원 가능함.",
+      "preferredQualifications": "□ Preferred \n 전자/자동차/자동차부품 사업분야 유경험자"
+    },
+    {
+      "group": "LG",
+      "jobNoticeId": 1000834,
+      "company": "LG CNS",
+      "title": "[인턴] LG CNS Global Internship(외국인) 상시 인재 등록 공고",
+      "positionIndex": 0,
+      "positionName": "AI",
+      "requiredCertificates": [],
+      "preferredCertificates": [],
+      "genericRequiredMentions": [],
+      "genericPreferredMentions": [],
+      "requiredQualifications": "한국에서 근무 가능한 비자 발급에 결격 사유가 없는 외국인",
+      "preferredQualifications": "IT 기본 역량 보유자는 누구나 지원 가능 (전공 무관)\n AI 연구 및 실무 경험을 가지고 계신 분\n 딥러닝, 머신러닝에 대해 이해하고 있고, 유관 전공 및 프로젝트 경험을 보유하신 분\n AI기술을 직접 현장에 적용해보고 싶은 분\n 텍스트/비전 데이터 전처리, 모델링, 최적화 역량을 갖춘 분\n 프롬프트 엔지니어링을 통해 LLM(초거대언어모델)을 활용해 본 경험이 있는 분"
+    },
+    {
+      "group": "LG",
+      "jobNoticeId": 1000834,
+      "company": "LG CNS",
+      "title": "[인턴] LG CNS Global Internship(외국인) 상시 인재 등록 공고",
+      "positionIndex": 1,
+      "positionName": "Robotics (RX)",
+      "requiredCertificates": [],
+      "preferredCertificates": [],
+      "genericRequiredMentions": [],
+      "genericPreferredMentions": [],
+      "requiredQualifications": "한국에서 근무 가능한 비자 발급에 결격 사유가 없는 외국인",
+      "preferredQualifications": "IT 기본 역량 보유자는 누구나 지원 가능 (전공 무관)\n 로봇에 대한 열정을 가지고, 끊임없이 새로운 로봇 기술을 배우고 적용하며 성장하고 싶은 분\n 로봇 분야 유관 전공자로 로봇, 자동화, AI, IT 등 다양한 기술을 활용해 새로운 변화를 주도하고 싶은 분\n 산업 현장의 자동화 문제를 이해하고, 다양한 전문가들과 협력하여 혁신적인 해결책을 고민하고 제안하는 과정을 즐기실 분\n 대규모 현장에서 로봇을 실제로 설치·운영하며 시스템을 안정적으로 구현하는 도전을 즐기실 분\n 미국 등 글로벌 시장으로 확장 중인 대규모 로봇 프로젝트에 함께 참여하고 싶은 분"
+    },
+    {
+      "group": "LG",
+      "jobNoticeId": 1000834,
+      "company": "LG CNS",
+      "title": "[인턴] LG CNS Global Internship(외국인) 상시 인재 등록 공고",
+      "positionIndex": 2,
+      "positionName": "Business Development",
+      "requiredCertificates": [],
+      "preferredCertificates": [],
+      "genericRequiredMentions": [],
+      "genericPreferredMentions": [],
+      "requiredQualifications": "한국에서 근무 가능한 비자 발급에 결격 사유가 없는 외국인",
+      "preferredQualifications": "IT 기본 역량 보유자는 누구나 지원 가능 (전공 무관)\n 영어 및 제2외국어(중국어, 일본어 등)에 능통하신 분\n 해외 거주 경험이 있으신 분\n IT 산업에 대한 이해도와 관심이 있으신 분\n 사업에 대한 이해도와 관심이 있으신 분"
+    },
+    {
+      "group": "LG",
+      "jobNoticeId": 1000834,
+      "company": "LG CNS",
+      "title": "[인턴] LG CNS Global Internship(외국인) 상시 인재 등록 공고",
+      "positionIndex": 3,
+      "positionName": "DX Engineer",
+      "requiredCertificates": [],
+      "preferredCertificates": [],
+      "genericRequiredMentions": [],
+      "genericPreferredMentions": [],
+      "requiredQualifications": "한국에서 근무 가능한 비자 발급에 결격 사유가 없는 외국인",
+      "preferredQualifications": "IT 기본 역량 보유자는 누구나 지원 가능 (전공 무관)\n 새로운 시도를 즐기고, IT를 통해 세상의 변화를 이끌어가고 싶은 분\n 끊임없이 신기술을 익히고 적용하며 성장하고 싶으신 분\n 고객의 문제를 귀 기울여 듣고, 동료들과 함께 고민하며 해결책을 제안하는 과정을 즐기실 분"
+    },
+    {
+      "group": "LG",
+      "jobNoticeId": 1000834,
+      "company": "LG CNS",
+      "title": "[인턴] LG CNS Global Internship(외국인) 상시 인재 등록 공고",
+      "positionIndex": 4,
+      "positionName": "Cloud Application Modernization",
+      "requiredCertificates": [],
+      "preferredCertificates": [],
+      "genericRequiredMentions": [],
+      "genericPreferredMentions": [],
+      "requiredQualifications": "한국에서 근무 가능한 비자 발급에 결격 사유가 없는 외국인",
+      "preferredQualifications": "IT 기본 역량 보유자는 누구나 지원 가능 (전공 무관)\n 클라우드 환경에서의 애플리케이션/인프라 기술과 현대화 과정에 깊은 관심을 가지고 있으며, 다양한 언어와 프레임워크를 활용해 안정적이고 효율적인 코드를 작성할 수 있는 분\n 최신 클라우드·AI 기술 트렌드에 대한 지속적인 학습을 게을리하지 않으며, 이를 실제 프로젝트에 적용하여 성능·품질·운영 효율성을 향상 시킬 수 있는 분\n 개발, 인프라, 데이터, 운영 등 다양한 직무의 프로젝트 구성원들과 원활히 소통하며, 명확하고 설득력 있는 의견 제시를 통해 프로젝트 목표 달성에 기여할 수 있는 분\n 기존의 한계를 뛰어넘는 창의적인 아이디어를 제안하고, 실험과 검증을 통해 혁신적인 결과를 만들어낼 수 있는 분\n 고객의 요구와 사업 목표에 맞는 기술적 성과 뿐 아니라 고객 경험 개선과 가치를 창출하는 결과물을 우선시하는 분"
+    },
+    {
+      "group": "LG",
+      "jobNoticeId": 1000834,
+      "company": "LG CNS",
+      "title": "[인턴] LG CNS Global Internship(외국인) 상시 인재 등록 공고",
+      "positionIndex": 5,
+      "positionName": "Architecture",
+      "requiredCertificates": [],
+      "preferredCertificates": [],
+      "genericRequiredMentions": [],
+      "genericPreferredMentions": [],
+      "requiredQualifications": "한국에서 근무 가능한 비자 발급에 결격 사유가 없는 외국인",
+      "preferredQualifications": "IT 기본 역량 보유자는 누구나 지원 가능 (전공 무관)\n 시스템, 네트워크, 데이터베이스 등 클라우드 및 인프라 아키텍처에 대한 폭넓은 이해와 열정을 가진 분\n 새로운 기술과 환경에 대한 변화를 적극적으로 수용하며, 이를 즐기고 도전하는 자세를 가진 분\n 문제 발생 시, 스스로 해결책을 모색하고 문제를 해결하는 것을 선호하는 분\n 세부 사항에 집중하기보다는 전체적인 시각을 가지고 문제를 파악하고 해결하며, 원활한 소통을 통해 협력하는 능력을 가진 분\n 다양한 부서와의 적극적인 소통을 통해 문제를 정확히 파악하고 효과적으로 해결하려는 자세를 가진 분\n 최신 기술에 대한 높은 관심과 지속적인 학습 의지를 가진 분"
+    },
+    {
+      "group": "LG",
+      "jobNoticeId": 1000834,
+      "company": "LG CNS",
+      "title": "[인턴] LG CNS Global Internship(외국인) 상시 인재 등록 공고",
+      "positionIndex": 6,
+      "positionName": "Smart Factory",
+      "requiredCertificates": [],
+      "preferredCertificates": [],
+      "genericRequiredMentions": [],
+      "genericPreferredMentions": [],
+      "requiredQualifications": "한국에서 근무 가능한 비자 발급에 결격 사유가 없는 외국인",
+      "preferredQualifications": "IT 기본 역량 보유자는 누구나 지원 가능 (전공 무관)\n 제조 AI 신기술을 선제적으로 적용하고 성장하고 싶은 분\n 제조와 IT 융합 분야의 산업 전문가로 성장하고 싶은 분\n 해외 프로젝트를 통해 글로벌 IT 전문가로 성장하고 싶은 분\n AX/DX 기술과 고객의 도메인 지식에 관심이 많은 분\n 동료들과 자유롭고 협력적인 분위기 속에서 다양한 스킬을 향상시키고 싶은 분"
+    },
+    {
+      "group": "LG",
+      "jobNoticeId": 1000834,
+      "company": "LG CNS",
+      "title": "[인턴] LG CNS Global Internship(외국인) 상시 인재 등록 공고",
+      "positionIndex": 7,
+      "positionName": "Smart Logistics",
+      "requiredCertificates": [],
+      "preferredCertificates": [],
+      "genericRequiredMentions": [],
+      "genericPreferredMentions": [],
+      "requiredQualifications": "한국에서 근무 가능한 비자 발급에 결격 사유가 없는 외국인",
+      "preferredQualifications": "IT 기본 역량 보유자는 누구나 지원 가능 (전공 무관)\n 고객의 Pain Point를 분석하고, 이를 적극적으로 개선하고자 하는 분\n 물류 전문성과 IT 모두를 배우고 싶으신 분\n 새로운 변화에 능동적으로 대응하는 분"
+    },
+    {
+      "group": "LG",
+      "jobNoticeId": 1000834,
+      "company": "LG CNS",
+      "title": "[인턴] LG CNS Global Internship(외국인) 상시 인재 등록 공고",
+      "positionIndex": 8,
+      "positionName": "ERP",
+      "requiredCertificates": [],
+      "preferredCertificates": [],
+      "genericRequiredMentions": [],
+      "genericPreferredMentions": [],
+      "requiredQualifications": "한국에서 근무 가능한 비자 발급에 결격 사유가 없는 외국인",
+      "preferredQualifications": "IT 기본 역량 보유자는 누구나 지원 가능 (전공 무관)\n ERP 기술 전문성과 도메인 전문성, 두 마리 토끼를 잡고 싶으신 분\n 고객과 적극적으로 소통하며 고객의 업무 개선 포인트를 찾아내고, 해결책을 제시하는 과정을 배우고 싶으신 분\n ERP 컨설턴트로의 성장을 꿈꾸시는 분"
+    },
+    {
+      "group": "LG",
+      "jobNoticeId": 1000409,
+      "company": "LG CNS",
+      "title": "[LG CNS] Global 해외 석박사 AX 인재 상시 등록 공고",
+      "positionIndex": 0,
+      "positionName": "IT Service",
+      "requiredCertificates": [],
+      "preferredCertificates": [],
+      "genericRequiredMentions": [],
+      "genericPreferredMentions": [],
+      "requiredQualifications": "해외 대학 석사/박사/Postdoc 재학 또는 졸업(예정)자",
+      "preferredQualifications": "지원 분야 관련 프로젝트/업무 경험 우대"
+    },
+    {
+      "group": "LG",
+      "jobNoticeId": 1000020,
+      "company": "LG화학",
+      "title": "[상시접수]LG화학 여수공장 공정지원 계약직(현장) 모집 ",
+      "positionIndex": 0,
+      "positionName": "공정관리",
+      "requiredCertificates": [],
+      "preferredCertificates": [],
+      "genericRequiredMentions": [],
+      "genericPreferredMentions": [],
+      "requiredQualifications": "없음",
+      "preferredQualifications": "없음"
+    }
+  ]
+}

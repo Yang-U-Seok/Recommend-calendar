@@ -2,7 +2,7 @@
  * studyAlgorithm.js
  * 규칙 기반 개인 맞춤형 학습계획 생성
  *
- * Q-Net 취득소요기간이 있으면 기존 추정식 사용
+ * Q-Net 공식 합격률로 시험별 기간 배분 (모의고사 점수는 한 번만 보정)
  * 없으면 사용자의 학습 가능 시간으로 일정 생성
  *
  * 통계적으로 검증된 합격 예측 모델이 아닙니다.
@@ -31,6 +31,89 @@ function parseDate(value) {
   return dateKey(result) === value ? result : null;
 }
 
+
+// 통계 활용 규칙 모델. 아래 2시간/0.4는 조사된 평균이 아닌 교체 가능한 가정값.
+const STUDY_ASSUMPTIONS = Object.freeze({
+  averageStudyHoursPerActiveDay: 2,
+  activeStudyDayRatio: 0.4,
+  fallbackHours: 120,
+  minimumHours: 40,
+  maximumHours: 400
+});
+
+// Q-Net 공식 합격률은 보존한다. 모의고사 점수는 개인별 학습 난이도 지표로만 결합한다.
+// 0.35는 검증된 예측모델 계수가 아닌 조정 가능한 휴리스틱 가중치이다.
+const MOCK_RATE_WEIGHT = 0.35; // 화면 표시용 참고 지표에만 사용
+function estimatePersonalRate(officialRate, mockScore) {
+  const valid = n => typeof n === 'number' && Number.isFinite(n) && n >= 0 && n <= 100;
+  if (!valid(officialRate) || !valid(mockScore)) return null;
+  // 모의고사 점수(0~100)를 같은 척도로 사용하지만 합격 확률로 해석하지 않는다.
+  return Number((officialRate * (1 - MOCK_RATE_WEIGHT) + mockScore * MOCK_RATE_WEIGHT).toFixed(2));
+}
+
+function estimateHours({averageDays=null, writtenPassRate=null, practicalPassRate=null,
+  examType='written', level='beginner', mockScore=null}) {
+  if (!Object.hasOwn(LEVEL, level)) throw new Error('학습 수준이 올바르지 않습니다.');
+  const valid = n => typeof n === 'number' && Number.isFinite(n) && n >= 0 && n <= 100;
+  const validDuration = Number.isFinite(averageDays) && averageDays > 0;
+  const hasBothRates = valid(writtenPassRate) && valid(practicalPassRate);
+  const officialRate = examType === 'written' ? writtenPassRate : practicalPassRate;
+  const personalRate = estimatePersonalRate(officialRate, mockScore);
+  // 기간 배분은 공식 합격률만 사용해 모의고사 점수의 중복 반영을 방지한다.
+  const writtenWeight = hasBothRates ? Math.max(0.05, 1-writtenPassRate/100) : null;
+  const practicalWeight = hasBothRates ? Math.max(0.05, 1-practicalPassRate/100) : null;
+  const stageShare = hasBothRates ? (examType === 'written' ? writtenWeight : practicalWeight)/(writtenWeight+practicalWeight) : null;
+  const hasStatistics = validDuration && hasBothRates;
+  const allocatedDays = hasStatistics ? averageDays * stageShare : null;
+  // 취득기간에는 대기/비학습일이 포함될 수 있으므로 학습일 비율을 별도 가정한다.
+  const rawBaseHours = hasStatistics
+    ? allocatedDays * STUDY_ASSUMPTIONS.activeStudyDayRatio * STUDY_ASSUMPTIONS.averageStudyHoursPerActiveDay
+    : STUDY_ASSUMPTIONS.fallbackHours;
+  // 과도한 통계기간이 학습시간으로 직결되지 않도록 상한/하한을 둔다.
+  const baseHours = clamp(rawBaseHours, STUDY_ASSUMPTIONS.minimumHours, STUDY_ASSUMPTIONS.maximumHours);
+  const scoreFactor = valid(mockScore) ? mockScore >= 80 ? 1 : clamp(1+(80-mockScore)/120,1,1.5) : 1;
+  const estimatedHours = Math.max(1,Math.ceil(baseHours * LEVEL[level] * scoreFactor));
+  return {
+    estimatedHours, baseHours, rawBaseHours, allocatedDays, stageShare,
+    personalAdjustedRate: personalRate, officialPassRate: valid(officialRate) ? officialRate : null,
+    mockRateWeight: MOCK_RATE_WEIGHT,
+    writtenPassRate: valid(writtenPassRate) ? writtenPassRate : null,
+    practicalPassRate: valid(practicalPassRate) ? practicalPassRate : null,
+    scoreFactor, levelFactor:LEVEL[level],
+    method:hasStatistics?'qnet-weighted-assumption':'fallback-assumption',
+    assumptions:STUDY_ASSUMPTIONS,
+    warnings:[
+      ...(!hasStatistics ? ['필기·실기 합격률 또는 취득소요기간 누락: 120시간 임시 기준 적용'] : []),
+      ...(rawBaseHours !== baseHours ? ['기준 학습시간 안전범위(40~400시간) 적용'] : []),
+      ...(!valid(mockScore) ? ['모의고사 점수 미입력: 점수 보정 생략'] : [])
+    ]
+  };
+}
+
+function estimatePreparation({level='beginner', dailyHours=4, studyDays=[1,2,3,4,5,6],
+  examType='written', passRate=null, writtenPassRate=null, practicalPassRate=null,
+  averageDays=null, mockScore=null, startDate=new Date()}) {
+  if (!Number.isFinite(Number(dailyHours)) || Number(dailyHours)<1 || Number(dailyHours)>8)
+    throw new Error('하루 공부시간은 1~8시간이어야 합니다.');
+  if (!Array.isArray(studyDays) || !studyDays.length || studyDays.some(d=>!Number.isInteger(d)||d<0||d>6))
+    throw new Error('공부 요일이 올바르지 않습니다.');
+  const result = estimateHours({level,examType,averageDays,mockScore,
+    writtenPassRate:writtenPassRate ?? (examType==='written'?passRate:null),
+    practicalPassRate:practicalPassRate ?? (examType==='practical'?passRate:null)});
+  const studyDaysNeeded = Math.ceil(result.estimatedHours / Number(dailyHours));
+  const today=new Date(startDate);today.setHours(12,0,0,0);
+  const cursor=new Date(today);let counted=0;
+  for(let i=0;i<3650&&counted<studyDaysNeeded;i++) {
+    if(studyDays.includes(cursor.getDay()))counted++;
+    if(counted<studyDaysNeeded)cursor.setDate(cursor.getDate()+1);
+  }
+  if(counted<studyDaysNeeded)throw new Error('추천 학습기간이 너무 깁니다.');
+  const exam=new Date(cursor);exam.setDate(exam.getDate()+1);
+  const daysUntilExam=Math.round((Date.UTC(exam.getFullYear(),exam.getMonth(),exam.getDate())-Date.UTC(today.getFullYear(),today.getMonth(),today.getDate()))/86400000);
+  return {...result,studyDaysNeeded,completionDate:dateKey(cursor),suggestedTargetDate:dateKey(exam),daysUntilExam,
+    assumption:'취득기간×시험별 불합격률 비중×활동일 비율(가정 0.4)×활동일 평균 2시간(가정). 실제 평균 조사값 아님.'};
+}
+
 function calculateStudyPlan({
   certificateName,
   examType,
@@ -41,7 +124,9 @@ function calculateStudyPlan({
   averageDays = null,
   passRate = null,
   mockScore = null,
-  subjects = []
+  subjects = [],
+  writtenPassRate = null,
+  practicalPassRate = null
 }) {
 
   // ======================================
@@ -58,10 +143,10 @@ function calculateStudyPlan({
 
   if (
     !Number.isFinite(dailyHours) ||
-    dailyHours < 0.5 ||
-    dailyHours > 12
+    dailyHours < 1 ||
+    dailyHours > 8
   ) {
-    throw new Error('하루 공부시간은 0.5~12시간이어야 합니다.');
+    throw new Error('하루 공부시간은 1~8시간이어야 합니다.');
   }
 
   if (
@@ -170,11 +255,11 @@ function calculateStudyPlan({
     : 1;
 
   const scoreFactor = validScore
-    ? clamp(
-        1 + (65 - mockScore) / 120,
-        0.7,
+    ? (mockScore >= 80 ? 1 : clamp(
+        1 + (80 - mockScore) / 120,
+        1,
         1.5
-      )
+      ))
     : 1;
 
   const examTypeFactor =
@@ -191,49 +276,13 @@ function calculateStudyPlan({
 
   const warnings = [];
 
-  if (validDuration) {
-
-    // Q-Net 취득소요기간이 존재하는 경우
-    // 기존 계산식 유지
-
-    durationStudyDays =
-      averageDays * studyDaysPerWeek / 7;
-
-    durationBasedHours =
-      durationStudyDays * dailyHours;
-
-    estimatedHours = Math.ceil(
-      durationBasedHours *
-      levelFactor *
-      passFactor *
-      examTypeFactor *
-      scoreFactor
-    );
-
-    calculationMethod = 'duration-capacity-rule-based';
-
-    warnings.push(
-      '취득소요기간은 실제 순공부시간이 아닙니다. 계산된 필요 학습시간은 규칙 기반 추정치입니다.'
-    );
-
-  } else {
-
-    // Q-Net 취득소요기간이 없는 경우
-    // 사용자가 확보할 수 있는 공부시간으로 계획 생성
-    // 이를 실제 필요 학습시간으로 해석하지 않음
-
-    estimatedHours = availableHours;
-
-    calculationMethod = 'available-capacity-schedule';
-
-    warnings.push(
-      'Q-Net 평균 취득소요기간 데이터가 없어 학습 가능 시간 기준으로 일정을 생성했습니다.'
-    );
-
-    warnings.push(
-      '이 계획의 총 학습시간은 실제 합격에 필요한 학습시간을 추정한 값이 아닙니다.'
-    );
-  }
+  const sharedEstimate = estimateHours({averageDays,examType,level,mockScore,
+    writtenPassRate,practicalPassRate});
+  estimatedHours = sharedEstimate.estimatedHours;
+  calculationMethod = sharedEstimate.method;
+  warnings.push(...sharedEstimate.warnings);
+  if (sharedEstimate.allocatedDays !== null) durationStudyDays = sharedEstimate.allocatedDays;
+  durationBasedHours = sharedEstimate.rawBaseHours;
 
   // ======================================
   // 7. 학습 가능 여부 계산
@@ -242,11 +291,9 @@ function calculateStudyPlan({
   // 취득소요기간 기반 추정이 있을 때만
   // 필요시간과 가용시간을 비교할 수 있음
 
-  const feasibilityAssessed = validDuration;
+  const feasibilityAssessed = true;
 
-  const feasible = validDuration
-    ? availableHours >= estimatedHours
-    : true;
+  const feasible = availableHours >= estimatedHours;
 
   // DB 호환성을 위해 feasible은 boolean 유지.
   // 취득소요기간이 없는 경우 true는
@@ -275,8 +322,9 @@ function calculateStudyPlan({
       )
     : [];
 
-  const weights = validSubjects.map(
-    s => Math.max(5, 100 - s.score)
+  // 40점 미만 과락 위험, 80점 미만 목표 미달 과목을 우선 배분
+  const weights = validSubjects.map(s =>
+    Math.max(5, 80 - s.score) + (s.score < 40 ? 40 : 0)
   );
 
   const weightSum = weights.reduce(
@@ -309,7 +357,13 @@ function calculateStudyPlan({
   // 9. 학습 단계
   // ======================================
 
-  const phaseDefs = [
+  const maintenanceMode = validScore && mockScore >= 80;
+  const phaseDefs = maintenanceMode ? [
+    { name: '취약 과목 오답 복습', end: 0.35 },
+    { name: '기출문제 실전 연습', end: 0.7 },
+    { name: '모의고사 및 시간 관리', end: 0.9 },
+    { name: '최종 복습 및 실수 점검', end: 1 }
+  ] : [
     {
       name: '기초 이론 학습',
       end: 0.4
@@ -438,7 +492,7 @@ function calculateStudyPlan({
     );
   }
 
-  if (validDuration && !feasible) {
+  if (!feasible) {
     warnings.push(
       '시험일까지 확보 가능한 공부시간이 추정 필요시간보다 부족합니다.'
     );
@@ -489,6 +543,15 @@ function calculateStudyPlan({
 
     estimatedHours,
     availableHours,
+    targetMockScore: 80,
+    maintenanceMode,
+    studyAssumptions: sharedEstimate.assumptions,
+    stageShare: sharedEstimate.stageShare,
+    personalAdjustedRate: sharedEstimate.personalAdjustedRate,
+    officialPassRate: sharedEstimate.officialPassRate,
+    mockRateWeight: sharedEstimate.mockRateWeight,
+    writtenPassRate: sharedEstimate.writtenPassRate,
+    practicalPassRate: sharedEstimate.practicalPassRate,
 
     feasibilityAssessed,
     statisticallyValidated: false
@@ -504,6 +567,8 @@ function calculateStudyPlan({
     examDate: dateKey(target),
 
     estimatedHours,
+    targetMockScore: 80,
+    maintenanceMode,
     estimationDetails,
 
     availableHours,
@@ -537,12 +602,14 @@ function calculateStudyPlan({
         validSubjects.length > 0
     },
 
-    notice: validDuration
-      ? 'Q-Net 평균 취득소요기간과 사용자 학습 조건을 이용한 규칙 기반 학습시간 추정입니다. 실제 합격에 필요한 시간을 보장하지 않습니다.'
-      : 'Q-Net 평균 취득소요기간 통계가 없어 사용자가 선택한 학습 가능 시간에 맞춰 일정을 생성했습니다. 필요 학습시간이나 합격 가능성은 평가하지 않았습니다.'
+    notice: '필기·실기 합격률로 취득기간을 배분하고, 가정된 학습일 비율·평균 순공부시간과 모의고사 목표 80점을 기준으로 학습량을 한 번 보정한 규칙 모델입니다. 실제 평균 공부시간 조사값이 아니며 합격을 보장하지 않습니다.'
   };
 }
 
 module.exports = {
-  calculateStudyPlan
+  calculateStudyPlan,
+  estimatePreparation,
+  estimateHours,
+  STUDY_ASSUMPTIONS,
+  estimatePersonalRate
 };

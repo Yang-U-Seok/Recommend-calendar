@@ -1,4 +1,3 @@
-
 import { useEffect, useMemo, useState } from 'react';
 import './Calendar.css';
 import './CalendarPolish.css';
@@ -83,7 +82,7 @@ function normalizeEvents(name, rows) {
   );
 }
 
-export default function Calendar({ user }) {
+export default function Calendar({ user, initialDiagnosis = null }) {
   const [currentDate, setCurrentDate] = useState(new Date());
   const [selectedDate, setSelectedDate] = useState(null);
 
@@ -110,13 +109,15 @@ export default function Calendar({ user }) {
   const [plannerCertId, setPlannerCertId] = useState('');
   const [plannerType, setPlannerType] = useState('written');
   const [plannerLevel, setPlannerLevel] = useState('beginner');
-  const [plannerHours, setPlannerHours] = useState(2);
+  const [plannerHours, setPlannerHours] = useState(4);
   const [plannerDays, setPlannerDays] = useState([1, 2, 3, 4, 5, 6]);
   const [plannerExamDate, setPlannerExamDate] = useState('');
   const [manualExamDate, setManualExamDate] = useState('');
   const [plannerBusy, setPlannerBusy] = useState(false);
   const [plannerError, setPlannerError] = useState('');
   const [plannerNotice, setPlannerNotice] = useState('');
+  const [preview, setPreview] = useState(null);
+  const [previewBusy, setPreviewBusy] = useState(false);
 
   const userId = user?.id;
   const isLoggedIn = Boolean(userId);
@@ -356,6 +357,35 @@ export default function Calendar({ user }) {
     return () => controller.abort();
   }, [isLoggedIn, userId]);
 
+  // 진단에서 넘어온 자격증을 자동 선택 (Q-Net 목록 조회 후)
+  useEffect(() => {
+    if (!initialDiagnosis?.certificate || !certificates.length || !storageKey) return;
+    const match = certificates.find(c => c.name.replace(/\s/g,'') === initialDiagnosis.certificate.replace(/\s/g,''));
+    if (!match) return;
+    setSelectedCertificates(prev => {
+      if (prev.some(c=>c.id===match.id)) return prev;
+      const next=[...prev,match];
+      localStorage.setItem(storageKey,JSON.stringify(next));
+      return next;
+    });
+    setPlannerCertId(match.id);
+    setPlannerType(initialDiagnosis.examType || 'written');
+  }, [initialDiagnosis?.certificate, initialDiagnosis?.examType, certificates, storageKey]);
+
+  async function previewStudyPlan() {
+    if (!plannerCert || !plannerDays.length) {setPlannerError('자격증과 공부 요일을 선택하세요.');return;}
+    setPreviewBusy(true);setPlannerError('');setPreview(null);
+    try {
+      const r=await fetch(`${API_BASE}/api/study/preview`,{
+        method:'POST',credentials:'include',headers:{'Content-Type':'application/json'},
+        body:JSON.stringify({certificateName:plannerCert.name,grade:plannerCert.gradeCode || '30',examType:plannerType,
+          level:plannerLevel,dailyHours:Number(plannerHours),studyDays:plannerDays})});
+      const data=await r.json();
+      if(!r.ok||!data.success)throw new Error(data.message||'미리보기 실패');
+      setPreview(data);
+    }catch(e){setPlannerError(e.message);}finally{setPreviewBusy(false);}
+  }
+
   const plannerCert = selectedCertificates.find(c => String(c.id) === String(plannerCertId));
   const availableExamDates = useMemo(() => {
     if (!plannerCert) return [];
@@ -407,8 +437,8 @@ useEffect(() => {
 
   async function createStudyPlan(event) {
     event.preventDefault();
-    const targetExamDate = manualExamDate || plannerExamDate;
-    if (!plannerCert || !targetExamDate) { setPlannerError('자격증과 미래 시험일을 선택하세요.'); return; }
+    const targetExamDate = manualExamDate || ''; // 시험일 미지정이면 추천 완료일 사용
+    if (!plannerCert) { setPlannerError('자격증을 선택하세요.'); return; }
     setPlannerBusy(true); setPlannerError(''); setPlannerNotice('');
     try {
       const response = await fetch(`${API_BASE}/api/study/plans`, {
@@ -873,7 +903,7 @@ async function toggleStudyTask(task) {
               </select>
             </label>
             <label>하루 공부 가능 시간
-              <input type="number" min="0.5" max="12" step="0.5" value={plannerHours} onChange={e=>setPlannerHours(Number(e.target.value))} required style={{display:'block',width:'100%',padding:11,marginTop:6}} />
+              <input type="number" min="1" max="8" step="0.5" value={plannerHours} onChange={e=>setPlannerHours(Number(e.target.value))} required style={{display:'block',width:'100%',padding:11,marginTop:6}} />
             </label>
             <fieldset style={{border:'1px solid #e2e8f0',borderRadius:10,padding:10}}>
               <legend>공부 가능한 요일</legend>
@@ -883,11 +913,26 @@ async function toggleStudyTask(task) {
                 </label>)}
               </div>
             </fieldset>
-            <button type="submit" disabled={plannerBusy || !(plannerExamDate || manualExamDate) || !plannerDays.length} style={{padding:12,background:'#2563eb',color:'#fff',border:0,borderRadius:10,cursor:'pointer'}}>
+            <button type="submit" disabled={plannerBusy || !plannerDays.length} style={{padding:12,background:'#2563eb',color:'#fff',border:0,borderRadius:10,cursor:'pointer'}}>
               {plannerBusy?'학습계획 생성 중...':'학습계획 생성'}
             </button>
           </form>
-          {!plannerExamDate && plannerCert && !scheduleState.loading && <p style={{color:'#b45309'}}>선택한 자격증의 {year}년 미래 시험 시작일이 없습니다. 달력을 다음 연도로 이동하거나, 아직 일정이 발표되지 않았다면 임시 목표일을 직접 입력하세요. 직접 입력한 날짜는 Q-Net 확정 일정이 아닙니다.</p>}
+          <button type="button" disabled={previewBusy || !plannerCert || !plannerDays.length} onClick={previewStudyPlan}
+            style={{marginTop:12,padding:12,borderRadius:9,border:'1px solid #2563eb',background:'#eff6ff',color:'#1d4ed8'}}>
+            {previewBusy?'분석 중...':'모의고사 기반 추천 학습기간 분석'}
+          </button>
+          {preview && <div style={{padding:14,marginTop:12,borderRadius:10,background:'#f0fdf4'}}>
+            <strong>예상 학습 완료일: {preview.estimate.completionDate}</strong>
+            <p>모의고사 목표 80점 · 80점 이상은 복습/기출 위주 유지 학습</p>
+            <p>예상 학습시간 {preview.estimate.estimatedHours}시간 · 학습일 {preview.estimate.studyDaysNeeded}일 · 모의고사 {preview.mockScore ?? '미입력'}점</p>
+            <p><strong>개인별 보정 합격률 지표: {preview.estimate.personalAdjustedRate == null ? '산출 불가' : preview.estimate.personalAdjustedRate+'%'}</strong> (65:35 참고 지표이며 학습시간 계산에는 미사용, 실제 합격 확률 아님)</p>
+            <p>필기 합격률 {preview.statistics?.writtenPassRate ?? '자료 없음'}% · 실기 합격률 {preview.statistics?.practicalPassRate ?? '자료 없음'}% · 취득소요기간 {preview.statistics?.averageDays ?? '자료 없음'}일</p>
+            <p>시험별 배분기간 {preview.estimate.allocatedDays == null ? '자료 없음' : preview.estimate.allocatedDays.toFixed(1)+'일'} · 기준 학습량 {preview.estimate.baseHours.toFixed(1)}시간</p>
+            <p>하루 공부시간 기본 4시간, 선택 1~8시간 · 모의고사 점수는 학습량에 한 번만 반영</p>
+            <p>임시 목표일 {preview.estimate.suggestedTargetDate} · {preview.estimate.assumption}</p>
+            <small>{preview.notice}</small>
+          </div>}
+          {!plannerExamDate && plannerCert && !scheduleState.loading && <p style={{color:'#b45309'}}>실제 시험일을 선택하지 않으면 분석된 추천 완료일 다음 날을 임시 목표일로 사용합니다. 이는 Q-Net 확정 시험일이 아닙니다.</p>}
           {plannerError && <p style={{color:'#dc2626'}}>{plannerError}</p>}
           {plannerNotice && <p style={{color:'#059669'}}>{plannerNotice}</p>}
           {plans.map(plan=>{

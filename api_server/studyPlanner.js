@@ -1,7 +1,7 @@
 const express = require('express');
 const Database = require('better-sqlite3');
 const path = require('path');
-const { calculateStudyPlan } = require('./studyAlgorithm');
+const { calculateStudyPlan, estimatePreparation } = require('./studyAlgorithm');
 const { findPassRate, normalizeName } = require('./studyData');
 
 const router = express.Router();
@@ -377,6 +377,54 @@ router.get('/plans', (req, res) => {
   }
 });
 
+// 동일한 통계조회 함수를 미리보기와 실제 생성에서 사용한다.
+async function loadStageStatistics(req,certificateName,grade) {
+  const currentYear=new Date().getFullYear();
+  let writtenPassRate=null,practicalPassRate=null,averageDays=null;
+  const warnings=[];
+  for(const year of [currentYear-1,currentYear-2,currentYear-3]) {
+    try {
+      const data=await internalGet(req,'/api/qnet/pass-rate',{year,grade,keyword:certificateName});
+      const rows=Array.isArray(data.items)?data.items:[];
+      const written=numeric(findPassRate(rows,certificateName,'필기')?.passRate);
+      const practical=numeric(findPassRate(rows,certificateName,'실기')?.passRate);
+      if(writtenPassRate===null && written!==null && written>=0 && written<=100)writtenPassRate=written;
+      if(practicalPassRate===null && practical!==null && practical>=0 && practical<=100)practicalPassRate=practical;
+      if(writtenPassRate!==null && practicalPassRate!==null)break;
+    }catch(e){warnings.push(`${year} 합격률: ${e.message}`);}
+  }
+  for(const year of [...new Set([currentYear-1,currentYear-2,currentYear-3,2023])]) {
+    try {
+      const data=await internalGet(req,'/api/qnet/acquisition-term',{year,grade,keyword:certificateName});
+      const rows=Array.isArray(data.items)?data.items:[];
+      const match=rows.find(r=>normalize(r.name??r.jmNm??r.qualName??'')===normalize(certificateName));
+      const value=numeric(match?.averageDays??match?.accumAcquAvgTermDays);
+      if(value!==null && value>0){averageDays=value;break;}
+    }catch(e){warnings.push(`${year} 취득소요기간: ${e.message}`);}
+  }
+  return {writtenPassRate,practicalPassRate,averageDays,warnings};
+}
+
+// 추천 학습기간 미리보기: 저장된 모의고사 점수를 기반으로 완료일 계산
+router.post('/preview', async (req,res) => {
+  try {
+    const { certificateName, examType='written', level='beginner',
+      dailyHours=4, studyDays=[1,2,3,4,5,6], grade='30' } = req.body || {};
+    if (typeof certificateName !== 'string' || !certificateName.trim() ||
+        !['written','practical'].includes(examType))
+      return res.status(400).json({success:false,message:'자격증과 시험 유형을 확인하세요.'});
+    const candidates = db.prepare(`SELECT * FROM mock_results WHERE user_id=? AND exam_type=? ORDER BY mock_date DESC,id DESC`)
+      .all(req.session.userId,examType);
+    const mock = candidates.find(r=>normalize(r.certificate_name)===normalize(certificateName));
+    const stats=await loadStageStatistics(req,certificateName,grade);
+    const passRate=examType==='written'?stats.writtenPassRate:stats.practicalPassRate;
+    const estimate=estimatePreparation({level,dailyHours:Number(dailyHours),studyDays,
+      examType,passRate,mockScore:mock?.score??null,...stats});
+    res.json({success:true,estimate,mockScore:mock?.score??null,passRate,personalAdjustedRate:estimate.personalAdjustedRate,
+      statistics:stats,notice:'Q-Net 공식 합격률로 필기·실기 기간을 배분하고 모의고사 점수는 목표 80점 대비 학습량에 한 번만 반영합니다. 65:35 지표는 참고용이며 실제 합격확률이 아닙니다. 화면의 개인별 지표는 참고용이며 실제 합격확률이 아닙니다. 목표 모의고사 점수는 80점이고 하루 공부시간 기본값은 4시간(선택 1~8시간)입니다. 통계 환산용 2시간과 활동일 비율 0.4는 검증된 평균이 아닌 가정값입니다.'});
+  } catch(e) { res.status(400).json({success:false,message:e.message}); }
+});
+
 // ==========================================
 // 8. 맞춤형 학습계획 생성
 // ==========================================
@@ -389,7 +437,7 @@ router.post('/plans', async (req, res) => {
       examType = 'written',
       examDate,
       level = 'beginner',
-      dailyHours = 2,
+      dailyHours = 4,
       studyDays = [1, 2, 3, 4, 5, 6]
     } = req.body || {};
 
@@ -408,7 +456,7 @@ router.post('/plans', async (req, res) => {
       });
     }
 
-    if (!isValidDate(examDate)) {
+    if (examDate && !isValidDate(examDate)) {
       return res.status(400).json({
         success: false,
         message: '올바른 시험일을 선택하세요.'
@@ -434,8 +482,8 @@ router.post('/plans', async (req, res) => {
 
     if (
       !Number.isFinite(Number(dailyHours)) ||
-      Number(dailyHours) < 0.5 ||
-      Number(dailyHours) > 12
+      Number(dailyHours) < 1 ||
+      Number(dailyHours) > 8
     ) {
       return res.status(400).json({
         success: false,
@@ -493,73 +541,9 @@ router.post('/plans', async (req, res) => {
     // 8-3. Q-Net 합격률 조회
     // --------------------------------------
 
-    let passRate = null;
-    let passRateYear = null;
-
-    for (const year of passYears) {
-      try {
-        console.log(
-          `[합격률 조회 시작] ${name} / ${year}`
-        );
-
-        const data = await internalGet(
-          req,
-          '/api/qnet/pass-rate',
-          {
-            year,
-            grade,
-            keyword: name
-          }
-        );
-
-        const rows = Array.isArray(data.items)
-          ? data.items
-          : [];
-
-        const match = findPassRate(
-          rows,
-          name,
-          typeLabel
-        );
-
-        const value = numeric(
-          match?.passRate
-        );
-
-        diagnostics.passRate.push({
-          year,
-          count: rows.length,
-          matched: Boolean(match),
-          passRate: value
-        });
-
-        if (
-          value !== null &&
-          value >= 0 &&
-          value <= 100
-        ) {
-          passRate = value;
-          passRateYear = year;
-
-          console.log(
-            `[합격률 조회 성공] ${name}: ${value}% (${year}년)`
-          );
-
-          break;
-        }
-
-      } catch (error) {
-        diagnostics.passRate.push({
-          year,
-          error: error.message
-        });
-
-        console.warn(
-          `[합격률 ${year}년 조회 실패]`,
-          error.message
-        );
-      }
-    }
+    const stats=await loadStageStatistics(req,name,grade);
+    let passRate=examType==='written'?stats.writtenPassRate:stats.practicalPassRate;
+    let passRateYear=null;
 
     // --------------------------------------
     // 8-4. 수동 취득소요기간 확인
@@ -583,119 +567,11 @@ router.post('/plans', async (req, res) => {
       });
     }
 
-    let averageDays = manualAverageDays;
-    let acquisitionYear = null;
-
-    let acquisitionSource =
-      manualAverageDays !== null
-        ? 'user-provided'
-        : null;
-
-    // --------------------------------------
-    // 8-5. Q-Net 취득소요기간 조회
-    // --------------------------------------
-
-    if (averageDays === null) {
-      for (const year of termYears) {
-        try {
-          console.log(
-            `[취득소요기간 조회 시작] ${name} / ${year}`
-          );
-
-          const data = await internalGet(
-            req,
-            '/api/qnet/acquisition-term',
-            {
-              year,
-              grade,
-              keyword: name
-            }
-          );
-
-          const rows = Array.isArray(data.items)
-            ? data.items
-            : [];
-
-          const matched = rows.find(row => {
-            const certificateName = String(
-              row.name ??
-              row.jmNm ??
-              row.qualName ??
-              ''
-            ).trim();
-
-            return normalize(certificateName) ===
-              normalize(name);
-          });
-
-          const value = numeric(
-            matched?.averageDays ??
-            matched?.accumAcquAvgTermDays
-          );
-
-          diagnostics.acquisitionTerm.push({
-            year,
-            totalCount: data.totalCount ?? null,
-            count: rows.length,
-            matched: Boolean(matched),
-            averageDays: value
-          });
-
-          console.log(
-            '[취득소요기간 조회 결과]',
-            {
-              year,
-              certificateName: name,
-              matched: Boolean(matched),
-              averageDays: value
-            }
-          );
-
-          if (
-            value !== null &&
-            value > 0
-          ) {
-            averageDays = value;
-            acquisitionYear = year;
-            acquisitionSource = 'qnet';
-
-            console.log(
-              `[취득소요기간 조회 성공] ${name}: ${value}일 (${year}년)`
-            );
-
-            break;
-          }
-
-        } catch (error) {
-          diagnostics.acquisitionTerm.push({
-            year,
-            error: error.message
-          });
-
-          console.warn(
-            `[취득소요기간 ${year}년 조회 실패]`,
-            error.message
-          );
-        }
-      }
-    }
-
-    // --------------------------------------
-    // 8-6. 조회 결과 확인
-    // --------------------------------------
-
-    console.log(
-      '[학습계획 데이터 조회 결과]',
-      {
-        certificateName: name,
-        passRate,
-        passRateYear,
-        averageDays,
-        acquisitionYear,
-        acquisitionSource,
-        diagnostics
-      }
-    );
+    let averageDays=manualAverageDays??stats.averageDays;
+    let acquisitionYear=null;
+    let acquisitionSource=manualAverageDays!==null?'user-provided':stats.averageDays!==null?'qnet':null;
+    diagnostics.passRate.push({written:stats.writtenPassRate,practical:stats.practicalPassRate});
+    diagnostics.acquisitionTerm.push({averageDays,source:acquisitionSource,warnings:stats.warnings});
 
     // --------------------------------------
     // 8-7. 데이터 누락 처리
@@ -703,12 +579,7 @@ router.post('/plans', async (req, res) => {
 
     // 합격률은 기존 정책대로 필수
     if (passRate === null) {
-      return res.status(422).json({
-        success: false,
-        message:
-          'Q-Net 합격률을 확인하지 못했습니다. 조회 연도와 연결 상태를 확인하세요.',
-        diagnostics
-      });
+      console.warn('[학습계획] 합격률 부재: 보정 없이 계획 생성');
     }
 
     // 핵심 수정:
@@ -754,15 +625,25 @@ router.post('/plans', async (req, res) => {
     // 8-9. 학습계획 알고리즘 실행
     // --------------------------------------
 
+    // 시험일 미지정 시 모의고사 기반 추천 완료일 다음 날을 임시 목표일로 사용
+    const suggested = estimatePreparation({level,dailyHours:Number(dailyHours),studyDays,
+      passRate,averageDays,examType,mockScore:mock?.score ?? null,
+      writtenPassRate:stats.writtenPassRate,practicalPassRate:stats.practicalPassRate});
+    const targetExamDate = examDate || suggested.suggestedTargetDate;
+    if (suggested.daysUntilExam > 730 && !examDate) {
+      return res.status(400).json({success:false,message:'추천 기간이 730일을 초과합니다. 공부시간을 늘리거나 목표일을 직접 선택하세요.'});
+    }
     const result = calculateStudyPlan({
       certificateName: name,
       examType,
-      examDate,
+      examDate: targetExamDate,
       level,
       dailyHours: Number(dailyHours),
       studyDays,
       passRate,
       averageDays,
+      writtenPassRate:stats.writtenPassRate,
+      practicalPassRate:stats.practicalPassRate,
 
       mockScore: mock
         ? mock.score
@@ -871,6 +752,8 @@ router.post('/plans', async (req, res) => {
 
       estimationDetails:
         result.estimationDetails,
+      suggestedCompletion: suggested,
+      targetDateIsSuggested: !examDate,
 
       feasibilityAssessed:
         result.feasibilityAssessed,

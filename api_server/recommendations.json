@@ -1,0 +1,104 @@
+{
+  "generatedAt": "2026-11-13T07:24:06.294Z",
+  "method": "mention-count",
+  "category": "보안",
+  "companySize": "대기업",
+  "totalPositionsConsidered": 8,
+  "recommendations": [
+    {
+      "rank": 1,
+      "name": "정보보안기사",
+      "mentionCount": 7,
+      "requiredCount": 0,
+      "preferredCount": 7,
+      "companies": [
+        "LG유플러스",
+        "LG CNS"
+      ],
+      "positions": [
+        {
+          "company": "LG유플러스",
+          "companySize": "대기업",
+          "positionName": "AI보안",
+          "jobNoticeId": 1001889,
+          "type": "우대사항",
+          "evidence": [
+            "✦ 경력사항 - 관련 직무 경력 7년 이상 ✦ 자격증 - 정보보안기사, CISSP, CISA 등 자격증 보유"
+          ]
+        },
+        {
+          "company": "LG유플러스",
+          "companySize": "대기업",
+          "positionName": "클라우드 및 AI 보안 아키텍쳐 설계",
+          "jobNoticeId": 1001907,
+          "type": "우대사항",
+          "evidence": [
+            "석사이상 ✦ 경력 - 관련 직무 경력 7년 이상 ✦ 자격증 - 정보보안기사, AWS, ISMS-P 등 자격증 보유"
+          ]
+        },
+        {
+          "company": "LG유플러스",
+          "companySize": "대기업",
+          "positionName": "보안 서비스 기획 및  품질 지원",
+          "jobNoticeId": 1002298,
+          "type": "우대사항",
+          "evidence": [
+            "석사 이상 ✦ 경력 - 관련직무 경력 7년 이상 ✦ 자격증 - 정보보안기사, ITIL 등의 자격증 보유"
+          ]
+        },
+        {
+          "company": "LG유플러스",
+          "companySize": "대기업",
+          "positionName": "퍼블릭 클라우드 보안 ",
+          "jobNoticeId": 1001513,
+          "type": "우대사항",
+          "evidence": [
+            "사이상 ✦ 경력사항 - 관련직무 경력 7년 이상 ✦ 자격증 - 정보보안기사, AWS 등 자격증 보유"
+          ]
+        },
+        {
+          "company": "LG CNS",
+          "companySize": "대기업",
+          "positionName": "보안 아키텍처",
+          "jobNoticeId": 1002355,
+          "type": "우대사항",
+          "evidence": [
+            "1 정보보안기사 등 정보보안 자격증을 보유하신 분 2 클라우드 등 DX환경에"
+          ]
+        },
+        {
+          "company": "LG CNS",
+          "companySize": "대기업",
+          "positionName": "그룹보안담당",
+          "jobNoticeId": 1002355,
+          "type": "우대사항",
+          "evidence": [
+            ". 경력 : 관련직무 경력 7년 이상 . 정보보안기사 등 정보보안 자격증을 보유하신분 . 클라우드 등 DX환경에 대"
+          ]
+        },
+        {
+          "company": "LG CNS",
+          "companySize": "대기업",
+          "positionName": "보안사업개발",
+          "jobNoticeId": 1002355,
+          "type": "우대사항",
+          "evidence": [
+            "- 정보보안기사, CISSP, CISA, CCSP 등 사이버보안 관련 자격증"
+          ]
+        }
+      ],
+      "companyCount": 2
+    }
+  ],
+  "unknownCompanySizes": [
+    "D&O",
+    "HSAD",
+    "LG Magna",
+    "비즈테크아이",
+    "엘지에니바이오리파이닝",
+    "하이엠솔루텍",
+    "하이케어솔루션",
+    "하이프라자"
+  ],
+  "note": "등장 횟수는 자격증명이 명시된 직무 수입니다. 동일 직무 중복 언급은 1건으로 계산합니다. 필수자격란 표기는 해당 자격증이 단독 필수라는 뜻은 아닙니다."
+}

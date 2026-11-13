@@ -1,99 +1,12 @@
-
 import { useEffect, useState } from 'react'
 import './App.css'
 import Calendar from './Calendar'
 import QnetSearch from './QnetSearch'
 import JobSearch from './JobSearch'
 
-// 개발용 가상 채용공고 데이터
-const sampleJobs = [
-  {
-    company: '가상기업 A',
-    field: 'IT·소프트웨어',
-    size: '대기업',
-    required: ['정보처리기사'],
-    preferred: ['SQLD']
-  },
-  {
-    company: '가상기업 B',
-    field: 'IT·소프트웨어',
-    size: '중견기업',
-    required: [],
-    preferred: ['정보처리기사', 'SQLD']
-  },
-  {
-    company: '가상기업 C',
-    field: 'IT·소프트웨어',
-    size: '중소기업',
-    required: [],
-    preferred: ['정보처리기사']
-  },
-  {
-    company: '가상기업 D',
-    field: '네트워크·통신·클라우드',
-    size: '대기업',
-    required: ['정보통신기사'],
-    preferred: ['네트워크관리사']
-  },
-  {
-    company: '가상기업 E',
-    field: '네트워크·통신·클라우드',
-    size: '중견기업',
-    required: [],
-    preferred: ['정보통신기사', '리눅스마스터']
-  },
-  {
-    company: '가상기업 F',
-    field: '네트워크·통신·클라우드',
-    size: '중소기업',
-    required: [],
-    preferred: ['네트워크관리사', '리눅스마스터']
-  },
-  {
-    company: '가상기업 G',
-    field: '정보보안',
-    size: '대기업',
-    required: [],
-    preferred: ['정보보안기사', '정보처리기사']
-  },
-  {
-    company: '가상기업 H',
-    field: '정보보안',
-    size: '중견기업',
-    required: [],
-    preferred: ['정보보안기사']
-  },
-  {
-    company: '가상기업 I',
-    field: '정보보안',
-    size: '중소기업',
-    required: [],
-    preferred: ['정보보안기사', '네트워크관리사']
-  },
-  {
-    company: '가상기업 J',
-    field: '경영·회계·금융',
-    size: '대기업',
-    required: [],
-    preferred: ['재경관리사', '전산회계 1급']
-  },
-  {
-    company: '가상기업 K',
-    field: '경영·회계·금융',
-    size: '중견기업',
-    required: [],
-    preferred: ['전산회계 1급']
-  },
-  {
-    company: '가상기업 L',
-    field: '경영·회계·금융',
-    size: '중소기업',
-    required: [],
-    preferred: ['전산회계 1급', '전산회계 2급']
-  }
-]
-
+// 프런트엔드 선택지는 백엔드 FIELD_CATEGORY_MAP에서 변환합니다.
 const interestFields = [
+  '전체 분야',
   'IT·소프트웨어',
   '데이터·AI',
   '네트워크·통신·클라우드',
@@ -104,6 +17,7 @@ const interestFields = [
   '경영·회계·금융',
   '사무·무역·물류',
   '환경·보건·서비스'
+
 ]
 
 
@@ -161,6 +75,9 @@ function App() {
   const [recommendations, setRecommendations] = useState([])
   const [matchedJobCount, setMatchedJobCount] = useState(0)
   const [hasRecommended, setHasRecommended] = useState(false)
+  const [recommendLoading, setRecommendLoading] = useState(false)
+  const [recommendError, setRecommendError] = useState('')
+  const [recommendNotice, setRecommendNotice] = useState('')
 
   // CBT 진단
   const [selectedCertificate, setSelectedCertificate] = useState('')
@@ -312,16 +229,18 @@ function App() {
   // ==========================================
 
   const toggleField = field => {
-    if (selectedFields.includes(field)) {
-      setSelectedFields(prev =>
-        prev.filter(item => item !== field)
-      )
-    } else if (selectedFields.length < 3) {
-      setSelectedFields(prev => [...prev, field])
-    } else {
-      alert('관심 분야는 최대 3개까지 선택할 수 있습니다.')
-    }
-
+    setSelectedFields(prev => {
+      if (field === '전체 분야') {
+        return prev.includes('전체 분야') ? [] : ['전체 분야']
+      }
+      if (prev.includes(field)) return prev.filter(item => item !== field)
+      const withoutAll = prev.filter(item => item !== '전체 분야')
+      if (withoutAll.length >= 3) {
+        alert('관심 분야는 최대 3개까지 선택할 수 있습니다.')
+        return prev
+      }
+      return [...withoutAll, field]
+    })
     setHasRecommended(false)
   }
 
@@ -339,64 +258,92 @@ function App() {
   // 4. 자격증 추천
   // ==========================================
 
-  const checkSelection = () => {
+  const checkSelection = async () => {
     if (selectedFields.length === 0) {
       alert('관심 분야를 하나 이상 선택해주세요.')
       return
     }
 
-    const filteredJobs = sampleJobs.filter(job => {
-      const fieldMatch = selectedFields.includes(job.field)
+    setRecommendLoading(true)
+    setRecommendError('')
+    setRecommendNotice('')
+    setHasRecommended(false)
 
-      const sizeMatch =
-        selectedCompanySizes.length === 0 ||
-        selectedCompanySizes.includes(job.size)
+    try {
+      const categories = selectedFields.includes('전체 분야')
+        ? '전체'
+        : selectedFields.join(',')
+      const sizes = selectedCompanySizes.length
+        ? selectedCompanySizes
+        : ['전체']
 
-      return fieldMatch && sizeMatch
-    })
+      // 백엔드는 복수 분야를 한 번에 필터링하여 동일 직무 중복을 방지합니다.
+      const responses = await Promise.all(sizes.map(async companySize => {
+        const params = new URLSearchParams({ categories, companySize })
+        const response = await fetch(
+          `${API_BASE}/api/certificate-recommendations?${params.toString()}`
+        )
+        const data = await response.json()
+        if (!response.ok || !data.success) {
+          throw new Error(data.message || '추천 API 조회에 실패했습니다.')
+        }
+        return data
+      }))
 
-    setMatchedJobCount(filteredJobs.length)
-
-    const stats = {}
-
-    filteredJobs.forEach(job => {
-      const certificates = new Set([
-        ...job.required,
-        ...job.preferred
-      ])
-
-      certificates.forEach(cert => {
-        if (!stats[cert]) {
-          stats[cert] = {
-            certificate: cert,
-            count: 0,
-            required: 0,
-            preferred: 0,
-            score: 0
+      // 기업 규모 복수 선택 시에도 동일 직무는 중복 계산하지 않습니다.
+      const certMap = new Map()
+      const matchedPositions = new Set()
+      for (const data of responses) {
+        for (const cert of data.recommendations || []) {
+          if (!certMap.has(cert.name)) {
+            certMap.set(cert.name, { certificate: cert.name, positionMap: new Map() })
+          }
+          const entry = certMap.get(cert.name)
+          for (const position of cert.positions || []) {
+            const key = JSON.stringify([
+              position.company, position.jobNoticeId, position.positionName
+            ])
+            matchedPositions.add(key)
+            const previous = entry.positionMap.get(key)
+            entry.positionMap.set(key, {
+              ...position,
+              required: Boolean(position.required || previous?.required),
+              preferred: Boolean(position.preferred || previous?.preferred)
+            })
           }
         }
+      }
 
-        stats[cert].count += 1
-
-        if (job.required.includes(cert)) {
-          stats[cert].required += 1
-          stats[cert].score += 2
-        } else {
-          stats[cert].preferred += 1
-          stats[cert].score += 1
+      const sortedResult = [...certMap.values()].map(entry => {
+        const positions = [...entry.positionMap.values()]
+        return {
+          certificate: entry.certificate,
+          count: positions.length,
+          required: positions.filter(p => p.required).length,
+          preferred: positions.filter(p => p.preferred).length,
+          companies: [...new Set(positions.map(p => p.company))],
+          positions
         }
-      })
-    })
-
-    const sortedResult = Object.values(stats).sort(
-      (a, b) =>
-        b.score - a.score ||
+      }).sort((a, b) =>
         b.count - a.count ||
+        b.companies.length - a.companies.length ||
         a.certificate.localeCompare(b.certificate, 'ko')
-    )
+      )
 
-    setRecommendations(sortedResult)
-    setHasRecommended(true)
+      setRecommendations(sortedResult)
+      setMatchedJobCount(matchedPositions.size)
+      setHasRecommended(true)
+      if (!sortedResult.length) {
+        setRecommendNotice('선택한 분야에 자격증이 명시된 직무가 없을 수 있습니다. 전체 분야로도 확인해 보세요.')
+      }
+    } catch (error) {
+      setRecommendError(error.message || '추천 결과를 가져오지 못했습니다.')
+      setRecommendations([])
+      setMatchedJobCount(0)
+      setHasRecommended(true)
+    } finally {
+      setRecommendLoading(false)
+    }
   }
 
   // ==========================================
@@ -621,6 +568,7 @@ function App() {
                 <p>검색 결과가 없습니다.</p>
               )}
 
+
             </section>
 
             <section className="selection-box">
@@ -652,8 +600,9 @@ function App() {
               type="button"
               className="recommend-btn"
               onClick={checkSelection}
+              disabled={recommendLoading}
             >
-              자격증 추천받기
+              {recommendLoading ? '추천 결과 불러오는 중...' : '자격증 추천받기'}
             </button>
 
             {hasRecommended && (
@@ -662,8 +611,11 @@ function App() {
                 <h3>3. 맞춤형 자격증 추천 결과</h3>
 
                 <p>
-                  분석한 샘플 채용공고: {matchedJobCount}건
+                  자격증이 명시된 분석 직무: {matchedJobCount}개
                 </p>
+
+                {recommendError && <p role="alert" style={{ color: '#dc2626' }}>{recommendError}</p>}
+                {recommendNotice && <p>{recommendNotice}</p>}
 
                 {recommendations.length === 0 ? (
                   <p>조건에 맞는 자격증이 없습니다.</p>
@@ -678,13 +630,12 @@ function App() {
                         <span className="result-rank">TOP {index + 1}</span>
                         <h4>{item.certificate}</h4>
 
-                        <p>등장 공고: {item.count}건</p>
-                        <p>필수: {item.required}건</p>
-                        <p>우대: {item.preferred}건</p>
+                        <p>등장 직무: {item.count}개</p>
+                        <p>필수자격란: {item.required}개</p>
+                        <p>우대사항: {item.preferred}개</p>
 
-                        <strong>
-                          추천 점수: {item.score}점
-                        </strong>
+                        <strong>등장 횟수 기준 {index + 1}위</strong>
+                        <p>언급 기업: {item.companies.join(', ')}</p>
 
                         <button
                           type="button"
@@ -705,7 +656,7 @@ function App() {
                 )}
 
                 <p className="sample-notice">
-                  ※ 개발용 가상 채용공고를 활용한 추천 결과입니다.
+                  ※ 실제 수집한 삼성·LG 채용공고의 자격증 언급 직무를 기준으로 집계했습니다. 같은 직무에서 같은 자격증이 중복 언급되면 1회로 계산합니다. 기업 규모 미분류 기업은 규모 필터에서 제외될 수 있습니다.
                 </p>
 
               </section>
@@ -921,7 +872,7 @@ function App() {
         ===================================== */}
 
         {page === 'calendar' && (
-          <Calendar user={user} />
+          <Calendar user={user} initialDiagnosis={diagnosisResult} />
         )}
 
         {/* =====================================
