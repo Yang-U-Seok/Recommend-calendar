@@ -95,10 +95,38 @@ const sampleJobs = [
 
 const interestFields = [
   'IT·소프트웨어',
+  '데이터·AI',
   '네트워크·통신·클라우드',
   '정보보안',
-  '경영·회계·금융'
+  '전기·전자',
+  '기계·자동화',
+  '건설·토목·안전',
+  '경영·회계·금융',
+  '사무·무역·물류',
+  '환경·보건·서비스'
 ]
+
+
+// UI 전용 아이콘: 별도 라이브러리 설치 없이 사용
+function Icon({ name, size = 20, className = '' }) {
+  const icons = {
+    logo: <><path d="M6 17V7a2 2 0 0 1 2-2h5a5 5 0 0 1 0 10H6" /><path d="m13 15 5 5" /><path d="M6 11h7" /></>,
+    home: <><path d="m3 10 9-7 9 7v10a1 1 0 0 1-1 1H4a1 1 0 0 1-1-1z" /><path d="M9 21v-7h6v7" /></>,
+    sparkles: <><path d="m12 3 1.8 5.2L19 10l-5.2 1.8L12 17l-1.8-5.2L5 10l5.2-1.8L12 3Z" /><path d="m19 16 .7 2.3L22 19l-2.3.7L19 22l-.7-2.3L16 19l2.3-.7L19 16Z" /></>,
+    book: <><path d="M4 5.5c3-1.3 5.8-1.2 8 .2v15c-2.2-1.4-5-1.5-8-.2V5.5Z" /><path d="M20 5.5c-3-1.3-5.8-1.2-8 .2v15c2.2-1.4 5-1.5 8-.2V5.5Z" /></>,
+    briefcase: <><rect x="3" y="7" width="18" height="14" rx="2" /><path d="M8 7V5a2 2 0 0 1 2-2h4a2 2 0 0 1 2 2v2M3 13a22 22 0 0 0 18 0" /></>,
+    calendar: <><rect x="3" y="5" width="18" height="16" rx="2" /><path d="M7 3v4M17 3v4M3 10h18M8 15h3M8 18h3" /></>,
+    arrow: <><path d="M5 12h14m-6-6 6 6-6 6" /></>,
+    check: <><path d="m5 12 4 4L19 6" /></>,
+    chart: <><path d="M4 20V10m6 10V4m6 16v-7m4 7H2" /></>,
+    shield: <><path d="M12 2 4 6v6c0 5 3.5 8.5 8 10 4.5-1.5 8-5 8-10V6l-8-4Z" /><path d="m9 12 2 2 4-4" /></>,
+  }
+  return (
+    <svg className={className} width={size} height={size} viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.8" strokeLinecap="round" strokeLinejoin="round" aria-hidden="true">
+      {icons[name] || icons.sparkles}
+    </svg>
+  )
+}
 
 const API_BASE = 'http://localhost:3001'
 
@@ -142,7 +170,7 @@ function App() {
   const [diagnosisResult, setDiagnosisResult] = useState(null)
   const [subjectScores, setSubjectScores] = useState([{ name: '', score: '' }])
   const [examType, setExamType] = useState('written')
-  const [mockDate, setMockDate] = useState(() => { const d=new Date(); return `${d.getFullYear()}-${String(d.getMonth()+1).padStart(2,'0')}-${String(d.getDate()).padStart(2,'0')}` })
+  const [mockDate, setMockDate] = useState(() => { const d = new Date(); return `${d.getFullYear()}-${String(d.getMonth() + 1).padStart(2, '0')}-${String(d.getDate()).padStart(2, '0')}` })
   const [mockSaving, setMockSaving] = useState(false)
   const [mockError, setMockError] = useState('')
 
@@ -380,9 +408,9 @@ function App() {
     let normalizedScore, subjects = []
     if (scoreInputType === 'subject') {
       if (subjectScores.length > 30) {
-  alert('과목은 최대 30개까지 입력할 수 있습니다.')
-  return
-}
+        alert('과목은 최대 30개까지 입력할 수 있습니다.')
+        return
+      }
       if (!subjectScores.length || subjectScores.some(s => !s.name.trim() || s.score === '' || !Number.isFinite(Number(s.score)) || Number(s.score) < 0 || Number(s.score) > 100)) {
         alert('모든 과목의 이름과 0~100점 성적을 입력해주세요.'); return
       }
@@ -395,7 +423,7 @@ function App() {
       if (cbtScore.trim() === '' || cbtMaxScore.trim() === '') { alert('점수와 만점을 입력해주세요.'); return }
       const score = Number(cbtScore), maxScore = Number(cbtMaxScore)
       if (!Number.isFinite(score) || !Number.isFinite(maxScore) || maxScore <= 0 || score < 0 || score > maxScore ||
-          (scoreInputType === 'count' && (!Number.isInteger(score) || !Number.isInteger(maxScore)))) {
+        (scoreInputType === 'count' && (!Number.isInteger(score) || !Number.isInteger(maxScore)))) {
         alert('점수를 올바르게 입력해주세요.'); return
       }
       normalizedScore = score / maxScore * 100
@@ -411,8 +439,10 @@ function App() {
     try {
       const response = await fetch(`${API_BASE}/api/study/mock-results`, {
         method: 'POST', credentials: 'include', headers: { 'Content-Type': 'application/json' },
-        body: JSON.stringify({ certificateName: diagnosisResult.certificate, examType: diagnosisResult.examType,
-          mockDate: diagnosisResult.mockDate, score: Number(diagnosisResult.score), subjects: diagnosisResult.subjects })
+        body: JSON.stringify({
+          certificateName: diagnosisResult.certificate, examType: diagnosisResult.examType,
+          mockDate: diagnosisResult.mockDate, score: Number(diagnosisResult.score), subjects: diagnosisResult.subjects
+        })
       })
       const data = await response.json()
       if (!response.ok || !data.success) throw new Error(data.message || '성적 저장 실패')
@@ -428,101 +458,64 @@ function App() {
   return (
     <div className="app">
 
-      {/* 상단 헤더 */}
+      {/* 상단 브랜드 바 */}
       <header className="header">
         <div className="header-content">
-
-          <div className="header-title">
-            <h1>Recommender Calendar</h1>
-            <p>
-              자격증 및 취업 준비를 위한 맞춤형 추천 서비스
-            </p>
+          <button type="button" className="brand" onClick={() => movePage('home')} aria-label="Recommender Calendar 홈으로 이동">
+            <span className="brand-mark">
+              <img src="/recommender-logo-1.png" alt="" />
+            </span>
+            <span className="brand-copy">
+              <strong>Recommender <span>Calendar</span></strong>
+              <small>나에게 맞는 자격증 로드맵</small>
+            </span>
+          </button>
+          <div className="header-right">
+            <div className="auth-buttons">
+              {authChecking ? (
+                <span className="username">로그인 확인 중...</span>
+              ) : user ? (
+                <>
+                  <span className="username"><span className="user-avatar">{(user.name || 'U').slice(0, 1)}</span>{user.name}님</span>
+                  <button type="button" className="button-ghost" onClick={handleLogout} disabled={authLoading}>로그아웃</button>
+                </>
+              ) : (
+                <>
+                  <button type="button" className="button-ghost" onClick={() => setPage('login')}>로그인</button>
+                  <button type="button" className="button-primary" onClick={() => setPage('signup')}>시작하기 <Icon name="arrow" size={16} /></button>
+                </>
+              )}
+            </div>
           </div>
-
-          <div className="auth-buttons">
-            {authChecking ? (
-              <span className="username">로그인 확인 중...</span>
-            ) : user ? (
-              <>
-                <span className="username">
-                  {user.name}님
-                </span>
-
-                <button
-                  type="button"
-                  onClick={handleLogout}
-                  disabled={authLoading}
-                >
-                  로그아웃
-                </button>
-              </>
-            ) : (
-              <>
-                <button
-                  type="button"
-                  onClick={() => setPage('login')}
-                >
-                  로그인
-                </button>
-
-                <button
-                  type="button"
-                  onClick={() => setPage('signup')}
-                >
-                  회원가입
-                </button>
-              </>
-            )}
-          </div>
-
         </div>
       </header>
 
-      {/* 상단 메뉴 */}
-      <nav className="navbar">
-
-        <button
-          className={page === 'home' ? 'active' : ''}
-          onClick={() => movePage('home')}
-        >
-          홈
+      {/* 좌측 네비게이션: 모바일에서는 가로 스크롤 메뉴 */}
+      <nav className="navbar" aria-label="주요 메뉴">
+        <div className="sidebar-caption">WORKSPACE</div>
+        <button type="button" className={page === 'home' ? 'active' : ''} aria-current={page === 'home' ? 'page' : undefined} onClick={() => movePage('home')}>
+          <Icon name="home" /><span className="nav-label">홈</span>
         </button>
-
-        <button
-          className={
-            page === 'certificate' || page === 'diagnosis'
-              ? 'active'
-              : ''
-          }
-          onClick={() => movePage('certificate')}
-        >
-          자격증 추천
+        <button type="button" className={page === 'certificate' || page === 'diagnosis' ? 'active' : ''} aria-current={page === 'certificate' || page === 'diagnosis' ? 'page' : undefined} onClick={() => movePage('certificate')}>
+          <Icon name="sparkles" /><span className="nav-label">자격증 추천</span>
         </button>
-
-        <button
-          className={page === 'qnet' ? 'active' : ''}
-          onClick={() => movePage('qnet')}
-        >
-          자격증 정보
+        <button type="button" className={page === 'qnet' ? 'active' : ''} aria-current={page === 'qnet' ? 'page' : undefined} onClick={() => movePage('qnet')}>
+          <Icon name="book" /><span className="nav-label">자격증 정보</span>
         </button>
-
-        <button
-          className={page === 'job' ? 'active' : ''}
-          onClick={() => movePage('job')}
-        >
-          채용정보
+        <button type="button" className={page === 'job' ? 'active' : ''} aria-current={page === 'job' ? 'page' : undefined} onClick={() => movePage('job')}>
+          <Icon name="briefcase" /><span className="nav-label">채용정보</span>
         </button>
-
-        <button
-          className={page === 'calendar' ? 'active' : ''}
-          onClick={() => movePage('calendar')}
-        >
-          캘린더
+        <button type="button" className={page === 'calendar' ? 'active' : ''} aria-current={page === 'calendar' ? 'page' : undefined} onClick={() => movePage('calendar')}>
+          <Icon name="calendar" /><span className="nav-label">학습 캘린더</span>
         </button>
-
+        <div className="sidebar-note">
+          <span className="sidebar-note-icon"><Icon name="sparkles" size={19} /></span>
+          <strong>작은 학습이 큰 변화를 만들어요.</strong>
+          <span>자격증 탐색부터 공부 계획까지, 한곳에서 관리하세요.</span>
+        </div>
       </nav>
 
-      <main>
+      <main className="main-content">
 
         {/* =====================================
             홈
@@ -530,66 +523,50 @@ function App() {
 
         {page === 'home' && (
           <div className="home-page">
-
+            <div className="page-eyebrow"><span className="eyebrow-dot" /> YOUR CERTIFICATION ROADMAP</div>
             <section className="home-hero">
-              <h2>
-                취업 목표에 맞는 자격증부터
-                <br />
-                공부 일정까지 한 번에
-              </h2>
-
-              <p>
-                관심 분야와 희망 기업 규모를 고르면
-                채용공고를 분석해 자격증을 추천하고,
-                현재 실력에 맞춘 학습 캘린더를 만들어 드립니다.
-              </p>
-
-              <button
-                type="button"
-                className="home-cta"
-                onClick={() => movePage('certificate')}
-              >
-                자격증 추천 시작하기 →
-              </button>
+              <div className="hero-content">
+                <span className="hero-kicker"><Icon name="sparkles" size={15} /> 당신의 가능성을 계획으로</span>
+                <h2>자격증 준비,<br /><em>막막함 대신 계획으로.</em></h2>
+                <p>관심 분야에 맞는 자격증을 찾고, 시험 정보와 학습 수준을 바탕으로 나만의 공부 일정을 만들어 보세요.</p>
+                <div className="hero-actions">
+                  <button type="button" className="home-cta" onClick={() => movePage('certificate')}>
+                    자격증 추천받기 <Icon name="arrow" size={18} />
+                  </button>
+                  <button type="button" className="home-secondary" onClick={() => movePage('calendar')}>내 캘린더 보기</button>
+                </div>
+                <div className="hero-footnote"><Icon name="check" size={15} /> Q-Net 자격증 정보 및 개인별 학습 관리 지원</div>
+              </div>
+              <div className="hero-visual" aria-hidden="true">
+                <div className="hero-card">
+                  <div className="hero-card-heading"><span className="hero-card-icon"><Icon name="calendar" size={19} /></span><span>나의 학습 로드맵</span><span className="hero-live-dot" /></div>
+                  <div className="hero-card-line"><span className="hero-step-number">01</span><div><strong>자격증 탐색</strong><small>관심 분야 · 기업 규모</small></div><span className="hero-step-check"><Icon name="check" size={14} /></span></div>
+                  <div className="hero-card-line"><span className="hero-step-number">02</span><div><strong>학습 수준 진단</strong><small>CBT 점수 · 취약 과목</small></div><span className="hero-step-check"><Icon name="check" size={14} /></span></div>
+                  <div className="hero-card-line"><span className="hero-step-number">03</span><div><strong>학습 일정 관리</strong><small>시험일 · 공부 가능 요일</small></div><span className="hero-step-calendar"><Icon name="calendar" size={15} /></span></div>
+                  <div className="hero-card-bottom"><span>계획을 세우는 가장 쉬운 방법</span><Icon name="arrow" size={16} /></div>
+                </div>
+              </div>
             </section>
 
+            <div className="section-heading">
+              <div><span className="section-kicker">HOW IT WORKS</span><h3>이렇게 시작해 보세요</h3><p>목표 선택부터 학습 일정까지, 필요한 기능을 순서대로 이용할 수 있어요.</p></div>
+              <span className="section-side-label">3 STEPS TO YOUR GOAL</span>
+            </div>
             <div className="home-features">
               {[
-                {
-                  step: 'STEP 1',
-                  title: '맞춤형 자격증 추천',
-                  text: '관심 분야·기업 규모에 맞는 채용공고의 필수·우대 자격증을 분석해요.',
-                  target: 'certificate'
-                },
-                {
-                  step: 'STEP 2',
-                  title: '자격증 정보 확인',
-                  text: '합격률, 평균 취득소요기간, 시험일정을 Q-Net 데이터로 확인해요.',
-                  target: 'qnet'
-                },
-                {
-                  step: 'STEP 3',
-                  title: '나의 학습 캘린더',
-                  text: '진단 결과와 시험일까지 남은 기간으로 학습 일정을 관리해요.',
-                  target: 'calendar'
-                }
+                { step: '01', icon: 'sparkles', title: '나에게 맞는 자격증', text: '관심 분야와 기업 규모를 선택하고 관련 자격증을 추천받아요.', target: 'certificate', tag: '추천' },
+                { step: '02', icon: 'chart', title: '시험 정보 한눈에', text: 'Q-Net 합격률과 취득 소요 기간 등 자격증 정보를 확인해요.', target: 'qnet', tag: '탐색' },
+                { step: '03', icon: 'calendar', title: '맞춤형 학습 캘린더', text: 'CBT 결과와 시험 일정에 맞춰 개인별 학습 계획을 관리해요.', target: 'calendar', tag: '계획' },
               ].map(feature => (
-                <button
-                  key={feature.target}
-                  type="button"
-                  className="home-feature"
-                  onClick={() => movePage(feature.target)}
-                >
-                  <span className="home-feature-step">
-                    {feature.step}
-                  </span>
-
+                <button key={feature.target} type="button" className="home-feature" onClick={() => movePage(feature.target)}>
+                  <span className="feature-top"><span className="feature-icon"><Icon name={feature.icon} size={22} /></span><span className="feature-step">STEP {feature.step}</span></span>
                   <strong>{feature.title}</strong>
-                  <span>{feature.text}</span>
+                  <span className="feature-desc">{feature.text}</span>
+                  <span className="feature-bottom">{feature.tag} 시작하기 <Icon name="arrow" size={17} /></span>
                 </button>
               ))}
             </div>
-
+            <p className="home-disclaimer">※ 자격증 추천 결과는 현재 개발용 가상 채용 공고 데이터를 바탕으로 제공됩니다.</p>
           </div>
         )}
 
@@ -600,11 +577,16 @@ function App() {
         {page === 'certificate' && (
           <div className="recommend-page">
 
-            <h2>맞춤형 자격증 추천</h2>
-            <p>관심 분야와 희망 기업 규모를 선택해주세요.</p>
+            <div className="page-heading"><span className="section-kicker">CERTIFICATE RECOMMENDATION</span><h2>맞춤형 자격증 추천</h2><p>관심 분야와 희망 기업 규모를 선택해 나에게 맞는 자격증을 찾아보세요.</p></div>
 
             <section className="selection-box">
-              <h3>1. 관심 분야 선택</h3>
+              <div className="field-section-header">
+                <h3>1. 관심 분야 선택</h3>
+
+                <span className="field-selected-count">
+                  선택한 분야: {selectedFields.length}/3
+                </span>
+              </div>
 
               <p>
                 관심 분야를 검색하고 최소 1개,
@@ -639,7 +621,6 @@ function App() {
                 <p>검색 결과가 없습니다.</p>
               )}
 
-              <p>선택한 분야: {selectedFields.length}/3</p>
             </section>
 
             <section className="selection-box">
@@ -694,9 +675,8 @@ function App() {
                         className="recommend-result-item"
                         key={item.certificate}
                       >
-                        <h4>
-                          {index + 1}위 · {item.certificate}
-                        </h4>
+                        <span className="result-rank">TOP {index + 1}</span>
+                        <h4>{item.certificate}</h4>
 
                         <p>등장 공고: {item.count}건</p>
                         <p>필수: {item.required}건</p>
@@ -751,11 +731,7 @@ function App() {
         {page === 'diagnosis' && (
           <div className="recommend-page">
 
-            <h2>학습 진단</h2>
-
-            <p>
-              선택한 자격증: {selectedCertificate}
-            </p>
+            <div className="page-heading"><span className="section-kicker">LEARNING DIAGNOSIS</span><h2>학습 진단</h2><p>선택한 자격증: <strong>{selectedCertificate}</strong></p></div>
 
             {hasRecommended && recommendations.length > 0 && (
               <section className="selection-box">
@@ -815,12 +791,12 @@ function App() {
                   </label>
 
                   <label className="cbt-field"><span>시험 유형</span>
-                    <select value={examType} onChange={e=>{setExamType(e.target.value);setDiagnosisResult(null)}}>
+                    <select value={examType} onChange={e => { setExamType(e.target.value); setDiagnosisResult(null) }}>
                       <option value="written">필기</option><option value="practical">실기</option>
                     </select>
                   </label>
                   <label className="cbt-field"><span>모의고사 응시일</span>
-                    <input type="date" value={mockDate} onChange={e=>{setMockDate(e.target.value);setDiagnosisResult(null)}} />
+                    <input type="date" value={mockDate} onChange={e => { setMockDate(e.target.value); setDiagnosisResult(null) }} />
                   </label>
                   {scoreInputType !== 'subject' && <label className="cbt-field">
                     <span>
@@ -872,13 +848,13 @@ function App() {
                   {scoreInputType === 'subject' && <div className="cbt-subjects">
                     <strong>외부 모의고사 과목별 점수 (100점 환산)</strong>
                     {subjectScores.map((s, i) => <div className="cbt-subject-row" key={i}>
-                      <input aria-label={`과목 ${i+1} 이름`} placeholder="과목명" value={s.name}
-                        onChange={e => { setSubjectScores(prev => prev.map((x,j)=>j===i?{...x,name:e.target.value}:x)); setDiagnosisResult(null) }} />
-                      <input aria-label={`과목 ${i+1} 점수`} type="number" min="0" max="100" placeholder="점수" value={s.score}
-                        onChange={e => { setSubjectScores(prev => prev.map((x,j)=>j===i?{...x,score:e.target.value}:x)); setDiagnosisResult(null) }} />
-                      <button type="button" disabled={subjectScores.length===1} onClick={()=>{setSubjectScores(prev=>prev.filter((_,j)=>j!==i));setDiagnosisResult(null)}}>삭제</button>
+                      <input aria-label={`과목 ${i + 1} 이름`} placeholder="과목명" value={s.name}
+                        onChange={e => { setSubjectScores(prev => prev.map((x, j) => j === i ? { ...x, name: e.target.value } : x)); setDiagnosisResult(null) }} />
+                      <input aria-label={`과목 ${i + 1} 점수`} type="number" min="0" max="100" placeholder="점수" value={s.score}
+                        onChange={e => { setSubjectScores(prev => prev.map((x, j) => j === i ? { ...x, score: e.target.value } : x)); setDiagnosisResult(null) }} />
+                      <button type="button" disabled={subjectScores.length === 1} onClick={() => { setSubjectScores(prev => prev.filter((_, j) => j !== i)); setDiagnosisResult(null) }}>삭제</button>
                     </div>)}
-                    <button type="button" onClick={()=>{setSubjectScores(prev=>[...prev,{name:'',score:''}]);setDiagnosisResult(null)}}>+ 과목 추가</button>
+                    <button type="button" onClick={() => { setSubjectScores(prev => [...prev, { name: '', score: '' }]); setDiagnosisResult(null) }}>+ 과목 추가</button>
                     <p>과목별 점수가 없는 자격증은 총점 입력을 이용하세요.</p>
                   </div>}
 
@@ -909,11 +885,11 @@ function App() {
                       과목별 점수가 있으면 취약 과목을 우선 배정합니다. 총점만 입력하면 전체 학습량을 보정합니다.
                     </p>
 
-                    {diagnosisResult.subjects.length > 0 && <p>우선 보완 과목: {[...diagnosisResult.subjects].sort((a,b)=>a.score-b.score)[0].name}</p>}
+                    {diagnosisResult.subjects.length > 0 && <p>우선 보완 과목: {[...diagnosisResult.subjects].sort((a, b) => a.score - b.score)[0].name}</p>}
                     <button type="button" className="cbt-calculate-btn" onClick={saveMockAndGoCalendar} disabled={mockSaving}>
                       {mockSaving ? '저장 중...' : '성적 저장하고 캘린더로 이동'}
                     </button>
-                    {mockError && <p style={{color:'#dc2626'}}>{mockError}</p>}
+                    {mockError && <p style={{ color: '#dc2626' }}>{mockError}</p>}
                   </div>
                 )}
 
@@ -1078,6 +1054,7 @@ function App() {
           </div>
         )}
 
+        <footer className="site-footer"><span>© Recommender Calendar</span><span>학습 목표를 현실로 만드는 작은 시작</span></footer>
       </main>
     </div>
   )

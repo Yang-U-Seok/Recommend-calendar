@@ -376,6 +376,34 @@ useEffect(() => {
   });
 }, [plannerCertId, plannerType, availableExamDates.join('|')]);
 
+  async function deleteMockResult(id) {
+  if (!window.confirm('이 모의고사 성적을 삭제할까요?')) return;
+
+  try {
+    setPlannerError('');
+
+    const response = await fetch(
+      `${API_BASE}/api/study/mock-results/${id}`,
+      {
+        method: 'DELETE',
+        credentials: 'include'
+      }
+    );
+
+    const data = await response.json();
+
+    if (!response.ok || !data.success) {
+      throw new Error(data.message || '성적 삭제 실패');
+    }
+
+    setMockResults(prev =>
+      prev.filter(item => item.id !== id)
+    );
+
+  } catch (error) {
+    setPlannerError(error.message);
+  }
+}
 
   async function createStudyPlan(event) {
     event.preventDefault();
@@ -783,7 +811,39 @@ async function toggleStudyTask(task) {
           <p style={{color:'#475569'}}>학습 진단에서 입력한 최근 외부 CBT 점수와 과목별 취약도를 자동 반영합니다.</p>
           {mockResults.length > 0 && <div style={{padding:12,background:'#eff6ff',borderRadius:10,marginBottom:12}}>
             <strong>저장된 모의고사 성적</strong>
-            {mockResults.slice(0,5).map(m=><p key={m.id} style={{margin:'6px 0'}}>{m.certificateName} · {m.examType==='written'?'필기':'실기'} · {m.score}점 ({m.mockDate})</p>)}
+            {mockResults.slice(0, 5).map(m => (
+  <div
+    key={m.id}
+    style={{
+      display: 'flex',
+      alignItems: 'center',
+      justifyContent: 'space-between',
+      gap: 10,
+      margin: '8px 0'
+    }}
+  >
+    <span>
+      {m.certificateName} ·
+      {m.examType === 'written' ? ' 필기' : ' 실기'} ·
+      {' '}{m.score}점 ({m.mockDate})
+    </span>
+
+    <button
+      type="button"
+      onClick={() => deleteMockResult(m.id)}
+      style={{
+        padding: '5px 10px',
+        border: '1px solid #fecaca',
+        borderRadius: 6,
+        background: '#fff',
+        color: '#dc2626',
+        cursor: 'pointer'
+      }}
+    >
+      삭제
+    </button>
+  </div>
+))}
           </div>}
           <p style={{color:'#64748b'}}>Q-Net 시험일정과 합격률·취득소요기간을 참고해 공부 일정을 만듭니다.</p>
           <form onSubmit={createStudyPlan} style={{display:'grid',gridTemplateColumns:'repeat(auto-fit,minmax(190px,1fr))',gap:14,marginTop:16}}>

@@ -274,6 +274,46 @@ router.post('/mock-results', (req, res) => {
 });
 
 // ==========================================
+// 모의고사 성적 삭제
+// ==========================================
+
+router.delete('/mock-results/:id', (req, res) => {
+  try {
+    const id = Number(req.params.id);
+
+    if (!Number.isInteger(id) || id <= 0) {
+      return res.status(400).json({
+        success: false,
+        message: '올바르지 않은 성적 ID입니다.'
+      });
+    }
+
+    const result = db.prepare(`
+      DELETE FROM mock_results
+      WHERE id = ? AND user_id = ?
+    `).run(id, req.session.userId);
+
+    if (result.changes === 0) {
+      return res.status(404).json({
+        success: false,
+        message: '삭제할 성적을 찾을 수 없습니다.'
+      });
+    }
+
+    res.json({
+      success: true,
+      message: '모의고사 성적이 삭제되었습니다.'
+    });
+
+  } catch (error) {
+    res.status(500).json({
+      success: false,
+      message: error.message
+    });
+  }
+});
+
+// ==========================================
 // 6. 사용자별 학습계획 목록
 // ==========================================
 
