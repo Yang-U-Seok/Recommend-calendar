@@ -1,0 +1,3858 @@
+{
+  "success": true,
+  "source": "SK Careers",
+  "updatedAt": "2026-11-14T07:00:46.948Z",
+  "totalCount": 154,
+  "jobs": [
+    {
+      "id": "SK_6667",
+      "source": "SK Careers",
+      "noticeID": "R262215",
+      "jobNoticeNo": 6667,
+      "company": "SK AIGEN",
+      "companySize": "대기업",
+      "title": "2027 SK AIGEN 1기 모집",
+      "jobRole": "아이젠/창업/비즈니스,기술/탐구,문화/예술/스포츠,사회/공공/교육",
+      "recruitType": "Any Experience Level",
+      "workingType": "Others(교육생)",
+      "workingArea": "Seoul",
+      "startDate": null,
+      "endDate": null,
+      "positions": [
+        {
+          "name": "아이젠/창업/비즈니스,기술/탐구,문화/예술/스포츠,사회/공공/교육",
+          "requiredCertificates": [],
+          "preferredCertificates": []
+        }
+      ],
+      "requiredCertificates": [],
+      "preferredCertificates": [],
+      "url": null
+    },
+    {
+      "id": "SK_6792",
+      "source": "SK Careers",
+      "noticeID": "R262340",
+      "jobNoticeNo": 6792,
+      "company": "SK Inc.",
+      "companySize": "대기업",
+      "title": "사내 변호사 (계약직)",
+      "jobRole": "법무/법무",
+      "recruitType": "Experienced",
+      "workingType": "Contract",
+      "workingArea": "Seoul",
+      "startDate": null,
+      "endDate": null,
+      "positions": [
+        {
+          "name": "법무/법무",
+          "requiredCertificates": [],
+          "preferredCertificates": []
+        }
+      ],
+      "requiredCertificates": [],
+      "preferredCertificates": [],
+      "url": null
+    },
+    {
+      "id": "SK_6801",
+      "source": "SK Careers",
+      "noticeID": "R262349",
+      "jobNoticeNo": 6801,
+      "company": "SK telecom",
+      "companySize": "대기업",
+      "title": "BX 디자이너",
+      "jobRole": "디자인/BX 디자인",
+      "recruitType": "Experienced",
+      "workingType": "Contract",
+      "workingArea": "Seoul",
+      "startDate": null,
+      "endDate": null,
+      "positions": [
+        {
+          "name": "디자인/BX 디자인",
+          "requiredCertificates": [],
+          "preferredCertificates": []
+        }
+      ],
+      "requiredCertificates": [],
+      "preferredCertificates": [],
+      "url": null
+    },
+    {
+      "id": "SK_6804",
+      "source": "SK Careers",
+      "noticeID": "R262352",
+      "jobNoticeNo": 6804,
+      "company": "SK chemicals(LS)",
+      "companySize": "대기업",
+      "title": "[SK케미칼] 청주공장 의약품 생산공정 운영·관리 담당자 신입(전환형 인턴) 모집",
+      "jobRole": "제조/생산관리",
+      "recruitType": "Intern",
+      "workingType": "Contract",
+      "workingArea": "Chungcheong",
+      "startDate": null,
+      "endDate": null,
+      "positions": [
+        {
+          "name": "제조/생산관리",
+          "requiredCertificates": [],
+          "preferredCertificates": []
+        }
+      ],
+      "requiredCertificates": [],
+      "preferredCertificates": [],
+      "url": null
+    },
+    {
+      "id": "SK_6841",
+      "source": "SK Careers",
+      "noticeID": "R262389",
+      "jobNoticeNo": 6841,
+      "company": "SK plasma",
+      "companySize": "대기업",
+      "title": "SK플라즈마 관리회계 경력사원 모집",
+      "jobRole": "재무",
+      "recruitType": "Experienced",
+      "workingType": "Permanent",
+      "workingArea": "Gyeonggi/Incheon",
+      "startDate": null,
+      "endDate": null,
+      "positions": [
+        {
+          "name": "재무",
+          "requiredCertificates": [],
+          "preferredCertificates": []
+        }
+      ],
+      "requiredCertificates": [],
+      "preferredCertificates": [],
+      "url": null
+    },
+    {
+      "id": "SK_6853",
+      "source": "SK Careers",
+      "noticeID": "R262401",
+      "jobNoticeNo": 6853,
+      "company": "SK plasma",
+      "companySize": "대기업",
+      "title": "SK플라즈마 자금/공시 담당 경력사원 모집",
+      "jobRole": "재무",
+      "recruitType": "Experienced",
+      "workingType": "Permanent",
+      "workingArea": "Gyeonggi/Incheon",
+      "startDate": null,
+      "endDate": null,
+      "positions": [
+        {
+          "name": "재무",
+          "requiredCertificates": [],
+          "preferredCertificates": []
+        }
+      ],
+      "requiredCertificates": [],
+      "preferredCertificates": [],
+      "url": null
+    },
+    {
+      "id": "SK_6859",
+      "source": "SK Careers",
+      "noticeID": "R262407",
+      "jobNoticeNo": 6859,
+      "company": "SK plasma",
+      "companySize": "대기업",
+      "title": "SK플라즈마 항암희귀전문 의약품 영업 담당자(MR) 경력사원 모집",
+      "jobRole": "마케팅",
+      "recruitType": "Experienced",
+      "workingType": "Permanent",
+      "workingArea": "Gyeonggi/Incheon",
+      "startDate": null,
+      "endDate": null,
+      "positions": [
+        {
+          "name": "마케팅",
+          "requiredCertificates": [],
+          "preferredCertificates": []
+        }
+      ],
+      "requiredCertificates": [],
+      "preferredCertificates": [],
+      "url": null
+    },
+    {
+      "id": "SK_6860",
+      "source": "SK Careers",
+      "noticeID": "R262408",
+      "jobNoticeNo": 6860,
+      "company": "SK plasma",
+      "companySize": "대기업",
+      "title": "SK플라즈마 항암희귀전문 의약품 영업 담당자(MR) 신입(전환형 인턴) 모집",
+      "jobRole": "마케팅",
+      "recruitType": "Intern",
+      "workingType": "Others(인턴)",
+      "workingArea": "Gyeonggi/Incheon",
+      "startDate": null,
+      "endDate": null,
+      "positions": [
+        {
+          "name": "마케팅",
+          "requiredCertificates": [],
+          "preferredCertificates": []
+        }
+      ],
+      "requiredCertificates": [],
+      "preferredCertificates": [],
+      "url": null
+    },
+    {
+      "id": "SK_6863",
+      "source": "SK Careers",
+      "noticeID": "R262411",
+      "jobNoticeNo": 6863,
+      "company": "SK plasma",
+      "companySize": "대기업",
+      "title": "SK플라즈마 해외사업개발(Global Project) 경력 구성원 모집",
+      "jobRole": "사업개발",
+      "recruitType": "Experienced",
+      "workingType": "Permanent",
+      "workingArea": "Gyeonggi/Incheon",
+      "startDate": null,
+      "endDate": null,
+      "positions": [
+        {
+          "name": "사업개발",
+          "requiredCertificates": [],
+          "preferredCertificates": []
+        }
+      ],
+      "requiredCertificates": [],
+      "preferredCertificates": [],
+      "url": null
+    },
+    {
+      "id": "SK_6865",
+      "source": "SK Careers",
+      "noticeID": "R262413",
+      "jobNoticeNo": 6865,
+      "company": "SK chemicals(LS)",
+      "companySize": "대기업",
+      "title": "청주공장 회계 계약직 채용 (신입/경력)",
+      "jobRole": "제조/생산지원",
+      "recruitType": "Any Experience Level",
+      "workingType": "Contract",
+      "workingArea": "Chungcheong",
+      "startDate": null,
+      "endDate": null,
+      "positions": [
+        {
+          "name": "제조/생산지원",
+          "requiredCertificates": [],
+          "preferredCertificates": []
+        }
+      ],
+      "requiredCertificates": [],
+      "preferredCertificates": [],
+      "url": null
+    },
+    {
+      "id": "SK_6873",
+      "source": "SK Careers",
+      "noticeID": "R262421",
+      "jobNoticeNo": 6873,
+      "company": "SK plasma",
+      "companySize": "대기업",
+      "title": "SK플라즈마 Global PJT 담당 기술지원 경력사원 채용",
+      "jobRole": "제조/Utility 기술",
+      "recruitType": "Experienced",
+      "workingType": "Permanent",
+      "workingArea": "Gyeongsang",
+      "startDate": null,
+      "endDate": null,
+      "positions": [
+        {
+          "name": "제조/Utility 기술",
+          "requiredCertificates": [],
+          "preferredCertificates": []
+        }
+      ],
+      "requiredCertificates": [],
+      "preferredCertificates": [],
+      "url": null
+    },
+    {
+      "id": "SK_6883",
+      "source": "SK Careers",
+      "noticeID": "R262431",
+      "jobNoticeNo": 6883,
+      "company": "EnSolve Co.,Ltd",
+      "companySize": "대기업",
+      "title": "[엔솔브] 태양광 사업 기획 및 운영 담당 구성원 채용 (경력)",
+      "jobRole": "사업개발/사업기획,사업운영",
+      "recruitType": "Experienced",
+      "workingType": "Permanent",
+      "workingArea": "Seoul",
+      "startDate": null,
+      "endDate": null,
+      "positions": [
+        {
+          "name": "사업개발/사업기획,사업운영",
+          "requiredCertificates": [],
+          "preferredCertificates": []
+        }
+      ],
+      "requiredCertificates": [],
+      "preferredCertificates": [],
+      "url": null
+    },
+    {
+      "id": "SK_6398",
+      "source": "SK Careers",
+      "noticeID": "R261946",
+      "jobNoticeNo": 6398,
+      "company": "SK inc.(AX)",
+      "companySize": "대기업",
+      "title": "제조 물류자동화(AMHS) 전문가 영입",
+      "jobRole": "Tech R&D/Software Engineering",
+      "recruitType": "Experienced",
+      "workingType": "Permanent",
+      "workingArea": "Gyeonggi/Incheon,Chungcheong",
+      "startDate": null,
+      "endDate": null,
+      "positions": [
+        {
+          "name": "Tech R&D/Software Engineering",
+          "requiredCertificates": [],
+          "preferredCertificates": []
+        }
+      ],
+      "requiredCertificates": [],
+      "preferredCertificates": [],
+      "url": null
+    },
+    {
+      "id": "SK_6855",
+      "source": "SK Careers",
+      "noticeID": "R262403",
+      "jobNoticeNo": 6855,
+      "company": "SK bioscience",
+      "companySize": "대기업",
+      "title": "생산기획 경력사원 채용",
+      "jobRole": "제조/생산관리",
+      "recruitType": "Experienced",
+      "workingType": "Permanent",
+      "workingArea": "Gyeongsang",
+      "startDate": null,
+      "endDate": null,
+      "positions": [
+        {
+          "name": "제조/생산관리",
+          "requiredCertificates": [],
+          "preferredCertificates": []
+        }
+      ],
+      "requiredCertificates": [],
+      "preferredCertificates": [],
+      "url": null
+    },
+    {
+      "id": "SK_6857",
+      "source": "SK Careers",
+      "noticeID": "R262405",
+      "jobNoticeNo": 6857,
+      "company": "SK bioscience",
+      "companySize": "대기업",
+      "title": "SHE(환경관리자) 경력사원 채용",
+      "jobRole": "안전보건/SHE(환경/화학물질관리)",
+      "recruitType": "Experienced",
+      "workingType": "Permanent",
+      "workingArea": "Gyeonggi/Incheon",
+      "startDate": null,
+      "endDate": null,
+      "positions": [
+        {
+          "name": "안전보건/SHE(환경/화학물질관리)",
+          "requiredCertificates": [],
+          "preferredCertificates": []
+        }
+      ],
+      "requiredCertificates": [],
+      "preferredCertificates": [],
+      "url": null
+    },
+    {
+      "id": "SK_6886",
+      "source": "SK Careers",
+      "noticeID": "R262434",
+      "jobNoticeNo": 6886,
+      "company": "SK bioscience",
+      "companySize": "대기업",
+      "title": "Project Management 경력사원 채용",
+      "jobRole": "사업개발/사업기획",
+      "recruitType": "Experienced",
+      "workingType": "Permanent",
+      "workingArea": "Gyeonggi/Incheon",
+      "startDate": null,
+      "endDate": null,
+      "positions": [
+        {
+          "name": "사업개발/사업기획",
+          "requiredCertificates": [],
+          "preferredCertificates": []
+        }
+      ],
+      "requiredCertificates": [],
+      "preferredCertificates": [],
+      "url": null
+    },
+    {
+      "id": "SK_6887",
+      "source": "SK Careers",
+      "noticeID": "R262435",
+      "jobNoticeNo": 6887,
+      "company": "SK bioscience",
+      "companySize": "대기업",
+      "title": "백신 원료의약품 제조공정 개발 경력사원 채용",
+      "jobRole": "Tech R&D",
+      "recruitType": "Experienced",
+      "workingType": "Permanent",
+      "workingArea": "Gyeonggi/Incheon",
+      "startDate": null,
+      "endDate": null,
+      "positions": [
+        {
+          "name": "Tech R&D",
+          "requiredCertificates": [],
+          "preferredCertificates": []
+        }
+      ],
+      "requiredCertificates": [],
+      "preferredCertificates": [],
+      "url": null
+    },
+    {
+      "id": "SK_6866",
+      "source": "SK Careers",
+      "noticeID": "R262414",
+      "jobNoticeNo": 6866,
+      "company": "SK eternix",
+      "companySize": "대기업",
+      "title": "[SK이터닉스] 사업지원 담당 채용 (계약직)",
+      "jobRole": "사업개발/사업지원",
+      "recruitType": "Experienced",
+      "workingType": "Contract",
+      "workingArea": "Gyeonggi/Incheon",
+      "startDate": null,
+      "endDate": null,
+      "positions": [
+        {
+          "name": "사업개발/사업지원",
+          "requiredCertificates": [],
+          "preferredCertificates": []
+        }
+      ],
+      "requiredCertificates": [],
+      "preferredCertificates": [],
+      "url": null
+    },
+    {
+      "id": "SK_6833",
+      "source": "SK Careers",
+      "noticeID": "R262381",
+      "jobNoticeNo": 6833,
+      "company": "SK hynix",
+      "companySize": "대기업",
+      "title": "[11월] Talent hy-way (Maintenance/Operator)",
+      "jobRole": "제조/Maintenance,Operator",
+      "recruitType": "Entry-Level",
+      "workingType": "Permanent",
+      "workingArea": "Gyeonggi/Incheon,Chungcheong",
+      "startDate": null,
+      "endDate": null,
+      "positions": [
+        {
+          "name": "제조/Maintenance,Operator",
+          "requiredCertificates": [],
+          "preferredCertificates": []
+        }
+      ],
+      "requiredCertificates": [],
+      "preferredCertificates": [],
+      "url": null
+    },
+    {
+      "id": "SK_6519",
+      "source": "SK Careers",
+      "noticeID": "R262067",
+      "jobNoticeNo": 6519,
+      "company": "SK inc.(AX)",
+      "companySize": "대기업",
+      "title": "SAP ERP 운영/개발 및 PI(Process Innovation) 분야 전문가 영입",
+      "jobRole": "Tech R&D/Solution SW",
+      "recruitType": "Experienced",
+      "workingType": "Permanent",
+      "workingArea": "Gyeonggi/Incheon",
+      "startDate": null,
+      "endDate": null,
+      "positions": [
+        {
+          "name": "Tech R&D/Solution SW",
+          "requiredCertificates": [],
+          "preferredCertificates": []
+        }
+      ],
+      "requiredCertificates": [],
+      "preferredCertificates": [],
+      "url": null
+    },
+    {
+      "id": "SK_6609",
+      "source": "SK Careers",
+      "noticeID": "R262157",
+      "jobNoticeNo": 6609,
+      "company": "SK inc.(AX)",
+      "companySize": "대기업",
+      "title": "Digital Twin 사업 PM/PL 영입 (계약직)",
+      "jobRole": "Tech R&D/Software Engineering",
+      "recruitType": "Experienced",
+      "workingType": "Contract",
+      "workingArea": "Gyeonggi/Incheon",
+      "startDate": null,
+      "endDate": null,
+      "positions": [
+        {
+          "name": "Tech R&D/Software Engineering",
+          "requiredCertificates": [],
+          "preferredCertificates": []
+        }
+      ],
+      "requiredCertificates": [],
+      "preferredCertificates": [],
+      "url": null
+    },
+    {
+      "id": "SK_6899",
+      "source": "SK Careers",
+      "noticeID": "R262447",
+      "jobNoticeNo": 6899,
+      "company": "SK plasma",
+      "companySize": "대기업",
+      "title": "SK플라즈마 제조관리 약사 채용",
+      "jobRole": "기타",
+      "recruitType": "Any Experience Level",
+      "workingType": "Permanent",
+      "workingArea": "Gyeongsang",
+      "startDate": null,
+      "endDate": null,
+      "positions": [
+        {
+          "name": "기타",
+          "requiredCertificates": [],
+          "preferredCertificates": []
+        }
+      ],
+      "requiredCertificates": [],
+      "preferredCertificates": [],
+      "url": null
+    },
+    {
+      "id": "SK_6947",
+      "source": "SK Careers",
+      "noticeID": "R262495",
+      "jobNoticeNo": 6947,
+      "company": "SK telecom",
+      "companySize": "대기업",
+      "title": "이동전화 품질측정 및 업무지원 담당자",
+      "jobRole": "기술/현장지원/품질측정",
+      "recruitType": "Entry-Level",
+      "workingType": "Contract",
+      "workingArea": "Gwangju",
+      "startDate": null,
+      "endDate": null,
+      "positions": [
+        {
+          "name": "기술/현장지원/품질측정",
+          "requiredCertificates": [],
+          "preferredCertificates": []
+        }
+      ],
+      "requiredCertificates": [],
+      "preferredCertificates": [],
+      "url": null
+    },
+    {
+      "id": "SK_6388",
+      "source": "SK Careers",
+      "noticeID": "R261936",
+      "jobNoticeNo": 6388,
+      "company": "SK inc.(AX)",
+      "companySize": "대기업",
+      "title": "AI Agent 엔지니어 영입",
+      "jobRole": "Tech R&D/AI/DT",
+      "recruitType": "Experienced",
+      "workingType": "Permanent",
+      "workingArea": "Gyeonggi/Incheon",
+      "startDate": null,
+      "endDate": null,
+      "positions": [
+        {
+          "name": "Tech R&D/AI/DT",
+          "requiredCertificates": [],
+          "preferredCertificates": []
+        }
+      ],
+      "requiredCertificates": [],
+      "preferredCertificates": [],
+      "url": null
+    },
+    {
+      "id": "SK_6389",
+      "source": "SK Careers",
+      "noticeID": "R261937",
+      "jobNoticeNo": 6389,
+      "company": "SK inc.(AX)",
+      "companySize": "대기업",
+      "title": "AI Data 엔지니어 영입",
+      "jobRole": "Tech R&D/AI/DT",
+      "recruitType": "Experienced",
+      "workingType": "Permanent",
+      "workingArea": "Gyeonggi/Incheon",
+      "startDate": null,
+      "endDate": null,
+      "positions": [
+        {
+          "name": "Tech R&D/AI/DT",
+          "requiredCertificates": [],
+          "preferredCertificates": []
+        }
+      ],
+      "requiredCertificates": [],
+      "preferredCertificates": [],
+      "url": null
+    },
+    {
+      "id": "SK_6390",
+      "source": "SK Careers",
+      "noticeID": "R261938",
+      "jobNoticeNo": 6390,
+      "company": "SK inc.(AX)",
+      "companySize": "대기업",
+      "title": "AI Model 엔지니어 영입",
+      "jobRole": "Tech R&D/AI/DT",
+      "recruitType": "Experienced",
+      "workingType": "Permanent",
+      "workingArea": "Gyeonggi/Incheon",
+      "startDate": null,
+      "endDate": null,
+      "positions": [
+        {
+          "name": "Tech R&D/AI/DT",
+          "requiredCertificates": [],
+          "preferredCertificates": []
+        }
+      ],
+      "requiredCertificates": [],
+      "preferredCertificates": [],
+      "url": null
+    },
+    {
+      "id": "SK_6391",
+      "source": "SK Careers",
+      "noticeID": "R261939",
+      "jobNoticeNo": 6391,
+      "company": "SK inc.(AX)",
+      "companySize": "대기업",
+      "title": "AI Agent 개발자 전문가 영입",
+      "jobRole": "Tech R&D/AI/DT",
+      "recruitType": "Experienced",
+      "workingType": "Permanent",
+      "workingArea": "Gyeonggi/Incheon",
+      "startDate": null,
+      "endDate": null,
+      "positions": [
+        {
+          "name": "Tech R&D/AI/DT",
+          "requiredCertificates": [],
+          "preferredCertificates": []
+        }
+      ],
+      "requiredCertificates": [],
+      "preferredCertificates": [],
+      "url": null
+    },
+    {
+      "id": "SK_6392",
+      "source": "SK Careers",
+      "noticeID": "R261940",
+      "jobNoticeNo": 6392,
+      "company": "SK inc.(AX)",
+      "companySize": "대기업",
+      "title": "AI 플랫폼 아키텍트 전문가 영입",
+      "jobRole": "Tech R&D/AI/DT",
+      "recruitType": "Experienced",
+      "workingType": "Permanent",
+      "workingArea": "Gyeonggi/Incheon",
+      "startDate": null,
+      "endDate": null,
+      "positions": [
+        {
+          "name": "Tech R&D/AI/DT",
+          "requiredCertificates": [],
+          "preferredCertificates": []
+        }
+      ],
+      "requiredCertificates": [],
+      "preferredCertificates": [],
+      "url": null
+    },
+    {
+      "id": "SK_6422",
+      "source": "SK Careers",
+      "noticeID": "R261970",
+      "jobNoticeNo": 6422,
+      "company": "SK inc.(AX)",
+      "companySize": "대기업",
+      "title": "전사 통합 Image 솔루션 제공 플랫폼 Application 개발.운영 PL 영입",
+      "jobRole": "IT/구축/운영/최적화",
+      "recruitType": "Experienced",
+      "workingType": "Permanent",
+      "workingArea": "Gyeonggi/Incheon",
+      "startDate": null,
+      "endDate": null,
+      "positions": [
+        {
+          "name": "IT/구축/운영/최적화",
+          "requiredCertificates": [],
+          "preferredCertificates": []
+        }
+      ],
+      "requiredCertificates": [],
+      "preferredCertificates": [],
+      "url": null
+    },
+    {
+      "id": "SK_6851",
+      "source": "SK Careers",
+      "noticeID": "R262399",
+      "jobNoticeNo": 6851,
+      "company": "SK telecom",
+      "companySize": "대기업",
+      "title": "SK그룹 신입구성원과정 운영 지원 담당자",
+      "jobRole": "사무/행정지원/기타(사무/행정지원)",
+      "recruitType": "Entry-Level",
+      "workingType": "Contract",
+      "workingArea": "Seoul",
+      "startDate": null,
+      "endDate": null,
+      "positions": [
+        {
+          "name": "사무/행정지원/기타(사무/행정지원)",
+          "requiredCertificates": [],
+          "preferredCertificates": []
+        }
+      ],
+      "requiredCertificates": [],
+      "preferredCertificates": [],
+      "url": null
+    },
+    {
+      "id": "SK_6495",
+      "source": "SK Careers",
+      "noticeID": "R262043",
+      "jobNoticeNo": 6495,
+      "company": "SK signet",
+      "companySize": "대기업",
+      "title": "전기차 충전기 SW/FW 검증 및 시험 자동화 엔지니어",
+      "jobRole": "Tech R&D/SW 개발",
+      "recruitType": "Experienced",
+      "workingType": "Permanent",
+      "workingArea": "Gyeonggi/Incheon",
+      "startDate": null,
+      "endDate": null,
+      "positions": [
+        {
+          "name": "Tech R&D/SW 개발",
+          "requiredCertificates": [],
+          "preferredCertificates": []
+        }
+      ],
+      "requiredCertificates": [],
+      "preferredCertificates": [],
+      "url": null
+    },
+    {
+      "id": "SK_6497",
+      "source": "SK Careers",
+      "noticeID": "R262045",
+      "jobNoticeNo": 6497,
+      "company": "SK signet",
+      "companySize": "대기업",
+      "title": "영업관리/기획 담당",
+      "jobRole": "사업개발/사업관리",
+      "recruitType": "Experienced",
+      "workingType": "Permanent",
+      "workingArea": "Gyeonggi/Incheon",
+      "startDate": null,
+      "endDate": null,
+      "positions": [
+        {
+          "name": "사업개발/사업관리",
+          "requiredCertificates": [],
+          "preferredCertificates": []
+        }
+      ],
+      "requiredCertificates": [],
+      "preferredCertificates": [],
+      "url": null
+    },
+    {
+      "id": "SK_6509",
+      "source": "SK Careers",
+      "noticeID": "R262057",
+      "jobNoticeNo": 6509,
+      "company": "SK signet",
+      "companySize": "대기업",
+      "title": "전기차 충전기 제품 인증 취득 담당 (경력)",
+      "jobRole": "Tech R&D/기술검증/테스트",
+      "recruitType": "Experienced",
+      "workingType": "Permanent",
+      "workingArea": "Gyeonggi/Incheon",
+      "startDate": null,
+      "endDate": null,
+      "positions": [
+        {
+          "name": "Tech R&D/기술검증/테스트",
+          "requiredCertificates": [],
+          "preferredCertificates": []
+        }
+      ],
+      "requiredCertificates": [],
+      "preferredCertificates": [],
+      "url": null
+    },
+    {
+      "id": "SK_6805",
+      "source": "SK Careers",
+      "noticeID": "R262353",
+      "jobNoticeNo": 6805,
+      "company": "SK chemicals(LS)",
+      "companySize": "대기업",
+      "title": "[SK케미칼] 의약품 생산공정관리 담당자 경력 모집",
+      "jobRole": "제조/생산관리",
+      "recruitType": "Experienced",
+      "workingType": "Contract",
+      "workingArea": "Chungcheong",
+      "startDate": null,
+      "endDate": null,
+      "positions": [
+        {
+          "name": "제조/생산관리",
+          "requiredCertificates": [],
+          "preferredCertificates": []
+        }
+      ],
+      "requiredCertificates": [],
+      "preferredCertificates": [],
+      "url": null
+    },
+    {
+      "id": "SK_6819",
+      "source": "SK Careers",
+      "noticeID": "R262367",
+      "jobNoticeNo": 6819,
+      "company": "SK keyfoundry",
+      "companySize": "대기업",
+      "title": "SK키파운드리 Technical Marketing 분야 경력 채용",
+      "jobRole": "마케팅/마케팅",
+      "recruitType": "Experienced",
+      "workingType": "Permanent",
+      "workingArea": "Chungcheong",
+      "startDate": null,
+      "endDate": null,
+      "positions": [
+        {
+          "name": "마케팅/마케팅",
+          "requiredCertificates": [],
+          "preferredCertificates": []
+        }
+      ],
+      "requiredCertificates": [],
+      "preferredCertificates": [],
+      "url": null
+    },
+    {
+      "id": "SK_6848",
+      "source": "SK Careers",
+      "noticeID": "R262396",
+      "jobNoticeNo": 6848,
+      "company": "SK gas advanced",
+      "companySize": "대기업",
+      "title": "[SK가스] 어드밴스드(PDH) 사업부문 현장운전원 채용(신입)",
+      "jobRole": "제조/생산",
+      "recruitType": "Entry-Level",
+      "workingType": "Contract",
+      "workingArea": "Ulsan",
+      "startDate": null,
+      "endDate": null,
+      "positions": [
+        {
+          "name": "제조/생산",
+          "requiredCertificates": [],
+          "preferredCertificates": []
+        }
+      ],
+      "requiredCertificates": [],
+      "preferredCertificates": [],
+      "url": null
+    },
+    {
+      "id": "SK_6879",
+      "source": "SK Careers",
+      "noticeID": "R262427",
+      "jobNoticeNo": 6879,
+      "company": "SK airplus",
+      "companySize": "대기업",
+      "title": "[SK에어플러스] 용인 Gas Plant 배관 시공 현장감독(계약직)",
+      "jobRole": "건설/플랜트/시공(플랜트-배관)",
+      "recruitType": "Experienced",
+      "workingType": "Contract",
+      "workingArea": "Gyeonggi/Incheon",
+      "startDate": null,
+      "endDate": null,
+      "positions": [
+        {
+          "name": "건설/플랜트/시공(플랜트-배관)",
+          "requiredCertificates": [],
+          "preferredCertificates": []
+        }
+      ],
+      "requiredCertificates": [],
+      "preferredCertificates": [],
+      "url": null
+    },
+    {
+      "id": "SK_6888",
+      "source": "SK Careers",
+      "noticeID": "R262436",
+      "jobNoticeNo": 6888,
+      "company": "SK gas advanced",
+      "companySize": "대기업",
+      "title": "[SK가스] 어드밴스드(PDH)사업부문 환경/화학물질 관리자 채용(경력)",
+      "jobRole": "안전보건/SHE(환경/화학물질관리)",
+      "recruitType": "Experienced",
+      "workingType": "Permanent",
+      "workingArea": "Ulsan",
+      "startDate": null,
+      "endDate": null,
+      "positions": [
+        {
+          "name": "안전보건/SHE(환경/화학물질관리)",
+          "requiredCertificates": [],
+          "preferredCertificates": []
+        }
+      ],
+      "requiredCertificates": [],
+      "preferredCertificates": [],
+      "url": null
+    },
+    {
+      "id": "SK_6889",
+      "source": "SK Careers",
+      "noticeID": "R262437",
+      "jobNoticeNo": 6889,
+      "company": "Narae Energy Service",
+      "companySize": "대기업",
+      "title": "(집단E) 정보·물리보안/총무 경력직 영입",
+      "jobRole": "정보보안/융합보안",
+      "recruitType": "Experienced",
+      "workingType": "Permanent",
+      "workingArea": "Gyeonggi/Incheon",
+      "startDate": null,
+      "endDate": null,
+      "positions": [
+        {
+          "name": "정보보안/융합보안",
+          "requiredCertificates": [],
+          "preferredCertificates": []
+        }
+      ],
+      "requiredCertificates": [],
+      "preferredCertificates": [],
+      "url": null
+    },
+    {
+      "id": "SK_6892",
+      "source": "SK Careers",
+      "noticeID": "R262440",
+      "jobNoticeNo": 6892,
+      "company": "SK plasma",
+      "companySize": "대기업",
+      "title": "SK플라즈마 안동공장 인사(HR) 담당 경력사원 채용",
+      "jobRole": "기업문화",
+      "recruitType": "Experienced",
+      "workingType": "Permanent",
+      "workingArea": "Gyeongsang",
+      "startDate": null,
+      "endDate": null,
+      "positions": [
+        {
+          "name": "기업문화",
+          "requiredCertificates": [],
+          "preferredCertificates": []
+        }
+      ],
+      "requiredCertificates": [],
+      "preferredCertificates": [],
+      "url": null
+    },
+    {
+      "id": "SK_6900",
+      "source": "SK Careers",
+      "noticeID": "R262448",
+      "jobNoticeNo": 6900,
+      "company": "SK chemicals(LS)",
+      "companySize": "대기업",
+      "title": "[SK케미칼] Pharma사업 구매 담당자 경력 모집",
+      "jobRole": "구매/구매관리",
+      "recruitType": "Experienced",
+      "workingType": "Permanent",
+      "workingArea": "Gyeonggi/Incheon",
+      "startDate": null,
+      "endDate": null,
+      "positions": [
+        {
+          "name": "구매/구매관리",
+          "requiredCertificates": [],
+          "preferredCertificates": []
+        }
+      ],
+      "requiredCertificates": [],
+      "preferredCertificates": [],
+      "url": null
+    },
+    {
+      "id": "SK_6926",
+      "source": "SK Careers",
+      "noticeID": "R262474",
+      "jobNoticeNo": 6926,
+      "company": "SK plasma",
+      "companySize": "대기업",
+      "title": "SK플라즈마 환경/화학물질 관리자 경력 구성원 모집",
+      "jobRole": "안전보건",
+      "recruitType": "Experienced",
+      "workingType": "Permanent",
+      "workingArea": "Gyeongsang",
+      "startDate": null,
+      "endDate": null,
+      "positions": [
+        {
+          "name": "안전보건",
+          "requiredCertificates": [],
+          "preferredCertificates": []
+        }
+      ],
+      "requiredCertificates": [],
+      "preferredCertificates": [],
+      "url": null
+    },
+    {
+      "id": "SK_6927",
+      "source": "SK Careers",
+      "noticeID": "R262475",
+      "jobNoticeNo": 6927,
+      "company": "SK plasma",
+      "companySize": "대기업",
+      "title": "SK플라즈마 안전관리 경력사원 채용",
+      "jobRole": "안전보건",
+      "recruitType": "Experienced",
+      "workingType": "Permanent",
+      "workingArea": "Gyeongsang",
+      "startDate": null,
+      "endDate": null,
+      "positions": [
+        {
+          "name": "안전보건",
+          "requiredCertificates": [],
+          "preferredCertificates": []
+        }
+      ],
+      "requiredCertificates": [],
+      "preferredCertificates": [],
+      "url": null
+    },
+    {
+      "id": "SK_6932",
+      "source": "SK Careers",
+      "noticeID": "R262480",
+      "jobNoticeNo": 6932,
+      "company": "SK telecom",
+      "companySize": "대기업",
+      "title": "리더십교육 운영 및 사무지원 담당자",
+      "jobRole": "사무/행정지원/경영지원",
+      "recruitType": "Experienced",
+      "workingType": "Contract",
+      "workingArea": "Seoul",
+      "startDate": null,
+      "endDate": null,
+      "positions": [
+        {
+          "name": "사무/행정지원/경영지원",
+          "requiredCertificates": [],
+          "preferredCertificates": []
+        }
+      ],
+      "requiredCertificates": [],
+      "preferredCertificates": [],
+      "url": null
+    },
+    {
+      "id": "SK_6939",
+      "source": "SK Careers",
+      "noticeID": "R262487",
+      "jobNoticeNo": 6939,
+      "company": "SK airplus",
+      "companySize": "대기업",
+      "title": "[SK에어플러스] 용인 BSGS Operator(교대)",
+      "jobRole": "제조/생산",
+      "recruitType": "Experienced",
+      "workingType": "Permanent",
+      "workingArea": "Gyeonggi/Incheon",
+      "startDate": null,
+      "endDate": null,
+      "positions": [
+        {
+          "name": "제조/생산",
+          "requiredCertificates": [],
+          "preferredCertificates": []
+        }
+      ],
+      "requiredCertificates": [],
+      "preferredCertificates": [],
+      "url": null
+    },
+    {
+      "id": "SK_6940",
+      "source": "SK Careers",
+      "noticeID": "R262488",
+      "jobNoticeNo": 6940,
+      "company": "SK airplus",
+      "companySize": "대기업",
+      "title": "[SK에어플러스] 용인 기계 테크니션",
+      "jobRole": "제조/설비관리(기계)",
+      "recruitType": "Experienced",
+      "workingType": "Permanent",
+      "workingArea": "Gyeonggi/Incheon",
+      "startDate": null,
+      "endDate": null,
+      "positions": [
+        {
+          "name": "제조/설비관리(기계)",
+          "requiredCertificates": [],
+          "preferredCertificates": []
+        }
+      ],
+      "requiredCertificates": [],
+      "preferredCertificates": [],
+      "url": null
+    },
+    {
+      "id": "SK_6941",
+      "source": "SK Careers",
+      "noticeID": "R262489",
+      "jobNoticeNo": 6941,
+      "company": "SK airplus",
+      "companySize": "대기업",
+      "title": "[SK에어플러스] 용인 전/계장 테크니션",
+      "jobRole": "제조/설비",
+      "recruitType": "Experienced",
+      "workingType": "Permanent",
+      "workingArea": "Gyeonggi/Incheon",
+      "startDate": null,
+      "endDate": null,
+      "positions": [
+        {
+          "name": "제조/설비",
+          "requiredCertificates": [],
+          "preferredCertificates": []
+        }
+      ],
+      "requiredCertificates": [],
+      "preferredCertificates": [],
+      "url": null
+    },
+    {
+      "id": "SK_6943",
+      "source": "SK Careers",
+      "noticeID": "R262491",
+      "jobNoticeNo": 6943,
+      "company": "SK plasma",
+      "companySize": "대기업",
+      "title": "SK플라즈마 생산 계약직 구성원 모집",
+      "jobRole": "제조",
+      "recruitType": "Any Experience Level",
+      "workingType": "Contract",
+      "workingArea": "Gyeongsang",
+      "startDate": null,
+      "endDate": null,
+      "positions": [
+        {
+          "name": "제조",
+          "requiredCertificates": [],
+          "preferredCertificates": []
+        }
+      ],
+      "requiredCertificates": [],
+      "preferredCertificates": [],
+      "url": null
+    },
+    {
+      "id": "SK_6948",
+      "source": "SK Careers",
+      "noticeID": "R262496",
+      "jobNoticeNo": 6948,
+      "company": "SK airplus",
+      "companySize": "대기업",
+      "title": "[SK에어플러스] 용인 Gas Plant 생산 엔지니어",
+      "jobRole": "제조/생산관리",
+      "recruitType": "Experienced",
+      "workingType": "Permanent",
+      "workingArea": "Gyeonggi/Incheon",
+      "startDate": null,
+      "endDate": null,
+      "positions": [
+        {
+          "name": "제조/생산관리",
+          "requiredCertificates": [],
+          "preferredCertificates": []
+        }
+      ],
+      "requiredCertificates": [],
+      "preferredCertificates": [],
+      "url": null
+    },
+    {
+      "id": "SK_6954",
+      "source": "SK Careers",
+      "noticeID": "R262502",
+      "jobNoticeNo": 6954,
+      "company": "SK on",
+      "companySize": "대기업",
+      "title": "SK온 Global물류팀 사무운영원 채용",
+      "jobRole": "제조/제조관리",
+      "recruitType": "Entry-Level",
+      "workingType": "Contract",
+      "workingArea": "Seoul",
+      "startDate": null,
+      "endDate": null,
+      "positions": [
+        {
+          "name": "제조/제조관리",
+          "requiredCertificates": [],
+          "preferredCertificates": []
+        }
+      ],
+      "requiredCertificates": [],
+      "preferredCertificates": [],
+      "url": null
+    },
+    {
+      "id": "SK_6935",
+      "source": "SK Careers",
+      "noticeID": "R262483",
+      "jobNoticeNo": 6935,
+      "company": "SK hynix",
+      "companySize": "대기업",
+      "title": "용인 부속의원 전문의(안과) 채용",
+      "jobRole": "안전보건/보건관리",
+      "recruitType": "Any Experience Level",
+      "workingType": "Contract",
+      "workingArea": "Gyeonggi/Incheon",
+      "startDate": null,
+      "endDate": null,
+      "positions": [
+        {
+          "name": "안전보건/보건관리",
+          "requiredCertificates": [],
+          "preferredCertificates": []
+        }
+      ],
+      "requiredCertificates": [],
+      "preferredCertificates": [],
+      "url": null
+    },
+    {
+      "id": "SK_6893",
+      "source": "SK Careers",
+      "noticeID": "R262441",
+      "jobNoticeNo": 6893,
+      "company": "SK biotek",
+      "companySize": "대기업",
+      "title": "[신입] SK바이오텍 생산운전원 신입사원 모집",
+      "jobRole": "제조/생산",
+      "recruitType": "Entry-Level",
+      "workingType": "Permanent",
+      "workingArea": "Chungcheong",
+      "startDate": null,
+      "endDate": null,
+      "positions": [
+        {
+          "name": "제조/생산",
+          "requiredCertificates": [],
+          "preferredCertificates": []
+        }
+      ],
+      "requiredCertificates": [],
+      "preferredCertificates": [],
+      "url": null
+    },
+    {
+      "id": "SK_6896",
+      "source": "SK Careers",
+      "noticeID": "R262444",
+      "jobNoticeNo": 6896,
+      "company": "SK networks service",
+      "companySize": "대기업",
+      "title": "[SK네트웍스서비스]2026년 11월 Solution 영업 사원  채용 (디지털인프라)",
+      "jobRole": "영업/B2B 영업",
+      "recruitType": "Any Experience Level",
+      "workingType": "Permanent",
+      "workingArea": "Seoul",
+      "startDate": null,
+      "endDate": null,
+      "positions": [
+        {
+          "name": "영업/B2B 영업",
+          "requiredCertificates": [],
+          "preferredCertificates": []
+        }
+      ],
+      "requiredCertificates": [],
+      "preferredCertificates": [],
+      "url": null
+    },
+    {
+      "id": "SK_6918",
+      "source": "SK Careers",
+      "noticeID": "R262466",
+      "jobNoticeNo": 6918,
+      "company": "SK gas",
+      "companySize": "대기업",
+      "title": "2027년 상반기 SK가스 기술엔지니어(사업기술/R&D) 채용연계형 인턴 모집",
+      "jobRole": "Tech R&D/기술개발",
+      "recruitType": "Entry-Level",
+      "workingType": "Permanent",
+      "workingArea": "Gyeonggi/Incheon",
+      "startDate": null,
+      "endDate": null,
+      "positions": [
+        {
+          "name": "Tech R&D/기술개발",
+          "requiredCertificates": [],
+          "preferredCertificates": []
+        }
+      ],
+      "requiredCertificates": [],
+      "preferredCertificates": [],
+      "url": null
+    },
+    {
+      "id": "SK_6602",
+      "source": "SK Careers",
+      "noticeID": "R262150",
+      "jobNoticeNo": 6602,
+      "company": "SK inc.(AX)",
+      "companySize": "대기업",
+      "title": "Salesforce CRM 개발/운영 및 솔루션 전문가 영입",
+      "jobRole": "Tech R&D/Solution SW",
+      "recruitType": "Experienced",
+      "workingType": "Permanent",
+      "workingArea": "Gyeonggi/Incheon,Seoul",
+      "startDate": null,
+      "endDate": null,
+      "positions": [
+        {
+          "name": "Tech R&D/Solution SW",
+          "requiredCertificates": [],
+          "preferredCertificates": []
+        }
+      ],
+      "requiredCertificates": [],
+      "preferredCertificates": [],
+      "url": null
+    },
+    {
+      "id": "SK_6611",
+      "source": "SK Careers",
+      "noticeID": "R262159",
+      "jobNoticeNo": 6611,
+      "company": "SK inc.(AX)",
+      "companySize": "대기업",
+      "title": "제조 에너지/화학 계열 AI/DT 및 시스템 담당자 영입 (울산 근무)",
+      "jobRole": "IT/구축/운영/최적화",
+      "recruitType": "Experienced",
+      "workingType": "Permanent",
+      "workingArea": "Ulsan",
+      "startDate": null,
+      "endDate": null,
+      "positions": [
+        {
+          "name": "IT/구축/운영/최적화",
+          "requiredCertificates": [],
+          "preferredCertificates": []
+        }
+      ],
+      "requiredCertificates": [],
+      "preferredCertificates": [],
+      "url": null
+    },
+    {
+      "id": "SK_6908",
+      "source": "SK Careers",
+      "noticeID": "R262456",
+      "jobNoticeNo": 6908,
+      "company": "SK on",
+      "companySize": "대기업",
+      "title": "SK온 AI 인프라 구축 및 운영 담당자 채용",
+      "jobRole": "DT",
+      "recruitType": "Experienced",
+      "workingType": "Permanent",
+      "workingArea": "Seoul",
+      "startDate": null,
+      "endDate": null,
+      "positions": [
+        {
+          "name": "DT",
+          "requiredCertificates": [],
+          "preferredCertificates": []
+        }
+      ],
+      "requiredCertificates": [],
+      "preferredCertificates": [],
+      "url": null
+    },
+    {
+      "id": "SK_6928",
+      "source": "SK Careers",
+      "noticeID": "R262476",
+      "jobNoticeNo": 6928,
+      "company": "SK biopharmaceuticals",
+      "companySize": "대기업",
+      "title": "AI Platform Operation 구성원 영입",
+      "jobRole": "IT/IT",
+      "recruitType": "Experienced",
+      "workingType": "Permanent",
+      "workingArea": "Gyeonggi/Incheon",
+      "startDate": null,
+      "endDate": null,
+      "positions": [
+        {
+          "name": "IT/IT",
+          "requiredCertificates": [],
+          "preferredCertificates": []
+        }
+      ],
+      "requiredCertificates": [],
+      "preferredCertificates": [],
+      "url": null
+    },
+    {
+      "id": "SK_6950",
+      "source": "SK Careers",
+      "noticeID": "R262498",
+      "jobNoticeNo": 6950,
+      "company": "IGE",
+      "companySize": "대기업",
+      "title": "[아이지이] 플랜트 기계 담당 경력 구성원 모집",
+      "jobRole": "건설/플랜트/설계(플랜트-기계)",
+      "recruitType": "Experienced",
+      "workingType": "Permanent",
+      "workingArea": "Gyeonggi/Incheon",
+      "startDate": null,
+      "endDate": null,
+      "positions": [
+        {
+          "name": "건설/플랜트/설계(플랜트-기계)",
+          "requiredCertificates": [],
+          "preferredCertificates": []
+        }
+      ],
+      "requiredCertificates": [],
+      "preferredCertificates": [],
+      "url": null
+    },
+    {
+      "id": "SK_6942",
+      "source": "SK Careers",
+      "noticeID": "R262490",
+      "jobNoticeNo": 6942,
+      "company": "SK chemicals(GC)",
+      "companySize": "대기업",
+      "title": "[SK케미칼(GC)] 내수/수출 영업지원 계약직 경력 채용",
+      "jobRole": "영업/Sales 지원",
+      "recruitType": "Experienced",
+      "workingType": "Contract",
+      "workingArea": "Gyeonggi/Incheon",
+      "startDate": null,
+      "endDate": null,
+      "positions": [
+        {
+          "name": "영업/Sales 지원",
+          "requiredCertificates": [],
+          "preferredCertificates": []
+        }
+      ],
+      "requiredCertificates": [],
+      "preferredCertificates": [],
+      "url": null
+    },
+    {
+      "id": "SK_6945",
+      "source": "SK Careers",
+      "noticeID": "R262493",
+      "jobNoticeNo": 6945,
+      "company": "SK chemicals(GC)",
+      "companySize": "대기업",
+      "title": "[SK케미칼(GC)] 보훈 대상 내수/수출 영업지원 계약직 경력 채용",
+      "jobRole": "영업/Sales 지원",
+      "recruitType": "Experienced",
+      "workingType": "Contract",
+      "workingArea": "Gyeonggi/Incheon",
+      "startDate": null,
+      "endDate": null,
+      "positions": [
+        {
+          "name": "영업/Sales 지원",
+          "requiredCertificates": [],
+          "preferredCertificates": []
+        }
+      ],
+      "requiredCertificates": [],
+      "preferredCertificates": [],
+      "url": null
+    },
+    {
+      "id": "SK_6949",
+      "source": "SK Careers",
+      "noticeID": "R262497",
+      "jobNoticeNo": 6949,
+      "company": "IGE",
+      "companySize": "대기업",
+      "title": "[아이지이] 공정 담당 경력 구성원 모집",
+      "jobRole": "건설/플랜트/공정관리(플랜트)",
+      "recruitType": "Experienced",
+      "workingType": "Permanent",
+      "workingArea": "Gyeonggi/Incheon",
+      "startDate": null,
+      "endDate": null,
+      "positions": [
+        {
+          "name": "건설/플랜트/공정관리(플랜트)",
+          "requiredCertificates": [],
+          "preferredCertificates": []
+        }
+      ],
+      "requiredCertificates": [],
+      "preferredCertificates": [],
+      "url": null
+    },
+    {
+      "id": "SK_6951",
+      "source": "SK Careers",
+      "noticeID": "R262499",
+      "jobNoticeNo": 6951,
+      "company": "IGE",
+      "companySize": "대기업",
+      "title": "[아이지이] 플랜트 계기 담당 경력 구성원 모집",
+      "jobRole": "건설/플랜트/설계(플랜트-계장)",
+      "recruitType": "Experienced",
+      "workingType": "Permanent",
+      "workingArea": "Gyeonggi/Incheon",
+      "startDate": null,
+      "endDate": null,
+      "positions": [
+        {
+          "name": "건설/플랜트/설계(플랜트-계장)",
+          "requiredCertificates": [],
+          "preferredCertificates": []
+        }
+      ],
+      "requiredCertificates": [],
+      "preferredCertificates": [],
+      "url": null
+    },
+    {
+      "id": "SK_6463",
+      "source": "SK Careers",
+      "noticeID": "R262011",
+      "jobNoticeNo": 6463,
+      "company": "SK inc.(AX)",
+      "companySize": "대기업",
+      "title": "시스템 (서버) 전문가 영입 (계약직)",
+      "jobRole": "Infra/Cloud/Infra",
+      "recruitType": "Experienced",
+      "workingType": "Contract",
+      "workingArea": "Seoul",
+      "startDate": null,
+      "endDate": null,
+      "positions": [
+        {
+          "name": "Infra/Cloud/Infra",
+          "requiredCertificates": [],
+          "preferredCertificates": []
+        }
+      ],
+      "requiredCertificates": [],
+      "preferredCertificates": [],
+      "url": null
+    },
+    {
+      "id": "SK_6557",
+      "source": "SK Careers",
+      "noticeID": "R262105",
+      "jobNoticeNo": 6557,
+      "company": "SK inc.(AX)",
+      "companySize": "대기업",
+      "title": "SAP FI Module 전문가 영입",
+      "jobRole": "Tech R&D/Solution SW",
+      "recruitType": "Experienced",
+      "workingType": "Permanent",
+      "workingArea": "Seoul,Gyeonggi/Incheon",
+      "startDate": null,
+      "endDate": null,
+      "positions": [
+        {
+          "name": "Tech R&D/Solution SW",
+          "requiredCertificates": [],
+          "preferredCertificates": []
+        }
+      ],
+      "requiredCertificates": [],
+      "preferredCertificates": [],
+      "url": null
+    },
+    {
+      "id": "SK_6587",
+      "source": "SK Careers",
+      "noticeID": "R262135",
+      "jobNoticeNo": 6587,
+      "company": "SK inc.(AX)",
+      "companySize": "대기업",
+      "title": "정보보안 운영 전문가 영입",
+      "jobRole": "IT/IT 보안",
+      "recruitType": "Experienced",
+      "workingType": "Permanent",
+      "workingArea": "Seoul,Gyeonggi/Incheon",
+      "startDate": null,
+      "endDate": null,
+      "positions": [
+        {
+          "name": "IT/IT 보안",
+          "requiredCertificates": [],
+          "preferredCertificates": []
+        }
+      ],
+      "requiredCertificates": [],
+      "preferredCertificates": [],
+      "url": null
+    },
+    {
+      "id": "SK_6588",
+      "source": "SK Careers",
+      "noticeID": "R262136",
+      "jobNoticeNo": 6588,
+      "company": "SK inc.(AX)",
+      "companySize": "대기업",
+      "title": "네트워크 전문가 영입",
+      "jobRole": "Infra/Infra 운용/관리/최적화",
+      "recruitType": "Experienced",
+      "workingType": "Permanent",
+      "workingArea": "Gyeonggi/Incheon",
+      "startDate": null,
+      "endDate": null,
+      "positions": [
+        {
+          "name": "Infra/Infra 운용/관리/최적화",
+          "requiredCertificates": [],
+          "preferredCertificates": []
+        }
+      ],
+      "requiredCertificates": [],
+      "preferredCertificates": [],
+      "url": null
+    },
+    {
+      "id": "SK_6637",
+      "source": "SK Careers",
+      "noticeID": "R262185",
+      "jobNoticeNo": 6637,
+      "company": "SK inc.(AX)",
+      "companySize": "대기업",
+      "title": "인프라 보안 관리 전문가 영입 (계약직)",
+      "jobRole": "IT/IT 보안",
+      "recruitType": "Experienced",
+      "workingType": "Contract",
+      "workingArea": "Seoul",
+      "startDate": null,
+      "endDate": null,
+      "positions": [
+        {
+          "name": "IT/IT 보안",
+          "requiredCertificates": [],
+          "preferredCertificates": []
+        }
+      ],
+      "requiredCertificates": [],
+      "preferredCertificates": [],
+      "url": null
+    },
+    {
+      "id": "SK_6704",
+      "source": "SK Careers",
+      "noticeID": "R262252",
+      "jobNoticeNo": 6704,
+      "company": "SK inc.(AX)",
+      "companySize": "대기업",
+      "title": "전사 통합 Image 솔루션 제공 플랫폼 Application PL 및 ML 엔지니어 모집 (계약직)",
+      "jobRole": "IT/구축/운영/최적화 • Tech R&D/ML/DL 개발",
+      "recruitType": "Experienced",
+      "workingType": "Contract",
+      "workingArea": "Gyeonggi/Incheon",
+      "startDate": null,
+      "endDate": null,
+      "positions": [
+        {
+          "name": "IT/구축/운영/최적화 • Tech R&D/ML/DL 개발",
+          "requiredCertificates": [],
+          "preferredCertificates": []
+        }
+      ],
+      "requiredCertificates": [],
+      "preferredCertificates": [],
+      "url": null
+    },
+    {
+      "id": "SK_6732",
+      "source": "SK Careers",
+      "noticeID": "R262280",
+      "jobNoticeNo": 6732,
+      "company": "SK inc.(AX)",
+      "companySize": "대기업",
+      "title": "IT 네트워크 전문가 영입 (계약직)",
+      "jobRole": "Infra/Infra 운용/관리/최적화",
+      "recruitType": "Experienced",
+      "workingType": "Contract",
+      "workingArea": "Seoul",
+      "startDate": null,
+      "endDate": null,
+      "positions": [
+        {
+          "name": "Infra/Infra 운용/관리/최적화",
+          "requiredCertificates": [],
+          "preferredCertificates": []
+        }
+      ],
+      "requiredCertificates": [],
+      "preferredCertificates": [],
+      "url": null
+    },
+    {
+      "id": "SK_6868",
+      "source": "SK Careers",
+      "noticeID": "R262416",
+      "jobNoticeNo": 6868,
+      "company": "SK ecoplant",
+      "companySize": "대기업",
+      "title": "'26년 11월 건축사업 설계(건축), 공사(건축/전기/설비) 경력직(촉탁직) 채용",
+      "jobRole": "건설/플랜트/공사(건축),공사(설비),공사(전기),설계(건축)",
+      "recruitType": "Experienced",
+      "workingType": "Contract",
+      "workingArea": "NationWide",
+      "startDate": null,
+      "endDate": null,
+      "positions": [
+        {
+          "name": "건설/플랜트/공사(건축),공사(설비),공사(전기),설계(건축)",
+          "requiredCertificates": [],
+          "preferredCertificates": []
+        }
+      ],
+      "requiredCertificates": [],
+      "preferredCertificates": [],
+      "url": null
+    },
+    {
+      "id": "SK_6911",
+      "source": "SK Careers",
+      "noticeID": "R262459",
+      "jobNoticeNo": 6911,
+      "company": "SK aircore",
+      "companySize": "대기업",
+      "title": "[SK에어코어] 기계배관 설계/시공감독",
+      "jobRole": "건설/플랜트/현장관리",
+      "recruitType": "Experienced",
+      "workingType": "Contract",
+      "workingArea": "Ulsan",
+      "startDate": null,
+      "endDate": null,
+      "positions": [
+        {
+          "name": "건설/플랜트/현장관리",
+          "requiredCertificates": [],
+          "preferredCertificates": []
+        }
+      ],
+      "requiredCertificates": [],
+      "preferredCertificates": [],
+      "url": null
+    },
+    {
+      "id": "SK_6912",
+      "source": "SK Careers",
+      "noticeID": "R262460",
+      "jobNoticeNo": 6912,
+      "company": "SK aircore",
+      "companySize": "대기업",
+      "title": "[SK에어코어] 프로젝트 관리 (계약직)",
+      "jobRole": "제조/공정기술 • 건설/플랜트/사업개발",
+      "recruitType": "Experienced",
+      "workingType": "Contract",
+      "workingArea": "Chungcheong,Ulsan",
+      "startDate": null,
+      "endDate": null,
+      "positions": [
+        {
+          "name": "제조/공정기술 • 건설/플랜트/사업개발",
+          "requiredCertificates": [],
+          "preferredCertificates": []
+        }
+      ],
+      "requiredCertificates": [],
+      "preferredCertificates": [],
+      "url": null
+    },
+    {
+      "id": "SK_6913",
+      "source": "SK Careers",
+      "noticeID": "R262461",
+      "jobNoticeNo": 6913,
+      "company": "SK aircore",
+      "companySize": "대기업",
+      "title": "[SK에어코어] C3 PJT 전기/계장 엔지니어",
+      "jobRole": "건설/플랜트/설계(플랜트-전기),설계(플랜트-계장)",
+      "recruitType": "Experienced",
+      "workingType": "Permanent",
+      "workingArea": "Ulsan",
+      "startDate": null,
+      "endDate": null,
+      "positions": [
+        {
+          "name": "건설/플랜트/설계(플랜트-전기),설계(플랜트-계장)",
+          "requiredCertificates": [],
+          "preferredCertificates": []
+        }
+      ],
+      "requiredCertificates": [],
+      "preferredCertificates": [],
+      "url": null
+    },
+    {
+      "id": "SK_6915",
+      "source": "SK Careers",
+      "noticeID": "R262463",
+      "jobNoticeNo": 6915,
+      "company": "SK aircore",
+      "companySize": "대기업",
+      "title": "[SK에어코어] 산업가스 플랜트 기계설비 현장 시공관리(계약직)",
+      "jobRole": "건설/플랜트/시공(플랜트-기계)",
+      "recruitType": "Experienced",
+      "workingType": "Contract",
+      "workingArea": "Chungcheong",
+      "startDate": null,
+      "endDate": null,
+      "positions": [
+        {
+          "name": "건설/플랜트/시공(플랜트-기계)",
+          "requiredCertificates": [],
+          "preferredCertificates": []
+        }
+      ],
+      "requiredCertificates": [],
+      "preferredCertificates": [],
+      "url": null
+    },
+    {
+      "id": "SK_6916",
+      "source": "SK Careers",
+      "noticeID": "R262464",
+      "jobNoticeNo": 6916,
+      "company": "SK aircore",
+      "companySize": "대기업",
+      "title": "[SK에어코어] 산업가스 플랜트 전기·계장(E&I) 현장 시공관리(계약직)",
+      "jobRole": "건설/플랜트/플랜트시공",
+      "recruitType": "Experienced",
+      "workingType": "Contract",
+      "workingArea": "Chungcheong",
+      "startDate": null,
+      "endDate": null,
+      "positions": [
+        {
+          "name": "건설/플랜트/플랜트시공",
+          "requiredCertificates": [],
+          "preferredCertificates": []
+        }
+      ],
+      "requiredCertificates": [],
+      "preferredCertificates": [],
+      "url": null
+    },
+    {
+      "id": "SK_6919",
+      "source": "SK Careers",
+      "noticeID": "R262467",
+      "jobNoticeNo": 6919,
+      "company": "SK aircore",
+      "companySize": "대기업",
+      "title": "[SK에어코어] 산업가스 플랜트 토목·건축·구조(CAS) 현장 시공관리(계약직)",
+      "jobRole": "건설/플랜트/플랜트시공",
+      "recruitType": "Experienced",
+      "workingType": "Contract",
+      "workingArea": "Chungcheong",
+      "startDate": null,
+      "endDate": null,
+      "positions": [
+        {
+          "name": "건설/플랜트/플랜트시공",
+          "requiredCertificates": [],
+          "preferredCertificates": []
+        }
+      ],
+      "requiredCertificates": [],
+      "preferredCertificates": [],
+      "url": null
+    },
+    {
+      "id": "SK_6920",
+      "source": "SK Careers",
+      "noticeID": "R262468",
+      "jobNoticeNo": 6920,
+      "company": "SK aircore",
+      "companySize": "대기업",
+      "title": "[SK에어코어] 산업가스 플랜트 토목·건축·구조 설계 및 엔지니어링(계약직)",
+      "jobRole": "건설/플랜트/플랜트설계",
+      "recruitType": "Experienced",
+      "workingType": "Contract",
+      "workingArea": "Chungcheong",
+      "startDate": null,
+      "endDate": null,
+      "positions": [
+        {
+          "name": "건설/플랜트/플랜트설계",
+          "requiredCertificates": [],
+          "preferredCertificates": []
+        }
+      ],
+      "requiredCertificates": [],
+      "preferredCertificates": [],
+      "url": null
+    },
+    {
+      "id": "SK_6921",
+      "source": "SK Careers",
+      "noticeID": "R262469",
+      "jobNoticeNo": 6921,
+      "company": "SK aircore",
+      "companySize": "대기업",
+      "title": "[SK에어코어] 산업가스 플랜트 계장설계 및 엔지니어링",
+      "jobRole": "건설/플랜트/시공(플랜트-계장)",
+      "recruitType": "Experienced",
+      "workingType": "Permanent",
+      "workingArea": "Chungcheong",
+      "startDate": null,
+      "endDate": null,
+      "positions": [
+        {
+          "name": "건설/플랜트/시공(플랜트-계장)",
+          "requiredCertificates": [],
+          "preferredCertificates": []
+        }
+      ],
+      "requiredCertificates": [],
+      "preferredCertificates": [],
+      "url": null
+    },
+    {
+      "id": "SK_6922",
+      "source": "SK Careers",
+      "noticeID": "R262470",
+      "jobNoticeNo": 6922,
+      "company": "SK aircore",
+      "companySize": "대기업",
+      "title": "[SK에어코어] 산업가스 플랜트 공정설계 및 엔지니어링",
+      "jobRole": "건설/플랜트/설계(플랜트-공정)",
+      "recruitType": "Experienced",
+      "workingType": "Permanent",
+      "workingArea": "Chungcheong",
+      "startDate": null,
+      "endDate": null,
+      "positions": [
+        {
+          "name": "건설/플랜트/설계(플랜트-공정)",
+          "requiredCertificates": [],
+          "preferredCertificates": []
+        }
+      ],
+      "requiredCertificates": [],
+      "preferredCertificates": [],
+      "url": null
+    },
+    {
+      "id": "SK_6923",
+      "source": "SK Careers",
+      "noticeID": "R262471",
+      "jobNoticeNo": 6923,
+      "company": "SK aircore",
+      "companySize": "대기업",
+      "title": "[SK에어코어] 산업가스 플랜트 전기설계 및 엔지니어링",
+      "jobRole": "건설/플랜트/설계(플랜트-전기)",
+      "recruitType": "Experienced",
+      "workingType": "Permanent",
+      "workingArea": "Chungcheong",
+      "startDate": null,
+      "endDate": null,
+      "positions": [
+        {
+          "name": "건설/플랜트/설계(플랜트-전기)",
+          "requiredCertificates": [],
+          "preferredCertificates": []
+        }
+      ],
+      "requiredCertificates": [],
+      "preferredCertificates": [],
+      "url": null
+    },
+    {
+      "id": "SK_6924",
+      "source": "SK Careers",
+      "noticeID": "R262472",
+      "jobNoticeNo": 6924,
+      "company": "SK airplus",
+      "companySize": "대기업",
+      "title": "[SK에어플러스] M17 기계/배관 설계 엔지니어",
+      "jobRole": "건설/플랜트/설계(플랜트-기계),설계(플랜트-배관)",
+      "recruitType": "Experienced",
+      "workingType": "Permanent",
+      "workingArea": "Chungcheong",
+      "startDate": null,
+      "endDate": null,
+      "positions": [
+        {
+          "name": "건설/플랜트/설계(플랜트-기계),설계(플랜트-배관)",
+          "requiredCertificates": [],
+          "preferredCertificates": []
+        }
+      ],
+      "requiredCertificates": [],
+      "preferredCertificates": [],
+      "url": null
+    },
+    {
+      "id": "SK_6925",
+      "source": "SK Careers",
+      "noticeID": "R262473",
+      "jobNoticeNo": 6925,
+      "company": "SK airplus",
+      "companySize": "대기업",
+      "title": "[SK에어플러스] M17 전기/계장 설계 엔지니어",
+      "jobRole": "건설/플랜트/설계(플랜트-전기),설계(플랜트-계장)",
+      "recruitType": "Experienced",
+      "workingType": "Permanent",
+      "workingArea": "Chungcheong",
+      "startDate": null,
+      "endDate": null,
+      "positions": [
+        {
+          "name": "건설/플랜트/설계(플랜트-전기),설계(플랜트-계장)",
+          "requiredCertificates": [],
+          "preferredCertificates": []
+        }
+      ],
+      "requiredCertificates": [],
+      "preferredCertificates": [],
+      "url": null
+    },
+    {
+      "id": "SK_4467",
+      "source": "SK Careers",
+      "noticeID": "R260015",
+      "jobNoticeNo": 4467,
+      "company": "SK ecoplant",
+      "companySize": "대기업",
+      "title": "2026년 SK에코플랜트 보건관리자 경력직(촉탁직) 채용",
+      "jobRole": "안전보건/보건관리",
+      "recruitType": "Experienced",
+      "workingType": "Contract",
+      "workingArea": "NationWide",
+      "startDate": null,
+      "endDate": null,
+      "positions": [
+        {
+          "name": "안전보건/보건관리",
+          "requiredCertificates": [],
+          "preferredCertificates": []
+        }
+      ],
+      "requiredCertificates": [],
+      "preferredCertificates": [],
+      "url": null
+    },
+    {
+      "id": "SK_4469",
+      "source": "SK Careers",
+      "noticeID": "R260017",
+      "jobNoticeNo": 4469,
+      "company": "SK ecoplant",
+      "companySize": "대기업",
+      "title": "2026년 SK에코플랜트 안전관리자 경력직(촉탁직) 채용",
+      "jobRole": "안전보건/안전관리",
+      "recruitType": "Experienced",
+      "workingType": "Contract",
+      "workingArea": "NationWide",
+      "startDate": null,
+      "endDate": null,
+      "positions": [
+        {
+          "name": "안전보건/안전관리",
+          "requiredCertificates": [],
+          "preferredCertificates": []
+        }
+      ],
+      "requiredCertificates": [],
+      "preferredCertificates": [],
+      "url": null
+    },
+    {
+      "id": "SK_4808",
+      "source": "SK Careers",
+      "noticeID": "R260356",
+      "jobNoticeNo": 4808,
+      "company": "SK ecoplant",
+      "companySize": "대기업",
+      "title": "2026년 SK에코플랜트 안전관리자 경력직(계약직) 채용",
+      "jobRole": "안전보건/안전관리",
+      "recruitType": "Experienced",
+      "workingType": "Contract",
+      "workingArea": "Seoul,Gyeonggi/Incheon,Chungcheong,Gyeongsang,Jeolla,Gangwon,Busan,Daegu,Gwangju,Ulsan,Daejeon,NationWide",
+      "startDate": null,
+      "endDate": null,
+      "positions": [
+        {
+          "name": "안전보건/안전관리",
+          "requiredCertificates": [],
+          "preferredCertificates": []
+        }
+      ],
+      "requiredCertificates": [],
+      "preferredCertificates": [],
+      "url": null
+    },
+    {
+      "id": "SK_4809",
+      "source": "SK Careers",
+      "noticeID": "R260357",
+      "jobNoticeNo": 4809,
+      "company": "SK ecoplant",
+      "companySize": "대기업",
+      "title": "2026년 SK에코플랜트 보건관리자 경력직(계약직) 채용",
+      "jobRole": "안전보건/보건관리",
+      "recruitType": "Experienced",
+      "workingType": "Contract",
+      "workingArea": "Seoul,Gyeonggi/Incheon,Chungcheong,Gyeongsang,Jeolla,Gangwon,Busan,Daegu,Gwangju,Ulsan,Daejeon,NationWide",
+      "startDate": null,
+      "endDate": null,
+      "positions": [
+        {
+          "name": "안전보건/보건관리",
+          "requiredCertificates": [],
+          "preferredCertificates": []
+        }
+      ],
+      "requiredCertificates": [],
+      "preferredCertificates": [],
+      "url": null
+    },
+    {
+      "id": "SK_6718",
+      "source": "SK Careers",
+      "noticeID": "R262266",
+      "jobNoticeNo": 6718,
+      "company": "SK inc.(AX)",
+      "companySize": "대기업",
+      "title": "반도체 Cloud/AI Platform 개발/운영 전문가 영입",
+      "jobRole": "IT/Platform/Solution",
+      "recruitType": "Experienced",
+      "workingType": "Permanent",
+      "workingArea": "Gyeonggi/Incheon",
+      "startDate": null,
+      "endDate": null,
+      "positions": [
+        {
+          "name": "IT/Platform/Solution",
+          "requiredCertificates": [],
+          "preferredCertificates": []
+        }
+      ],
+      "requiredCertificates": [],
+      "preferredCertificates": [],
+      "url": null
+    },
+    {
+      "id": "SK_6850",
+      "source": "SK Careers",
+      "noticeID": "R262398",
+      "jobNoticeNo": 6850,
+      "company": "애커튼파트너스",
+      "companySize": "대기업",
+      "title": "서비스산업 컨설턴트 (경력)",
+      "jobRole": "DT/Digital 컨설팅",
+      "recruitType": "Experienced",
+      "workingType": "Permanent",
+      "workingArea": "Seoul,Gyeonggi/Incheon",
+      "startDate": null,
+      "endDate": null,
+      "positions": [
+        {
+          "name": "DT/Digital 컨설팅",
+          "requiredCertificates": [],
+          "preferredCertificates": []
+        }
+      ],
+      "requiredCertificates": [],
+      "preferredCertificates": [],
+      "url": null
+    },
+    {
+      "id": "SK_6884",
+      "source": "SK Careers",
+      "noticeID": "R262432",
+      "jobNoticeNo": 6884,
+      "company": "SK biotek",
+      "companySize": "대기업",
+      "title": "[신입] SK바이오텍 보관소 운전원 신입사원 모집",
+      "jobRole": "구매/물류",
+      "recruitType": "Entry-Level",
+      "workingType": "Permanent",
+      "workingArea": "Chungcheong",
+      "startDate": null,
+      "endDate": null,
+      "positions": [
+        {
+          "name": "구매/물류",
+          "requiredCertificates": [],
+          "preferredCertificates": []
+        }
+      ],
+      "requiredCertificates": [],
+      "preferredCertificates": [],
+      "url": null
+    },
+    {
+      "id": "SK_6903",
+      "source": "SK Careers",
+      "noticeID": "R262451",
+      "jobNoticeNo": 6903,
+      "company": "SK biotek",
+      "companySize": "대기업",
+      "title": "[경력] SK바이오텍 원가회계∙구분회계 담당자 경력사원 모집",
+      "jobRole": "재무/회계",
+      "recruitType": "Experienced",
+      "workingType": "Permanent",
+      "workingArea": "Chungcheong",
+      "startDate": null,
+      "endDate": null,
+      "positions": [
+        {
+          "name": "재무/회계",
+          "requiredCertificates": [],
+          "preferredCertificates": []
+        }
+      ],
+      "requiredCertificates": [],
+      "preferredCertificates": [],
+      "url": null
+    },
+    {
+      "id": "SK_6564",
+      "source": "SK Careers",
+      "noticeID": "R262112",
+      "jobNoticeNo": 6564,
+      "company": "SK signet",
+      "companySize": "대기업",
+      "title": "기술운영/시운전 Part (경력)",
+      "jobRole": "건설/플랜트/기술지원",
+      "recruitType": "Experienced",
+      "workingType": "Permanent",
+      "workingArea": "Gyeonggi/Incheon",
+      "startDate": null,
+      "endDate": null,
+      "positions": [
+        {
+          "name": "건설/플랜트/기술지원",
+          "requiredCertificates": [],
+          "preferredCertificates": []
+        }
+      ],
+      "requiredCertificates": [],
+      "preferredCertificates": [],
+      "url": null
+    },
+    {
+      "id": "SK_6726",
+      "source": "SK Careers",
+      "noticeID": "R262274",
+      "jobNoticeNo": 6726,
+      "company": "SK inc.(AX)",
+      "companySize": "대기업",
+      "title": "Application 구축/운영 전문가 영입 (계약직)",
+      "jobRole": "IT/구축/운영/최적화",
+      "recruitType": "Experienced",
+      "workingType": "Contract",
+      "workingArea": "Seoul",
+      "startDate": null,
+      "endDate": null,
+      "positions": [
+        {
+          "name": "IT/구축/운영/최적화",
+          "requiredCertificates": [],
+          "preferredCertificates": []
+        }
+      ],
+      "requiredCertificates": [],
+      "preferredCertificates": [],
+      "url": null
+    },
+    {
+      "id": "SK_6727",
+      "source": "SK Careers",
+      "noticeID": "R262275",
+      "jobNoticeNo": 6727,
+      "company": "SK inc.(AX)",
+      "companySize": "대기업",
+      "title": "AX/AI 프로젝트 PM/PL 영입 (계약직)",
+      "jobRole": "IT/구축/운영/최적화",
+      "recruitType": "Experienced",
+      "workingType": "Contract",
+      "workingArea": "Seoul",
+      "startDate": null,
+      "endDate": null,
+      "positions": [
+        {
+          "name": "IT/구축/운영/최적화",
+          "requiredCertificates": [],
+          "preferredCertificates": []
+        }
+      ],
+      "requiredCertificates": [],
+      "preferredCertificates": [],
+      "url": null
+    },
+    {
+      "id": "SK_6733",
+      "source": "SK Careers",
+      "noticeID": "R262281",
+      "jobNoticeNo": 6733,
+      "company": "SK inc.(AX)",
+      "companySize": "대기업",
+      "title": "Application 구축/운영 전문가 영입",
+      "jobRole": "IT/구축/운영/최적화",
+      "recruitType": "Experienced",
+      "workingType": "Permanent",
+      "workingArea": "Seoul",
+      "startDate": null,
+      "endDate": null,
+      "positions": [
+        {
+          "name": "IT/구축/운영/최적화",
+          "requiredCertificates": [],
+          "preferredCertificates": []
+        }
+      ],
+      "requiredCertificates": [],
+      "preferredCertificates": [],
+      "url": null
+    },
+    {
+      "id": "SK_6735",
+      "source": "SK Careers",
+      "noticeID": "R262283",
+      "jobNoticeNo": 6735,
+      "company": "SK inc.(AX)",
+      "companySize": "대기업",
+      "title": "AX/AI 프로젝트 PM/PL 영입",
+      "jobRole": "IT/구축/운영/최적화",
+      "recruitType": "Experienced",
+      "workingType": "Permanent",
+      "workingArea": "Seoul",
+      "startDate": null,
+      "endDate": null,
+      "positions": [
+        {
+          "name": "IT/구축/운영/최적화",
+          "requiredCertificates": [],
+          "preferredCertificates": []
+        }
+      ],
+      "requiredCertificates": [],
+      "preferredCertificates": [],
+      "url": null
+    },
+    {
+      "id": "SK_6917",
+      "source": "SK Careers",
+      "noticeID": "R262465",
+      "jobNoticeNo": 6917,
+      "company": "SK picglobal",
+      "companySize": "대기업",
+      "title": "SK피아이씨글로벌 회계 경력사원 채용(원가/손익)",
+      "jobRole": "재무",
+      "recruitType": "Experienced",
+      "workingType": "Permanent",
+      "workingArea": "Seoul",
+      "startDate": null,
+      "endDate": null,
+      "positions": [
+        {
+          "name": "재무",
+          "requiredCertificates": [],
+          "preferredCertificates": []
+        }
+      ],
+      "requiredCertificates": [],
+      "preferredCertificates": [],
+      "url": null
+    },
+    {
+      "id": "SK_6952",
+      "source": "SK Careers",
+      "noticeID": "R262500",
+      "jobNoticeNo": 6952,
+      "company": "SK ecoplant",
+      "companySize": "대기업",
+      "title": "'26년 11월 토목사업 Project 공사(토목), 공무 경력직(촉탁직) 채용",
+      "jobRole": "건설/플랜트/공사(토목),공무(토목)",
+      "recruitType": "Experienced",
+      "workingType": "Contract",
+      "workingArea": "NationWide",
+      "startDate": null,
+      "endDate": null,
+      "positions": [
+        {
+          "name": "건설/플랜트/공사(토목),공무(토목)",
+          "requiredCertificates": [],
+          "preferredCertificates": []
+        }
+      ],
+      "requiredCertificates": [],
+      "preferredCertificates": [],
+      "url": null
+    },
+    {
+      "id": "SK_6955",
+      "source": "SK Careers",
+      "noticeID": "R262503",
+      "jobNoticeNo": 6955,
+      "company": "SK biotek",
+      "companySize": "대기업",
+      "title": "[경력] SK바이오텍 Small Molecule&Peptide 분석 연구원(R&D) 경력사원 모집",
+      "jobRole": "Tech R&D/연구개발",
+      "recruitType": "Experienced",
+      "workingType": "Permanent",
+      "workingArea": "Daejeon",
+      "startDate": null,
+      "endDate": null,
+      "positions": [
+        {
+          "name": "Tech R&D/연구개발",
+          "requiredCertificates": [],
+          "preferredCertificates": []
+        }
+      ],
+      "requiredCertificates": [],
+      "preferredCertificates": [],
+      "url": null
+    },
+    {
+      "id": "SK_6956",
+      "source": "SK Careers",
+      "noticeID": "R262504",
+      "jobNoticeNo": 6956,
+      "company": "SK biotek",
+      "companySize": "대기업",
+      "title": "[경력] SK바이오텍 품질보증 약사(제조관리자) 경력사원 모집",
+      "jobRole": "제조/품질관리",
+      "recruitType": "Experienced",
+      "workingType": "Permanent",
+      "workingArea": "Chungcheong",
+      "startDate": null,
+      "endDate": null,
+      "positions": [
+        {
+          "name": "제조/품질관리",
+          "requiredCertificates": [],
+          "preferredCertificates": []
+        }
+      ],
+      "requiredCertificates": [],
+      "preferredCertificates": [],
+      "url": null
+    },
+    {
+      "id": "SK_6957",
+      "source": "SK Careers",
+      "noticeID": "R262505",
+      "jobNoticeNo": 6957,
+      "company": "SK biotek",
+      "companySize": "대기업",
+      "title": "[신입] SK바이오텍 품질보증 약사(제조관리자) 신입사원 모집",
+      "jobRole": "제조/품질보증",
+      "recruitType": "Entry-Level",
+      "workingType": "Permanent",
+      "workingArea": "Chungcheong",
+      "startDate": null,
+      "endDate": null,
+      "positions": [
+        {
+          "name": "제조/품질보증",
+          "requiredCertificates": [],
+          "preferredCertificates": []
+        }
+      ],
+      "requiredCertificates": [],
+      "preferredCertificates": [],
+      "url": null
+    },
+    {
+      "id": "SK_6958",
+      "source": "SK Careers",
+      "noticeID": "R262506",
+      "jobNoticeNo": 6958,
+      "company": "SK biotek",
+      "companySize": "대기업",
+      "title": "[경력] SK바이오텍 Peptide 공정개발 연구원(R&D) 경력사원 모집",
+      "jobRole": "Tech R&D/연구개발",
+      "recruitType": "Experienced",
+      "workingType": "Permanent",
+      "workingArea": "Daejeon",
+      "startDate": null,
+      "endDate": null,
+      "positions": [
+        {
+          "name": "Tech R&D/연구개발",
+          "requiredCertificates": [],
+          "preferredCertificates": []
+        }
+      ],
+      "requiredCertificates": [],
+      "preferredCertificates": [],
+      "url": null
+    },
+    {
+      "id": "SK_6959",
+      "source": "SK Careers",
+      "noticeID": "R262507",
+      "jobNoticeNo": 6959,
+      "company": "SK biotek",
+      "companySize": "대기업",
+      "title": "[신입] SK바이오텍 Peptide 공정개발 연구원(R&D) 신입사원 모집",
+      "jobRole": "Tech R&D/연구개발",
+      "recruitType": "Entry-Level",
+      "workingType": "Permanent",
+      "workingArea": "Daejeon",
+      "startDate": null,
+      "endDate": null,
+      "positions": [
+        {
+          "name": "Tech R&D/연구개발",
+          "requiredCertificates": [],
+          "preferredCertificates": []
+        }
+      ],
+      "requiredCertificates": [],
+      "preferredCertificates": [],
+      "url": null
+    },
+    {
+      "id": "SK_6905",
+      "source": "SK Careers",
+      "noticeID": "R262453",
+      "jobNoticeNo": 6905,
+      "company": "SK D&D",
+      "companySize": "대기업",
+      "title": "[SK디앤디] 재무회계 담당 경력직 채용",
+      "jobRole": "재무/내부통제",
+      "recruitType": "Experienced",
+      "workingType": "Permanent",
+      "workingArea": "Gyeonggi/Incheon,Seoul",
+      "startDate": null,
+      "endDate": null,
+      "positions": [
+        {
+          "name": "재무/내부통제",
+          "requiredCertificates": [],
+          "preferredCertificates": []
+        }
+      ],
+      "requiredCertificates": [],
+      "preferredCertificates": [],
+      "url": null
+    },
+    {
+      "id": "SK_6934",
+      "source": "SK Careers",
+      "noticeID": "R262482",
+      "jobNoticeNo": 6934,
+      "company": "SK D&D",
+      "companySize": "대기업",
+      "title": "[SK디앤디]  안전보건 담당 경력직 채용",
+      "jobRole": "안전보건/안전보건",
+      "recruitType": "Experienced",
+      "workingType": "Permanent",
+      "workingArea": "Gyeonggi/Incheon,Seoul",
+      "startDate": null,
+      "endDate": null,
+      "positions": [
+        {
+          "name": "안전보건/안전보건",
+          "requiredCertificates": [],
+          "preferredCertificates": []
+        }
+      ],
+      "requiredCertificates": [],
+      "preferredCertificates": [],
+      "url": null
+    },
+    {
+      "id": "SK_6386",
+      "source": "SK Careers",
+      "noticeID": "R261934",
+      "jobNoticeNo": 6386,
+      "company": "SK inc.(AX)",
+      "companySize": "대기업",
+      "title": "제조 설비OT 사업 보건관리 담당자 영입 (계약직)",
+      "jobRole": "안전보건/보건관리",
+      "recruitType": "Experienced",
+      "workingType": "Contract",
+      "workingArea": "Gyeonggi/Incheon",
+      "startDate": null,
+      "endDate": null,
+      "positions": [
+        {
+          "name": "안전보건/보건관리",
+          "requiredCertificates": [],
+          "preferredCertificates": []
+        }
+      ],
+      "requiredCertificates": [],
+      "preferredCertificates": [],
+      "url": null
+    },
+    {
+      "id": "SK_6683",
+      "source": "SK Careers",
+      "noticeID": "R262231",
+      "jobNoticeNo": 6683,
+      "company": "SK signet",
+      "companySize": "대기업",
+      "title": "경영관리(예산·손익관리) 담당자 채용 (경력)",
+      "jobRole": "재무/경영분석",
+      "recruitType": "Experienced",
+      "workingType": "Permanent",
+      "workingArea": "Gyeonggi/Incheon",
+      "startDate": null,
+      "endDate": null,
+      "positions": [
+        {
+          "name": "재무/경영분석",
+          "requiredCertificates": [],
+          "preferredCertificates": []
+        }
+      ],
+      "requiredCertificates": [],
+      "preferredCertificates": [],
+      "url": null
+    },
+    {
+      "id": "SK_6684",
+      "source": "SK Careers",
+      "noticeID": "R262232",
+      "jobNoticeNo": 6684,
+      "company": "SK signet",
+      "companySize": "대기업",
+      "title": "[영광] 수입 검사 담당 (경력)",
+      "jobRole": "제조/품질보증",
+      "recruitType": "Experienced",
+      "workingType": "Permanent",
+      "workingArea": "Jeolla",
+      "startDate": null,
+      "endDate": null,
+      "positions": [
+        {
+          "name": "제조/품질보증",
+          "requiredCertificates": [],
+          "preferredCertificates": []
+        }
+      ],
+      "requiredCertificates": [],
+      "preferredCertificates": [],
+      "url": null
+    },
+    {
+      "id": "SK_6760",
+      "source": "SK Careers",
+      "noticeID": "R262308",
+      "jobNoticeNo": 6760,
+      "company": "SK inc.(AX)",
+      "companySize": "대기업",
+      "title": "화이트해킹/침투테스트 분야 전문가 영입",
+      "jobRole": "정보보안/정보보안 컨설팅",
+      "recruitType": "Experienced",
+      "workingType": "Permanent",
+      "workingArea": "Gyeonggi/Incheon",
+      "startDate": null,
+      "endDate": null,
+      "positions": [
+        {
+          "name": "정보보안/정보보안 컨설팅",
+          "requiredCertificates": [],
+          "preferredCertificates": []
+        }
+      ],
+      "requiredCertificates": [],
+      "preferredCertificates": [],
+      "url": null
+    },
+    {
+      "id": "SK_6844",
+      "source": "SK Careers",
+      "noticeID": "R262392",
+      "jobNoticeNo": 6844,
+      "company": "SK inc.(AX)",
+      "companySize": "대기업",
+      "title": "SAP BW/BDC/BI/Data Analytics 분야 전문가 영입",
+      "jobRole": "Tech R&D/Solution SW",
+      "recruitType": "Experienced",
+      "workingType": "Permanent",
+      "workingArea": "Seoul,Gyeonggi/Incheon",
+      "startDate": null,
+      "endDate": null,
+      "positions": [
+        {
+          "name": "Tech R&D/Solution SW",
+          "requiredCertificates": [],
+          "preferredCertificates": []
+        }
+      ],
+      "requiredCertificates": [],
+      "preferredCertificates": [],
+      "url": null
+    },
+    {
+      "id": "SK_6881",
+      "source": "SK Careers",
+      "noticeID": "R262429",
+      "jobNoticeNo": 6881,
+      "company": "SK inc.(AX)",
+      "companySize": "대기업",
+      "title": "Digital Twin 개발 전문가 영입",
+      "jobRole": "Tech R&D/Software Engineering",
+      "recruitType": "Experienced",
+      "workingType": "Permanent",
+      "workingArea": "Gyeonggi/Incheon",
+      "startDate": null,
+      "endDate": null,
+      "positions": [
+        {
+          "name": "Tech R&D/Software Engineering",
+          "requiredCertificates": [],
+          "preferredCertificates": []
+        }
+      ],
+      "requiredCertificates": [],
+      "preferredCertificates": [],
+      "url": null
+    },
+    {
+      "id": "SK_6882",
+      "source": "SK Careers",
+      "noticeID": "R262430",
+      "jobNoticeNo": 6882,
+      "company": "SK inc.(AX)",
+      "companySize": "대기업",
+      "title": "보안 아키텍트 영입",
+      "jobRole": "정보보안/정보보안 컨설팅",
+      "recruitType": "Experienced",
+      "workingType": "Permanent",
+      "workingArea": "Gyeonggi/Incheon",
+      "startDate": null,
+      "endDate": null,
+      "positions": [
+        {
+          "name": "정보보안/정보보안 컨설팅",
+          "requiredCertificates": [],
+          "preferredCertificates": []
+        }
+      ],
+      "requiredCertificates": [],
+      "preferredCertificates": [],
+      "url": null
+    },
+    {
+      "id": "SK_6897",
+      "source": "SK Careers",
+      "noticeID": "R262445",
+      "jobNoticeNo": 6897,
+      "company": "SK inc.(AX)",
+      "companySize": "대기업",
+      "title": "반도체 제조 기준정보 (MDM) 전문가 영입 (계약직)",
+      "jobRole": "IT/구축/운영/최적화",
+      "recruitType": "Experienced",
+      "workingType": "Contract",
+      "workingArea": "Gyeonggi/Incheon",
+      "startDate": null,
+      "endDate": null,
+      "positions": [
+        {
+          "name": "IT/구축/운영/최적화",
+          "requiredCertificates": [],
+          "preferredCertificates": []
+        }
+      ],
+      "requiredCertificates": [],
+      "preferredCertificates": [],
+      "url": null
+    },
+    {
+      "id": "SK_6867",
+      "source": "SK Careers",
+      "noticeID": "R262415",
+      "jobNoticeNo": 6867,
+      "company": "SK inc.(AX)",
+      "companySize": "대기업",
+      "title": "제조 AI · Data 분야 [Data Engineer / DevOps(k8s)] 전문가 영입",
+      "jobRole": "Tech R&D/Data Engineering",
+      "recruitType": "Experienced",
+      "workingType": "Permanent",
+      "workingArea": "Gyeonggi/Incheon",
+      "startDate": null,
+      "endDate": null,
+      "positions": [
+        {
+          "name": "Tech R&D/Data Engineering",
+          "requiredCertificates": [],
+          "preferredCertificates": []
+        }
+      ],
+      "requiredCertificates": [],
+      "preferredCertificates": [],
+      "url": null
+    },
+    {
+      "id": "SK_6869",
+      "source": "SK Careers",
+      "noticeID": "R262417",
+      "jobNoticeNo": 6869,
+      "company": "SK inc.(AX)",
+      "companySize": "대기업",
+      "title": "AI 기반 차세대 통신 BSS/OSS(NOVA) 응용개발 분야 전문가 영입",
+      "jobRole": "Tech R&D/Backend 개발,Frontend 개발",
+      "recruitType": "Experienced",
+      "workingType": "Permanent",
+      "workingArea": "Seoul",
+      "startDate": null,
+      "endDate": null,
+      "positions": [
+        {
+          "name": "Tech R&D/Backend 개발,Frontend 개발",
+          "requiredCertificates": [],
+          "preferredCertificates": []
+        }
+      ],
+      "requiredCertificates": [],
+      "preferredCertificates": [],
+      "url": null
+    },
+    {
+      "id": "SK_6870",
+      "source": "SK Careers",
+      "noticeID": "R262418",
+      "jobNoticeNo": 6870,
+      "company": "SK inc.(AX)",
+      "companySize": "대기업",
+      "title": "Telco. 컨택센터 Application 운영/개발 전문가 영입",
+      "jobRole": "IT/구축/운영/최적화",
+      "recruitType": "Experienced",
+      "workingType": "Permanent",
+      "workingArea": "Gyeonggi/Incheon",
+      "startDate": null,
+      "endDate": null,
+      "positions": [
+        {
+          "name": "IT/구축/운영/최적화",
+          "requiredCertificates": [],
+          "preferredCertificates": []
+        }
+      ],
+      "requiredCertificates": [],
+      "preferredCertificates": [],
+      "url": null
+    },
+    {
+      "id": "SK_6871",
+      "source": "SK Careers",
+      "noticeID": "R262419",
+      "jobNoticeNo": 6871,
+      "company": "SK inc.(AX)",
+      "companySize": "대기업",
+      "title": "통신 BSS 차세대 비즈니스 기획 분야 전문가 영입",
+      "jobRole": "IT/IT 기획",
+      "recruitType": "Experienced",
+      "workingType": "Permanent",
+      "workingArea": "Seoul",
+      "startDate": null,
+      "endDate": null,
+      "positions": [
+        {
+          "name": "IT/IT 기획",
+          "requiredCertificates": [],
+          "preferredCertificates": []
+        }
+      ],
+      "requiredCertificates": [],
+      "preferredCertificates": [],
+      "url": null
+    },
+    {
+      "id": "SK_5014",
+      "source": "SK Careers",
+      "noticeID": "R260562",
+      "jobNoticeNo": 5014,
+      "company": "SK ons",
+      "companySize": "대기업",
+      "title": "2026 SK오앤에스 Access 현장운용지원 구성원 채용",
+      "jobRole": "Infra/Access Infra",
+      "recruitType": "Entry-Level",
+      "workingType": "Contract",
+      "workingArea": "Gyeonggi/Incheon,Gangwon,Busan,Chungcheong",
+      "startDate": null,
+      "endDate": null,
+      "positions": [
+        {
+          "name": "Infra/Access Infra",
+          "requiredCertificates": [],
+          "preferredCertificates": []
+        }
+      ],
+      "requiredCertificates": [],
+      "preferredCertificates": [],
+      "url": null
+    },
+    {
+      "id": "SK_5549",
+      "source": "SK Careers",
+      "noticeID": "R261097",
+      "jobNoticeNo": 5549,
+      "company": "Tmap Mobility",
+      "companySize": "대기업",
+      "title": "개발 Project Manager - TMAP AUTO 개발 프로젝트 리딩",
+      "jobRole": "Tech R&D/Project Management",
+      "recruitType": "Experienced",
+      "workingType": "Permanent",
+      "workingArea": "Seoul",
+      "startDate": null,
+      "endDate": null,
+      "positions": [
+        {
+          "name": "Tech R&D/Project Management",
+          "requiredCertificates": [],
+          "preferredCertificates": []
+        }
+      ],
+      "requiredCertificates": [],
+      "preferredCertificates": [],
+      "url": null
+    },
+    {
+      "id": "SK_5724",
+      "source": "SK Careers",
+      "noticeID": "R261272",
+      "jobNoticeNo": 5724,
+      "company": "Tmap Mobility",
+      "companySize": "대기업",
+      "title": "Site Reliability Engineer (SRE)",
+      "jobRole": "Infra/Cloud/Infra,Infra 개발/관리",
+      "recruitType": "Experienced",
+      "workingType": "Permanent",
+      "workingArea": "Seoul",
+      "startDate": null,
+      "endDate": null,
+      "positions": [
+        {
+          "name": "Infra/Cloud/Infra,Infra 개발/관리",
+          "requiredCertificates": [],
+          "preferredCertificates": []
+        }
+      ],
+      "requiredCertificates": [],
+      "preferredCertificates": [],
+      "url": null
+    },
+    {
+      "id": "SK_5983",
+      "source": "SK Careers",
+      "noticeID": "R261531",
+      "jobNoticeNo": 5983,
+      "company": "Tmap Mobility",
+      "companySize": "대기업",
+      "title": "API/SDK 상품운영 및 기술지원 담당자",
+      "jobRole": "IT/IT 운영",
+      "recruitType": "Experienced",
+      "workingType": "Permanent",
+      "workingArea": "Seoul",
+      "startDate": null,
+      "endDate": null,
+      "positions": [
+        {
+          "name": "IT/IT 운영",
+          "requiredCertificates": [],
+          "preferredCertificates": []
+        }
+      ],
+      "requiredCertificates": [],
+      "preferredCertificates": [],
+      "url": null
+    },
+    {
+      "id": "SK_6166",
+      "source": "SK Careers",
+      "noticeID": "R261714",
+      "jobNoticeNo": 6166,
+      "company": "Tmap Mobility",
+      "companySize": "대기업",
+      "title": "Android SDK Engineer",
+      "jobRole": "Tech R&D/Client 개발",
+      "recruitType": "Experienced",
+      "workingType": "Permanent",
+      "workingArea": "Seoul",
+      "startDate": null,
+      "endDate": null,
+      "positions": [
+        {
+          "name": "Tech R&D/Client 개발",
+          "requiredCertificates": [],
+          "preferredCertificates": []
+        }
+      ],
+      "requiredCertificates": [],
+      "preferredCertificates": [],
+      "url": null
+    },
+    {
+      "id": "SK_6252",
+      "source": "SK Careers",
+      "noticeID": "R261800",
+      "jobNoticeNo": 6252,
+      "company": "Tmap Mobility",
+      "companySize": "대기업",
+      "title": "AI Agent TPM (Technical Project Manager)",
+      "jobRole": "Tech R&D/Project Management",
+      "recruitType": "Experienced",
+      "workingType": "Permanent",
+      "workingArea": "Seoul",
+      "startDate": null,
+      "endDate": null,
+      "positions": [
+        {
+          "name": "Tech R&D/Project Management",
+          "requiredCertificates": [],
+          "preferredCertificates": []
+        }
+      ],
+      "requiredCertificates": [],
+      "preferredCertificates": [],
+      "url": null
+    },
+    {
+      "id": "SK_6274",
+      "source": "SK Careers",
+      "noticeID": "R261822",
+      "jobNoticeNo": 6274,
+      "company": "Tmap Mobility",
+      "companySize": "대기업",
+      "title": "AUTO QE (리더)",
+      "jobRole": "Tech R&D/기술검증/테스트",
+      "recruitType": "Experienced",
+      "workingType": "Permanent",
+      "workingArea": "Seoul",
+      "startDate": null,
+      "endDate": null,
+      "positions": [
+        {
+          "name": "Tech R&D/기술검증/테스트",
+          "requiredCertificates": [],
+          "preferredCertificates": []
+        }
+      ],
+      "requiredCertificates": [],
+      "preferredCertificates": [],
+      "url": null
+    },
+    {
+      "id": "SK_6316",
+      "source": "SK Careers",
+      "noticeID": "R261864",
+      "jobNoticeNo": 6316,
+      "company": "Tmap Mobility",
+      "companySize": "대기업",
+      "title": "Automotive Test Manager",
+      "jobRole": "IT/QA",
+      "recruitType": "Experienced",
+      "workingType": "Permanent",
+      "workingArea": "Seoul",
+      "startDate": null,
+      "endDate": null,
+      "positions": [
+        {
+          "name": "IT/QA",
+          "requiredCertificates": [],
+          "preferredCertificates": []
+        }
+      ],
+      "requiredCertificates": [],
+      "preferredCertificates": [],
+      "url": null
+    },
+    {
+      "id": "SK_6411",
+      "source": "SK Careers",
+      "noticeID": "R261959",
+      "jobNoticeNo": 6411,
+      "company": "Tmap Mobility",
+      "companySize": "대기업",
+      "title": "QA Automation Engineer",
+      "jobRole": "IT/QA",
+      "recruitType": "Experienced",
+      "workingType": "Permanent",
+      "workingArea": "Seoul",
+      "startDate": null,
+      "endDate": null,
+      "positions": [
+        {
+          "name": "IT/QA",
+          "requiredCertificates": [],
+          "preferredCertificates": []
+        }
+      ],
+      "requiredCertificates": [],
+      "preferredCertificates": [],
+      "url": null
+    },
+    {
+      "id": "SK_6467",
+      "source": "SK Careers",
+      "noticeID": "R262015",
+      "jobNoticeNo": 6467,
+      "company": "Tmap Mobility",
+      "companySize": "대기업",
+      "title": "LLMOps Engineer",
+      "jobRole": "Tech R&D/ML/DL 개발",
+      "recruitType": "Experienced",
+      "workingType": "Permanent",
+      "workingArea": "Seoul",
+      "startDate": null,
+      "endDate": null,
+      "positions": [
+        {
+          "name": "Tech R&D/ML/DL 개발",
+          "requiredCertificates": [],
+          "preferredCertificates": []
+        }
+      ],
+      "requiredCertificates": [],
+      "preferredCertificates": [],
+      "url": null
+    },
+    {
+      "id": "SK_6553",
+      "source": "SK Careers",
+      "noticeID": "R262101",
+      "jobNoticeNo": 6553,
+      "company": "Tmap Mobility",
+      "companySize": "대기업",
+      "title": "사업개발 담당자 - 자동차 부문/TMAP 인포테인먼트",
+      "jobRole": "사업개발/사업개발",
+      "recruitType": "Experienced",
+      "workingType": "Permanent",
+      "workingArea": "Seoul",
+      "startDate": null,
+      "endDate": null,
+      "positions": [
+        {
+          "name": "사업개발/사업개발",
+          "requiredCertificates": [],
+          "preferredCertificates": []
+        }
+      ],
+      "requiredCertificates": [],
+      "preferredCertificates": [],
+      "url": null
+    },
+    {
+      "id": "SK_6618",
+      "source": "SK Careers",
+      "noticeID": "R262166",
+      "jobNoticeNo": 6618,
+      "company": "Tmap Mobility",
+      "companySize": "대기업",
+      "title": "사내 변호사",
+      "jobRole": "법무/법무",
+      "recruitType": "Experienced",
+      "workingType": "Permanent",
+      "workingArea": "Seoul",
+      "startDate": null,
+      "endDate": null,
+      "positions": [
+        {
+          "name": "법무/법무",
+          "requiredCertificates": [],
+          "preferredCertificates": []
+        }
+      ],
+      "requiredCertificates": [],
+      "preferredCertificates": [],
+      "url": null
+    },
+    {
+      "id": "SK_6621",
+      "source": "SK Careers",
+      "noticeID": "R262169",
+      "jobNoticeNo": 6621,
+      "company": "Tmap Mobility",
+      "companySize": "대기업",
+      "title": "Data Analytics (리더)",
+      "jobRole": "Tech R&D/Data 분석/개발",
+      "recruitType": "Experienced",
+      "workingType": "Permanent",
+      "workingArea": "Seoul",
+      "startDate": null,
+      "endDate": null,
+      "positions": [
+        {
+          "name": "Tech R&D/Data 분석/개발",
+          "requiredCertificates": [],
+          "preferredCertificates": []
+        }
+      ],
+      "requiredCertificates": [],
+      "preferredCertificates": [],
+      "url": null
+    },
+    {
+      "id": "SK_6648",
+      "source": "SK Careers",
+      "noticeID": "R262196",
+      "jobNoticeNo": 6648,
+      "company": "Tmap Mobility",
+      "companySize": "대기업",
+      "title": "AI Agent Engineer",
+      "jobRole": "Tech R&D/Software",
+      "recruitType": "Experienced",
+      "workingType": "Permanent",
+      "workingArea": "Seoul",
+      "startDate": null,
+      "endDate": null,
+      "positions": [
+        {
+          "name": "Tech R&D/Software",
+          "requiredCertificates": [],
+          "preferredCertificates": []
+        }
+      ],
+      "requiredCertificates": [],
+      "preferredCertificates": [],
+      "url": null
+    },
+    {
+      "id": "SK_6720",
+      "source": "SK Careers",
+      "noticeID": "R262268",
+      "jobNoticeNo": 6720,
+      "company": "Tmap Mobility",
+      "companySize": "대기업",
+      "title": "Client Engineer (Android)",
+      "jobRole": "Tech R&D/Client 개발",
+      "recruitType": "Experienced",
+      "workingType": "Permanent",
+      "workingArea": "Seoul",
+      "startDate": null,
+      "endDate": null,
+      "positions": [
+        {
+          "name": "Tech R&D/Client 개발",
+          "requiredCertificates": [],
+          "preferredCertificates": []
+        }
+      ],
+      "requiredCertificates": [],
+      "preferredCertificates": [],
+      "url": null
+    },
+    {
+      "id": "SK_6721",
+      "source": "SK Careers",
+      "noticeID": "R262269",
+      "jobNoticeNo": 6721,
+      "company": "Tmap Mobility",
+      "companySize": "대기업",
+      "title": "Client Engineer (iOS)",
+      "jobRole": "Tech R&D/Client 개발",
+      "recruitType": "Experienced",
+      "workingType": "Permanent",
+      "workingArea": "Seoul",
+      "startDate": null,
+      "endDate": null,
+      "positions": [
+        {
+          "name": "Tech R&D/Client 개발",
+          "requiredCertificates": [],
+          "preferredCertificates": []
+        }
+      ],
+      "requiredCertificates": [],
+      "preferredCertificates": [],
+      "url": null
+    },
+    {
+      "id": "SK_6722",
+      "source": "SK Careers",
+      "noticeID": "R262270",
+      "jobNoticeNo": 6722,
+      "company": "Tmap Mobility",
+      "companySize": "대기업",
+      "title": "Navigation SDK Engineer",
+      "jobRole": "Tech R&D/Client 개발",
+      "recruitType": "Experienced",
+      "workingType": "Permanent",
+      "workingArea": "Seoul",
+      "startDate": null,
+      "endDate": null,
+      "positions": [
+        {
+          "name": "Tech R&D/Client 개발",
+          "requiredCertificates": [],
+          "preferredCertificates": []
+        }
+      ],
+      "requiredCertificates": [],
+      "preferredCertificates": [],
+      "url": null
+    },
+    {
+      "id": "SK_6762",
+      "source": "SK Careers",
+      "noticeID": "R262310",
+      "jobNoticeNo": 6762,
+      "company": "Tmap Mobility",
+      "companySize": "대기업",
+      "title": "Backend Engineer – 모빌리티 서비스",
+      "jobRole": "Tech R&D/Backend 개발",
+      "recruitType": "Experienced",
+      "workingType": "Permanent",
+      "workingArea": "Seoul",
+      "startDate": null,
+      "endDate": null,
+      "positions": [
+        {
+          "name": "Tech R&D/Backend 개발",
+          "requiredCertificates": [],
+          "preferredCertificates": []
+        }
+      ],
+      "requiredCertificates": [],
+      "preferredCertificates": [],
+      "url": null
+    },
+    {
+      "id": "SK_6791",
+      "source": "SK Careers",
+      "noticeID": "R262339",
+      "jobNoticeNo": 6791,
+      "company": "Tmap Mobility",
+      "companySize": "대기업",
+      "title": "Data Platform Engineer",
+      "jobRole": "Tech R&D/Data Engineering",
+      "recruitType": "Experienced",
+      "workingType": "Permanent",
+      "workingArea": "Seoul",
+      "startDate": null,
+      "endDate": null,
+      "positions": [
+        {
+          "name": "Tech R&D/Data Engineering",
+          "requiredCertificates": [],
+          "preferredCertificates": []
+        }
+      ],
+      "requiredCertificates": [],
+      "preferredCertificates": [],
+      "url": null
+    },
+    {
+      "id": "SK_6794",
+      "source": "SK Careers",
+      "noticeID": "R262342",
+      "jobNoticeNo": 6794,
+      "company": "Tmap Mobility",
+      "companySize": "대기업",
+      "title": "Product Designer/Owner - TMAP AUTO",
+      "jobRole": "기획/서비스 기획/운영",
+      "recruitType": "Experienced",
+      "workingType": "Permanent",
+      "workingArea": "Seoul",
+      "startDate": null,
+      "endDate": null,
+      "positions": [
+        {
+          "name": "기획/서비스 기획/운영",
+          "requiredCertificates": [],
+          "preferredCertificates": []
+        }
+      ],
+      "requiredCertificates": [],
+      "preferredCertificates": [],
+      "url": null
+    },
+    {
+      "id": "SK_6796",
+      "source": "SK Careers",
+      "noticeID": "R262344",
+      "jobNoticeNo": 6796,
+      "company": "SK inc.(AX)",
+      "companySize": "대기업",
+      "title": "SK하이닉스 데이터센터 및 인프라 구축 전문가 영입 (네트워크/시스템/DB)",
+      "jobRole": "Infra/Infra 설계/구축,Infra 운용/관리/최적화",
+      "recruitType": "Experienced",
+      "workingType": "Permanent",
+      "workingArea": "Gyeonggi/Incheon,Chungcheong,Abroad",
+      "startDate": null,
+      "endDate": null,
+      "positions": [
+        {
+          "name": "Infra/Infra 설계/구축,Infra 운용/관리/최적화",
+          "requiredCertificates": [],
+          "preferredCertificates": []
+        }
+      ],
+      "requiredCertificates": [],
+      "preferredCertificates": [],
+      "url": null
+    },
+    {
+      "id": "SK_6798",
+      "source": "SK Careers",
+      "noticeID": "R262346",
+      "jobNoticeNo": 6798,
+      "company": "SK inc.(AX)",
+      "companySize": "대기업",
+      "title": "SK하이닉스 Cloud 구축 및 운영 전문가 영입",
+      "jobRole": "Infra/Infra 운용/관리/최적화,Infra 설계/구축",
+      "recruitType": "Experienced",
+      "workingType": "Permanent",
+      "workingArea": "Gyeonggi/Incheon",
+      "startDate": null,
+      "endDate": null,
+      "positions": [
+        {
+          "name": "Infra/Infra 운용/관리/최적화,Infra 설계/구축",
+          "requiredCertificates": [],
+          "preferredCertificates": []
+        }
+      ],
+      "requiredCertificates": [],
+      "preferredCertificates": [],
+      "url": null
+    },
+    {
+      "id": "SK_6834",
+      "source": "SK Careers",
+      "noticeID": "R262382",
+      "jobNoticeNo": 6834,
+      "company": "SK signet",
+      "companySize": "대기업",
+      "title": "충방전기개발팀 - SW개발·현장 기술지원 (Junior)",
+      "jobRole": "Tech R&D/기술개발",
+      "recruitType": "Experienced",
+      "workingType": "Permanent",
+      "workingArea": "Gyeonggi/Incheon",
+      "startDate": null,
+      "endDate": null,
+      "positions": [
+        {
+          "name": "Tech R&D/기술개발",
+          "requiredCertificates": [],
+          "preferredCertificates": []
+        }
+      ],
+      "requiredCertificates": [],
+      "preferredCertificates": [],
+      "url": null
+    },
+    {
+      "id": "SK_6835",
+      "source": "SK Careers",
+      "noticeID": "R262383",
+      "jobNoticeNo": 6835,
+      "company": "SK signet",
+      "companySize": "대기업",
+      "title": "충방전기개발팀 - SW개발·현장 기술지원 (Senior)",
+      "jobRole": "Tech R&D/기술개발",
+      "recruitType": "Experienced",
+      "workingType": "Permanent",
+      "workingArea": "Gyeonggi/Incheon",
+      "startDate": null,
+      "endDate": null,
+      "positions": [
+        {
+          "name": "Tech R&D/기술개발",
+          "requiredCertificates": [],
+          "preferredCertificates": []
+        }
+      ],
+      "requiredCertificates": [],
+      "preferredCertificates": [],
+      "url": null
+    },
+    {
+      "id": "SK_6854",
+      "source": "SK Careers",
+      "noticeID": "R262402",
+      "jobNoticeNo": 6854,
+      "company": "Tmap Mobility",
+      "companySize": "대기업",
+      "title": "Backend Engineer - RP/교통",
+      "jobRole": "Tech R&D/Backend 개발",
+      "recruitType": "Experienced",
+      "workingType": "Permanent",
+      "workingArea": "Seoul",
+      "startDate": null,
+      "endDate": null,
+      "positions": [
+        {
+          "name": "Tech R&D/Backend 개발",
+          "requiredCertificates": [],
+          "preferredCertificates": []
+        }
+      ],
+      "requiredCertificates": [],
+      "preferredCertificates": [],
+      "url": null
+    },
+    {
+      "id": "SK_6856",
+      "source": "SK Careers",
+      "noticeID": "R262404",
+      "jobNoticeNo": 6856,
+      "company": "Tmap Mobility",
+      "companySize": "대기업",
+      "title": "사업 정산/운영 지원 담당자 (계약직)",
+      "jobRole": "기타",
+      "recruitType": "Experienced",
+      "workingType": "Contract",
+      "workingArea": "Seoul",
+      "startDate": null,
+      "endDate": null,
+      "positions": [
+        {
+          "name": "기타",
+          "requiredCertificates": [],
+          "preferredCertificates": []
+        }
+      ],
+      "requiredCertificates": [],
+      "preferredCertificates": [],
+      "url": null
+    },
+    {
+      "id": "SK_6906",
+      "source": "SK Careers",
+      "noticeID": "R262454",
+      "jobNoticeNo": 6906,
+      "company": "SK inc.(AX)",
+      "companySize": "대기업",
+      "title": "설비(Utility) 분야 전문가 영입",
+      "jobRole": "Tech R&D/설계",
+      "recruitType": "Experienced",
+      "workingType": "Permanent",
+      "workingArea": "Gyeonggi/Incheon,Chungcheong",
+      "startDate": null,
+      "endDate": null,
+      "positions": [
+        {
+          "name": "Tech R&D/설계",
+          "requiredCertificates": [],
+          "preferredCertificates": []
+        }
+      ],
+      "requiredCertificates": [],
+      "preferredCertificates": [],
+      "url": null
+    },
+    {
+      "id": "SK_6907",
+      "source": "SK Careers",
+      "noticeID": "R262455",
+      "jobNoticeNo": 6907,
+      "company": "SK inc.(AX)",
+      "companySize": "대기업",
+      "title": "반도체 Utility AX 시스템 전문가 영입",
+      "jobRole": "Tech R&D/Software Engineering",
+      "recruitType": "Experienced",
+      "workingType": "Permanent",
+      "workingArea": "Gyeonggi/Incheon",
+      "startDate": null,
+      "endDate": null,
+      "positions": [
+        {
+          "name": "Tech R&D/Software Engineering",
+          "requiredCertificates": [],
+          "preferredCertificates": []
+        }
+      ],
+      "requiredCertificates": [],
+      "preferredCertificates": [],
+      "url": null
+    },
+    {
+      "id": "SK_6909",
+      "source": "SK Careers",
+      "noticeID": "R262457",
+      "jobNoticeNo": 6909,
+      "company": "SK inc.(AX)",
+      "companySize": "대기업",
+      "title": "제조 AI · Data 분야 AI Studio(AI/ML DevOps 플랫폼) 개발/운영 PL 영입",
+      "jobRole": "Tech R&D/Data Engineering",
+      "recruitType": "Experienced",
+      "workingType": "Permanent",
+      "workingArea": "Gyeonggi/Incheon",
+      "startDate": null,
+      "endDate": null,
+      "positions": [
+        {
+          "name": "Tech R&D/Data Engineering",
+          "requiredCertificates": [],
+          "preferredCertificates": []
+        }
+      ],
+      "requiredCertificates": [],
+      "preferredCertificates": [],
+      "url": null
+    },
+    {
+      "id": "SK_6929",
+      "source": "SK Careers",
+      "noticeID": "R262477",
+      "jobNoticeNo": 6929,
+      "company": "SK inc.(AX)",
+      "companySize": "대기업",
+      "title": "반도체 R&D 시스템 어플리케이션 설계 및 리딩 전문가 영입",
+      "jobRole": "IT/구축/운영/최적화",
+      "recruitType": "Experienced",
+      "workingType": "Permanent",
+      "workingArea": "Gyeonggi/Incheon",
+      "startDate": null,
+      "endDate": null,
+      "positions": [
+        {
+          "name": "IT/구축/운영/최적화",
+          "requiredCertificates": [],
+          "preferredCertificates": []
+        }
+      ],
+      "requiredCertificates": [],
+      "preferredCertificates": [],
+      "url": null
+    },
+    {
+      "id": "SK_6937",
+      "source": "SK Careers",
+      "noticeID": "R262485",
+      "jobNoticeNo": 6937,
+      "company": "Tmap Mobility",
+      "companySize": "대기업",
+      "title": "보안 진단 엔지니어",
+      "jobRole": "정보보안",
+      "recruitType": "Experienced",
+      "workingType": "Permanent",
+      "workingArea": "Seoul",
+      "startDate": null,
+      "endDate": null,
+      "positions": [
+        {
+          "name": "정보보안",
+          "requiredCertificates": [],
+          "preferredCertificates": []
+        }
+      ],
+      "requiredCertificates": [],
+      "preferredCertificates": [],
+      "url": null
+    },
+    {
+      "id": "SK_6938",
+      "source": "SK Careers",
+      "noticeID": "R262486",
+      "jobNoticeNo": 6938,
+      "company": "Tmap Mobility",
+      "companySize": "대기업",
+      "title": "Sr. SNS 마케팅 담당자",
+      "jobRole": "마케팅/Branding",
+      "recruitType": "Experienced",
+      "workingType": "Permanent",
+      "workingArea": "Seoul",
+      "startDate": null,
+      "endDate": null,
+      "positions": [
+        {
+          "name": "마케팅/Branding",
+          "requiredCertificates": [],
+          "preferredCertificates": []
+        }
+      ],
+      "requiredCertificates": [],
+      "preferredCertificates": [],
+      "url": null
+    },
+    {
+      "id": "SK_6931",
+      "source": "SK Careers",
+      "noticeID": "R262479",
+      "jobNoticeNo": 6931,
+      "company": "SK signet",
+      "companySize": "대기업",
+      "title": "충방전기 사업기획/관리 (8년이상)",
+      "jobRole": "Infra/Infra 전략기획",
+      "recruitType": "Experienced",
+      "workingType": "Permanent",
+      "workingArea": "Gyeonggi/Incheon",
+      "startDate": null,
+      "endDate": null,
+      "positions": [
+        {
+          "name": "Infra/Infra 전략기획",
+          "requiredCertificates": [],
+          "preferredCertificates": []
+        }
+      ],
+      "requiredCertificates": [],
+      "preferredCertificates": [],
+      "url": null
+    },
+    {
+      "id": "SK_6930",
+      "source": "SK Careers",
+      "noticeID": "R262478",
+      "jobNoticeNo": 6930,
+      "company": "SK signet",
+      "companySize": "대기업",
+      "title": "충방전기 I&C 및 CS담당 (5년이상)",
+      "jobRole": "Infra/설비 Infra",
+      "recruitType": "Experienced",
+      "workingType": "Permanent",
+      "workingArea": "Gyeonggi/Incheon",
+      "startDate": null,
+      "endDate": null,
+      "positions": [
+        {
+          "name": "Infra/설비 Infra",
+          "requiredCertificates": [],
+          "preferredCertificates": []
+        }
+      ],
+      "requiredCertificates": [],
+      "preferredCertificates": [],
+      "url": null
+    },
+    {
+      "id": "SK_6318",
+      "source": "SK Careers",
+      "noticeID": "R261866",
+      "jobNoticeNo": 6318,
+      "company": "SK signet",
+      "companySize": "대기업",
+      "title": "[천안/호남·제주] 전기공사 현장대리인",
+      "jobRole": "건설/플랜트/현장관리",
+      "recruitType": "Experienced",
+      "workingType": "Contract",
+      "workingArea": "Chungcheong,Jeju",
+      "startDate": null,
+      "endDate": null,
+      "positions": [
+        {
+          "name": "건설/플랜트/현장관리",
+          "requiredCertificates": [],
+          "preferredCertificates": []
+        }
+      ],
+      "requiredCertificates": [],
+      "preferredCertificates": [],
+      "url": null
+    },
+    {
+      "id": "SK_3554",
+      "source": "SK Careers",
+      "noticeID": "R251763",
+      "jobNoticeNo": 3554,
+      "company": "SK signet",
+      "companySize": "대기업",
+      "title": "정보보안 담당 (7년이상)",
+      "jobRole": "정보보안",
+      "recruitType": "Experienced",
+      "workingType": "Permanent",
+      "workingArea": "Gyeonggi/Incheon",
+      "startDate": null,
+      "endDate": null,
+      "positions": [
+        {
+          "name": "정보보안",
+          "requiredCertificates": [],
+          "preferredCertificates": []
+        }
+      ],
+      "requiredCertificates": [],
+      "preferredCertificates": [],
+      "url": null
+    },
+    {
+      "id": "SK_6885",
+      "source": "SK Careers",
+      "noticeID": "R262433",
+      "jobNoticeNo": 6885,
+      "company": "SK signet",
+      "companySize": "대기업",
+      "title": "해외사업 및 기술영업 담당 (4년이상)",
+      "jobRole": "영업/Sales 지원",
+      "recruitType": "Experienced",
+      "workingType": "Permanent",
+      "workingArea": "Gyeonggi/Incheon",
+      "startDate": null,
+      "endDate": null,
+      "positions": [
+        {
+          "name": "영업/Sales 지원",
+          "requiredCertificates": [],
+          "preferredCertificates": []
+        }
+      ],
+      "requiredCertificates": [],
+      "preferredCertificates": [],
+      "url": null
+    }
+  ]
+}

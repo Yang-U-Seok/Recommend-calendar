@@ -1,16 +1,42 @@
+
+/**
+ * studyPlanner.js
+ *
+ * 합격률이 있는 자격증:
+ *   기존 합격률 기반 알고리즘 사용
+ *
+ * 합격률이 없는 자격증:
+ *   저장된 모의고사 점수 기반 알고리즘 사용
+ *
+ * 모의고사도 없는 경우:
+ *   기본 학습계획 생성
+ */
+
 const express = require('express');
 const Database = require('better-sqlite3');
 const path = require('path');
-const { calculateStudyPlan, estimatePreparation } = require('./studyAlgorithm');
-const { findPassRate, normalizeName } = require('./studyData');
+
+const {
+  calculateStudyPlan,
+  estimatePreparation
+} = require('./studyAlgorithm');
+
+const {
+  findPassRate,
+  normalizeName
+} = require('./studyData');
 
 const router = express.Router();
-const db = new Database(path.join(__dirname, 'users.db'));
+
+const db = new Database(
+  path.join(__dirname, 'users.db')
+);
 
 db.pragma('journal_mode = WAL');
+db.pragma('foreign_keys = ON');
 
 // ==========================================
-// 1. 데이터베이스 설정
+// 1. 데이터베이스
 // ==========================================
 
 db.exec(`
@@ -41,16 +67,6 @@ db.exec(`
       REFERENCES study_plans(id) ON DELETE CASCADE
   );
 
-  CREATE INDEX IF NOT EXISTS idx_study_plan_user
-    ON study_plans(user_id);
-
-  CREATE INDEX IF NOT EXISTS idx_study_task_plan
-    ON study_tasks(plan_id);
-`);
-
-db.pragma('foreign_keys = ON');
-
-db.exec(`
   CREATE TABLE IF NOT EXISTS mock_results (
     id INTEGER PRIMARY KEY AUTOINCREMENT,
     user_id INTEGER NOT NULL,
@@ -62,9 +78,28 @@ db.exec(`
     created_at TEXT DEFAULT CURRENT_TIMESTAMP
   );
 
+  CREATE INDEX IF NOT EXISTS idx_study_plan_user
+    ON study_plans(user_id);
+
+  CREATE INDEX IF NOT EXISTS idx_study_task_plan
+    ON study_tasks(plan_id);
+
   CREATE INDEX IF NOT EXISTS idx_mock_user
     ON mock_results(user_id);
 `);
+
+// 기존 DB를 삭제하지 않고 컬럼 추가
+const planColumns = db
+  .prepare('PRAGMA table_info(study_plans)')
+  .all()
+  .map(column => column.name);
+
+if (!planColumns.includes('algorithm_type')) {
+  db.exec(`
+    ALTER TABLE study_plans
+    ADD COLUMN algorithm_type TEXT
+  `);
+}
 
 // ==========================================
 // 2. 로그인 검사
@@ -89,7 +124,7 @@ router.use(auth);
 
 const normalize = normalizeName;
 
-const numeric = value => {
+function numeric(value) {
   if (
     value === null ||
     value === undefined ||
@@ -105,7 +140,16 @@ const numeric = value => {
   return Number.isFinite(number)
     ? number
     : null;
-};
+}
+
+function validRate(value) {
+  return (
+    typeof value === 'number' &&
+    Number.isFinite(value) &&
+    value >= 0 &&
+    value <= 100
+  );
+}
 
 function isValidDate(value) {
   const text = String(value || '');
@@ -129,8 +173,49 @@ function isValidDate(value) {
   );
 }
 
-// 내부 Q-Net API 호출
-async function internalGet(req, route, params) {
+function validStudyDays(days) {
+  return (
+    Array.isArray(days) &&
+    days.length > 0 &&
+    days.every(
+      day =>
+        Number.isInteger(day) &&
+        day >= 0 &&
+        day <= 6
+    )
+  );
+}
+
+function safeSubjects(value) {
+  try {
+    const parsed = JSON.parse(value || '[]');
+
+    return Array.isArray(parsed)
+      ? parsed
+      : [];
+  } catch {
+    return [];
+  }
+}
+
+// Q-Net에서 조회하지 않을 별도 시행기관 자격증
+// 추가할 자격증이 생기면 이 목록에 등록
+const EXTERNAL_CERTIFICATES = new Set([
+  '정보보안기사',
+  '정보보안산업기사'
+]);
+
+function isExternalCertificate(name) {
+  return EXTERNAL_CERTIFICATES.has(
+    normalize(name)
+  );
+}
+
+// ==========================================
+// 4. 내부 API 호출
+// ==========================================
+
+async function internalGet(route, params) {
   const port = process.env.PORT || 3001;
 
   const url = new URL(
@@ -150,7 +235,7 @@ async function internalGet(req, route, params) {
   });
 
   const response = await fetch(url, {
-    signal: AbortSignal.timeout(90000)
+    signal: AbortSignal.timeout(30000)
   });
 
   const data = await response.json();
@@ -167,7 +252,192 @@ async function internalGet(req, route, params) {
 }
 
 // ==========================================
-// 4. 모의고사 성적 조회
+// 5. 합격률 및 취득소요기간 조회
+// ==========================================
+
+async function loadStageStatistics(
+  certificateName,
+  grade
+) {
+  const currentYear = new Date().getFullYear();
+
+  let writtenPassRate = null;
+  let practicalPassRate = null;
+  let averageDays = null;
+
+  const warnings = [];
+
+  // 정보보안기사 등 별도 시행기관 자격증은
+  // Q-Net 조회를 생략하고 모의고사 기반으로 처리
+  if (isExternalCertificate(certificateName)) {
+    return {
+      writtenPassRate: null,
+      practicalPassRate: null,
+      averageDays: null,
+      passRateSource: 'NONE',
+      acquisitionSource: null,
+      warnings: [
+        '별도 시행기관 자격증: Q-Net 통계 조회 생략'
+      ]
+    };
+  }
+
+  const years = [
+    currentYear - 1,
+    currentYear - 2,
+    currentYear - 3
+  ];
+
+  for (const year of years) {
+    try {
+      const data = await internalGet(
+        '/api/qnet/pass-rate',
+        {
+          year,
+          grade,
+          keyword: certificateName
+        }
+      );
+
+      const rows = Array.isArray(data.items)
+        ? data.items
+        : [];
+
+      const written = numeric(
+        findPassRate(
+          rows,
+          certificateName,
+          '필기'
+        )?.passRate
+      );
+
+      const practical = numeric(
+        findPassRate(
+          rows,
+          certificateName,
+          '실기'
+        )?.passRate
+      );
+
+      if (
+        writtenPassRate === null &&
+        validRate(written)
+      ) {
+        writtenPassRate = written;
+      }
+
+      if (
+        practicalPassRate === null &&
+        validRate(practical)
+      ) {
+        practicalPassRate = practical;
+      }
+
+      if (
+        writtenPassRate !== null &&
+        practicalPassRate !== null
+      ) {
+        break;
+      }
+
+    } catch (error) {
+      warnings.push(
+        `${year} 합격률 조회 실패: ${error.message}`
+      );
+    }
+  }
+
+  const termYears = [
+    ...new Set([...years, 2023])
+  ];
+
+  for (const year of termYears) {
+    try {
+      const data = await internalGet(
+        '/api/qnet/acquisition-term',
+        {
+          year,
+          grade,
+          keyword: certificateName
+        }
+      );
+
+      const rows = Array.isArray(data.items)
+        ? data.items
+        : [];
+
+      const match = rows.find(row =>
+        normalize(
+          row.name ??
+          row.jmNm ??
+          row.qualName ??
+          ''
+        ) === normalize(certificateName)
+      );
+
+      const value = numeric(
+        match?.averageDays ??
+        match?.accumAcquAvgTermDays
+      );
+
+      if (value !== null && value > 0) {
+        averageDays = value;
+        break;
+      }
+
+    } catch (error) {
+      warnings.push(
+        `${year} 취득소요기간 조회 실패: ${error.message}`
+      );
+    }
+  }
+
+  return {
+    writtenPassRate,
+    practicalPassRate,
+    averageDays,
+
+    passRateSource:
+      writtenPassRate !== null ||
+      practicalPassRate !== null
+        ? 'QNET'
+        : 'NONE',
+
+    acquisitionSource:
+      averageDays !== null
+        ? 'QNET'
+        : null,
+
+    warnings
+  };
+}
+
+// ==========================================
+// 6. 최근 모의고사 조회
+// ==========================================
+
+function findLatestMock(
+  userId,
+  certificateName,
+  examType
+) {
+  const rows = db.prepare(`
+    SELECT *
+    FROM mock_results
+    WHERE user_id = ?
+      AND exam_type = ?
+    ORDER BY mock_date DESC, id DESC
+  `).all(userId, examType);
+
+  return rows.find(
+    row =>
+      normalize(row.certificate_name) ===
+      normalize(certificateName)
+  ) || null;
+}
+
+// ==========================================
+// 7. 모의고사 목록
 // ==========================================
 
 router.get('/mock-results', (req, res) => {
@@ -187,7 +457,7 @@ router.get('/mock-results', (req, res) => {
         examType: row.exam_type,
         mockDate: row.mock_date,
         score: row.score,
-        subjects: JSON.parse(row.subjects_json)
+        subjects: safeSubjects(row.subjects_json)
       }))
     });
 
@@ -200,7 +470,7 @@ router.get('/mock-results', (req, res) => {
 });
 
 // ==========================================
-// 5. 모의고사 성적 저장
+// 8. 모의고사 저장
 // ==========================================
 
 router.post('/mock-results', (req, res) => {
@@ -219,9 +489,7 @@ router.post('/mock-results', (req, res) => {
       certificateName.length > 100 ||
       !['written', 'practical'].includes(examType) ||
       !isValidDate(mockDate) ||
-      !Number.isFinite(score) ||
-      score < 0 ||
-      score > 100 ||
+      !validRate(score) ||
       !Array.isArray(subjects) ||
       subjects.length > 30 ||
       subjects.some(subject =>
@@ -229,9 +497,7 @@ router.post('/mock-results', (req, res) => {
         typeof subject.name !== 'string' ||
         !subject.name.trim() ||
         subject.name.length > 100 ||
-        !Number.isFinite(subject.score) ||
-        subject.score < 0 ||
-        subject.score > 100
+        !validRate(subject.score)
       )
     ) {
       return res.status(400).json({
@@ -241,8 +507,7 @@ router.post('/mock-results', (req, res) => {
     }
 
     const result = db.prepare(`
-      INSERT INTO mock_results
-      (
+      INSERT INTO mock_results (
         user_id,
         certificate_name,
         exam_type,
@@ -274,7 +539,7 @@ router.post('/mock-results', (req, res) => {
 });
 
 // ==========================================
-// 모의고사 성적 삭제
+// 9. 모의고사 삭제
 // ==========================================
 
 router.delete('/mock-results/:id', (req, res) => {
@@ -290,10 +555,11 @@ router.delete('/mock-results/:id', (req, res) => {
 
     const result = db.prepare(`
       DELETE FROM mock_results
-      WHERE id = ? AND user_id = ?
+      WHERE id = ?
+        AND user_id = ?
     `).run(id, req.session.userId);
 
-    if (result.changes === 0) {
+    if (!result.changes) {
       return res.status(404).json({
         success: false,
         message: '삭제할 성적을 찾을 수 없습니다.'
@@ -314,7 +580,7 @@ router.delete('/mock-results/:id', (req, res) => {
 });
 
 // ==========================================
-// 6. 사용자별 학습계획 목록
+// 10. 학습계획 목록
 // ==========================================
 
 function list(req) {
@@ -342,13 +608,21 @@ function list(req) {
     certificateName: plan.certificate_name,
     examType: plan.exam_type,
     examDate: plan.exam_date,
+
     estimatedHours: plan.estimated_hours,
     requiredDailyHours: plan.required_daily_hours,
     availableHours: plan.available_hours,
+
     feasible: Boolean(plan.feasible),
-    feasibilityAssessed: plan.average_days !== null,
+    feasibilityAssessed: true,
+
     passRate: plan.pass_rate,
     averageDays: plan.average_days,
+
+    algorithmType:
+      plan.algorithm_type ||
+      'LEGACY',
+
     notice: plan.notice,
 
     tasks: getTasks.all(plan.id).map(task => ({
@@ -357,10 +631,6 @@ function list(req) {
     }))
   }));
 }
-
-// ==========================================
-// 7. 학습계획 조회
-// ==========================================
 
 router.get('/plans', (req, res) => {
   try {
@@ -377,56 +647,98 @@ router.get('/plans', (req, res) => {
   }
 });
 
-// 동일한 통계조회 함수를 미리보기와 실제 생성에서 사용한다.
-async function loadStageStatistics(req,certificateName,grade) {
-  const currentYear=new Date().getFullYear();
-  let writtenPassRate=null,practicalPassRate=null,averageDays=null;
-  const warnings=[];
-  for(const year of [currentYear-1,currentYear-2,currentYear-3]) {
-    try {
-      const data=await internalGet(req,'/api/qnet/pass-rate',{year,grade,keyword:certificateName});
-      const rows=Array.isArray(data.items)?data.items:[];
-      const written=numeric(findPassRate(rows,certificateName,'필기')?.passRate);
-      const practical=numeric(findPassRate(rows,certificateName,'실기')?.passRate);
-      if(writtenPassRate===null && written!==null && written>=0 && written<=100)writtenPassRate=written;
-      if(practicalPassRate===null && practical!==null && practical>=0 && practical<=100)practicalPassRate=practical;
-      if(writtenPassRate!==null && practicalPassRate!==null)break;
-    }catch(e){warnings.push(`${year} 합격률: ${e.message}`);}
-  }
-  for(const year of [...new Set([currentYear-1,currentYear-2,currentYear-3,2023])]) {
-    try {
-      const data=await internalGet(req,'/api/qnet/acquisition-term',{year,grade,keyword:certificateName});
-      const rows=Array.isArray(data.items)?data.items:[];
-      const match=rows.find(r=>normalize(r.name??r.jmNm??r.qualName??'')===normalize(certificateName));
-      const value=numeric(match?.averageDays??match?.accumAcquAvgTermDays);
-      if(value!==null && value>0){averageDays=value;break;}
-    }catch(e){warnings.push(`${year} 취득소요기간: ${e.message}`);}
-  }
-  return {writtenPassRate,practicalPassRate,averageDays,warnings};
-}
+// ==========================================
+// 11. 학습기간 미리보기
+// ==========================================
 
-// 추천 학습기간 미리보기: 저장된 모의고사 점수를 기반으로 완료일 계산
-router.post('/preview', async (req,res) => {
+router.post('/preview', async (req, res) => {
   try {
-    const { certificateName, examType='written', level='beginner',
-      dailyHours=4, studyDays=[1,2,3,4,5,6], grade='30' } = req.body || {};
-    if (typeof certificateName !== 'string' || !certificateName.trim() ||
-        !['written','practical'].includes(examType))
-      return res.status(400).json({success:false,message:'자격증과 시험 유형을 확인하세요.'});
-    const candidates = db.prepare(`SELECT * FROM mock_results WHERE user_id=? AND exam_type=? ORDER BY mock_date DESC,id DESC`)
-      .all(req.session.userId,examType);
-    const mock = candidates.find(r=>normalize(r.certificate_name)===normalize(certificateName));
-    const stats=await loadStageStatistics(req,certificateName,grade);
-    const passRate=examType==='written'?stats.writtenPassRate:stats.practicalPassRate;
-    const estimate=estimatePreparation({level,dailyHours:Number(dailyHours),studyDays,
-      examType,passRate,mockScore:mock?.score??null,...stats});
-    res.json({success:true,estimate,mockScore:mock?.score??null,passRate,personalAdjustedRate:estimate.personalAdjustedRate,
-      statistics:stats,notice:'Q-Net 공식 합격률로 필기·실기 기간을 배분하고 모의고사 점수는 목표 80점 대비 학습량에 한 번만 반영합니다. 65:35 지표는 참고용이며 실제 합격확률이 아닙니다. 화면의 개인별 지표는 참고용이며 실제 합격확률이 아닙니다. 목표 모의고사 점수는 80점이고 하루 공부시간 기본값은 4시간(선택 1~8시간)입니다. 통계 환산용 2시간과 활동일 비율 0.4는 검증된 평균이 아닌 가정값입니다.'});
-  } catch(e) { res.status(400).json({success:false,message:e.message}); }
+    const {
+      certificateName,
+      examType = 'written',
+      level = 'beginner',
+      dailyHours = 4,
+      studyDays = [1, 2, 3, 4, 5, 6],
+      grade = '30'
+    } = req.body || {};
+
+    if (
+      typeof certificateName !== 'string' ||
+      !certificateName.trim() ||
+      !['written', 'practical'].includes(examType)
+    ) {
+      return res.status(400).json({
+        success: false,
+        message: '자격증과 시험 유형을 확인하세요.'
+      });
+    }
+
+    const mock = findLatestMock(
+      req.session.userId,
+      certificateName,
+      examType
+    );
+
+    const stats = await loadStageStatistics(
+      certificateName,
+      grade
+    );
+
+    const passRate =
+      examType === 'written'
+        ? stats.writtenPassRate
+        : stats.practicalPassRate;
+
+    const estimate = estimatePreparation({
+      level,
+      dailyHours: Number(dailyHours),
+      studyDays,
+      examType,
+      passRate,
+      mockScore: mock?.score ?? null,
+      writtenPassRate: stats.writtenPassRate,
+      practicalPassRate: stats.practicalPassRate,
+      averageDays: stats.averageDays
+    });
+
+    const algorithmType = validRate(passRate)
+      ? 'PASS_RATE_BASED'
+      : mock
+        ? 'MOCK_BASED'
+        : 'BASIC_FALLBACK';
+
+    res.json({
+      success: true,
+
+      algorithmType,
+      estimate,
+
+      mockScore: mock?.score ?? null,
+      passRate,
+
+      personalAdjustedRate:
+        estimate.personalAdjustedRate,
+
+      statistics: stats,
+
+      notice:
+        algorithmType === 'MOCK_BASED'
+          ? '합격률이 없어 최근 모의고사 점수와 사용자 수준을 기준으로 학습기간을 추정했습니다.'
+          : algorithmType === 'BASIC_FALLBACK'
+            ? '합격률과 모의고사 점수가 없어 기본 학습량으로 임시 기간을 추정했습니다.'
+            : '합격률 통계와 모의고사 점수를 활용해 학습기간을 추정했습니다.'
+    });
+
+  } catch (error) {
+    res.status(400).json({
+      success: false,
+      message: error.message
+    });
+  }
 });
 
 // ==========================================
-// 8. 맞춤형 학습계획 생성
+// 12. 학습계획 생성
 // ==========================================
 
 router.post('/plans', async (req, res) => {
@@ -445,10 +757,6 @@ router.post('/plans', async (req, res) => {
       certificateName || ''
     ).trim();
 
-    // --------------------------------------
-    // 8-1. 입력값 검증
-    // --------------------------------------
-
     if (!name || name.length > 100) {
       return res.status(400).json({
         success: false,
@@ -456,14 +764,21 @@ router.post('/plans', async (req, res) => {
       });
     }
 
-    if (examDate && !isValidDate(examDate)) {
+    if (
+      examDate !== undefined &&
+      examDate !== null &&
+      examDate !== '' &&
+      !isValidDate(examDate)
+    ) {
       return res.status(400).json({
         success: false,
         message: '올바른 시험일을 선택하세요.'
       });
     }
 
-    if (!['written', 'practical'].includes(examType)) {
+    if (
+      !['written', 'practical'].includes(examType)
+    ) {
       return res.status(400).json({
         success: false,
         message: '시험 유형이 올바르지 않습니다.'
@@ -480,26 +795,20 @@ router.post('/plans', async (req, res) => {
       });
     }
 
+    const hours = Number(dailyHours);
+
     if (
-      !Number.isFinite(Number(dailyHours)) ||
-      Number(dailyHours) < 1 ||
-      Number(dailyHours) > 8
+      !Number.isFinite(hours) ||
+      hours < 1 ||
+      hours > 8
     ) {
       return res.status(400).json({
         success: false,
-        message: '하루 학습시간은 0.5~12시간이어야 합니다.'
+        message: '하루 공부시간은 1~8시간이어야 합니다.'
       });
     }
 
-    if (
-      !Array.isArray(studyDays) ||
-      studyDays.length === 0 ||
-      studyDays.some(day =>
-        !Number.isInteger(day) ||
-        day < 0 ||
-        day > 6
-      )
-    ) {
+    if (!validStudyDays(studyDays)) {
       return res.status(400).json({
         success: false,
         message: '학습 요일이 올바르지 않습니다.'
@@ -507,48 +816,20 @@ router.post('/plans', async (req, res) => {
     }
 
     // --------------------------------------
-    // 8-2. 조회 연도 설정
+    // 12-1. 자격증 통계 조회
     // --------------------------------------
 
-    const currentYear = new Date().getFullYear();
+    const stats = await loadStageStatistics(
+      name,
+      grade
+    );
 
-    const typeLabel =
+    const passRate =
       examType === 'written'
-        ? '필기'
-        : '실기';
+        ? stats.writtenPassRate
+        : stats.practicalPassRate;
 
-    const passYears = [
-      currentYear - 1,
-      currentYear - 2,
-      currentYear - 3
-    ];
-
-    const termYears = [
-      ...new Set([
-        currentYear - 1,
-        currentYear - 2,
-        currentYear - 3,
-        2023
-      ])
-    ].filter(year => year >= 2020);
-
-    const diagnostics = {
-      passRate: [],
-      acquisitionTerm: []
-    };
-
-    // --------------------------------------
-    // 8-3. Q-Net 합격률 조회
-    // --------------------------------------
-
-    const stats=await loadStageStatistics(req,name,grade);
-    let passRate=examType==='written'?stats.writtenPassRate:stats.practicalPassRate;
-    let passRateYear=null;
-
-    // --------------------------------------
-    // 8-4. 수동 취득소요기간 확인
-    // --------------------------------------
-
+    // 수동 입력 취득기간 우선 적용
     const manualAverageDays = numeric(
       req.body?.averageDays
     );
@@ -567,101 +848,114 @@ router.post('/plans', async (req, res) => {
       });
     }
 
-    let averageDays=manualAverageDays??stats.averageDays;
-    let acquisitionYear=null;
-    let acquisitionSource=manualAverageDays!==null?'user-provided':stats.averageDays!==null?'qnet':null;
-    diagnostics.passRate.push({written:stats.writtenPassRate,practical:stats.practicalPassRate});
-    diagnostics.acquisitionTerm.push({averageDays,source:acquisitionSource,warnings:stats.warnings});
+    const averageDays =
+      manualAverageDays ??
+      stats.averageDays;
+
+    const acquisitionSource =
+      manualAverageDays !== null
+        ? 'user-provided'
+        : stats.acquisitionSource;
 
     // --------------------------------------
-    // 8-7. 데이터 누락 처리
+    // 12-2. 모의고사 점수 조회
     // --------------------------------------
 
-    // 합격률은 기존 정책대로 필수
-    if (passRate === null) {
-      console.warn('[학습계획] 합격률 부재: 보정 없이 계획 생성');
-    }
-
-    // 핵심 수정:
-    // 취득소요기간이 없어도 계획 생성 진행
-    if (averageDays === null) {
-      console.warn(
-        `[학습계획] ${name}: 취득소요기간 통계 없음. 학습 가능 시간 기준으로 생성합니다.`
-      );
-    }
-
-    // --------------------------------------
-    // 8-8. 최근 모의고사 성적 조회
-    // --------------------------------------
-
-    const mockCandidates = db.prepare(`
-      SELECT *
-      FROM mock_results
-      WHERE user_id = ?
-        AND exam_type = ?
-      ORDER BY mock_date DESC, id DESC
-    `).all(
+    const mock = findLatestMock(
       req.session.userId,
+      name,
       examType
     );
 
-    const mock = mockCandidates.find(
-      item =>
-        normalize(item.certificate_name) ===
-        normalize(name)
-    ) || null;
+    const mockScore = mock?.score ?? null;
 
-    console.log(
-      '[모의고사 조회 결과]',
-      mock
-        ? {
-            score: mock.score,
-            mockDate: mock.mock_date
-          }
-        : '저장된 모의고사 성적 없음'
-    );
+    const subjects = mock
+      ? safeSubjects(mock.subjects_json)
+      : [];
 
     // --------------------------------------
-    // 8-9. 학습계획 알고리즘 실행
+    // 12-3. 알고리즘 자동 선택
     // --------------------------------------
 
-    // 시험일 미지정 시 모의고사 기반 추천 완료일 다음 날을 임시 목표일로 사용
-    const suggested = estimatePreparation({level,dailyHours:Number(dailyHours),studyDays,
-      passRate,averageDays,examType,mockScore:mock?.score ?? null,
-      writtenPassRate:stats.writtenPassRate,practicalPassRate:stats.practicalPassRate});
-    const targetExamDate = examDate || suggested.suggestedTargetDate;
-    if (suggested.daysUntilExam > 730 && !examDate) {
-      return res.status(400).json({success:false,message:'추천 기간이 730일을 초과합니다. 공부시간을 늘리거나 목표일을 직접 선택하세요.'});
+    const algorithmType = validRate(passRate)
+      ? 'PASS_RATE_BASED'
+      : mock !== null
+        ? 'MOCK_BASED'
+        : 'BASIC_FALLBACK';
+
+    console.log('[학습계획 알고리즘 선택]', {
+      certificateName: name,
+      algorithmType,
+      passRate,
+      mockScore,
+      averageDays
+    });
+
+    // --------------------------------------
+    // 12-4. 추천 시험일 계산
+    // --------------------------------------
+
+    const suggested = estimatePreparation({
+      level,
+      dailyHours: hours,
+      studyDays,
+      examType,
+      passRate,
+      averageDays,
+      mockScore,
+
+      writtenPassRate:
+        stats.writtenPassRate,
+
+      practicalPassRate:
+        stats.practicalPassRate
+    });
+
+    const targetExamDate =
+      examDate || suggested.suggestedTargetDate;
+
+    if (
+      !examDate &&
+      suggested.daysUntilExam > 730
+    ) {
+      return res.status(400).json({
+        success: false,
+        message:
+          '추천 기간이 730일을 초과합니다. 공부시간을 늘리거나 목표일을 직접 선택하세요.'
+      });
     }
+
+    // --------------------------------------
+    // 12-5. 실제 학습계획 생성
+    // --------------------------------------
+
     const result = calculateStudyPlan({
       certificateName: name,
       examType,
       examDate: targetExamDate,
       level,
-      dailyHours: Number(dailyHours),
+      dailyHours: hours,
       studyDays,
+
       passRate,
       averageDays,
-      writtenPassRate:stats.writtenPassRate,
-      practicalPassRate:stats.practicalPassRate,
+      mockScore,
+      subjects,
 
-      mockScore: mock
-        ? mock.score
-        : null,
+      writtenPassRate:
+        stats.writtenPassRate,
 
-      subjects: mock
-        ? JSON.parse(mock.subjects_json)
-        : []
+      practicalPassRate:
+        stats.practicalPassRate
     });
 
     // --------------------------------------
-    // 8-10. 학습계획 DB 저장
+    // 12-6. 데이터베이스 저장
     // --------------------------------------
 
     const insert = db.transaction(() => {
       const planResult = db.prepare(`
-        INSERT INTO study_plans
-        (
+        INSERT INTO study_plans (
           user_id,
           certificate_name,
           exam_type,
@@ -672,43 +966,35 @@ router.post('/plans', async (req, res) => {
           feasible,
           pass_rate,
           average_days,
-          notice
+          notice,
+          algorithm_type
         )
-        VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?)
+        VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?)
       `).run(
         req.session.userId,
         name,
         examType,
         result.examDate,
+
         result.estimatedHours,
         result.requiredDailyHours,
         result.availableHours,
         Number(result.feasible),
+
         passRate,
         averageDays,
 
-        `${result.notice} [합격률 기준연도: ${
-          passRateYear ?? '미상'
-        }, 취득소요기간 출처: ${
-          acquisitionSource ?? '데이터 없음'
-        }${
-          acquisitionYear
-            ? `(${acquisitionYear})`
-            : ''
-        }]${
+        `${result.notice} ${
           mock
-            ? ` 최근 모의고사 ${mock.score}점 반영`
-            : ' 모의고사 미입력: 기본 일정 사용'
-        }`
+            ? `최근 모의고사 ${mock.score}점 반영`
+            : '모의고사 미입력'
+        }`,
+
+        algorithmType
       );
 
-      // ------------------------------------
-      // 8-11. 날짜별 학습일정 저장
-      // ------------------------------------
-
       const insertTask = db.prepare(`
-        INSERT INTO study_tasks
-        (
+        INSERT INTO study_tasks (
           plan_id,
           date,
           title,
@@ -734,34 +1020,56 @@ router.post('/plans', async (req, res) => {
     const id = insert();
 
     // --------------------------------------
-    // 8-12. 최종 결과 반환
+    // 12-7. 결과 반환
     // --------------------------------------
 
     res.status(201).json({
       success: true,
+
+      algorithmType,
 
       plan: list(req).find(
         plan => plan.id === id
       ),
 
       dataSources: {
-        passRateYear,
-        acquisitionYear,
-        acquisitionSource
+        passRateSource:
+          stats.passRateSource,
+
+        acquisitionSource,
+
+        mockSource:
+          mock ? 'USER_MOCK' : null
       },
 
       estimationDetails:
         result.estimationDetails,
-      suggestedCompletion: suggested,
-      targetDateIsSuggested: !examDate,
+
+      suggestedCompletion:
+        suggested,
+
+      targetDateIsSuggested:
+        !examDate,
 
       feasibilityAssessed:
         result.feasibilityAssessed,
 
-      dataWarnings:
-        result.warnings,
+      dataWarnings: [
+        ...stats.warnings,
+        ...result.warnings
+      ],
 
-      diagnostics
+      diagnostics: {
+        passRate: [{
+          written: stats.writtenPassRate,
+          practical: stats.practicalPassRate
+        }],
+
+        acquisitionTerm: [{
+          averageDays,
+          source: acquisitionSource
+        }]
+      }
     });
 
   } catch (error) {
@@ -778,7 +1086,7 @@ router.post('/plans', async (req, res) => {
 });
 
 // ==========================================
-// 9. 공부 완료 체크
+// 13. 공부 완료 체크
 // ==========================================
 
 router.patch('/tasks/:id', (req, res) => {
@@ -828,7 +1136,7 @@ router.patch('/tasks/:id', (req, res) => {
 });
 
 // ==========================================
-// 10. 학습계획 삭제
+// 14. 학습계획 삭제
 // ==========================================
 
 router.delete('/plans/:id', (req, res) => {
@@ -862,7 +1170,7 @@ router.delete('/plans/:id', (req, res) => {
 });
 
 // ==========================================
-// 11. 라우터 내보내기
+// 15. 라우터 내보내기
 // ==========================================
 
 module.exports = router;

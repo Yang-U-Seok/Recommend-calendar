@@ -1,0 +1,3782 @@
+[
+  {
+    "id": "CJ-J20261113041109",
+    "originalId": "J20261113041109",
+    "group": "CJ",
+    "sourceCompany": "CJ",
+    "company": "CJ올리브네트웍스",
+    "companySize": "대기업",
+    "title": "[경력] SQL Server DBA",
+    "position": "DBA",
+    "location": "서울",
+    "startDate": "2026-11-13",
+    "endDate": "2026-12-07",
+    "endTime": "23:59",
+    "recruitmentType": "기간제 공고",
+    "jobCode": "0626",
+    "jobFamily": "IR",
+    "isActive": true,
+    "isRolling": false,
+    "positions": [
+      {
+        "name": "DBA",
+        "location": "서울"
+      }
+    ],
+    "requiredCertificates": [],
+    "preferredCertificates": [],
+    "url": "https://recruit.cj.net/",
+    "source": "CJ 공식 채용사이트",
+    "collectedAt": "2026-11-14T08:26:53.324Z"
+  },
+  {
+    "id": "CJ-J20261113040626",
+    "originalId": "J20261113040626",
+    "group": "CJ",
+    "sourceCompany": "CJ",
+    "company": "CJ푸드빌",
+    "companySize": "대기업",
+    "title": "[CJ푸드빌] 구매팀(원물구매) 담당자 (3년 이상)",
+    "position": "구매",
+    "location": "서울",
+    "startDate": "2026-11-13",
+    "endDate": "2026-11-26",
+    "endTime": "23:59",
+    "recruitmentType": "기간제 공고",
+    "jobCode": "0040",
+    "jobFamily": "AD",
+    "isActive": true,
+    "isRolling": false,
+    "positions": [
+      {
+        "name": "구매",
+        "location": "서울"
+      }
+    ],
+    "requiredCertificates": [],
+    "preferredCertificates": [],
+    "url": "https://recruit.cj.net/",
+    "source": "CJ 공식 채용사이트",
+    "collectedAt": "2026-11-14T08:26:53.324Z"
+  },
+  {
+    "id": "CJ-J20261113040629",
+    "originalId": "J20261113040629",
+    "group": "CJ",
+    "sourceCompany": "CJ",
+    "company": "CJ푸드빌",
+    "companySize": "대기업",
+    "title": "[CJ푸드빌] 음성 물류센터 센터운영/현장관리 담당자 (2년 이상)",
+    "position": "물류운영",
+    "location": "충북 음성",
+    "startDate": "2026-11-13",
+    "endDate": "2026-11-26",
+    "endTime": "23:59",
+    "recruitmentType": "기간제 공고",
+    "jobCode": "5560",
+    "jobFamily": "KT",
+    "isActive": true,
+    "isRolling": false,
+    "positions": [
+      {
+        "name": "물류운영",
+        "location": "충북 음성"
+      }
+    ],
+    "requiredCertificates": [],
+    "preferredCertificates": [],
+    "url": "https://recruit.cj.net/",
+    "source": "CJ 공식 채용사이트",
+    "collectedAt": "2026-11-14T08:26:53.324Z"
+  },
+  {
+    "id": "CJ-J20261113041111",
+    "originalId": "J20261113041111",
+    "group": "CJ",
+    "sourceCompany": "CJ",
+    "company": "CJ푸드빌",
+    "companySize": "대기업",
+    "title": "[CJ푸드빌] 안성 물류센터 차량(배차) 및 현장 관리  담당자 (2년 이상)",
+    "position": "물류운영",
+    "location": "안성",
+    "startDate": "2026-11-13",
+    "endDate": "2026-11-26",
+    "endTime": "23:59",
+    "recruitmentType": "기간제 공고",
+    "jobCode": "5560",
+    "jobFamily": "KT",
+    "isActive": true,
+    "isRolling": false,
+    "positions": [
+      {
+        "name": "물류운영",
+        "location": "안성"
+      }
+    ],
+    "requiredCertificates": [],
+    "preferredCertificates": [],
+    "url": "https://recruit.cj.net/",
+    "source": "CJ 공식 채용사이트",
+    "collectedAt": "2026-11-14T08:26:53.324Z"
+  },
+  {
+    "id": "CJ-J20261113041110",
+    "originalId": "J20261113041110",
+    "group": "CJ",
+    "sourceCompany": "CJ",
+    "company": "CJ푸드빌",
+    "companySize": "대기업",
+    "title": "[CJ푸드빌] 용인 물류센터 재고관리 및 운영 담당자 (2년 이상)",
+    "position": "물류운영",
+    "location": "용인",
+    "startDate": "2026-11-13",
+    "endDate": "2026-11-26",
+    "endTime": "23:59",
+    "recruitmentType": "기간제 공고",
+    "jobCode": "5560",
+    "jobFamily": "KT",
+    "isActive": true,
+    "isRolling": false,
+    "positions": [
+      {
+        "name": "물류운영",
+        "location": "용인"
+      }
+    ],
+    "requiredCertificates": [],
+    "preferredCertificates": [],
+    "url": "https://recruit.cj.net/",
+    "source": "CJ 공식 채용사이트",
+    "collectedAt": "2026-11-14T08:26:53.324Z"
+  },
+  {
+    "id": "CJ-J20261113040627",
+    "originalId": "J20261113040627",
+    "group": "CJ",
+    "sourceCompany": "CJ",
+    "company": "CJ푸드빌",
+    "companySize": "대기업",
+    "title": "[CJ푸드빌] 올리페페/더플레이스 브랜드 마케팅 담당자 (8년 이상)",
+    "position": "마케팅(브랜드매니저)",
+    "location": "서울",
+    "startDate": "2026-11-13",
+    "endDate": "2026-11-26",
+    "endTime": "23:59",
+    "recruitmentType": "기간제 공고",
+    "jobCode": "6137",
+    "jobFamily": "CF",
+    "isActive": true,
+    "isRolling": false,
+    "positions": [
+      {
+        "name": "마케팅(브랜드매니저)",
+        "location": "서울"
+      }
+    ],
+    "requiredCertificates": [],
+    "preferredCertificates": [],
+    "url": "https://recruit.cj.net/",
+    "source": "CJ 공식 채용사이트",
+    "collectedAt": "2026-11-14T08:26:53.324Z"
+  },
+  {
+    "id": "CJ-J20261113040628",
+    "originalId": "J20261113040628",
+    "group": "CJ",
+    "sourceCompany": "CJ",
+    "company": "CJ푸드빌",
+    "companySize": "대기업",
+    "title": "[CJ푸드빌] 외식브랜드 서비스 교육/품질관리 담당자 (8년 이상)",
+    "position": "서비스 교육",
+    "location": "서울",
+    "startDate": "2026-11-13",
+    "endDate": "2026-11-26",
+    "endTime": "23:59",
+    "recruitmentType": "기간제 공고",
+    "jobCode": "6296",
+    "jobFamily": "BE",
+    "isActive": true,
+    "isRolling": false,
+    "positions": [
+      {
+        "name": "서비스 교육",
+        "location": "서울"
+      }
+    ],
+    "requiredCertificates": [],
+    "preferredCertificates": [],
+    "url": "https://recruit.cj.net/",
+    "source": "CJ 공식 채용사이트",
+    "collectedAt": "2026-11-14T08:26:53.324Z"
+  },
+  {
+    "id": "CJ-J20261112041108",
+    "originalId": "J20261112041108",
+    "group": "CJ",
+    "sourceCompany": "CJ",
+    "company": "CJ ENM",
+    "companySize": "대기업",
+    "title": "[CJ ENM] 음악 IP(아티스트) 마케팅",
+    "position": "음악 IP마케팅",
+    "location": "서울",
+    "startDate": "2026-11-12",
+    "endDate": "2026-11-29",
+    "endTime": "23:59",
+    "recruitmentType": "기간제 공고",
+    "jobCode": "6392",
+    "jobFamily": "CF",
+    "isActive": true,
+    "isRolling": false,
+    "positions": [
+      {
+        "name": "음악 IP마케팅",
+        "location": "서울"
+      }
+    ],
+    "requiredCertificates": [],
+    "preferredCertificates": [],
+    "url": "https://recruit.cj.net/",
+    "source": "CJ 공식 채용사이트",
+    "collectedAt": "2026-11-14T08:26:53.324Z"
+  },
+  {
+    "id": "CJ-J20260511038179",
+    "originalId": "J20260511038179",
+    "group": "CJ",
+    "sourceCompany": "CJ",
+    "company": "CJ ENM",
+    "companySize": "대기업",
+    "title": "[CJ ENM] 아티스트 기획 및 제작(Visual Creative) 경력채용",
+    "position": "콘텐츠 기획(아티스트 IP)",
+    "location": "서울",
+    "startDate": "2026-11-12",
+    "endDate": "2026-11-29",
+    "endTime": "23:59",
+    "recruitmentType": "기간제 공고",
+    "jobCode": "6891",
+    "jobFamily": "EL",
+    "isActive": true,
+    "isRolling": false,
+    "positions": [
+      {
+        "name": "콘텐츠 기획(아티스트 IP)",
+        "location": "서울"
+      }
+    ],
+    "requiredCertificates": [],
+    "preferredCertificates": [],
+    "url": "https://recruit.cj.net/",
+    "source": "CJ 공식 채용사이트",
+    "collectedAt": "2026-11-14T08:26:53.324Z"
+  },
+  {
+    "id": "CJ-J20260416038119",
+    "originalId": "J20260416038119",
+    "group": "CJ",
+    "sourceCompany": "CJ",
+    "company": "CJ ENM",
+    "companySize": "대기업",
+    "title": "[CJ ENM] 음악IP(아티스트) 비주얼 크리에이터(디자인)",
+    "position": "디지털 디자이너",
+    "location": "서울",
+    "startDate": "2026-11-12",
+    "endDate": "2026-11-29",
+    "endTime": "23:59",
+    "recruitmentType": "기간제 공고",
+    "jobCode": "5952",
+    "jobFamily": "S",
+    "isActive": true,
+    "isRolling": false,
+    "positions": [
+      {
+        "name": "디지털 디자이너",
+        "location": "서울"
+      }
+    ],
+    "requiredCertificates": [],
+    "preferredCertificates": [],
+    "url": "https://recruit.cj.net/",
+    "source": "CJ 공식 채용사이트",
+    "collectedAt": "2026-11-14T08:26:53.324Z"
+  },
+  {
+    "id": "CJ-J20261112041107",
+    "originalId": "J20261112041107",
+    "group": "CJ",
+    "sourceCompany": "CJ",
+    "company": "CJ ENM",
+    "companySize": "대기업",
+    "title": "[CJ ENM] 음악 IP(아티스트) 제작",
+    "position": "음악제작",
+    "location": "서울",
+    "startDate": "2026-11-12",
+    "endDate": "2026-11-29",
+    "endTime": "23:59",
+    "recruitmentType": "기간제 공고",
+    "jobCode": "5715",
+    "jobFamily": "EI",
+    "isActive": true,
+    "isRolling": false,
+    "positions": [
+      {
+        "name": "음악제작",
+        "location": "서울"
+      }
+    ],
+    "requiredCertificates": [],
+    "preferredCertificates": [],
+    "url": "https://recruit.cj.net/",
+    "source": "CJ 공식 채용사이트",
+    "collectedAt": "2026-11-14T08:26:53.324Z"
+  },
+  {
+    "id": "CJ-8847",
+    "originalId": "8847",
+    "group": "CJ",
+    "sourceCompany": "CJ",
+    "company": "CJ대한통운",
+    "companySize": "대기업",
+    "title": "'26년 CJ대한통운 택배직 정규사원 모집",
+    "position": "직군별",
+    "location": "지역별",
+    "startDate": "2026-11-12",
+    "endDate": "2026-11-25",
+    "endTime": "23:59",
+    "recruitmentType": "기간제 공고",
+    "jobCode": "9999",
+    "jobFamily": "9999",
+    "isActive": true,
+    "isRolling": false,
+    "positions": [
+      {
+        "name": "직군별",
+        "location": "지역별"
+      }
+    ],
+    "requiredCertificates": [],
+    "preferredCertificates": [],
+    "url": "https://recruit.cj.net/",
+    "source": "CJ 공식 채용사이트",
+    "collectedAt": "2026-11-14T08:26:53.324Z"
+  },
+  {
+    "id": "CJ-8848",
+    "originalId": "8848",
+    "group": "CJ",
+    "sourceCompany": "CJ",
+    "company": "CJ푸드빌",
+    "companySize": "대기업",
+    "title": "CJ푸드빌 음성공장 베이커리 생산직 신입사원 모집",
+    "position": "직군별",
+    "location": "충북 음성",
+    "startDate": "2026-11-12",
+    "endDate": "2026-11-18",
+    "endTime": "23:59",
+    "recruitmentType": "기간제 공고",
+    "jobCode": "9999",
+    "jobFamily": "9999",
+    "isActive": true,
+    "isRolling": false,
+    "positions": [
+      {
+        "name": "직군별",
+        "location": "충북 음성"
+      }
+    ],
+    "requiredCertificates": [],
+    "preferredCertificates": [],
+    "url": "https://recruit.cj.net/",
+    "source": "CJ 공식 채용사이트",
+    "collectedAt": "2026-11-14T08:26:53.324Z"
+  },
+  {
+    "id": "CJ-J20261020040587",
+    "originalId": "J20261020040587",
+    "group": "CJ",
+    "sourceCompany": "CJ",
+    "company": "CJ 4DPLEX",
+    "companySize": "대기업",
+    "title": "[CJ 4DPLEX] VFX Supervisor 모집",
+    "position": "CG/VFX",
+    "location": "서울",
+    "startDate": "2026-11-11",
+    "endDate": "2026-11-29",
+    "endTime": "23:59",
+    "recruitmentType": "기간제 공고",
+    "jobCode": "6976",
+    "jobFamily": "EI",
+    "isActive": true,
+    "isRolling": false,
+    "positions": [
+      {
+        "name": "CG/VFX",
+        "location": "서울"
+      }
+    ],
+    "requiredCertificates": [],
+    "preferredCertificates": [],
+    "url": "https://recruit.cj.net/",
+    "source": "CJ 공식 채용사이트",
+    "collectedAt": "2026-11-14T08:26:53.324Z"
+  },
+  {
+    "id": "CJ-8846",
+    "originalId": "8846",
+    "group": "CJ",
+    "sourceCompany": "CJ",
+    "company": "CJ푸드빌",
+    "companySize": "대기업",
+    "title": "[CJ푸드빌] 뚜레쥬르 키친 인턴매니저(신입/경력 무관) 모집",
+    "position": "뚜레쥬르(Kitchen)",
+    "location": "서울/경기",
+    "startDate": "2026-11-11",
+    "endDate": "2026-11-30",
+    "endTime": "23:59",
+    "recruitmentType": "기간제 공고",
+    "jobCode": "6766",
+    "jobFamily": "DG",
+    "isActive": true,
+    "isRolling": false,
+    "positions": [
+      {
+        "name": "뚜레쥬르(Kitchen)",
+        "location": "서울/경기"
+      }
+    ],
+    "requiredCertificates": [],
+    "preferredCertificates": [],
+    "url": "https://recruit.cj.net/",
+    "source": "CJ 공식 채용사이트",
+    "collectedAt": "2026-11-14T08:26:53.324Z"
+  },
+  {
+    "id": "CJ-J20261111040625",
+    "originalId": "J20261111040625",
+    "group": "CJ",
+    "sourceCompany": "CJ",
+    "company": "CJ올리브네트웍스",
+    "companySize": "대기업",
+    "title": "[경력] CJ ONE 회원 서비스 백엔드 개발자",
+    "position": "백엔드개발",
+    "location": "서울",
+    "startDate": "2026-11-11",
+    "endDate": "2027-01-31",
+    "endTime": "23:59",
+    "recruitmentType": "기간제 공고",
+    "jobCode": "6229",
+    "jobFamily": "IR",
+    "isActive": true,
+    "isRolling": false,
+    "positions": [
+      {
+        "name": "백엔드개발",
+        "location": "서울"
+      }
+    ],
+    "requiredCertificates": [],
+    "preferredCertificates": [],
+    "url": "https://recruit.cj.net/",
+    "source": "CJ 공식 채용사이트",
+    "collectedAt": "2026-11-14T08:26:53.324Z"
+  },
+  {
+    "id": "CJ-J20261111040624",
+    "originalId": "J20261111040624",
+    "group": "CJ",
+    "sourceCompany": "CJ",
+    "company": "CJ올리브네트웍스",
+    "companySize": "대기업",
+    "title": "[경력] B2B SaaS Martech 솔루션 세일즈 매니저",
+    "position": "B2B 영업",
+    "location": "서울",
+    "startDate": "2026-11-11",
+    "endDate": "2027-01-31",
+    "endTime": "23:59",
+    "recruitmentType": "기간제 공고",
+    "jobCode": "6569",
+    "jobFamily": "BE",
+    "isActive": true,
+    "isRolling": false,
+    "positions": [
+      {
+        "name": "B2B 영업",
+        "location": "서울"
+      }
+    ],
+    "requiredCertificates": [],
+    "preferredCertificates": [],
+    "url": "https://recruit.cj.net/",
+    "source": "CJ 공식 채용사이트",
+    "collectedAt": "2026-11-14T08:26:53.324Z"
+  },
+  {
+    "id": "CJ-J20260617039113",
+    "originalId": "J20260617039113",
+    "group": "CJ",
+    "sourceCompany": "CJ",
+    "company": "CJ푸드빌",
+    "companySize": "대기업",
+    "title": "[CJ푸드빌] VIPS 홀/주방 매니저(대구/부산/창원/울산/천안/대전)",
+    "position": "Specialist(외식)",
+    "location": "동부권(대구/부산/창원/울산)",
+    "startDate": "2026-11-11",
+    "endDate": "2026-11-22",
+    "endTime": "23:59",
+    "recruitmentType": "기간제 공고",
+    "jobCode": "0943",
+    "jobFamily": "DG",
+    "isActive": true,
+    "isRolling": false,
+    "positions": [
+      {
+        "name": "Specialist(외식)",
+        "location": "동부권(대구/부산/창원/울산)"
+      }
+    ],
+    "requiredCertificates": [],
+    "preferredCertificates": [],
+    "url": "https://recruit.cj.net/",
+    "source": "CJ 공식 채용사이트",
+    "collectedAt": "2026-11-14T08:26:53.324Z"
+  },
+  {
+    "id": "CJ-J20261111041106",
+    "originalId": "J20261111041106",
+    "group": "CJ",
+    "sourceCompany": "CJ",
+    "company": "CJ대한통운",
+    "companySize": "대기업",
+    "title": "CJ대한통운 건설부문<BR>품질관리(PJT계약직) 채용<BR>KT클라우드안산AIDC신축공사",
+    "position": "품질관리",
+    "location": "안산",
+    "startDate": "2026-11-11",
+    "endDate": "2026-11-22",
+    "endTime": "23:59",
+    "recruitmentType": "기간제 공고",
+    "jobCode": "0085",
+    "jobFamily": "FM",
+    "isActive": true,
+    "isRolling": false,
+    "positions": [
+      {
+        "name": "품질관리",
+        "location": "안산"
+      }
+    ],
+    "requiredCertificates": [],
+    "preferredCertificates": [],
+    "url": "https://recruit.cj.net/",
+    "source": "CJ 공식 채용사이트",
+    "collectedAt": "2026-11-14T08:26:53.324Z"
+  },
+  {
+    "id": "CJ-J20261111041105",
+    "originalId": "J20261111041105",
+    "group": "CJ",
+    "sourceCompany": "CJ",
+    "company": "CJ대한통운",
+    "companySize": "대기업",
+    "title": "CJ대한통운 건설부문<BR>안전관리(PJT계약직) 채용<BR>KT클라우드안산AIDC신축공사",
+    "position": "안전관리",
+    "location": "안산",
+    "startDate": "2026-11-11",
+    "endDate": "2026-11-22",
+    "endTime": "23:59",
+    "recruitmentType": "기간제 공고",
+    "jobCode": "5874",
+    "jobFamily": "GN",
+    "isActive": true,
+    "isRolling": false,
+    "positions": [
+      {
+        "name": "안전관리",
+        "location": "안산"
+      }
+    ],
+    "requiredCertificates": [],
+    "preferredCertificates": [],
+    "url": "https://recruit.cj.net/",
+    "source": "CJ 공식 채용사이트",
+    "collectedAt": "2026-11-14T08:26:53.324Z"
+  },
+  {
+    "id": "CJ-J20261109041095",
+    "originalId": "J20261109041095",
+    "group": "CJ",
+    "sourceCompany": "CJ",
+    "company": "CJ ENM",
+    "companySize": "대기업",
+    "title": "[CJ ENM] 디지털 콘텐츠 사업기획_경력채용",
+    "position": "콘텐츠 사업기획",
+    "location": "서울",
+    "startDate": "2026-11-10",
+    "endDate": "2026-11-22",
+    "endTime": "23:00",
+    "recruitmentType": "기간제 공고",
+    "jobCode": "7357",
+    "jobFamily": "EJ",
+    "isActive": true,
+    "isRolling": false,
+    "positions": [
+      {
+        "name": "콘텐츠 사업기획",
+        "location": "서울"
+      }
+    ],
+    "requiredCertificates": [],
+    "preferredCertificates": [],
+    "url": "https://recruit.cj.net/",
+    "source": "CJ 공식 채용사이트",
+    "collectedAt": "2026-11-14T08:26:53.324Z"
+  },
+  {
+    "id": "CJ-J20260714038336",
+    "originalId": "J20260714038336",
+    "group": "CJ",
+    "sourceCompany": "CJ",
+    "company": "CJ 4DPLEX",
+    "companySize": "대기업",
+    "title": "[CJ 4DPLEX] 국내 변호사 모집",
+    "position": "변호사(국내)",
+    "location": "서울",
+    "startDate": "2026-11-10",
+    "endDate": "2026-11-22",
+    "endTime": "23:59",
+    "recruitmentType": "기간제 공고",
+    "jobCode": "7200",
+    "jobFamily": "AD",
+    "isActive": true,
+    "isRolling": false,
+    "positions": [
+      {
+        "name": "변호사(국내)",
+        "location": "서울"
+      }
+    ],
+    "requiredCertificates": [],
+    "preferredCertificates": [],
+    "url": "https://recruit.cj.net/",
+    "source": "CJ 공식 채용사이트",
+    "collectedAt": "2026-11-14T08:26:53.324Z"
+  },
+  {
+    "id": "CJ-J20261110041104",
+    "originalId": "J20261110041104",
+    "group": "CJ",
+    "sourceCompany": "CJ",
+    "company": "CJ ENM",
+    "companySize": "대기업",
+    "title": "[CJ ENM] 브랜드 컨설팅_경력채용",
+    "position": "전략영업컨설팅",
+    "location": "서울",
+    "startDate": "2026-11-10",
+    "endDate": "2026-11-22",
+    "endTime": "23:00",
+    "recruitmentType": "기간제 공고",
+    "jobCode": "7085",
+    "jobFamily": "BE",
+    "isActive": true,
+    "isRolling": false,
+    "positions": [
+      {
+        "name": "전략영업컨설팅",
+        "location": "서울"
+      }
+    ],
+    "requiredCertificates": [],
+    "preferredCertificates": [],
+    "url": "https://recruit.cj.net/",
+    "source": "CJ 공식 채용사이트",
+    "collectedAt": "2026-11-14T08:26:53.324Z"
+  },
+  {
+    "id": "CJ-J20261109040623",
+    "originalId": "J20261109040623",
+    "group": "CJ",
+    "sourceCompany": "CJ",
+    "company": "CJ 4DPLEX",
+    "companySize": "대기업",
+    "title": "[CJ 4DPLEX] 공간 기획 PM 모집",
+    "position": "공간디자인",
+    "location": "서울",
+    "startDate": "2026-11-09",
+    "endDate": "2026-11-22",
+    "endTime": "23:59",
+    "recruitmentType": "기간제 공고",
+    "jobCode": "5790",
+    "jobFamily": "GN",
+    "isActive": true,
+    "isRolling": false,
+    "positions": [
+      {
+        "name": "공간디자인",
+        "location": "서울"
+      }
+    ],
+    "requiredCertificates": [],
+    "preferredCertificates": [],
+    "url": "https://recruit.cj.net/",
+    "source": "CJ 공식 채용사이트",
+    "collectedAt": "2026-11-14T08:26:53.324Z"
+  },
+  {
+    "id": "CJ-J20261109040622",
+    "originalId": "J20261109040622",
+    "group": "CJ",
+    "sourceCompany": "CJ",
+    "company": "CJ대한통운",
+    "companySize": "대기업",
+    "title": "CJ대한통운 건설부문<BR>보건관리(PJT계약직) 채용<BR>화성 물류센터신축공사",
+    "position": "보건관리",
+    "location": "경기",
+    "startDate": "2026-11-09",
+    "endDate": "2026-11-22",
+    "endTime": "23:59",
+    "recruitmentType": "기간제 공고",
+    "jobCode": "0191",
+    "jobFamily": "FM",
+    "isActive": true,
+    "isRolling": false,
+    "positions": [
+      {
+        "name": "보건관리",
+        "location": "경기"
+      }
+    ],
+    "requiredCertificates": [],
+    "preferredCertificates": [],
+    "url": "https://recruit.cj.net/",
+    "source": "CJ 공식 채용사이트",
+    "collectedAt": "2026-11-14T08:26:53.324Z"
+  },
+  {
+    "id": "CJ-J20261014041057",
+    "originalId": "J20261014041057",
+    "group": "CJ",
+    "sourceCompany": "CJ",
+    "company": "CJ 4DPLEX",
+    "companySize": "대기업",
+    "title": "[CJ 4DPLEX] Firmware 개발자 모집",
+    "position": "H/W Engineer",
+    "location": "서울",
+    "startDate": "2026-11-09",
+    "endDate": "2026-11-15",
+    "endTime": "23:59",
+    "recruitmentType": "기간제 공고",
+    "jobCode": "7087",
+    "jobFamily": "HP",
+    "isActive": true,
+    "isRolling": false,
+    "positions": [
+      {
+        "name": "H/W Engineer",
+        "location": "서울"
+      }
+    ],
+    "requiredCertificates": [],
+    "preferredCertificates": [],
+    "url": "https://recruit.cj.net/",
+    "source": "CJ 공식 채용사이트",
+    "collectedAt": "2026-11-14T08:26:53.324Z"
+  },
+  {
+    "id": "CJ-J20261108041094",
+    "originalId": "J20261108041094",
+    "group": "CJ",
+    "sourceCompany": "CJ",
+    "company": "TVING",
+    "companySize": "대기업",
+    "title": "[티빙]  스포츠 마케팅 경력채용",
+    "position": "스포츠마케팅",
+    "location": "서울",
+    "startDate": "2026-11-09",
+    "endDate": "2026-11-29",
+    "endTime": "23:00",
+    "recruitmentType": "기간제 공고",
+    "jobCode": "0056",
+    "jobFamily": "CF",
+    "isActive": true,
+    "isRolling": false,
+    "positions": [
+      {
+        "name": "스포츠마케팅",
+        "location": "서울"
+      }
+    ],
+    "requiredCertificates": [],
+    "preferredCertificates": [],
+    "url": "https://recruit.cj.net/",
+    "source": "CJ 공식 채용사이트",
+    "collectedAt": "2026-11-14T08:26:53.324Z"
+  },
+  {
+    "id": "CJ-J20261109040616",
+    "originalId": "J20261109040616",
+    "group": "CJ",
+    "sourceCompany": "CJ",
+    "company": "CJ대한통운",
+    "companySize": "대기업",
+    "title": "CJ대한통운 건설부문<BR>설비시공(PJT계약직) 채용<BR>2026~2027년도 삼성전자 Digital City 상주건설사",
+    "position": "설비시공",
+    "location": "수원",
+    "startDate": "2026-11-09",
+    "endDate": "2026-11-22",
+    "endTime": "00:00",
+    "recruitmentType": "기간제 공고",
+    "jobCode": "5654",
+    "jobFamily": "GN",
+    "isActive": true,
+    "isRolling": false,
+    "positions": [
+      {
+        "name": "설비시공",
+        "location": "수원"
+      }
+    ],
+    "requiredCertificates": [],
+    "preferredCertificates": [],
+    "url": "https://recruit.cj.net/",
+    "source": "CJ 공식 채용사이트",
+    "collectedAt": "2026-11-14T08:26:53.324Z"
+  },
+  {
+    "id": "CJ-J20261007040559",
+    "originalId": "J20261007040559",
+    "group": "CJ",
+    "sourceCompany": "CJ",
+    "company": "CJ대한통운",
+    "companySize": "대기업",
+    "title": "CJ대한통운 건설부문<BR>전기시공(PJT계약직)채용<BR>'26~'27년 삼성전자 디지털시티 상주공사",
+    "position": "전기시공",
+    "location": "수원",
+    "startDate": "2026-11-06",
+    "endDate": "2026-11-15",
+    "endTime": "23:59",
+    "recruitmentType": "기간제 공고",
+    "jobCode": "5343",
+    "jobFamily": "GN",
+    "isActive": true,
+    "isRolling": false,
+    "positions": [
+      {
+        "name": "전기시공",
+        "location": "수원"
+      }
+    ],
+    "requiredCertificates": [],
+    "preferredCertificates": [],
+    "url": "https://recruit.cj.net/",
+    "source": "CJ 공식 채용사이트",
+    "collectedAt": "2026-11-14T08:26:53.324Z"
+  },
+  {
+    "id": "CJ-J20261103041088",
+    "originalId": "J20261103041088",
+    "group": "CJ",
+    "sourceCompany": "CJ",
+    "company": "CJ 4DPLEX",
+    "companySize": "대기업",
+    "title": "[CJ 4DPLEX] 콘텐츠 사업기획 인재 모집",
+    "position": "콘텐츠 사업기획",
+    "location": "서울",
+    "startDate": "2026-11-06",
+    "endDate": "2026-11-19",
+    "endTime": "23:59",
+    "recruitmentType": "기간제 공고",
+    "jobCode": "7357",
+    "jobFamily": "EJ",
+    "isActive": true,
+    "isRolling": false,
+    "positions": [
+      {
+        "name": "콘텐츠 사업기획",
+        "location": "서울"
+      }
+    ],
+    "requiredCertificates": [],
+    "preferredCertificates": [],
+    "url": "https://recruit.cj.net/",
+    "source": "CJ 공식 채용사이트",
+    "collectedAt": "2026-11-14T08:26:53.324Z"
+  },
+  {
+    "id": "CJ-J20260831040042",
+    "originalId": "J20260831040042",
+    "group": "CJ",
+    "sourceCompany": "CJ",
+    "company": "CJ프레시웨이",
+    "companySize": "대기업",
+    "title": "[CJ프레시웨이] 고객상담(CS) 신입/경력사원 모집",
+    "position": "고객센터 상담사원",
+    "location": "서울",
+    "startDate": "2026-11-06",
+    "endDate": "2026-11-20",
+    "endTime": "23:59",
+    "recruitmentType": "기간제 공고",
+    "jobCode": "0116",
+    "jobFamily": "AD",
+    "isActive": true,
+    "isRolling": false,
+    "positions": [
+      {
+        "name": "고객센터 상담사원",
+        "location": "서울"
+      }
+    ],
+    "requiredCertificates": [],
+    "preferredCertificates": [],
+    "url": "https://recruit.cj.net/",
+    "source": "CJ 공식 채용사이트",
+    "collectedAt": "2026-11-14T08:26:53.324Z"
+  },
+  {
+    "id": "CJ-J20261105040614",
+    "originalId": "J20261105040614",
+    "group": "CJ",
+    "sourceCompany": "CJ",
+    "company": "CJ대한통운",
+    "companySize": "대기업",
+    "title": "[CJ대한통운] 'Sub 설비 엔지니어' 경력채용",
+    "position": "설비엔지니어(경력)",
+    "location": "고양",
+    "startDate": "2026-11-05",
+    "endDate": null,
+    "endTime": null,
+    "recruitmentType": "상시채용",
+    "jobCode": "6590",
+    "jobFamily": "GN",
+    "isActive": true,
+    "isRolling": true,
+    "positions": [
+      {
+        "name": "설비엔지니어(경력)",
+        "location": "고양"
+      }
+    ],
+    "requiredCertificates": [],
+    "preferredCertificates": [],
+    "url": "https://recruit.cj.net/",
+    "source": "CJ 공식 채용사이트",
+    "collectedAt": "2026-11-14T08:26:53.324Z"
+  },
+  {
+    "id": "CJ-J20260804038375",
+    "originalId": "J20260804038375",
+    "group": "CJ",
+    "sourceCompany": "CJ",
+    "company": "CJ프레시웨이",
+    "companySize": "대기업",
+    "title": "[CJ프레시웨이] 자금 출납 담당 경력사원 모집",
+    "position": "자금",
+    "location": "서울",
+    "startDate": "2026-11-05",
+    "endDate": "2026-11-15",
+    "endTime": "23:59",
+    "recruitmentType": "기간제 공고",
+    "jobCode": "5411",
+    "jobFamily": "AB",
+    "isActive": true,
+    "isRolling": false,
+    "positions": [
+      {
+        "name": "자금",
+        "location": "서울"
+      }
+    ],
+    "requiredCertificates": [],
+    "preferredCertificates": [],
+    "url": "https://recruit.cj.net/",
+    "source": "CJ 공식 채용사이트",
+    "collectedAt": "2026-11-14T08:26:53.324Z"
+  },
+  {
+    "id": "CJ-8844",
+    "originalId": "8844",
+    "group": "CJ",
+    "sourceCompany": "CJ",
+    "company": "CJ푸드빌",
+    "companySize": "대기업",
+    "title": "CJ푸드빌 음성공장 베이커리 생산직 경력사원 모집",
+    "position": "직군별",
+    "location": "충북 음성",
+    "startDate": "2026-11-05",
+    "endDate": "2026-11-18",
+    "endTime": "23:59",
+    "recruitmentType": "기간제 공고",
+    "jobCode": "9999",
+    "jobFamily": "9999",
+    "isActive": true,
+    "isRolling": false,
+    "positions": [
+      {
+        "name": "직군별",
+        "location": "충북 음성"
+      }
+    ],
+    "requiredCertificates": [],
+    "preferredCertificates": [],
+    "url": "https://recruit.cj.net/",
+    "source": "CJ 공식 채용사이트",
+    "collectedAt": "2026-11-14T08:26:53.324Z"
+  },
+  {
+    "id": "CJ-J20260323037850",
+    "originalId": "J20260323037850",
+    "group": "CJ",
+    "sourceCompany": "CJ",
+    "company": "CJ올리브네트웍스",
+    "companySize": "대기업",
+    "title": "[경력] 대/내외 SAP ERP 영업 ",
+    "position": "수주영업",
+    "location": "서울",
+    "startDate": "2026-11-05",
+    "endDate": "2027-01-31",
+    "endTime": "23:59",
+    "recruitmentType": "기간제 공고",
+    "jobCode": "0475",
+    "jobFamily": "BE",
+    "isActive": true,
+    "isRolling": false,
+    "positions": [
+      {
+        "name": "수주영업",
+        "location": "서울"
+      }
+    ],
+    "requiredCertificates": [],
+    "preferredCertificates": [],
+    "url": "https://recruit.cj.net/",
+    "source": "CJ 공식 채용사이트",
+    "collectedAt": "2026-11-14T08:26:53.324Z"
+  },
+  {
+    "id": "CJ-J20261103041089",
+    "originalId": "J20261103041089",
+    "group": "CJ",
+    "sourceCompany": "CJ",
+    "company": "CJ ENM",
+    "companySize": "대기업",
+    "title": "[CJ ENM] 개인정보보호담당자",
+    "position": "개인정보 보호  담당자",
+    "location": "서울",
+    "startDate": "2026-11-04",
+    "endDate": null,
+    "endTime": null,
+    "recruitmentType": "상시채용",
+    "jobCode": "6866",
+    "jobFamily": "IR",
+    "isActive": true,
+    "isRolling": true,
+    "positions": [
+      {
+        "name": "개인정보 보호  담당자",
+        "location": "서울"
+      }
+    ],
+    "requiredCertificates": [],
+    "preferredCertificates": [],
+    "url": "https://recruit.cj.net/",
+    "source": "CJ 공식 채용사이트",
+    "collectedAt": "2026-11-14T08:26:53.324Z"
+  },
+  {
+    "id": "CJ-J20261104041092",
+    "originalId": "J20261104041092",
+    "group": "CJ",
+    "sourceCompany": "CJ",
+    "company": "CJ대한통운",
+    "companySize": "대기업",
+    "title": "CJ대한통운 건설부문<BR>건축시공(PJT계약직) 채용<BR>\t안산 아워데이터센터 개발사업 리모델링",
+    "position": "건축시공",
+    "location": "경기",
+    "startDate": "2026-11-04",
+    "endDate": "2026-11-15",
+    "endTime": "23:59",
+    "recruitmentType": "기간제 공고",
+    "jobCode": "0883",
+    "jobFamily": "GN",
+    "isActive": true,
+    "isRolling": false,
+    "positions": [
+      {
+        "name": "건축시공",
+        "location": "경기"
+      }
+    ],
+    "requiredCertificates": [],
+    "preferredCertificates": [],
+    "url": "https://recruit.cj.net/",
+    "source": "CJ 공식 채용사이트",
+    "collectedAt": "2026-11-14T08:26:53.324Z"
+  },
+  {
+    "id": "CJ-J20261104040611",
+    "originalId": "J20261104040611",
+    "group": "CJ",
+    "sourceCompany": "CJ",
+    "company": "CJ대한통운",
+    "companySize": "대기업",
+    "title": "CJ대한통운 건설부문<BR>설비시공(PJT계약직) 채용<BR>\t안산 아워데이터센터 개발사업 리모델링",
+    "position": "설비시공",
+    "location": "경기",
+    "startDate": "2026-11-04",
+    "endDate": "2026-11-15",
+    "endTime": "23:59",
+    "recruitmentType": "기간제 공고",
+    "jobCode": "5654",
+    "jobFamily": "GN",
+    "isActive": true,
+    "isRolling": false,
+    "positions": [
+      {
+        "name": "설비시공",
+        "location": "경기"
+      }
+    ],
+    "requiredCertificates": [],
+    "preferredCertificates": [],
+    "url": "https://recruit.cj.net/",
+    "source": "CJ 공식 채용사이트",
+    "collectedAt": "2026-11-14T08:26:53.324Z"
+  },
+  {
+    "id": "CJ-J20261103041090",
+    "originalId": "J20261103041090",
+    "group": "CJ",
+    "sourceCompany": "CJ",
+    "company": "CJ ENM",
+    "companySize": "대기업",
+    "title": "[CJ ENM] Security Manager (DevSecOps)",
+    "position": "IT정보보안",
+    "location": "서울",
+    "startDate": "2026-11-03",
+    "endDate": null,
+    "endTime": null,
+    "recruitmentType": "상시채용",
+    "jobCode": "0913",
+    "jobFamily": "IR",
+    "isActive": true,
+    "isRolling": true,
+    "positions": [
+      {
+        "name": "IT정보보안",
+        "location": "서울"
+      }
+    ],
+    "requiredCertificates": [],
+    "preferredCertificates": [],
+    "url": "https://recruit.cj.net/",
+    "source": "CJ 공식 채용사이트",
+    "collectedAt": "2026-11-14T08:26:53.324Z"
+  },
+  {
+    "id": "CJ-J20261103040610",
+    "originalId": "J20261103040610",
+    "group": "CJ",
+    "sourceCompany": "CJ",
+    "company": "CJ대한통운",
+    "companySize": "대기업",
+    "title": "CJ대한통운 건설부문<BR>품질관리(PJT계약직) 채용<BR>호남권 복합물류터미널 신축공사",
+    "position": "품질관리",
+    "location": "장성",
+    "startDate": "2026-11-03",
+    "endDate": "2026-11-15",
+    "endTime": "23:59",
+    "recruitmentType": "기간제 공고",
+    "jobCode": "0085",
+    "jobFamily": "FM",
+    "isActive": true,
+    "isRolling": false,
+    "positions": [
+      {
+        "name": "품질관리",
+        "location": "장성"
+      }
+    ],
+    "requiredCertificates": [],
+    "preferredCertificates": [],
+    "url": "https://recruit.cj.net/",
+    "source": "CJ 공식 채용사이트",
+    "collectedAt": "2026-11-14T08:26:53.324Z"
+  },
+  {
+    "id": "CJ-J20260716038339",
+    "originalId": "J20260716038339",
+    "group": "CJ",
+    "sourceCompany": "CJ",
+    "company": "CJ올리브네트웍스",
+    "companySize": "대기업",
+    "title": "[경력] 보안솔루션 운영 및 관리",
+    "position": "정보보호(보안)",
+    "location": "서울",
+    "startDate": "2026-11-02",
+    "endDate": "2026-11-30",
+    "endTime": "23:59",
+    "recruitmentType": "기간제 공고",
+    "jobCode": "0480",
+    "jobFamily": "IR",
+    "isActive": true,
+    "isRolling": false,
+    "positions": [
+      {
+        "name": "정보보호(보안)",
+        "location": "서울"
+      }
+    ],
+    "requiredCertificates": [],
+    "preferredCertificates": [],
+    "url": "https://recruit.cj.net/",
+    "source": "CJ 공식 채용사이트",
+    "collectedAt": "2026-11-14T08:26:53.324Z"
+  },
+  {
+    "id": "CJ-J20260107037640",
+    "originalId": "J20260107037640",
+    "group": "CJ",
+    "sourceCompany": "CJ",
+    "company": "CJ올리브네트웍스",
+    "companySize": "대기업",
+    "title": "[경력] 클라우드 영업",
+    "position": "수주영업",
+    "location": "서울",
+    "startDate": "2026-11-02",
+    "endDate": "2026-11-30",
+    "endTime": "23:59",
+    "recruitmentType": "기간제 공고",
+    "jobCode": "0475",
+    "jobFamily": "BE",
+    "isActive": true,
+    "isRolling": false,
+    "positions": [
+      {
+        "name": "수주영업",
+        "location": "서울"
+      }
+    ],
+    "requiredCertificates": [],
+    "preferredCertificates": [],
+    "url": "https://recruit.cj.net/",
+    "source": "CJ 공식 채용사이트",
+    "collectedAt": "2026-11-14T08:26:53.324Z"
+  },
+  {
+    "id": "CJ-J20261102041087",
+    "originalId": "J20261102041087",
+    "group": "CJ",
+    "sourceCompany": "CJ",
+    "company": "CJ ENM",
+    "companySize": "대기업",
+    "title": "[CJ ENM] KCON 경험 디자인 담당자 경력채용",
+    "position": "컨벤션사업",
+    "location": "서울",
+    "startDate": "2026-11-02",
+    "endDate": "2026-11-15",
+    "endTime": "23:59",
+    "recruitmentType": "기간제 공고",
+    "jobCode": "5352",
+    "jobFamily": "EL",
+    "isActive": true,
+    "isRolling": false,
+    "positions": [
+      {
+        "name": "컨벤션사업",
+        "location": "서울"
+      }
+    ],
+    "requiredCertificates": [],
+    "preferredCertificates": [],
+    "url": "https://recruit.cj.net/",
+    "source": "CJ 공식 채용사이트",
+    "collectedAt": "2026-11-14T08:26:53.324Z"
+  },
+  {
+    "id": "CJ-J20260806039250",
+    "originalId": "J20260806039250",
+    "group": "CJ",
+    "sourceCompany": "CJ",
+    "company": "CJ올리브네트웍스",
+    "companySize": "대기업",
+    "title": "[경력] 네트워크/OT 보안 엔지니어",
+    "position": "정보보호(보안)",
+    "location": "서울",
+    "startDate": "2026-11-02",
+    "endDate": "2026-11-23",
+    "endTime": "23:59",
+    "recruitmentType": "기간제 공고",
+    "jobCode": "0480",
+    "jobFamily": "IR",
+    "isActive": true,
+    "isRolling": false,
+    "positions": [
+      {
+        "name": "정보보호(보안)",
+        "location": "서울"
+      }
+    ],
+    "requiredCertificates": [],
+    "preferredCertificates": [],
+    "url": "https://recruit.cj.net/",
+    "source": "CJ 공식 채용사이트",
+    "collectedAt": "2026-11-14T08:26:53.324Z"
+  },
+  {
+    "id": "CJ-J20260928040108",
+    "originalId": "J20260928040108",
+    "group": "CJ",
+    "sourceCompany": "CJ",
+    "company": "CJ푸드빌",
+    "companySize": "대기업",
+    "title": "[CJ푸드빌] 뚜레쥬르 제품개발 R&D(빵류) 경력채용",
+    "position": "메뉴개발",
+    "location": "서울",
+    "startDate": "2026-11-02",
+    "endDate": "2026-11-15",
+    "endTime": "23:59",
+    "recruitmentType": "기간제 공고",
+    "jobCode": "0218",
+    "jobFamily": "HP",
+    "isActive": true,
+    "isRolling": false,
+    "positions": [
+      {
+        "name": "메뉴개발",
+        "location": "서울"
+      }
+    ],
+    "requiredCertificates": [],
+    "preferredCertificates": [],
+    "url": "https://recruit.cj.net/",
+    "source": "CJ 공식 채용사이트",
+    "collectedAt": "2026-11-14T08:26:53.324Z"
+  },
+  {
+    "id": "CJ-J20261102041082",
+    "originalId": "J20261102041082",
+    "group": "CJ",
+    "sourceCompany": "CJ",
+    "company": "CJ푸드빌",
+    "companySize": "대기업",
+    "title": "[CJ푸드빌] 베이커리(카페) 상품기획 담당자 (7년 이상~, 델리)",
+    "position": "상품기획",
+    "location": "서울",
+    "startDate": "2026-11-02",
+    "endDate": "2026-11-15",
+    "endTime": "23:59",
+    "recruitmentType": "기간제 공고",
+    "jobCode": "0222",
+    "jobFamily": "HP",
+    "isActive": true,
+    "isRolling": false,
+    "positions": [
+      {
+        "name": "상품기획",
+        "location": "서울"
+      }
+    ],
+    "requiredCertificates": [],
+    "preferredCertificates": [],
+    "url": "https://recruit.cj.net/",
+    "source": "CJ 공식 채용사이트",
+    "collectedAt": "2026-11-14T08:26:53.324Z"
+  },
+  {
+    "id": "CJ-J20261029040605",
+    "originalId": "J20261029040605",
+    "group": "CJ",
+    "sourceCompany": "CJ",
+    "company": "CJ올리브네트웍스",
+    "companySize": "대기업",
+    "title": "[경력] 물류 자동화 설비 현장 PE (PMO)",
+    "position": "엔지니어링PMO",
+    "location": "수도권(서울/경기)",
+    "startDate": "2026-11-02",
+    "endDate": "2026-12-31",
+    "endTime": "23:59",
+    "recruitmentType": "기간제 공고",
+    "jobCode": "6699",
+    "jobFamily": "T",
+    "isActive": true,
+    "isRolling": false,
+    "positions": [
+      {
+        "name": "엔지니어링PMO",
+        "location": "수도권(서울/경기)"
+      }
+    ],
+    "requiredCertificates": [],
+    "preferredCertificates": [],
+    "url": "https://recruit.cj.net/",
+    "source": "CJ 공식 채용사이트",
+    "collectedAt": "2026-11-14T08:26:53.324Z"
+  },
+  {
+    "id": "CJ-J20260605038232",
+    "originalId": "J20260605038232",
+    "group": "CJ",
+    "sourceCompany": "CJ",
+    "company": "CJ올리브네트웍스",
+    "companySize": "대기업",
+    "title": "[경력] 클라우드 보안 엔지니어",
+    "position": "퍼블릭클라우드 보안",
+    "location": "서울",
+    "startDate": "2026-11-02",
+    "endDate": "2026-12-07",
+    "endTime": "23:59",
+    "recruitmentType": "기간제 공고",
+    "jobCode": "6367",
+    "jobFamily": "IR",
+    "isActive": true,
+    "isRolling": false,
+    "positions": [
+      {
+        "name": "퍼블릭클라우드 보안",
+        "location": "서울"
+      }
+    ],
+    "requiredCertificates": [],
+    "preferredCertificates": [],
+    "url": "https://recruit.cj.net/",
+    "source": "CJ 공식 채용사이트",
+    "collectedAt": "2026-11-14T08:26:53.324Z"
+  },
+  {
+    "id": "CJ-J20260904040067",
+    "originalId": "J20260904040067",
+    "group": "CJ",
+    "sourceCompany": "CJ",
+    "company": "CJ올리브네트웍스",
+    "companySize": "대기업",
+    "title": "[경력] 개인정보보호 담당자",
+    "position": "정보보호(보안)",
+    "location": "서울",
+    "startDate": "2026-10-30",
+    "endDate": "2026-11-23",
+    "endTime": "23:59",
+    "recruitmentType": "기간제 공고",
+    "jobCode": "0480",
+    "jobFamily": "IR",
+    "isActive": true,
+    "isRolling": false,
+    "positions": [
+      {
+        "name": "정보보호(보안)",
+        "location": "서울"
+      }
+    ],
+    "requiredCertificates": [],
+    "preferredCertificates": [],
+    "url": "https://recruit.cj.net/",
+    "source": "CJ 공식 채용사이트",
+    "collectedAt": "2026-11-14T08:26:53.324Z"
+  },
+  {
+    "id": "CJ-J20260930040552",
+    "originalId": "J20260930040552",
+    "group": "CJ",
+    "sourceCompany": "CJ",
+    "company": "CJ 4DPLEX",
+    "companySize": "대기업",
+    "title": "[CJ 4DPLEX] 글로벌 상영관 설치 기술관리(SV) 인재 모집",
+    "position": "기술",
+    "location": "서울",
+    "startDate": "2026-10-29",
+    "endDate": "2026-11-15",
+    "endTime": "23:59",
+    "recruitmentType": "기간제 공고",
+    "jobCode": "6899",
+    "jobFamily": "GN",
+    "isActive": true,
+    "isRolling": false,
+    "positions": [
+      {
+        "name": "기술",
+        "location": "서울"
+      }
+    ],
+    "requiredCertificates": [],
+    "preferredCertificates": [],
+    "url": "https://recruit.cj.net/",
+    "source": "CJ 공식 채용사이트",
+    "collectedAt": "2026-11-14T08:26:53.324Z"
+  },
+  {
+    "id": "CJ-J20260922039597",
+    "originalId": "J20260922039597",
+    "group": "CJ",
+    "sourceCompany": "CJ",
+    "company": "CJ 4DPLEX",
+    "companySize": "대기업",
+    "title": "[CJ 4DPLEX] Compositor 모집",
+    "position": "CG/VFX",
+    "location": "서울",
+    "startDate": "2026-10-29",
+    "endDate": "2026-11-15",
+    "endTime": "23:59",
+    "recruitmentType": "기간제 공고",
+    "jobCode": "6976",
+    "jobFamily": "EI",
+    "isActive": true,
+    "isRolling": false,
+    "positions": [
+      {
+        "name": "CG/VFX",
+        "location": "서울"
+      }
+    ],
+    "requiredCertificates": [],
+    "preferredCertificates": [],
+    "url": "https://recruit.cj.net/",
+    "source": "CJ 공식 채용사이트",
+    "collectedAt": "2026-11-14T08:26:53.324Z"
+  },
+  {
+    "id": "CJ-J20261021040590",
+    "originalId": "J20261021040590",
+    "group": "CJ",
+    "sourceCompany": "CJ",
+    "company": "CJ 4DPLEX",
+    "companySize": "대기업",
+    "title": "[CJ 4DPLEX] DI Supervisor 모집",
+    "position": "CG/VFX",
+    "location": "서울",
+    "startDate": "2026-10-29",
+    "endDate": "2026-11-15",
+    "endTime": "23:59",
+    "recruitmentType": "기간제 공고",
+    "jobCode": "6976",
+    "jobFamily": "EI",
+    "isActive": true,
+    "isRolling": false,
+    "positions": [
+      {
+        "name": "CG/VFX",
+        "location": "서울"
+      }
+    ],
+    "requiredCertificates": [],
+    "preferredCertificates": [],
+    "url": "https://recruit.cj.net/",
+    "source": "CJ 공식 채용사이트",
+    "collectedAt": "2026-11-14T08:26:53.324Z"
+  },
+  {
+    "id": "CJ-J20261029040606",
+    "originalId": "J20261029040606",
+    "group": "CJ",
+    "sourceCompany": "CJ",
+    "company": "CJ ENM",
+    "companySize": "대기업",
+    "title": "[CJ ENM] 컨벤션 CX/BTL 경력채용",
+    "position": "컨벤션사업",
+    "location": "서울",
+    "startDate": "2026-10-29",
+    "endDate": "2026-11-15",
+    "endTime": "23:59",
+    "recruitmentType": "기간제 공고",
+    "jobCode": "5352",
+    "jobFamily": "EL",
+    "isActive": true,
+    "isRolling": false,
+    "positions": [
+      {
+        "name": "컨벤션사업",
+        "location": "서울"
+      }
+    ],
+    "requiredCertificates": [],
+    "preferredCertificates": [],
+    "url": "https://recruit.cj.net/",
+    "source": "CJ 공식 채용사이트",
+    "collectedAt": "2026-11-14T08:26:53.324Z"
+  },
+  {
+    "id": "CJ-J20261028040604",
+    "originalId": "J20261028040604",
+    "group": "CJ",
+    "sourceCompany": "CJ",
+    "company": "TVING",
+    "companySize": "대기업",
+    "title": "[티빙] Privacy(개인정보보호) Lead 경력채용",
+    "position": "정보보안",
+    "location": "서울",
+    "startDate": "2026-10-28",
+    "endDate": "2026-11-29",
+    "endTime": "23:00",
+    "recruitmentType": "기간제 공고",
+    "jobCode": "0482",
+    "jobFamily": "IR",
+    "isActive": true,
+    "isRolling": false,
+    "positions": [
+      {
+        "name": "정보보안",
+        "location": "서울"
+      }
+    ],
+    "requiredCertificates": [],
+    "preferredCertificates": [],
+    "url": "https://recruit.cj.net/",
+    "source": "CJ 공식 채용사이트",
+    "collectedAt": "2026-11-14T08:26:53.324Z"
+  },
+  {
+    "id": "CJ-J20261027040602",
+    "originalId": "J20261027040602",
+    "group": "CJ",
+    "sourceCompany": "CJ",
+    "company": "TVING",
+    "companySize": "대기업",
+    "title": "[티빙] Global Content Acquisition(글로벌 콘텐츠 수급)  경력채용",
+    "position": "콘텐츠유통(글로벌)",
+    "location": "서울",
+    "startDate": "2026-10-27",
+    "endDate": "2026-11-15",
+    "endTime": "23:00",
+    "recruitmentType": "기간제 공고",
+    "jobCode": "5898",
+    "jobFamily": "EL",
+    "isActive": true,
+    "isRolling": false,
+    "positions": [
+      {
+        "name": "콘텐츠유통(글로벌)",
+        "location": "서울"
+      }
+    ],
+    "requiredCertificates": [],
+    "preferredCertificates": [],
+    "url": "https://recruit.cj.net/",
+    "source": "CJ 공식 채용사이트",
+    "collectedAt": "2026-11-14T08:26:53.324Z"
+  },
+  {
+    "id": "CJ-J20261027041079",
+    "originalId": "J20261027041079",
+    "group": "CJ",
+    "sourceCompany": "CJ",
+    "company": "CJ ENM",
+    "companySize": "대기업",
+    "title": "[CJ ENM] Mnet Plus Product Manager_경력채용",
+    "position": "프로덕트 기획",
+    "location": "서울",
+    "startDate": "2026-10-27",
+    "endDate": null,
+    "endTime": null,
+    "recruitmentType": "상시채용",
+    "jobCode": "6869",
+    "jobFamily": "DG",
+    "isActive": true,
+    "isRolling": true,
+    "positions": [
+      {
+        "name": "프로덕트 기획",
+        "location": "서울"
+      }
+    ],
+    "requiredCertificates": [],
+    "preferredCertificates": [],
+    "url": "https://recruit.cj.net/",
+    "source": "CJ 공식 채용사이트",
+    "collectedAt": "2026-11-14T08:26:53.324Z"
+  },
+  {
+    "id": "CJ-J20261027041080",
+    "originalId": "J20261027041080",
+    "group": "CJ",
+    "sourceCompany": "CJ",
+    "company": "CJ제일제당",
+    "companySize": "대기업",
+    "title": "[CJ제일제당] Product Designer 경력 채용",
+    "position": "프로덕트 디자인",
+    "location": "서울",
+    "startDate": "2026-10-27",
+    "endDate": null,
+    "endTime": null,
+    "recruitmentType": "상시채용",
+    "jobCode": "6870",
+    "jobFamily": "S",
+    "isActive": true,
+    "isRolling": true,
+    "positions": [
+      {
+        "name": "프로덕트 디자인",
+        "location": "서울"
+      }
+    ],
+    "requiredCertificates": [],
+    "preferredCertificates": [],
+    "url": "https://recruit.cj.net/",
+    "source": "CJ 공식 채용사이트",
+    "collectedAt": "2026-11-14T08:26:53.324Z"
+  },
+  {
+    "id": "CJ-J20261026040600",
+    "originalId": "J20261026040600",
+    "group": "CJ",
+    "sourceCompany": "CJ",
+    "company": "CJ대한통운",
+    "companySize": "대기업",
+    "title": "CJ대한통운 건설부문<BR>설비시공(PJT계약직) 채용<BR>CBRE IM NLC(남양주차산리) 물류센터",
+    "position": "설비시공",
+    "location": "남양주",
+    "startDate": "2026-10-26",
+    "endDate": "2026-11-15",
+    "endTime": "23:59",
+    "recruitmentType": "기간제 공고",
+    "jobCode": "5654",
+    "jobFamily": "GN",
+    "isActive": true,
+    "isRolling": false,
+    "positions": [
+      {
+        "name": "설비시공",
+        "location": "남양주"
+      }
+    ],
+    "requiredCertificates": [],
+    "preferredCertificates": [],
+    "url": "https://recruit.cj.net/",
+    "source": "CJ 공식 채용사이트",
+    "collectedAt": "2026-11-14T08:26:53.324Z"
+  },
+  {
+    "id": "CJ-J20251205037567",
+    "originalId": "J20251205037567",
+    "group": "CJ",
+    "sourceCompany": "CJ",
+    "company": "CJ제일제당",
+    "companySize": "대기업",
+    "title": "[CJ제일제당] Legal Counsel(Global Legal) 경력 채용",
+    "position": "해외변호사",
+    "location": "서울",
+    "startDate": "2026-10-23",
+    "endDate": null,
+    "endTime": null,
+    "recruitmentType": "상시채용",
+    "jobCode": "5483",
+    "jobFamily": "AD",
+    "isActive": true,
+    "isRolling": true,
+    "positions": [
+      {
+        "name": "해외변호사",
+        "location": "서울"
+      }
+    ],
+    "requiredCertificates": [],
+    "preferredCertificates": [],
+    "url": "https://recruit.cj.net/",
+    "source": "CJ 공식 채용사이트",
+    "collectedAt": "2026-11-14T08:26:53.324Z"
+  },
+  {
+    "id": "CJ-J20261023041074",
+    "originalId": "J20261023041074",
+    "group": "CJ",
+    "sourceCompany": "CJ",
+    "company": "CJ제일제당",
+    "companySize": "대기업",
+    "title": "[CJ제일제당] 글로벌법무 팀장 경력 채용",
+    "position": "해외변호사",
+    "location": "서울",
+    "startDate": "2026-10-23",
+    "endDate": null,
+    "endTime": null,
+    "recruitmentType": "상시채용",
+    "jobCode": "5483",
+    "jobFamily": "AD",
+    "isActive": true,
+    "isRolling": true,
+    "positions": [
+      {
+        "name": "해외변호사",
+        "location": "서울"
+      }
+    ],
+    "requiredCertificates": [],
+    "preferredCertificates": [],
+    "url": "https://recruit.cj.net/",
+    "source": "CJ 공식 채용사이트",
+    "collectedAt": "2026-11-14T08:26:53.324Z"
+  },
+  {
+    "id": "CJ-J20260825040035",
+    "originalId": "J20260825040035",
+    "group": "CJ",
+    "sourceCompany": "CJ",
+    "company": "CJ 4DPLEX",
+    "companySize": "대기업",
+    "title": "[CJ 4DPLEX] Business Transformation PO 모집",
+    "position": "AI Project PO",
+    "location": "서울",
+    "startDate": "2026-10-23",
+    "endDate": "2026-11-15",
+    "endTime": "23:59",
+    "recruitmentType": "기간제 공고",
+    "jobCode": "7018",
+    "jobFamily": "IR",
+    "isActive": true,
+    "isRolling": false,
+    "positions": [
+      {
+        "name": "AI Project PO",
+        "location": "서울"
+      }
+    ],
+    "requiredCertificates": [],
+    "preferredCertificates": [],
+    "url": "https://recruit.cj.net/",
+    "source": "CJ 공식 채용사이트",
+    "collectedAt": "2026-11-14T08:26:53.324Z"
+  },
+  {
+    "id": "CJ-J20260831039553",
+    "originalId": "J20260831039553",
+    "group": "CJ",
+    "sourceCompany": "CJ",
+    "company": "CJ 4DPLEX",
+    "companySize": "대기업",
+    "title": "[CJ 4DPLEX] Contents Business PM 모집 ",
+    "position": "PM(Project Manager)",
+    "location": "서울",
+    "startDate": "2026-10-23",
+    "endDate": "2026-11-15",
+    "endTime": "23:59",
+    "recruitmentType": "기간제 공고",
+    "jobCode": "0488",
+    "jobFamily": "IR",
+    "isActive": true,
+    "isRolling": false,
+    "positions": [
+      {
+        "name": "PM(Project Manager)",
+        "location": "서울"
+      }
+    ],
+    "requiredCertificates": [],
+    "preferredCertificates": [],
+    "url": "https://recruit.cj.net/",
+    "source": "CJ 공식 채용사이트",
+    "collectedAt": "2026-11-14T08:26:53.324Z"
+  },
+  {
+    "id": "CJ-J20251029036552",
+    "originalId": "J20251029036552",
+    "group": "CJ",
+    "sourceCompany": "CJ",
+    "company": "CJ 4DPLEX",
+    "companySize": "대기업",
+    "title": "[CJ 4DPLEX] Video AI Engineer 모집",
+    "position": "AI Project PO",
+    "location": "서울",
+    "startDate": "2026-10-23",
+    "endDate": "2026-11-15",
+    "endTime": "23:59",
+    "recruitmentType": "기간제 공고",
+    "jobCode": "7018",
+    "jobFamily": "IR",
+    "isActive": true,
+    "isRolling": false,
+    "positions": [
+      {
+        "name": "AI Project PO",
+        "location": "서울"
+      }
+    ],
+    "requiredCertificates": [],
+    "preferredCertificates": [],
+    "url": "https://recruit.cj.net/",
+    "source": "CJ 공식 채용사이트",
+    "collectedAt": "2026-11-14T08:26:53.324Z"
+  },
+  {
+    "id": "CJ-J20260923040106",
+    "originalId": "J20260923040106",
+    "group": "CJ",
+    "sourceCompany": "CJ",
+    "company": "CJ올리브네트웍스",
+    "companySize": "대기업",
+    "title": "[경력] 네트워크 엔지니어",
+    "position": "네트워크 운영",
+    "location": "인천(송도)",
+    "startDate": "2026-10-22",
+    "endDate": "2026-11-23",
+    "endTime": "23:59",
+    "recruitmentType": "기간제 공고",
+    "jobCode": "0733",
+    "jobFamily": "IR",
+    "isActive": true,
+    "isRolling": false,
+    "positions": [
+      {
+        "name": "네트워크 운영",
+        "location": "인천(송도)"
+      }
+    ],
+    "requiredCertificates": [],
+    "preferredCertificates": [],
+    "url": "https://recruit.cj.net/",
+    "source": "CJ 공식 채용사이트",
+    "collectedAt": "2026-11-14T08:26:53.324Z"
+  },
+  {
+    "id": "CJ-J20261022040593",
+    "originalId": "J20261022040593",
+    "group": "CJ",
+    "sourceCompany": "CJ",
+    "company": "CJ제일제당",
+    "companySize": "대기업",
+    "title": "[CJ제일제당] 시즈닝 연구원 경력 채용",
+    "position": "R&D(식품) 가공식품",
+    "location": "수원(광교)",
+    "startDate": "2026-10-22",
+    "endDate": null,
+    "endTime": null,
+    "recruitmentType": "상시채용",
+    "jobCode": "0132",
+    "jobFamily": "HP",
+    "isActive": true,
+    "isRolling": true,
+    "positions": [
+      {
+        "name": "R&D(식품) 가공식품",
+        "location": "수원(광교)"
+      }
+    ],
+    "requiredCertificates": [],
+    "preferredCertificates": [],
+    "url": "https://recruit.cj.net/",
+    "source": "CJ 공식 채용사이트",
+    "collectedAt": "2026-11-14T08:26:53.324Z"
+  },
+  {
+    "id": "CJ-J20260716038340",
+    "originalId": "J20260716038340",
+    "group": "CJ",
+    "sourceCompany": "CJ",
+    "company": "CJ올리브네트웍스",
+    "companySize": "대기업",
+    "title": "[경력] 호스트 위협 분석 및 보안 운영 전문가",
+    "position": "정보보호(보안)",
+    "location": "서울",
+    "startDate": "2026-10-21",
+    "endDate": "2026-11-16",
+    "endTime": "23:59",
+    "recruitmentType": "기간제 공고",
+    "jobCode": "0480",
+    "jobFamily": "IR",
+    "isActive": true,
+    "isRolling": false,
+    "positions": [
+      {
+        "name": "정보보호(보안)",
+        "location": "서울"
+      }
+    ],
+    "requiredCertificates": [],
+    "preferredCertificates": [],
+    "url": "https://recruit.cj.net/",
+    "source": "CJ 공식 채용사이트",
+    "collectedAt": "2026-11-14T08:26:53.324Z"
+  },
+  {
+    "id": "CJ-J20261021040592",
+    "originalId": "J20261021040592",
+    "group": "CJ",
+    "sourceCompany": "CJ",
+    "company": "CJ올리브네트웍스",
+    "companySize": "대기업",
+    "title": "[경력] AI Content Producer",
+    "position": "동영상콘텐츠PD",
+    "location": "서울/분당",
+    "startDate": "2026-10-21",
+    "endDate": "2026-11-16",
+    "endTime": "23:59",
+    "recruitmentType": "기간제 공고",
+    "jobCode": "5583",
+    "jobFamily": "EL",
+    "isActive": true,
+    "isRolling": false,
+    "positions": [
+      {
+        "name": "동영상콘텐츠PD",
+        "location": "서울/분당"
+      }
+    ],
+    "requiredCertificates": [],
+    "preferredCertificates": [],
+    "url": "https://recruit.cj.net/",
+    "source": "CJ 공식 채용사이트",
+    "collectedAt": "2026-11-14T08:26:53.324Z"
+  },
+  {
+    "id": "CJ-J20261020041066",
+    "originalId": "J20261020041066",
+    "group": "CJ",
+    "sourceCompany": "CJ",
+    "company": "TVING",
+    "companySize": "대기업",
+    "title": "[티빙]  IP콘텐츠 기획PD 경력채용",
+    "position": "콘텐츠 기획/개발",
+    "location": "서울",
+    "startDate": "2026-10-20",
+    "endDate": "2026-11-15",
+    "endTime": "23:00",
+    "recruitmentType": "기간제 공고",
+    "jobCode": "541",
+    "jobFamily": "EI",
+    "isActive": true,
+    "isRolling": false,
+    "positions": [
+      {
+        "name": "콘텐츠 기획/개발",
+        "location": "서울"
+      }
+    ],
+    "requiredCertificates": [],
+    "preferredCertificates": [],
+    "url": "https://recruit.cj.net/",
+    "source": "CJ 공식 채용사이트",
+    "collectedAt": "2026-11-14T08:26:53.324Z"
+  },
+  {
+    "id": "CJ-J20260922039598",
+    "originalId": "J20260922039598",
+    "group": "CJ",
+    "sourceCompany": "CJ",
+    "company": "CJ올리브네트웍스",
+    "companySize": "대기업",
+    "title": "[경력] Technical Architect",
+    "position": "프로젝트 TA",
+    "location": "서울",
+    "startDate": "2026-10-19",
+    "endDate": "2026-12-07",
+    "endTime": "23:59",
+    "recruitmentType": "기간제 공고",
+    "jobCode": "6234",
+    "jobFamily": "IR",
+    "isActive": true,
+    "isRolling": false,
+    "positions": [
+      {
+        "name": "프로젝트 TA",
+        "location": "서울"
+      }
+    ],
+    "requiredCertificates": [],
+    "preferredCertificates": [],
+    "url": "https://recruit.cj.net/",
+    "source": "CJ 공식 채용사이트",
+    "collectedAt": "2026-11-14T08:26:53.324Z"
+  },
+  {
+    "id": "CJ-J20260709039175",
+    "originalId": "J20260709039175",
+    "group": "CJ",
+    "sourceCompany": "CJ",
+    "company": "TVING",
+    "companySize": "대기업",
+    "title": "[티빙] 정보보안 엔지니어(취약점 및 모의해킹) 경력채용",
+    "position": "정보보안",
+    "location": "서울",
+    "startDate": "2026-10-13",
+    "endDate": "2026-11-15",
+    "endTime": "23:00",
+    "recruitmentType": "기간제 공고",
+    "jobCode": "0482",
+    "jobFamily": "IR",
+    "isActive": true,
+    "isRolling": false,
+    "positions": [
+      {
+        "name": "정보보안",
+        "location": "서울"
+      }
+    ],
+    "requiredCertificates": [],
+    "preferredCertificates": [],
+    "url": "https://recruit.cj.net/",
+    "source": "CJ 공식 채용사이트",
+    "collectedAt": "2026-11-14T08:26:53.324Z"
+  },
+  {
+    "id": "CJ-J20260709038324",
+    "originalId": "J20260709038324",
+    "group": "CJ",
+    "sourceCompany": "CJ",
+    "company": "TVING",
+    "companySize": "대기업",
+    "title": "[티빙] 정보보안 엔지니어(system&Endpoint) 경력채용",
+    "position": "정보보안",
+    "location": "서울",
+    "startDate": "2026-10-13",
+    "endDate": "2026-11-15",
+    "endTime": "23:00",
+    "recruitmentType": "기간제 공고",
+    "jobCode": "0482",
+    "jobFamily": "IR",
+    "isActive": true,
+    "isRolling": false,
+    "positions": [
+      {
+        "name": "정보보안",
+        "location": "서울"
+      }
+    ],
+    "requiredCertificates": [],
+    "preferredCertificates": [],
+    "url": "https://recruit.cj.net/",
+    "source": "CJ 공식 채용사이트",
+    "collectedAt": "2026-11-14T08:26:53.324Z"
+  },
+  {
+    "id": "CJ-J20261012041049",
+    "originalId": "J20261012041049",
+    "group": "CJ",
+    "sourceCompany": "CJ",
+    "company": "CJ대한통운",
+    "companySize": "대기업",
+    "title": "[CJ대한통운] '신LMD 운영' 경력사원 모집 (경기 광주)",
+    "position": "O-NE운영(신LMD)",
+    "location": "광주(경기도)",
+    "startDate": "2026-10-12",
+    "endDate": null,
+    "endTime": null,
+    "recruitmentType": "상시채용",
+    "jobCode": "7273",
+    "jobFamily": "AD",
+    "isActive": true,
+    "isRolling": true,
+    "positions": [
+      {
+        "name": "O-NE운영(신LMD)",
+        "location": "광주(경기도)"
+      }
+    ],
+    "requiredCertificates": [],
+    "preferredCertificates": [],
+    "url": "https://recruit.cj.net/",
+    "source": "CJ 공식 채용사이트",
+    "collectedAt": "2026-11-14T08:26:53.324Z"
+  },
+  {
+    "id": "CJ-J20240621025227",
+    "originalId": "J20240621025227",
+    "group": "CJ",
+    "sourceCompany": "CJ",
+    "company": "CJ올리브네트웍스",
+    "companySize": "대기업",
+    "title": "[경력] 비지니스 컨설턴트",
+    "position": "IT컨설팅",
+    "location": "서울",
+    "startDate": "2026-10-12",
+    "endDate": "2026-12-07",
+    "endTime": "23:59",
+    "recruitmentType": "기간제 공고",
+    "jobCode": "0897",
+    "jobFamily": "IR",
+    "isActive": true,
+    "isRolling": false,
+    "positions": [
+      {
+        "name": "IT컨설팅",
+        "location": "서울"
+      }
+    ],
+    "requiredCertificates": [],
+    "preferredCertificates": [],
+    "url": "https://recruit.cj.net/",
+    "source": "CJ 공식 채용사이트",
+    "collectedAt": "2026-11-14T08:26:53.324Z"
+  },
+  {
+    "id": "CJ-J20261008041048",
+    "originalId": "J20261008041048",
+    "group": "CJ",
+    "sourceCompany": "CJ",
+    "company": "CJ올리브네트웍스",
+    "companySize": "대기업",
+    "title": "[경력] WCS 시스템 운영 및 구축",
+    "position": "WCS(설비제어) 솔루션 개발/운영",
+    "location": "서울",
+    "startDate": "2026-10-08",
+    "endDate": "2026-11-30",
+    "endTime": "23:59",
+    "recruitmentType": "기간제 공고",
+    "jobCode": "7122",
+    "jobFamily": "IR",
+    "isActive": true,
+    "isRolling": false,
+    "positions": [
+      {
+        "name": "WCS(설비제어) 솔루션 개발/운영",
+        "location": "서울"
+      }
+    ],
+    "requiredCertificates": [],
+    "preferredCertificates": [],
+    "url": "https://recruit.cj.net/",
+    "source": "CJ 공식 채용사이트",
+    "collectedAt": "2026-11-14T08:26:53.324Z"
+  },
+  {
+    "id": "CJ-8817",
+    "originalId": "8817",
+    "group": "CJ",
+    "sourceCompany": "CJ",
+    "company": "CJ대한통운",
+    "companySize": "대기업",
+    "title": "CJ대한통운 더 운반 액화수소 운전원 모집 (인천, 계약직)",
+    "position": "운전원",
+    "location": "인천",
+    "startDate": "2026-10-08",
+    "endDate": null,
+    "endTime": null,
+    "recruitmentType": "상시채용",
+    "jobCode": "7073",
+    "jobFamily": "BE",
+    "isActive": true,
+    "isRolling": true,
+    "positions": [
+      {
+        "name": "운전원",
+        "location": "인천"
+      }
+    ],
+    "requiredCertificates": [],
+    "preferredCertificates": [],
+    "url": "https://recruit.cj.net/",
+    "source": "CJ 공식 채용사이트",
+    "collectedAt": "2026-11-14T08:26:53.324Z"
+  },
+  {
+    "id": "CJ-J20260205036807",
+    "originalId": "J20260205036807",
+    "group": "CJ",
+    "sourceCompany": "CJ",
+    "company": "CJ올리브네트웍스",
+    "companySize": "대기업",
+    "title": "[경력] 물류 설비 엔지니어",
+    "position": "물류센터 설계 및 엔지니어링",
+    "location": "서울",
+    "startDate": "2026-10-08",
+    "endDate": "2026-11-30",
+    "endTime": "23:59",
+    "recruitmentType": "기간제 공고",
+    "jobCode": "6245",
+    "jobFamily": "IR",
+    "isActive": true,
+    "isRolling": false,
+    "positions": [
+      {
+        "name": "물류센터 설계 및 엔지니어링",
+        "location": "서울"
+      }
+    ],
+    "requiredCertificates": [],
+    "preferredCertificates": [],
+    "url": "https://recruit.cj.net/",
+    "source": "CJ 공식 채용사이트",
+    "collectedAt": "2026-11-14T08:26:53.324Z"
+  },
+  {
+    "id": "CJ-J20261007040561",
+    "originalId": "J20261007040561",
+    "group": "CJ",
+    "sourceCompany": "CJ",
+    "company": "CJ제일제당",
+    "companySize": "대기업",
+    "title": "[CJ제일제당] 패스트푸드(치킨, 햄버거) 프리믹스 메뉴개발/기획  담당자 경력 채용",
+    "position": "메뉴개발",
+    "location": "수원(광교)",
+    "startDate": "2026-10-07",
+    "endDate": null,
+    "endTime": null,
+    "recruitmentType": "상시채용",
+    "jobCode": "0218",
+    "jobFamily": "HP",
+    "isActive": true,
+    "isRolling": true,
+    "positions": [
+      {
+        "name": "메뉴개발",
+        "location": "수원(광교)"
+      }
+    ],
+    "requiredCertificates": [],
+    "preferredCertificates": [],
+    "url": "https://recruit.cj.net/",
+    "source": "CJ 공식 채용사이트",
+    "collectedAt": "2026-11-14T08:26:53.324Z"
+  },
+  {
+    "id": "CJ-J20261007040560",
+    "originalId": "J20261007040560",
+    "group": "CJ",
+    "sourceCompany": "CJ",
+    "company": "CJ올리브네트웍스",
+    "companySize": "대기업",
+    "title": "[경력] 텔레닉스 콜센터 인프라 운영 담당",
+    "position": "인프라운영",
+    "location": "서울",
+    "startDate": "2026-10-07",
+    "endDate": "2026-11-30",
+    "endTime": "23:59",
+    "recruitmentType": "기간제 공고",
+    "jobCode": "0481",
+    "jobFamily": "IR",
+    "isActive": true,
+    "isRolling": false,
+    "positions": [
+      {
+        "name": "인프라운영",
+        "location": "서울"
+      }
+    ],
+    "requiredCertificates": [],
+    "preferredCertificates": [],
+    "url": "https://recruit.cj.net/",
+    "source": "CJ 공식 채용사이트",
+    "collectedAt": "2026-11-14T08:26:53.324Z"
+  },
+  {
+    "id": "CJ-J20261007041044",
+    "originalId": "J20261007041044",
+    "group": "CJ",
+    "sourceCompany": "CJ",
+    "company": "CJ제일제당",
+    "companySize": "대기업",
+    "title": "[CJ제일제당] 카페 소재(음료) 메뉴개발 담당자 경력 채용",
+    "position": "메뉴개발",
+    "location": "수원(광교)",
+    "startDate": "2026-10-07",
+    "endDate": null,
+    "endTime": null,
+    "recruitmentType": "상시채용",
+    "jobCode": "0218",
+    "jobFamily": "HP",
+    "isActive": true,
+    "isRolling": true,
+    "positions": [
+      {
+        "name": "메뉴개발",
+        "location": "수원(광교)"
+      }
+    ],
+    "requiredCertificates": [],
+    "preferredCertificates": [],
+    "url": "https://recruit.cj.net/",
+    "source": "CJ 공식 채용사이트",
+    "collectedAt": "2026-11-14T08:26:53.324Z"
+  },
+  {
+    "id": "CJ-J20261007041045",
+    "originalId": "J20261007041045",
+    "group": "CJ",
+    "sourceCompany": "CJ",
+    "company": "CJ제일제당",
+    "companySize": "대기업",
+    "title": "[CJ제일제당] 아이스크림 및 빙과 어플리케이션 담당자 경력 채용",
+    "position": "R&D(식품) 소재식품",
+    "location": "수원(광교)",
+    "startDate": "2026-10-07",
+    "endDate": null,
+    "endTime": null,
+    "recruitmentType": "상시채용",
+    "jobCode": "0131",
+    "jobFamily": "HP",
+    "isActive": true,
+    "isRolling": true,
+    "positions": [
+      {
+        "name": "R&D(식품) 소재식품",
+        "location": "수원(광교)"
+      }
+    ],
+    "requiredCertificates": [],
+    "preferredCertificates": [],
+    "url": "https://recruit.cj.net/",
+    "source": "CJ 공식 채용사이트",
+    "collectedAt": "2026-11-14T08:26:53.324Z"
+  },
+  {
+    "id": "CJ-J20261007041046",
+    "originalId": "J20261007041046",
+    "group": "CJ",
+    "sourceCompany": "CJ",
+    "company": "CJ제일제당",
+    "companySize": "대기업",
+    "title": "[CJ제일제당] 제빵, 베이커리 메뉴 및 프리믹스 제품개발  담당자 경력 채용",
+    "position": "메뉴개발",
+    "location": "수원(광교)",
+    "startDate": "2026-10-07",
+    "endDate": null,
+    "endTime": null,
+    "recruitmentType": "상시채용",
+    "jobCode": "0218",
+    "jobFamily": "HP",
+    "isActive": true,
+    "isRolling": true,
+    "positions": [
+      {
+        "name": "메뉴개발",
+        "location": "수원(광교)"
+      }
+    ],
+    "requiredCertificates": [],
+    "preferredCertificates": [],
+    "url": "https://recruit.cj.net/",
+    "source": "CJ 공식 채용사이트",
+    "collectedAt": "2026-11-14T08:26:53.324Z"
+  },
+  {
+    "id": "CJ-J20261006041042",
+    "originalId": "J20261006041042",
+    "group": "CJ",
+    "sourceCompany": "CJ",
+    "company": "CJ대한통운",
+    "companySize": "대기업",
+    "title": "[CJ대한통운] 'CPG 물류영업(B2B)' 경력사원 모집",
+    "position": "CPG 물류영업(B2B)",
+    "location": "서울",
+    "startDate": "2026-10-06",
+    "endDate": null,
+    "endTime": null,
+    "recruitmentType": "상시채용",
+    "jobCode": "7427",
+    "jobFamily": "AD",
+    "isActive": true,
+    "isRolling": true,
+    "positions": [
+      {
+        "name": "CPG 물류영업(B2B)",
+        "location": "서울"
+      }
+    ],
+    "requiredCertificates": [],
+    "preferredCertificates": [],
+    "url": "https://recruit.cj.net/",
+    "source": "CJ 공식 채용사이트",
+    "collectedAt": "2026-11-14T08:26:53.324Z"
+  },
+  {
+    "id": "CJ-J20261006040557",
+    "originalId": "J20261006040557",
+    "group": "CJ",
+    "sourceCompany": "CJ",
+    "company": "CJ대한통운",
+    "companySize": "대기업",
+    "title": "[CJ대한통운] '산업재 물류영업(B2B)' 경력사원 모집",
+    "position": "산업재 물류영업(B2B)",
+    "location": "서울",
+    "startDate": "2026-10-06",
+    "endDate": null,
+    "endTime": null,
+    "recruitmentType": "상시채용",
+    "jobCode": "7428",
+    "jobFamily": "AD",
+    "isActive": true,
+    "isRolling": true,
+    "positions": [
+      {
+        "name": "산업재 물류영업(B2B)",
+        "location": "서울"
+      }
+    ],
+    "requiredCertificates": [],
+    "preferredCertificates": [],
+    "url": "https://recruit.cj.net/",
+    "source": "CJ 공식 채용사이트",
+    "collectedAt": "2026-11-14T08:26:53.324Z"
+  },
+  {
+    "id": "CJ-J20261006040556",
+    "originalId": "J20261006040556",
+    "group": "CJ",
+    "sourceCompany": "CJ",
+    "company": "CJ대한통운",
+    "companySize": "대기업",
+    "title": "[CJ대한통운] '물류영업 컨설팅' 경력사원 모집\t",
+    "position": "물류컨설팅",
+    "location": "서울",
+    "startDate": "2026-10-06",
+    "endDate": null,
+    "endTime": null,
+    "recruitmentType": "상시채용",
+    "jobCode": "0991",
+    "jobFamily": "",
+    "isActive": true,
+    "isRolling": true,
+    "positions": [
+      {
+        "name": "물류컨설팅",
+        "location": "서울"
+      }
+    ],
+    "requiredCertificates": [],
+    "preferredCertificates": [],
+    "url": "https://recruit.cj.net/",
+    "source": "CJ 공식 채용사이트",
+    "collectedAt": "2026-11-14T08:26:53.324Z"
+  },
+  {
+    "id": "CJ-J20261002041039",
+    "originalId": "J20261002041039",
+    "group": "CJ",
+    "sourceCompany": "CJ",
+    "company": "CJ올리브네트웍스",
+    "companySize": "대기업",
+    "title": "[경력] WMS 구축 PM",
+    "position": "PM(Project Manager)",
+    "location": "서울",
+    "startDate": "2026-10-02",
+    "endDate": "2026-11-30",
+    "endTime": "23:59",
+    "recruitmentType": "기간제 공고",
+    "jobCode": "0488",
+    "jobFamily": "IR",
+    "isActive": true,
+    "isRolling": false,
+    "positions": [
+      {
+        "name": "PM(Project Manager)",
+        "location": "서울"
+      }
+    ],
+    "requiredCertificates": [],
+    "preferredCertificates": [],
+    "url": "https://recruit.cj.net/",
+    "source": "CJ 공식 채용사이트",
+    "collectedAt": "2026-11-14T08:26:53.324Z"
+  },
+  {
+    "id": "CJ-J20261012040564",
+    "originalId": "J20261012040564",
+    "group": "CJ",
+    "sourceCompany": "CJ",
+    "company": "CJ올리브네트웍스",
+    "companySize": "대기업",
+    "title": "[경력] Infra Service Engineer",
+    "position": "인프라운영",
+    "location": "인천(송도)",
+    "startDate": "2026-10-02",
+    "endDate": "2026-11-23",
+    "endTime": "23:59",
+    "recruitmentType": "기간제 공고",
+    "jobCode": "0481",
+    "jobFamily": "IR",
+    "isActive": true,
+    "isRolling": false,
+    "positions": [
+      {
+        "name": "인프라운영",
+        "location": "인천(송도)"
+      }
+    ],
+    "requiredCertificates": [],
+    "preferredCertificates": [],
+    "url": "https://recruit.cj.net/",
+    "source": "CJ 공식 채용사이트",
+    "collectedAt": "2026-11-14T08:26:53.324Z"
+  },
+  {
+    "id": "CJ-J20260709039176",
+    "originalId": "J20260709039176",
+    "group": "CJ",
+    "sourceCompany": "CJ",
+    "company": "CJ올리브네트웍스",
+    "companySize": "대기업",
+    "title": "[계약] 기프트카드 영업/정산 지원",
+    "position": "일반사무지원",
+    "location": "서울",
+    "startDate": "2026-10-01",
+    "endDate": "2026-11-30",
+    "endTime": "23:59",
+    "recruitmentType": "기간제 공고",
+    "jobCode": "6039",
+    "jobFamily": "BE",
+    "isActive": true,
+    "isRolling": false,
+    "positions": [
+      {
+        "name": "일반사무지원",
+        "location": "서울"
+      }
+    ],
+    "requiredCertificates": [],
+    "preferredCertificates": [],
+    "url": "https://recruit.cj.net/",
+    "source": "CJ 공식 채용사이트",
+    "collectedAt": "2026-11-14T08:26:53.324Z"
+  },
+  {
+    "id": "CJ-J20260729039236",
+    "originalId": "J20260729039236",
+    "group": "CJ",
+    "sourceCompany": "CJ",
+    "company": "CJ올리브네트웍스",
+    "companySize": "대기업",
+    "title": "[계약] 해외변호사",
+    "position": "해외변호사",
+    "location": "서울",
+    "startDate": "2026-10-01",
+    "endDate": "2026-11-30",
+    "endTime": "23:59",
+    "recruitmentType": "기간제 공고",
+    "jobCode": "5483",
+    "jobFamily": "AD",
+    "isActive": true,
+    "isRolling": false,
+    "positions": [
+      {
+        "name": "해외변호사",
+        "location": "서울"
+      }
+    ],
+    "requiredCertificates": [],
+    "preferredCertificates": [],
+    "url": "https://recruit.cj.net/",
+    "source": "CJ 공식 채용사이트",
+    "collectedAt": "2026-11-14T08:26:53.324Z"
+  },
+  {
+    "id": "CJ-J20241121027178",
+    "originalId": "J20241121027178",
+    "group": "CJ",
+    "sourceCompany": "CJ",
+    "company": "CJ올리브네트웍스",
+    "companySize": "대기업",
+    "title": "[경력] AX Tech Master",
+    "position": "기술기획",
+    "location": "서울",
+    "startDate": "2026-10-01",
+    "endDate": "2026-12-07",
+    "endTime": "23:59",
+    "recruitmentType": "기간제 공고",
+    "jobCode": "0106",
+    "jobFamily": "HP",
+    "isActive": true,
+    "isRolling": false,
+    "positions": [
+      {
+        "name": "기술기획",
+        "location": "서울"
+      }
+    ],
+    "requiredCertificates": [],
+    "preferredCertificates": [],
+    "url": "https://recruit.cj.net/",
+    "source": "CJ 공식 채용사이트",
+    "collectedAt": "2026-11-14T08:26:53.324Z"
+  },
+  {
+    "id": "CJ-J20260323038037",
+    "originalId": "J20260323038037",
+    "group": "CJ",
+    "sourceCompany": "CJ",
+    "company": "CJ올리브네트웍스",
+    "companySize": "대기업",
+    "title": "[경력] CJ제일제당 해외 SAP SD 운영/개발",
+    "position": "시스템 개발/운영(SAP)",
+    "location": "서울",
+    "startDate": "2026-10-01",
+    "endDate": "2026-11-30",
+    "endTime": "23:59",
+    "recruitmentType": "기간제 공고",
+    "jobCode": "0711",
+    "jobFamily": "IR",
+    "isActive": true,
+    "isRolling": false,
+    "positions": [
+      {
+        "name": "시스템 개발/운영(SAP)",
+        "location": "서울"
+      }
+    ],
+    "requiredCertificates": [],
+    "preferredCertificates": [],
+    "url": "https://recruit.cj.net/",
+    "source": "CJ 공식 채용사이트",
+    "collectedAt": "2026-11-14T08:26:53.324Z"
+  },
+  {
+    "id": "CJ-J20260326038055",
+    "originalId": "J20260326038055",
+    "group": "CJ",
+    "sourceCompany": "CJ",
+    "company": "CJ올리브네트웍스",
+    "companySize": "대기업",
+    "title": "[경력] 고객성공매니저(CSM)",
+    "position": "디지털마케팅 솔루션 고객성공매니저(CSM)",
+    "location": "서울",
+    "startDate": "2026-10-01",
+    "endDate": "2026-11-30",
+    "endTime": "23:59",
+    "recruitmentType": "기간제 공고",
+    "jobCode": "6470",
+    "jobFamily": "CF",
+    "isActive": true,
+    "isRolling": false,
+    "positions": [
+      {
+        "name": "디지털마케팅 솔루션 고객성공매니저(CSM)",
+        "location": "서울"
+      }
+    ],
+    "requiredCertificates": [],
+    "preferredCertificates": [],
+    "url": "https://recruit.cj.net/",
+    "source": "CJ 공식 채용사이트",
+    "collectedAt": "2026-11-14T08:26:53.324Z"
+  },
+  {
+    "id": "CJ-J20260713039180",
+    "originalId": "J20260713039180",
+    "group": "CJ",
+    "sourceCompany": "CJ",
+    "company": "CJ올리브네트웍스",
+    "companySize": "대기업",
+    "title": "[경력] PG 사업 운영 관리",
+    "position": "PG(Payment Gateway)사업관리",
+    "location": "서울",
+    "startDate": "2026-10-01",
+    "endDate": "2026-11-30",
+    "endTime": "23:59",
+    "recruitmentType": "기간제 공고",
+    "jobCode": "1105",
+    "jobFamily": "",
+    "isActive": true,
+    "isRolling": false,
+    "positions": [
+      {
+        "name": "PG(Payment Gateway)사업관리",
+        "location": "서울"
+      }
+    ],
+    "requiredCertificates": [],
+    "preferredCertificates": [],
+    "url": "https://recruit.cj.net/",
+    "source": "CJ 공식 채용사이트",
+    "collectedAt": "2026-11-14T08:26:53.324Z"
+  },
+  {
+    "id": "CJ-J20251114037078",
+    "originalId": "J20251114037078",
+    "group": "CJ",
+    "sourceCompany": "CJ",
+    "company": "CJ올리브네트웍스",
+    "companySize": "대기업",
+    "title": "[경력] 사내 변호사",
+    "position": "법무(변호사)",
+    "location": "서울",
+    "startDate": "2026-10-01",
+    "endDate": "2026-11-30",
+    "endTime": "23:59",
+    "recruitmentType": "기간제 공고",
+    "jobCode": "0027",
+    "jobFamily": "AD",
+    "isActive": true,
+    "isRolling": false,
+    "positions": [
+      {
+        "name": "법무(변호사)",
+        "location": "서울"
+      }
+    ],
+    "requiredCertificates": [],
+    "preferredCertificates": [],
+    "url": "https://recruit.cj.net/",
+    "source": "CJ 공식 채용사이트",
+    "collectedAt": "2026-11-14T08:26:53.324Z"
+  },
+  {
+    "id": "CJ-J20251218036663",
+    "originalId": "J20251218036663",
+    "group": "CJ",
+    "sourceCompany": "CJ",
+    "company": "CJ올리브네트웍스",
+    "companySize": "대기업",
+    "title": "[계약] SAP PM",
+    "position": "PM(Project Manager)",
+    "location": "서울",
+    "startDate": "2026-10-01",
+    "endDate": "2026-11-30",
+    "endTime": "23:59",
+    "recruitmentType": "기간제 공고",
+    "jobCode": "0488",
+    "jobFamily": "IR",
+    "isActive": true,
+    "isRolling": false,
+    "positions": [
+      {
+        "name": "PM(Project Manager)",
+        "location": "서울"
+      }
+    ],
+    "requiredCertificates": [],
+    "preferredCertificates": [],
+    "url": "https://recruit.cj.net/",
+    "source": "CJ 공식 채용사이트",
+    "collectedAt": "2026-11-14T08:26:53.324Z"
+  },
+  {
+    "id": "CJ-J20251209036641",
+    "originalId": "J20251209036641",
+    "group": "CJ",
+    "sourceCompany": "CJ",
+    "company": "CJ올리브네트웍스",
+    "companySize": "대기업",
+    "title": "[경력]CJ제일제당 해외 SAP CO 운영/개발",
+    "position": "시스템 개발/운영(SAP)",
+    "location": "서울",
+    "startDate": "2026-10-01",
+    "endDate": "2026-11-30",
+    "endTime": "23:59",
+    "recruitmentType": "기간제 공고",
+    "jobCode": "0711",
+    "jobFamily": "IR",
+    "isActive": true,
+    "isRolling": false,
+    "positions": [
+      {
+        "name": "시스템 개발/운영(SAP)",
+        "location": "서울"
+      }
+    ],
+    "requiredCertificates": [],
+    "preferredCertificates": [],
+    "url": "https://recruit.cj.net/",
+    "source": "CJ 공식 채용사이트",
+    "collectedAt": "2026-11-14T08:26:53.324Z"
+  },
+  {
+    "id": "CJ-J20231030020572",
+    "originalId": "J20231030020572",
+    "group": "CJ",
+    "sourceCompany": "CJ",
+    "company": "CJ올리브네트웍스",
+    "companySize": "대기업",
+    "title": "[경력] SAP PP 운영/개발",
+    "position": "시스템 개발/운영(SAP)",
+    "location": "서울",
+    "startDate": "2026-10-01",
+    "endDate": "2026-11-30",
+    "endTime": "23:59",
+    "recruitmentType": "기간제 공고",
+    "jobCode": "0711",
+    "jobFamily": "IR",
+    "isActive": true,
+    "isRolling": false,
+    "positions": [
+      {
+        "name": "시스템 개발/운영(SAP)",
+        "location": "서울"
+      }
+    ],
+    "requiredCertificates": [],
+    "preferredCertificates": [],
+    "url": "https://recruit.cj.net/",
+    "source": "CJ 공식 채용사이트",
+    "collectedAt": "2026-11-14T08:26:53.324Z"
+  },
+  {
+    "id": "CJ-J20240729026055",
+    "originalId": "J20240729026055",
+    "group": "CJ",
+    "sourceCompany": "CJ",
+    "company": "CJ올리브네트웍스",
+    "companySize": "대기업",
+    "title": "[경력] SAP 모듈 컨설턴트",
+    "position": "SAP 컨설턴트",
+    "location": "서울",
+    "startDate": "2026-10-01",
+    "endDate": "2026-11-30",
+    "endTime": "23:59",
+    "recruitmentType": "기간제 공고",
+    "jobCode": "6978",
+    "jobFamily": "IR",
+    "isActive": true,
+    "isRolling": false,
+    "positions": [
+      {
+        "name": "SAP 컨설턴트",
+        "location": "서울"
+      }
+    ],
+    "requiredCertificates": [],
+    "preferredCertificates": [],
+    "url": "https://recruit.cj.net/",
+    "source": "CJ 공식 채용사이트",
+    "collectedAt": "2026-11-14T08:26:53.324Z"
+  },
+  {
+    "id": "CJ-J20260929040547",
+    "originalId": "J20260929040547",
+    "group": "CJ",
+    "sourceCompany": "CJ",
+    "company": "CJ대한통운",
+    "companySize": "대기업",
+    "title": "[CJ대한통운] '디지털PR' 경력사원 모집",
+    "position": "Digital PR",
+    "location": "서울",
+    "startDate": "2026-09-29",
+    "endDate": null,
+    "endTime": null,
+    "recruitmentType": "상시채용",
+    "jobCode": "7076",
+    "jobFamily": "AD",
+    "isActive": true,
+    "isRolling": true,
+    "positions": [
+      {
+        "name": "Digital PR",
+        "location": "서울"
+      }
+    ],
+    "requiredCertificates": [],
+    "preferredCertificates": [],
+    "url": "https://recruit.cj.net/",
+    "source": "CJ 공식 채용사이트",
+    "collectedAt": "2026-11-14T08:26:53.324Z"
+  },
+  {
+    "id": "CJ-J20260929040546",
+    "originalId": "J20260929040546",
+    "group": "CJ",
+    "sourceCompany": "CJ",
+    "company": "CJ대한통운",
+    "companySize": "대기업",
+    "title": "[CJ대한통운]  '언론홍보' 경력직 채용",
+    "position": "언론홍보",
+    "location": "서울",
+    "startDate": "2026-09-29",
+    "endDate": null,
+    "endTime": null,
+    "recruitmentType": "상시채용",
+    "jobCode": "5998",
+    "jobFamily": "AD",
+    "isActive": true,
+    "isRolling": true,
+    "positions": [
+      {
+        "name": "언론홍보",
+        "location": "서울"
+      }
+    ],
+    "requiredCertificates": [],
+    "preferredCertificates": [],
+    "url": "https://recruit.cj.net/",
+    "source": "CJ 공식 채용사이트",
+    "collectedAt": "2026-11-14T08:26:53.324Z"
+  },
+  {
+    "id": "CJ-J20260910040081",
+    "originalId": "J20260910040081",
+    "group": "CJ",
+    "sourceCompany": "CJ",
+    "company": "CJ대한통운",
+    "companySize": "대기업",
+    "title": "[CJ대한통운] '신LMD 운영' 경력사원 모집 (김포)",
+    "position": "O-NE운영(신LMD)",
+    "location": "김포",
+    "startDate": "2026-09-16",
+    "endDate": null,
+    "endTime": null,
+    "recruitmentType": "상시채용",
+    "jobCode": "7273",
+    "jobFamily": "AD",
+    "isActive": true,
+    "isRolling": true,
+    "positions": [
+      {
+        "name": "O-NE운영(신LMD)",
+        "location": "김포"
+      }
+    ],
+    "requiredCertificates": [],
+    "preferredCertificates": [],
+    "url": "https://recruit.cj.net/",
+    "source": "CJ 공식 채용사이트",
+    "collectedAt": "2026-11-14T08:26:53.324Z"
+  },
+  {
+    "id": "CJ-J20260915039588",
+    "originalId": "J20260915039588",
+    "group": "CJ",
+    "sourceCompany": "CJ",
+    "company": "CJ올리브네트웍스",
+    "companySize": "대기업",
+    "title": "[계약] 사무지원 담당 (정산/총무)",
+    "position": "사무보조",
+    "location": "서울",
+    "startDate": "2026-09-15",
+    "endDate": "2026-11-30",
+    "endTime": "23:59",
+    "recruitmentType": "기간제 공고",
+    "jobCode": "5737",
+    "jobFamily": "AB",
+    "isActive": true,
+    "isRolling": false,
+    "positions": [
+      {
+        "name": "사무보조",
+        "location": "서울"
+      }
+    ],
+    "requiredCertificates": [],
+    "preferredCertificates": [],
+    "url": "https://recruit.cj.net/",
+    "source": "CJ 공식 채용사이트",
+    "collectedAt": "2026-11-14T08:26:53.324Z"
+  },
+  {
+    "id": "CJ-J20260915040093",
+    "originalId": "J20260915040093",
+    "group": "CJ",
+    "sourceCompany": "CJ",
+    "company": "CJ ENM",
+    "companySize": "대기업",
+    "title": "[CJ ENM] Mnet Plus K-pop UX Researcher",
+    "position": "Researcher",
+    "location": "서울",
+    "startDate": "2026-09-15",
+    "endDate": null,
+    "endTime": null,
+    "recruitmentType": "상시채용",
+    "jobCode": "6792",
+    "jobFamily": "HP",
+    "isActive": true,
+    "isRolling": true,
+    "positions": [
+      {
+        "name": "Researcher",
+        "location": "서울"
+      }
+    ],
+    "requiredCertificates": [],
+    "preferredCertificates": [],
+    "url": "https://recruit.cj.net/",
+    "source": "CJ 공식 채용사이트",
+    "collectedAt": "2026-11-14T08:26:53.324Z"
+  },
+  {
+    "id": "CJ-J20260915040092",
+    "originalId": "J20260915040092",
+    "group": "CJ",
+    "sourceCompany": "CJ",
+    "company": "CJ ENM",
+    "companySize": "대기업",
+    "title": "[CJ ENM] Mnet Plus Data Analyst",
+    "position": "Data Analyst",
+    "location": "서울",
+    "startDate": "2026-09-15",
+    "endDate": null,
+    "endTime": null,
+    "recruitmentType": "상시채용",
+    "jobCode": "5685",
+    "jobFamily": "IR",
+    "isActive": true,
+    "isRolling": true,
+    "positions": [
+      {
+        "name": "Data Analyst",
+        "location": "서울"
+      }
+    ],
+    "requiredCertificates": [],
+    "preferredCertificates": [],
+    "url": "https://recruit.cj.net/",
+    "source": "CJ 공식 채용사이트",
+    "collectedAt": "2026-11-14T08:26:53.324Z"
+  },
+  {
+    "id": "CJ-J20260910040080",
+    "originalId": "J20260910040080",
+    "group": "CJ",
+    "sourceCompany": "CJ",
+    "company": "CJ ENM",
+    "companySize": "대기업",
+    "title": "[CJ ENM] 아티스트 PR(Sr.) 경력채용",
+    "position": "커뮤니케이션/홍보",
+    "location": "서울",
+    "startDate": "2026-09-10",
+    "endDate": null,
+    "endTime": null,
+    "recruitmentType": "상시채용",
+    "jobCode": "6487",
+    "jobFamily": "AD",
+    "isActive": true,
+    "isRolling": true,
+    "positions": [
+      {
+        "name": "커뮤니케이션/홍보",
+        "location": "서울"
+      }
+    ],
+    "requiredCertificates": [],
+    "preferredCertificates": [],
+    "url": "https://recruit.cj.net/",
+    "source": "CJ 공식 채용사이트",
+    "collectedAt": "2026-11-14T08:26:53.324Z"
+  },
+  {
+    "id": "CJ-J20260908040072",
+    "originalId": "J20260908040072",
+    "group": "CJ",
+    "sourceCompany": "CJ",
+    "company": "CJ올리브네트웍스",
+    "companySize": "대기업",
+    "title": "[경력] IT물품/용역 구매 관리",
+    "position": "IT전략구매",
+    "location": "서울",
+    "startDate": "2026-09-08",
+    "endDate": "2026-11-30",
+    "endTime": "23:59",
+    "recruitmentType": "기간제 공고",
+    "jobCode": "5719",
+    "jobFamily": "AC",
+    "isActive": true,
+    "isRolling": false,
+    "positions": [
+      {
+        "name": "IT전략구매",
+        "location": "서울"
+      }
+    ],
+    "requiredCertificates": [],
+    "preferredCertificates": [],
+    "url": "https://recruit.cj.net/",
+    "source": "CJ 공식 채용사이트",
+    "collectedAt": "2026-11-14T08:26:53.324Z"
+  },
+  {
+    "id": "CJ-J20260903039564",
+    "originalId": "J20260903039564",
+    "group": "CJ",
+    "sourceCompany": "CJ",
+    "company": "CJ ENM",
+    "companySize": "대기업",
+    "title": "[CJ ENM] Mnet Plus 콘텐츠 운영_경력채용",
+    "position": "콘텐츠 운영지원",
+    "location": "서울",
+    "startDate": "2026-09-03",
+    "endDate": null,
+    "endTime": null,
+    "recruitmentType": "상시채용",
+    "jobCode": "5735",
+    "jobFamily": "EL",
+    "isActive": true,
+    "isRolling": true,
+    "positions": [
+      {
+        "name": "콘텐츠 운영지원",
+        "location": "서울"
+      }
+    ],
+    "requiredCertificates": [],
+    "preferredCertificates": [],
+    "url": "https://recruit.cj.net/",
+    "source": "CJ 공식 채용사이트",
+    "collectedAt": "2026-11-14T08:26:53.324Z"
+  },
+  {
+    "id": "CJ-J20260901039556",
+    "originalId": "J20260901039556",
+    "group": "CJ",
+    "sourceCompany": "CJ",
+    "company": "CJ대한통운",
+    "companySize": "대기업",
+    "title": "[CJ대한통운] IR팀장 경력직 채용",
+    "position": "IR",
+    "location": "서울",
+    "startDate": "2026-09-01",
+    "endDate": null,
+    "endTime": null,
+    "recruitmentType": "상시채용",
+    "jobCode": "0146",
+    "jobFamily": "AD",
+    "isActive": true,
+    "isRolling": true,
+    "positions": [
+      {
+        "name": "IR",
+        "location": "서울"
+      }
+    ],
+    "requiredCertificates": [],
+    "preferredCertificates": [],
+    "url": "https://recruit.cj.net/",
+    "source": "CJ 공식 채용사이트",
+    "collectedAt": "2026-11-14T08:26:53.324Z"
+  },
+  {
+    "id": "CJ-J20260827039540",
+    "originalId": "J20260827039540",
+    "group": "CJ",
+    "sourceCompany": "CJ",
+    "company": "CJ대한통운",
+    "companySize": "대기업",
+    "title": "[TES물류기술연구소] 최적화 솔루션 엔지니어 경력사원 모집",
+    "position": "최적화 알고리즘 개발",
+    "location": "서울",
+    "startDate": "2026-08-31",
+    "endDate": null,
+    "endTime": null,
+    "recruitmentType": "상시채용",
+    "jobCode": "6710",
+    "jobFamily": "IR",
+    "isActive": true,
+    "isRolling": true,
+    "positions": [
+      {
+        "name": "최적화 알고리즘 개발",
+        "location": "서울"
+      }
+    ],
+    "requiredCertificates": [],
+    "preferredCertificates": [],
+    "url": "https://recruit.cj.net/",
+    "source": "CJ 공식 채용사이트",
+    "collectedAt": "2026-11-14T08:26:53.324Z"
+  },
+  {
+    "id": "CJ-J20260825039538",
+    "originalId": "J20260825039538",
+    "group": "CJ",
+    "sourceCompany": "CJ",
+    "company": "CJ대한통운",
+    "companySize": "대기업",
+    "title": "[TES물류기술연구소] '포워딩 IT 전문가' 경력사원 모집",
+    "position": "포워딩 IT 전문가",
+    "location": "서울",
+    "startDate": "2026-08-26",
+    "endDate": null,
+    "endTime": null,
+    "recruitmentType": "상시채용",
+    "jobCode": "6726",
+    "jobFamily": "IR",
+    "isActive": true,
+    "isRolling": true,
+    "positions": [
+      {
+        "name": "포워딩 IT 전문가",
+        "location": "서울"
+      }
+    ],
+    "requiredCertificates": [],
+    "preferredCertificates": [],
+    "url": "https://recruit.cj.net/",
+    "source": "CJ 공식 채용사이트",
+    "collectedAt": "2026-11-14T08:26:53.324Z"
+  },
+  {
+    "id": "CJ-J20260813039265",
+    "originalId": "J20260813039265",
+    "group": "CJ",
+    "sourceCompany": "CJ",
+    "company": "CJ대한통운",
+    "companySize": "대기업",
+    "title": "[TES물류기술연구소] 로봇 S/W Engineer (Physical AI 개발) 경력사원 모집",
+    "position": "로봇통합제어(S/W Engineering)",
+    "location": "서울",
+    "startDate": "2026-08-13",
+    "endDate": null,
+    "endTime": null,
+    "recruitmentType": "상시채용",
+    "jobCode": "6709",
+    "jobFamily": "IR",
+    "isActive": true,
+    "isRolling": true,
+    "positions": [
+      {
+        "name": "로봇통합제어(S/W Engineering)",
+        "location": "서울"
+      }
+    ],
+    "requiredCertificates": [],
+    "preferredCertificates": [],
+    "url": "https://recruit.cj.net/",
+    "source": "CJ 공식 채용사이트",
+    "collectedAt": "2026-11-14T08:26:53.324Z"
+  },
+  {
+    "id": "CJ-J20260813039266",
+    "originalId": "J20260813039266",
+    "group": "CJ",
+    "sourceCompany": "CJ",
+    "company": "CJ대한통운",
+    "companySize": "대기업",
+    "title": "[CJ대한통운] '신LMD 운영' 경력사원 모집 (군포)",
+    "position": "O-NE운영(신LMD)",
+    "location": "군포",
+    "startDate": "2026-08-13",
+    "endDate": null,
+    "endTime": null,
+    "recruitmentType": "상시채용",
+    "jobCode": "7273",
+    "jobFamily": "AD",
+    "isActive": true,
+    "isRolling": true,
+    "positions": [
+      {
+        "name": "O-NE운영(신LMD)",
+        "location": "군포"
+      }
+    ],
+    "requiredCertificates": [],
+    "preferredCertificates": [],
+    "url": "https://recruit.cj.net/",
+    "source": "CJ 공식 채용사이트",
+    "collectedAt": "2026-11-14T08:26:53.324Z"
+  },
+  {
+    "id": "CJ-J20251017034142",
+    "originalId": "J20251017034142",
+    "group": "CJ",
+    "sourceCompany": "CJ",
+    "company": "CJ ENM",
+    "companySize": "대기업",
+    "title": "[CJ ENM] Mnet Plus 앱 개발(React Native)_경력채용",
+    "position": "앱 개발",
+    "location": "서울",
+    "startDate": "2026-08-06",
+    "endDate": null,
+    "endTime": null,
+    "recruitmentType": "상시채용",
+    "jobCode": "39",
+    "jobFamily": "IR",
+    "isActive": true,
+    "isRolling": true,
+    "positions": [
+      {
+        "name": "앱 개발",
+        "location": "서울"
+      }
+    ],
+    "requiredCertificates": [],
+    "preferredCertificates": [],
+    "url": "https://recruit.cj.net/",
+    "source": "CJ 공식 채용사이트",
+    "collectedAt": "2026-11-14T08:26:53.324Z"
+  },
+  {
+    "id": "CJ-J20260730039239",
+    "originalId": "J20260730039239",
+    "group": "CJ",
+    "sourceCompany": "CJ",
+    "company": "CJ대한통운",
+    "companySize": "대기업",
+    "title": "[TES물류기술연구소] 'Cloud Engineer' 경력사원 모집",
+    "position": "Cloud Engineer",
+    "location": "서울",
+    "startDate": "2026-07-30",
+    "endDate": null,
+    "endTime": null,
+    "recruitmentType": "상시채용",
+    "jobCode": "7214",
+    "jobFamily": "T",
+    "isActive": true,
+    "isRolling": true,
+    "positions": [
+      {
+        "name": "Cloud Engineer",
+        "location": "서울"
+      }
+    ],
+    "requiredCertificates": [],
+    "preferredCertificates": [],
+    "url": "https://recruit.cj.net/",
+    "source": "CJ 공식 채용사이트",
+    "collectedAt": "2026-11-14T08:26:53.324Z"
+  },
+  {
+    "id": "CJ-8728",
+    "originalId": "8728",
+    "group": "CJ",
+    "sourceCompany": "CJ",
+    "company": "CJ대한통운",
+    "companySize": "대기업",
+    "title": "CJ대한통운 굴삭기운전원 모집(인천, 계약직)",
+    "position": "운전원",
+    "location": "인천",
+    "startDate": "2026-07-28",
+    "endDate": null,
+    "endTime": null,
+    "recruitmentType": "상시채용",
+    "jobCode": "7073",
+    "jobFamily": "BE",
+    "isActive": true,
+    "isRolling": true,
+    "positions": [
+      {
+        "name": "운전원",
+        "location": "인천"
+      }
+    ],
+    "requiredCertificates": [],
+    "preferredCertificates": [],
+    "url": "https://recruit.cj.net/",
+    "source": "CJ 공식 채용사이트",
+    "collectedAt": "2026-11-14T08:26:53.324Z"
+  },
+  {
+    "id": "CJ-8726",
+    "originalId": "8726",
+    "group": "CJ",
+    "sourceCompany": "CJ",
+    "company": "CJ대한통운",
+    "companySize": "대기업",
+    "title": "CJ대한통운 CSU운전원 모집(인천, 계약직)",
+    "position": "CSU운전원",
+    "location": "인천",
+    "startDate": "2026-07-28",
+    "endDate": null,
+    "endTime": null,
+    "recruitmentType": "상시채용",
+    "jobCode": "6665",
+    "jobFamily": "KT",
+    "isActive": true,
+    "isRolling": true,
+    "positions": [
+      {
+        "name": "CSU운전원",
+        "location": "인천"
+      }
+    ],
+    "requiredCertificates": [],
+    "preferredCertificates": [],
+    "url": "https://recruit.cj.net/",
+    "source": "CJ 공식 채용사이트",
+    "collectedAt": "2026-11-14T08:26:53.324Z"
+  },
+  {
+    "id": "CJ-8697",
+    "originalId": "8697",
+    "group": "CJ",
+    "sourceCompany": "CJ",
+    "company": "CJ대한통운",
+    "companySize": "대기업",
+    "title": "CJ대한통운 CSU운전원 모집(당진, 계약직)",
+    "position": "CSU운전원",
+    "location": "당진",
+    "startDate": "2026-07-23",
+    "endDate": null,
+    "endTime": null,
+    "recruitmentType": "상시채용",
+    "jobCode": "6665",
+    "jobFamily": "KT",
+    "isActive": true,
+    "isRolling": true,
+    "positions": [
+      {
+        "name": "CSU운전원",
+        "location": "당진"
+      }
+    ],
+    "requiredCertificates": [],
+    "preferredCertificates": [],
+    "url": "https://recruit.cj.net/",
+    "source": "CJ 공식 채용사이트",
+    "collectedAt": "2026-11-14T08:26:53.324Z"
+  },
+  {
+    "id": "CJ-J20260629039136",
+    "originalId": "J20260629039136",
+    "group": "CJ",
+    "sourceCompany": "CJ",
+    "company": "CJ대한통운",
+    "companySize": "대기업",
+    "title": "[TES물류기술연구소] '센터설계 검토 및 구축' 경력사원 모집",
+    "position": "자동화(센터/설비 설계)",
+    "location": "서울",
+    "startDate": "2026-06-29",
+    "endDate": null,
+    "endTime": null,
+    "recruitmentType": "상시채용",
+    "jobCode": "6150",
+    "jobFamily": "T",
+    "isActive": true,
+    "isRolling": true,
+    "positions": [
+      {
+        "name": "자동화(센터/설비 설계)",
+        "location": "서울"
+      }
+    ],
+    "requiredCertificates": [],
+    "preferredCertificates": [],
+    "url": "https://recruit.cj.net/",
+    "source": "CJ 공식 채용사이트",
+    "collectedAt": "2026-11-14T08:26:53.324Z"
+  },
+  {
+    "id": "CJ-J20260629039137",
+    "originalId": "J20260629039137",
+    "group": "CJ",
+    "sourceCompany": "CJ",
+    "company": "CJ대한통운",
+    "companySize": "대기업",
+    "title": "[TES물류기술연구소] '데이터 엔지니어' 경력사원 모집",
+    "position": "데이터 엔지니어",
+    "location": "서울",
+    "startDate": "2026-06-29",
+    "endDate": null,
+    "endTime": null,
+    "recruitmentType": "상시채용",
+    "jobCode": "6195",
+    "jobFamily": "IR",
+    "isActive": true,
+    "isRolling": true,
+    "positions": [
+      {
+        "name": "데이터 엔지니어",
+        "location": "서울"
+      }
+    ],
+    "requiredCertificates": [],
+    "preferredCertificates": [],
+    "url": "https://recruit.cj.net/",
+    "source": "CJ 공식 채용사이트",
+    "collectedAt": "2026-11-14T08:26:53.324Z"
+  },
+  {
+    "id": "CJ-J20260701039148",
+    "originalId": "J20260701039148",
+    "group": "CJ",
+    "sourceCompany": "CJ",
+    "company": "CJ제일제당",
+    "companySize": "대기업",
+    "title": "[CJ제일제당] Regulatory Affairs 경력 채용",
+    "position": "Regulatory Sciences",
+    "location": "수원(광교)",
+    "startDate": "2026-06-29",
+    "endDate": null,
+    "endTime": null,
+    "recruitmentType": "상시채용",
+    "jobCode": "7245",
+    "jobFamily": "EK",
+    "isActive": true,
+    "isRolling": true,
+    "positions": [
+      {
+        "name": "Regulatory Sciences",
+        "location": "수원(광교)"
+      }
+    ],
+    "requiredCertificates": [],
+    "preferredCertificates": [],
+    "url": "https://recruit.cj.net/",
+    "source": "CJ 공식 채용사이트",
+    "collectedAt": "2026-11-14T08:26:53.324Z"
+  },
+  {
+    "id": "CJ-J20260608039087",
+    "originalId": "J20260608039087",
+    "group": "CJ",
+    "sourceCompany": "CJ",
+    "company": "CJ ENM",
+    "companySize": "대기업",
+    "title": "[CJ ENM] Mnet Plus 일본 Account Manager_경력채용",
+    "position": "플랫폼 사업운영",
+    "location": "서울",
+    "startDate": "2026-06-08",
+    "endDate": null,
+    "endTime": null,
+    "recruitmentType": "상시채용",
+    "jobCode": "7236",
+    "jobFamily": "AB",
+    "isActive": true,
+    "isRolling": true,
+    "positions": [
+      {
+        "name": "플랫폼 사업운영",
+        "location": "서울"
+      }
+    ],
+    "requiredCertificates": [],
+    "preferredCertificates": [],
+    "url": "https://recruit.cj.net/",
+    "source": "CJ 공식 채용사이트",
+    "collectedAt": "2026-11-14T08:26:53.324Z"
+  },
+  {
+    "id": "CJ-J20260522038210",
+    "originalId": "J20260522038210",
+    "group": "CJ",
+    "sourceCompany": "CJ",
+    "company": "CJ제일제당",
+    "companySize": "대기업",
+    "title": "[CJ제일제당] Influencer Marketing 경력 채용",
+    "position": "디지털마케팅",
+    "location": "서울",
+    "startDate": "2026-05-22",
+    "endDate": null,
+    "endTime": null,
+    "recruitmentType": "상시채용",
+    "jobCode": "0244",
+    "jobFamily": "CF",
+    "isActive": true,
+    "isRolling": true,
+    "positions": [
+      {
+        "name": "디지털마케팅",
+        "location": "서울"
+      }
+    ],
+    "requiredCertificates": [],
+    "preferredCertificates": [],
+    "url": "https://recruit.cj.net/",
+    "source": "CJ 공식 채용사이트",
+    "collectedAt": "2026-11-14T08:26:53.324Z"
+  },
+  {
+    "id": "CJ-J20250625031039",
+    "originalId": "J20250625031039",
+    "group": "CJ",
+    "sourceCompany": "CJ",
+    "company": "CJ대한통운",
+    "companySize": "대기업",
+    "title": "[TES물류기술연구소] 'Data Scientist' 경력사원 모집",
+    "position": "Data Science",
+    "location": "서울",
+    "startDate": "2026-05-15",
+    "endDate": null,
+    "endTime": null,
+    "recruitmentType": "상시채용",
+    "jobCode": "6548",
+    "jobFamily": "IR",
+    "isActive": true,
+    "isRolling": true,
+    "positions": [
+      {
+        "name": "Data Science",
+        "location": "서울"
+      }
+    ],
+    "requiredCertificates": [],
+    "preferredCertificates": [],
+    "url": "https://recruit.cj.net/",
+    "source": "CJ 공식 채용사이트",
+    "collectedAt": "2026-11-14T08:26:53.324Z"
+  },
+  {
+    "id": "CJ-8634",
+    "originalId": "8634",
+    "group": "CJ",
+    "sourceCompany": "CJ",
+    "company": "CJ올리브영",
+    "companySize": "대기업",
+    "title": "올리브영 경력채용",
+    "position": "Specialist",
+    "location": "서울",
+    "startDate": "2026-04-13",
+    "endDate": null,
+    "endTime": null,
+    "recruitmentType": "상시채용",
+    "jobCode": "0179",
+    "jobFamily": "DG",
+    "isActive": true,
+    "isRolling": true,
+    "positions": [
+      {
+        "name": "Specialist",
+        "location": "서울"
+      }
+    ],
+    "requiredCertificates": [],
+    "preferredCertificates": [],
+    "url": "https://recruit.cj.net/",
+    "source": "CJ 공식 채용사이트",
+    "collectedAt": "2026-11-14T08:26:53.322Z"
+  },
+  {
+    "id": "CJ-J20260226037775",
+    "originalId": "J20260226037775",
+    "group": "CJ",
+    "sourceCompany": "CJ",
+    "company": "CJ대한통운",
+    "companySize": "대기업",
+    "title": "[CJ대한통운] 더운반 '백엔드 개발' 경력사원 모집",
+    "position": "백엔드개발",
+    "location": "서울",
+    "startDate": "2026-02-27",
+    "endDate": null,
+    "endTime": null,
+    "recruitmentType": "상시채용",
+    "jobCode": "6229",
+    "jobFamily": "IR",
+    "isActive": true,
+    "isRolling": true,
+    "positions": [
+      {
+        "name": "백엔드개발",
+        "location": "서울"
+      }
+    ],
+    "requiredCertificates": [],
+    "preferredCertificates": [],
+    "url": "https://recruit.cj.net/",
+    "source": "CJ 공식 채용사이트",
+    "collectedAt": "2026-11-14T08:26:53.324Z"
+  },
+  {
+    "id": "CJ-J20251017036055",
+    "originalId": "J20251017036055",
+    "group": "CJ",
+    "sourceCompany": "CJ",
+    "company": "CJ ENM",
+    "companySize": "대기업",
+    "title": "[CJ ENM] Mnet Plus_QA Engineer_경력채용",
+    "position": "QA Engineer",
+    "location": "서울",
+    "startDate": "2025-10-20",
+    "endDate": null,
+    "endTime": null,
+    "recruitmentType": "상시채용",
+    "jobCode": "7053",
+    "jobFamily": "KT",
+    "isActive": true,
+    "isRolling": true,
+    "positions": [
+      {
+        "name": "QA Engineer",
+        "location": "서울"
+      }
+    ],
+    "requiredCertificates": [],
+    "preferredCertificates": [],
+    "url": "https://recruit.cj.net/",
+    "source": "CJ 공식 채용사이트",
+    "collectedAt": "2026-11-14T08:26:53.324Z"
+  },
+  {
+    "id": "CJ-J20250604030537",
+    "originalId": "J20250604030537",
+    "group": "CJ",
+    "sourceCompany": "CJ",
+    "company": "CJ대한통운",
+    "companySize": "대기업",
+    "title": "[TES물류기술연구소] 'AI모델개발자' 경력사원 모집",
+    "position": "AI분석 개발",
+    "location": "서울",
+    "startDate": "2025-06-04",
+    "endDate": null,
+    "endTime": null,
+    "recruitmentType": "상시채용",
+    "jobCode": "6264",
+    "jobFamily": "IR",
+    "isActive": true,
+    "isRolling": true,
+    "positions": [
+      {
+        "name": "AI분석 개발",
+        "location": "서울"
+      }
+    ],
+    "requiredCertificates": [],
+    "preferredCertificates": [],
+    "url": "https://recruit.cj.net/",
+    "source": "CJ 공식 채용사이트",
+    "collectedAt": "2026-11-14T08:26:53.324Z"
+  }
+]

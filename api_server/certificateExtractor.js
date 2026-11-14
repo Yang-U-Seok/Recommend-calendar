@@ -23,6 +23,7 @@ const ROOT = __dirname;
 
 const LG_INPUT = path.join(ROOT, 'lgJobsDetail.json');
 const SAMSUNG_INPUT = path.join(ROOT, 'samsungJobs.json');
+const HYUNDAI_INPUT = path.join(ROOT, 'hyundaiJobs.json');
 const OUTPUT = path.join(ROOT, 'companyCertificates.json');
 const DICTIONARY = path.join(ROOT, 'certificateNames.json');
 
@@ -265,14 +266,15 @@ function readJobs(filePath, group) {
 function main() {
   const jobs = [
     ...readJobs(SAMSUNG_INPUT, 'Samsung'),
-    ...readJobs(LG_INPUT, 'LG')
+    ...readJobs(LG_INPUT, 'LG'),
+    ...readJobs(HYUNDAI_INPUT, 'Hyundai')
   ];
 
-  if (!jobs.length) {
-    throw new Error(
-      'samsungJobs.json 또는 lgJobsDetail.json 파일이 필요합니다.'
-    );
-  }
+ if (!jobs.length) {
+  throw new Error(
+    '삼성·LG·현대 채용공고 입력 파일이 없습니다.'
+  );
+}
 
   const { names, source } = readDictionary();
 
@@ -289,15 +291,29 @@ function main() {
   // 삼성과 LG의 필드 구조 통합
   for (const job of jobs) {
     for (const [index, position] of (job.positions || []).entries()) {
-      const requiredText =
-        job._sourceGroup === 'Samsung'
-          ? (position.qualifications || '')
-          : (position.requiredQualifications || '');
+      let requiredText = '';
+let preferredText = '';
 
-      const preferredText =
-        job._sourceGroup === 'Samsung'
-          ? (position.preferences || '')
-          : (position.preferredQualifications || '');
+switch (job._sourceGroup) {
+  case 'Samsung':
+    requiredText = position.qualifications || '';
+    preferredText = position.preferences || '';
+    break;
+
+  case 'LG':
+    requiredText = position.requiredQualifications || '';
+    preferredText = position.preferredQualifications || '';
+    break;
+
+  case 'Hyundai':
+    requiredText = position.qualifications || '';
+    preferredText = position.preferences || '';
+    break;
+
+  default:
+    requiredText = '';
+    preferredText = '';
+}
 
       const required = findCertificates(
         requiredText,
@@ -419,7 +435,7 @@ function main() {
     'utf8'
   );
 
-  console.log('=== 삼성·LG 자격증 통합 추출 ===');
+ console.log('=== 삼성·LG·현대 자격증 통합 추출 ===');
   console.log(
     '공고:',
     jobs.length,

@@ -448,6 +448,20 @@ app.get('/api/qnet/pass-rate', async (req, res) => {
 // 5. Q-Net 자격증 목록
 // ==========================================
 
+
+const EXTRA_CERTIFICATES = [
+  {
+    name: '정보보안기사',
+    grade: '기사',
+    issuer: '한국방송통신전파진흥원'
+  },
+  {
+    name: '정보보안산업기사',
+    grade: '산업기사',
+    issuer: '한국방송통신전파진흥원'
+  }
+];
+
 let certificateCache = {
   expiresAt: 0,
   year: null,
@@ -455,15 +469,53 @@ let certificateCache = {
   failedGrades: []
 };
 
+function mergeCertificateItems(qnetItems) {
+  const merged = new Map();
+
+  for (const cert of qnetItems) {
+    const key = normalizeCertificateName(cert.name);
+
+    if (!key) continue;
+
+    merged.set(key, {
+      ...cert,
+      source: 'Q-Net',
+      scheduleSupported: true
+    });
+  }
+
+  for (const cert of EXTRA_CERTIFICATES) {
+    const key = normalizeCertificateName(cert.name);
+
+    if (!key || merged.has(key)) continue;
+
+    merged.set(key, {
+      id: `extra:${key}`,
+      name: cert.name,
+      grade: cert.grade,
+      gradeCode: null,
+      issuer: cert.issuer,
+      source: '별도 시행기관',
+      scheduleSupported: false
+    });
+  }
+
+  return [...merged.values()].sort(
+    (a, b) => a.name.localeCompare(b.name, 'ko')
+  );
+}
+
 app.get('/api/qnet/certificates', async (req, res) => {
   try {
-    const keyword = String(
-      req.query.keyword || ''
-    ).trim();
+    const keyword = String(req.query.keyword || '').trim();
+    const year = String(req.query.year || '2025');
 
-    const year = String(
-      req.query.year || '2025'
-    );
+    if (!/^\d{4}$/.test(year)) {
+      return res.status(400).json({
+        success: false,
+        message: '연도 형식이 올바르지 않습니다.'
+      });
+    }
 
     const apiKey = process.env.QNET_API_KEY;
     const apiUrl = process.env.QNET_API_URL;
@@ -479,33 +531,26 @@ app.get('/api/qnet/certificates', async (req, res) => {
       Date.now() > certificateCache.expiresAt ||
       certificateCache.year !== year
     ) {
-      const grades = [
-        '10', '20', '30', '31', '32', '33', '40'
-      ];
-
+      const grades = ['10', '20', '30', '31', '32', '33', '40'];
       const certificates = new Map();
-      const errors = [];
+      const failedGrades = [];
 
       for (const grade of grades) {
         try {
-          const { allItems } =
-            await fetchAllQnetItems(
-              apiUrl,
-              apiKey,
-              {
-                grdCd: grade,
-                baseYY: year
-              }
-            );
+          const { allItems } = await fetchAllQnetItems(
+            apiUrl,
+            apiKey,
+            {
+              grdCd: grade,
+              baseYY: year
+            }
+          );
 
           for (const item of allItems) {
-            const name = String(
-              item.jmFldNm || ''
-            ).trim();
-
+            const name = getCertificateName(item);
             if (!name) continue;
 
-            const key = `${grade}:${name}`;
+            const key = `${grade}:${normalizeCertificateName(name)}`;
 
             certificates.set(key, {
               id: key,
@@ -514,46 +559,67 @@ app.get('/api/qnet/certificates', async (req, res) => {
               gradeCode: grade
             });
           }
-
         } catch (error) {
+          failedGrades.push(grade);
           console.error(
-            `등급 ${grade} 조회 실패:`,
-            error
+            `자격증 등급 ${grade} 조회 실패:`,
+            error.message
           );
+        }
+      }
 
-          errors.push(grade);
+      const qnetItems = [...certificates.values()];
+
+      // 일부 등급이 실패하면 이전 정상 목록을 최대한 유지
+      if (
+        failedGrades.length > 0 &&
+        certificateCache.items.length > 0 &&
+        certificateCache.year === year
+      ) {
+        for (const oldItem of certificateCache.items) {
+          if (oldItem.source !== 'Q-Net') continue;
+
+          const key = `${oldItem.gradeCode}:${normalizeCertificateName(oldItem.name)}`;
+
+          if (!certificates.has(key)) {
+            certificates.set(key, oldItem);
+          }
         }
       }
 
       certificateCache = {
         year,
-        items: [...certificates.values()].sort(
-          (a, b) =>
-            a.name.localeCompare(b.name, 'ko')
+        items: mergeCertificateItems(
+          [...certificates.values()]
         ),
+        failedGrades,
         expiresAt: Date.now() + (
-          errors.length > 0
+          failedGrades.length > 0
             ? 5 * 60 * 1000
             : 24 * 60 * 60 * 1000
-        ),
-        failedGrades: errors
+        )
       };
     }
 
-    const filtered = certificateCache.items.filter(
-      cert => cert.name.includes(keyword)
+    const filtered = certificateCache.items.filter(cert =>
+      normalizeCertificateName(cert.name)
+        .includes(normalizeCertificateName(keyword))
     );
 
     res.json({
       success: true,
-      source: 'Q-Net 합격률 API',
       year,
+      source: 'Q-Net 및 별도 시행기관',
       totalCount: certificateCache.items.length,
       count: filtered.length,
-      failedGrades:
-        certificateCache.failedGrades,
-      partial:
-        certificateCache.failedGrades.length > 0,
+      qnetCount: certificateCache.items.filter(
+        cert => cert.source === 'Q-Net'
+      ).length,
+      extraCount: certificateCache.items.filter(
+        cert => cert.source !== 'Q-Net'
+      ).length,
+      failedGrades: certificateCache.failedGrades,
+      partial: certificateCache.failedGrades.length > 0,
       items: filtered
     });
 
@@ -566,6 +632,7 @@ app.get('/api/qnet/certificates', async (req, res) => {
     });
   }
 });
+
 
 // ==========================================
 // 6. Q-Net 취득소요기간 조회 (수정)
@@ -1061,17 +1128,16 @@ app.get('/api/private-jobs', (req, res) => {
 // 10. 국내 사기업 채용공고
 // ==========================================
 
+
+ // ==========================================
+ // 10. 국내 사기업 채용공고 통합
+ // ==========================================
+
 function readJobsFile(filename) {
-  const filePath = path.join(
-    __dirname,
-    filename
-  );
+  const filePath = path.join(__dirname, filename);
 
   if (!fs.existsSync(filePath)) {
-    console.warn(
-      `${filename} 파일이 없습니다.`
-    );
-
+    console.warn(`[채용공고] 파일 없음: ${filename}`);
     return [];
   }
 
@@ -1079,42 +1145,80 @@ function readJobsFile(filename) {
     fs.readFileSync(filePath, 'utf8')
   );
 
-  if (!Array.isArray(data)) {
-    throw new Error(
-      `${filename}은 배열 형식이어야 합니다.`
-    );
+  if (Array.isArray(data)) return data;
+  if (Array.isArray(data.jobs)) return data.jobs;
+
+  throw new Error(
+    `${filename}: 지원하지 않는 JSON 구조입니다.`
+  );
+}
+
+const KOREAN_JOB_SOURCES = [
+  { filename: 'samsungJobs.json', group: '삼성' },
+  { filename: 'hyundaiJobs.json', group: '현대' },
+  { filename: 'lgJobs.json', group: 'LG' },
+  { filename: 'skJobsDetail.json', group: 'SK' },
+  { filename: 'hanwhaJobsDetail.json', group: '한화' },
+  { filename: 'cjJobsDetail.json', group: 'CJ' },
+  { filename: 'koreanJobs.json', group: '기타' }
+];
+
+function normalizeKoreanJob(job, group) {
+  const positions = Array.isArray(job.positions)
+    ? job.positions
+    : [];
+
+  return {
+    ...job,
+    id: String(job.id || job.noticeID || ''),
+    group,
+    company: String(job.company || group),
+    title: String(job.title || ''),
+    location: String(
+      job.location || job.workingArea || ''
+    ),
+    startDate: job.startDate || null,
+    endDate: job.endDate || null,
+    positions,
+    requiredCertificates:
+      job.requiredCertificates || [],
+    preferredCertificates:
+      job.preferredCertificates || [],
+    url: job.url || null
+  };
+}
+
+function getKoreanJobs() {
+  const allJobs = [];
+
+  for (const source of KOREAN_JOB_SOURCES) {
+    const jobs = readJobsFile(source.filename);
+
+    for (const job of jobs) {
+      allJobs.push(
+        normalizeKoreanJob(job, source.group)
+      );
+    }
   }
 
-  return data;
+  const unique = new Map();
+
+  for (const job of allJobs) {
+    const key = [
+      job.company.trim().toLowerCase(),
+      job.id || `${job.title}|${job.endDate || ''}`
+    ].join('|');
+
+    if (!unique.has(key)) {
+      unique.set(key, job);
+    }
+  }
+
+  return [...unique.values()];
 }
 
 app.get('/api/korean-jobs', (req, res) => {
   try {
-    const samsungJobs =
-      readJobsFile('samsungJobs.json');
-
-    const koreanJobs =
-      readJobsFile('koreanJobs.json');
-
-    const allJobs = [
-      ...samsungJobs,
-      ...koreanJobs
-    ];
-
-    // 중복 제거
-    const uniqueJobs = Array.from(
-      new Map(
-        allJobs.map(job => [
-          `${
-            job.company || ''
-          }|${
-            job.id || job.title || ''
-          }`,
-          job
-        ])
-      ).values()
-    );
-
     const keyword = String(
       req.query.keyword || ''
     ).trim().toLowerCase();
@@ -1123,77 +1227,118 @@ app.get('/api/korean-jobs', (req, res) => {
       req.query.company || ''
     ).trim().toLowerCase();
 
+    const group = String(
+      req.query.group || ''
+    ).trim().toLowerCase();
+
     const activeOnly =
       req.query.activeOnly === 'true';
 
-    const today = dateToYmd(
-      new Date()
-    );
+    const today = dateToYmd(new Date());
 
-    const filtered = uniqueJobs.filter(job => {
+    const jobs = getKoreanJobs();
+
+    const filtered = jobs.filter(job => {
+      const positionText = job.positions
+        .map(position =>
+          typeof position === 'string'
+            ? position
+            : [
+                position.name,
+                position.title,
+                position.jobRole
+              ].filter(Boolean).join(' ')
+        )
+        .join(' ');
+
       const searchText = [
         job.company,
         job.title,
         job.location,
-        ...(
-          Array.isArray(job.positions)
-            ? job.positions.map(
-                position => position.name
-              )
-            : []
-        )
-      ].join(' ').toLowerCase();
+        job.jobRole,
+        positionText,
+        ...(job.requiredCertificates || []),
+        ...(job.preferredCertificates || [])
+      ].filter(Boolean).join(' ').toLowerCase();
 
       const matchesKeyword =
         searchText.includes(keyword);
 
       const matchesCompany =
-        String(job.company || '')
-          .toLowerCase()
-          .includes(company);
+        job.company.toLowerCase().includes(company);
+
+      const matchesGroup =
+        job.group.toLowerCase().includes(group);
 
       const matchesActive =
         !activeOnly ||
         !job.endDate ||
         job.endDate >= today;
 
-      return (
-        matchesKeyword &&
+      return matchesKeyword &&
         matchesCompany &&
-        matchesActive
-      );
+        matchesGroup &&
+        matchesActive;
     });
 
     filtered.sort((a, b) => {
-      const dateA =
-        a.endDate || '9999-12-31';
-
-      const dateB =
-        b.endDate || '9999-12-31';
-
+      const dateA = a.endDate || '9999-12-31';
+      const dateB = b.endDate || '9999-12-31';
       return dateA.localeCompare(dateB);
     });
+
+    const groupCounts = {};
+
+    for (const job of filtered) {
+      groupCounts[job.group] =
+        (groupCounts[job.group] || 0) + 1;
+    }
 
     res.json({
       success: true,
       total: filtered.length,
-      jobs: filtered
+      count: filtered.length,
+      groupCounts,
+      jobs: filtered,
+      items: filtered
     });
 
   } catch (error) {
     console.error(
-      '국내기업 채용정보 오류:',
+      '국내기업 통합 채용정보 오류:',
       error
     );
 
     res.status(500).json({
       success: false,
-      message:
-        '국내기업 채용정보 조회 실패',
+      message: '국내기업 채용정보 조회 실패',
       error: error.message
     });
   }
 });
+
+// SK 개별 채용공고 조회
+app.get('/api/sk-jobs', (req, res) => {
+  try {
+    const jobs = readJobsFile('skJobsDetail.json');
+
+    res.json({
+      success: true,
+      group: 'SK',
+      totalCount: jobs.length,
+      count: jobs.length,
+      jobs,
+      items: jobs
+    });
+  } catch (error) {
+    res.status(500).json({
+      success: false,
+      message: 'SK 채용공고 조회 실패',
+      error: error.message
+    });
+  }
+});
+
 
 // ==========================================
 // 11. 서버 실행

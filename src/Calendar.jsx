@@ -1,3 +1,4 @@
+
 import { useEffect, useMemo, useState } from 'react';
 import './Calendar.css';
 import './CalendarPolish.css';
@@ -11,7 +12,7 @@ const FIELDS = [
   ['docPassDt', 'docPassDt', '필기 합격 발표', 'result'],
   ['pracRegStartDt', 'pracRegEndDt', '실기 원서접수', 'registration'],
   ['pracExamStartDt', 'pracExamEndDt', '실기시험', 'exam'],
-  ['pracPassDt', 'pracPassDt', '최종 합격 발표', 'result'],
+  ['pracPassDt', 'pracPassDt', '최종 합격 발표', 'result']
 ];
 
 const COLOR = {
@@ -21,49 +22,140 @@ const COLOR = {
   study: '#16a34a'
 };
 
-function ymd(raw) {
-  const value = String(raw ?? '').replace(/\D/g, '');
-  if (value.length < 8) return null;
+const EXTERNAL_CERTIFICATES = [
+  '정보보안기사',
+  '정보보안산업기사'
+];
 
-  const key = `${value.slice(0, 4)}-${value.slice(4, 6)}-${value.slice(6, 8)}`;
-  const d = new Date(`${key}T12:00:00`);
+const panelStyle = {
+  background: '#fff',
+  border: '1px solid #e2e8f0',
+  borderRadius: 18,
+  padding: 24,
+  margin: '22px 0'
+};
 
-  const valid =
-    !Number.isNaN(d.getTime()) &&
-    `${d.getFullYear()}-${String(d.getMonth() + 1).padStart(2, '0')}-${String(d.getDate()).padStart(2, '0')}` === key;
+const inputStyle = {
+  display: 'block',
+  width: '100%',
+  padding: 11,
+  marginTop: 6,
+  border: '1px solid #cbd5e1',
+  borderRadius: 9,
+  boxSizing: 'border-box'
+};
 
-  return valid ? key : null;
-}
+const btnStyle = {
+  padding: '8px 14px',
+  borderRadius: 9,
+  border: '1px solid #cbd5e1',
+  background: '#fff',
+  cursor: 'pointer'
+};
 
 function dateKey(year, month, day) {
-  return `${year}-${String(month + 1).padStart(2, '0')}-${String(day).padStart(2, '0')}`;
+  return (
+    `${year}-` +
+    `${String(month + 1).padStart(2, '0')}-` +
+    `${String(day).padStart(2, '0')}`
+  );
+}
+
+function todayKey() {
+  const d = new Date();
+  return dateKey(
+    d.getFullYear(),
+    d.getMonth(),
+    d.getDate()
+  );
+}
+
+function ymd(raw) {
+  const value = String(raw ?? '').replace(/\D/g, '');
+
+  if (value.length < 8) return null;
+
+  const key =
+    `${value.slice(0, 4)}-` +
+    `${value.slice(4, 6)}-` +
+    `${value.slice(6, 8)}`;
+
+  const d = new Date(`${key}T12:00:00`);
+
+  if (Number.isNaN(d.getTime())) return null;
+
+  const checked = dateKey(
+    d.getFullYear(),
+    d.getMonth(),
+    d.getDate()
+  );
+
+  return checked === key ? key : null;
 }
 
 function addDays(key, count) {
-  const date = new Date(`${key}T12:00:00`);
-  date.setDate(date.getDate() + count);
+  const d = new Date(`${key}T12:00:00`);
+  d.setDate(d.getDate() + count);
 
   return dateKey(
-    date.getFullYear(),
-    date.getMonth(),
-    date.getDate()
+    d.getFullYear(),
+    d.getMonth(),
+    d.getDate()
   );
+}
+
+function normalizeName(name) {
+  return String(name ?? '')
+    .replace(/\s/g, '')
+    .toLowerCase();
+}
+
+function isExternalCertificate(name) {
+  return EXTERNAL_CERTIFICATES.some(
+    item => normalizeName(item) === normalizeName(name)
+  );
+}
+
+function algorithmName(type) {
+  switch (type) {
+    case 'PASS_RATE_BASED':
+      return '합격률 기반';
+    case 'MOCK_BASED':
+      return '모의고사 기반';
+    case 'BASIC_FALLBACK':
+      return '기본 학습량 기반';
+    default:
+      return '기존 학습계획';
+  }
 }
 
 function normalizeEvents(name, rows) {
   const unique = new Map();
 
   for (const row of rows) {
-    const round = row.implSeq ? `제${row.implSeq}회` : '';
+    const round = row.implSeq
+      ? `제${row.implSeq}회`
+      : '';
 
-    for (const [startField, endField, label, kind] of FIELDS) {
+    for (const [
+      startField,
+      endField,
+      label,
+      kind
+    ] of FIELDS) {
       const start = ymd(row[startField]);
       const end = ymd(row[endField]) || start;
 
       if (!start) continue;
 
       const safeEnd = end >= start ? end : start;
-      const id = [name, round, label, start, safeEnd].join('|');
+      const id = [
+        name,
+        round,
+        label,
+        start,
+        safeEnd
+      ].join('|');
 
       unique.set(id, {
         id,
@@ -82,12 +174,41 @@ function normalizeEvents(name, rows) {
   );
 }
 
-export default function Calendar({ user, initialDiagnosis = null }) {
-  const [currentDate, setCurrentDate] = useState(new Date());
+async function apiRequest(route, options = {}) {
+  const response = await fetch(
+    `${API_BASE}${route}`,
+    {
+      credentials: 'include',
+      ...options
+    }
+  );
+
+  const data = await response.json();
+
+  if (!response.ok || !data.success) {
+    throw new Error(
+      data.message || '요청 처리에 실패했습니다.'
+    );
+  }
+
+  return data;
+}
+
+export default function Calendar({
+  user,
+  initialDiagnosis = null
+}) {
+  const [currentDate, setCurrentDate] = useState(
+    new Date()
+  );
+
   const [selectedDate, setSelectedDate] = useState(null);
 
   const [certificates, setCertificates] = useState([]);
-  const [selectedCertificates, setSelectedCertificates] = useState([]);
+  const [
+    selectedCertificates,
+    setSelectedCertificates
+  ] = useState([]);
 
   const [keyword, setKeyword] = useState('');
   const [grade, setGrade] = useState('all');
@@ -101,21 +222,29 @@ export default function Calendar({ user, initialDiagnosis = null }) {
     loading: false,
     errors: [],
     events: [],
-    missing: []
+    missing: [],
+    unsupported: []
   });
 
   const [plans, setPlans] = useState([]);
   const [mockResults, setMockResults] = useState([]);
+
   const [plannerCertId, setPlannerCertId] = useState('');
   const [plannerType, setPlannerType] = useState('written');
   const [plannerLevel, setPlannerLevel] = useState('beginner');
   const [plannerHours, setPlannerHours] = useState(4);
-  const [plannerDays, setPlannerDays] = useState([1, 2, 3, 4, 5, 6]);
+
+  const [plannerDays, setPlannerDays] = useState([
+    1, 2, 3, 4, 5, 6
+  ]);
+
   const [plannerExamDate, setPlannerExamDate] = useState('');
   const [manualExamDate, setManualExamDate] = useState('');
+
   const [plannerBusy, setPlannerBusy] = useState(false);
   const [plannerError, setPlannerError] = useState('');
   const [plannerNotice, setPlannerNotice] = useState('');
+
   const [preview, setPreview] = useState(null);
   const [previewBusy, setPreviewBusy] = useState(false);
 
@@ -129,7 +258,10 @@ export default function Calendar({ user, initialDiagnosis = null }) {
   const year = currentDate.getFullYear();
   const month = currentDate.getMonth();
 
-  // 사용자별 관심 자격증 불러오기
+  // ==========================================
+  // 1. 관심 자격증 불러오기
+  // ==========================================
+
   useEffect(() => {
     if (!storageKey) {
       setSelectedCertificates([]);
@@ -149,7 +281,10 @@ export default function Calendar({ user, initialDiagnosis = null }) {
     }
   }, [storageKey]);
 
-  // Q-Net 자격증 목록 조회
+  // ==========================================
+  // 2. 자격증 목록 조회
+  // ==========================================
+
   useEffect(() => {
     if (!isLoggedIn) {
       setCertificates([]);
@@ -161,10 +296,13 @@ export default function Calendar({ user, initialDiagnosis = null }) {
     setLoading(true);
     setListError('');
 
-    fetch(`${API_BASE}/api/qnet/certificates?year=2025`, {
-      signal: controller.signal,
-      credentials: 'include'
-    })
+    fetch(
+      `${API_BASE}/api/qnet/certificates?year=2025`,
+      {
+        credentials: 'include',
+        signal: controller.signal
+      }
+    )
       .then(async response => {
         const data = await response.json();
 
@@ -174,23 +312,23 @@ export default function Calendar({ user, initialDiagnosis = null }) {
           );
         }
 
-        if (!controller.signal.aborted) {
-          setCertificates(
-            Array.isArray(data.items) ? data.items : []
-          );
+        if (controller.signal.aborted) return;
 
-          setPartial(Boolean(data.partial));
+        setCertificates(
+          Array.isArray(data.items) ? data.items : []
+        );
 
-          setFailedGrades(
-            Array.isArray(data.failedGrades)
-              ? data.failedGrades
-              : []
-          );
-        }
+        setPartial(Boolean(data.partial));
+
+        setFailedGrades(
+          Array.isArray(data.failedGrades)
+            ? data.failedGrades
+            : []
+        );
       })
-      .catch(err => {
-        if (err.name !== 'AbortError') {
-          setListError(err.message);
+      .catch(error => {
+        if (error.name !== 'AbortError') {
+          setListError(error.message);
         }
       })
       .finally(() => {
@@ -202,19 +340,26 @@ export default function Calendar({ user, initialDiagnosis = null }) {
     return () => controller.abort();
   }, [isLoggedIn]);
 
-  // 선택한 자격증의 실제 시험일정 조회
+  // ==========================================
+  // 3. 관심 자격증 시험일정 조회
+  // ==========================================
+
   const selectedKey = selectedCertificates
-    .map(cert => cert.id)
+    .map(cert => String(cert.id))
     .sort()
     .join('|');
 
   useEffect(() => {
-    if (!isLoggedIn || selectedCertificates.length === 0) {
+    if (
+      !isLoggedIn ||
+      selectedCertificates.length === 0
+    ) {
       setScheduleState({
         loading: false,
         errors: [],
         events: [],
-        missing: []
+        missing: [],
+        unsupported: []
       });
       return;
     }
@@ -225,21 +370,36 @@ export default function Calendar({ user, initialDiagnosis = null }) {
       loading: true,
       errors: [],
       events: [],
-      missing: []
+      missing: [],
+      unsupported: []
     });
 
     Promise.all(
       selectedCertificates.map(async cert => {
+        if (
+          cert.scheduleSupported === false ||
+          isExternalCertificate(cert.name)
+        ) {
+          return {
+            name: cert.name,
+            unsupported: true,
+            events: []
+          };
+        }
+
         try {
           const url =
-            `${API_BASE}/api/qnet/exam-schedule` +
+            `/api/qnet/exam-schedule` +
             `?keyword=${encodeURIComponent(cert.name)}` +
             `&year=${year}`;
 
-          const response = await fetch(url, {
-            signal: controller.signal,
-            credentials: 'include'
-          });
+          const response = await fetch(
+            `${API_BASE}${url}`,
+            {
+              credentials: 'include',
+              signal: controller.signal
+            }
+          );
 
           const data = await response.json();
 
@@ -262,12 +422,14 @@ export default function Calendar({ user, initialDiagnosis = null }) {
             events: normalizeEvents(cert.name, rows),
             empty: rows.length === 0
           };
-        } catch (err) {
-          if (err.name === 'AbortError') return null;
+        } catch (error) {
+          if (error.name === 'AbortError') {
+            return null;
+          }
 
           return {
             name: cert.name,
-            error: err.message
+            error: error.message
           };
         }
       })
@@ -276,14 +438,21 @@ export default function Calendar({ user, initialDiagnosis = null }) {
 
       setScheduleState({
         loading: false,
+
         errors: results
-          .filter(result => result?.error)
-          .map(result => `${result.name}: ${result.error}`),
+          .filter(item => item?.error)
+          .map(item => `${item.name}: ${item.error}`),
+
         missing: results
-          .filter(result => result?.empty)
-          .map(result => result.name),
+          .filter(item => item?.empty)
+          .map(item => item.name),
+
+        unsupported: results
+          .filter(item => item?.unsupported)
+          .map(item => item.name),
+
         events: results.flatMap(
-          result => result?.events || []
+          item => item?.events || []
         )
       });
     });
@@ -291,27 +460,29 @@ export default function Calendar({ user, initialDiagnosis = null }) {
     return () => controller.abort();
   }, [isLoggedIn, userId, year, selectedKey]);
 
-  const grades = useMemo(
-    () => [
-      ...new Set(
-        certificates.map(cert => cert.grade).filter(Boolean)
-      )
-    ],
-    [certificates]
-  );
+  // ==========================================
+  // 4. 자격증 필터링
+  // ==========================================
+
+  const grades = useMemo(() => [
+    ...new Set(
+      certificates
+        .map(cert => cert.grade)
+        .filter(Boolean)
+    )
+  ], [certificates]);
 
   const filtered = useMemo(
-    () =>
-      certificates.filter(cert => {
-        const matchesKeyword = cert.name
-          .toLowerCase()
-          .includes(keyword.trim().toLowerCase());
+    () => certificates.filter(cert => {
+      const matchesKeyword = cert.name
+        .toLowerCase()
+        .includes(keyword.trim().toLowerCase());
 
-        const matchesGrade =
-          grade === 'all' || cert.grade === grade;
+      const matchesGrade =
+        grade === 'all' || cert.grade === grade;
 
-        return matchesKeyword && matchesGrade;
-      }),
+      return matchesKeyword && matchesGrade;
+    }),
     [certificates, keyword, grade]
   );
 
@@ -320,11 +491,13 @@ export default function Calendar({ user, initialDiagnosis = null }) {
 
     setSelectedCertificates(prev => {
       const exists = prev.some(
-        item => item.id === cert.id
+        item => String(item.id) === String(cert.id)
       );
 
       const next = exists
-        ? prev.filter(item => item.id !== cert.id)
+        ? prev.filter(
+            item => String(item.id) !== String(cert.id)
+          )
         : [...prev, cert];
 
       localStorage.setItem(
@@ -336,185 +509,395 @@ export default function Calendar({ user, initialDiagnosis = null }) {
     });
   }
 
-  // 학습 진단에서 입력한 외부 모의고사 성적 조회
-  useEffect(() => {
-    if (!isLoggedIn) { setMockResults([]); return; }
-    const controller = new AbortController();
-    fetch(`${API_BASE}/api/study/mock-results`, { credentials:'include', signal:controller.signal })
-      .then(r=>r.json()).then(data=>{ if (!controller.signal.aborted && data.success) setMockResults(data.items || []); })
-      .catch(err=>{if(err.name!=='AbortError')setPlannerError(err.message)});
-    return ()=>controller.abort();
-  }, [isLoggedIn,userId]);
+  // ==========================================
+  // 5. 모의고사 및 학습계획 조회
+  // ==========================================
 
-  // 로그인한 사용자의 학습계획 불러오기
   useEffect(() => {
-    if (!isLoggedIn) { setPlans([]); return; }
+    if (!isLoggedIn) {
+      setMockResults([]);
+      setPlans([]);
+      return;
+    }
+
     const controller = new AbortController();
-    fetch(`${API_BASE}/api/study/plans`, { credentials: 'include', signal: controller.signal })
-      .then(r => r.json()).then(data => {
-        if (!controller.signal.aborted && data.success) setPlans(data.plans || []);
-      }).catch(error => { if (error.name !== 'AbortError') setPlannerError(error.message); });
+
+    fetch(`${API_BASE}/api/study/mock-results`, {
+      credentials: 'include',
+      signal: controller.signal
+    })
+      .then(response => response.json())
+      .then(data => {
+        if (
+          !controller.signal.aborted &&
+          data.success
+        ) {
+          setMockResults(data.items || []);
+        }
+      })
+      .catch(error => {
+        if (error.name !== 'AbortError') {
+          setPlannerError(error.message);
+        }
+      });
+
+    fetch(`${API_BASE}/api/study/plans`, {
+      credentials: 'include',
+      signal: controller.signal
+    })
+      .then(response => response.json())
+      .then(data => {
+        if (
+          !controller.signal.aborted &&
+          data.success
+        ) {
+          setPlans(data.plans || []);
+        }
+      })
+      .catch(error => {
+        if (error.name !== 'AbortError') {
+          setPlannerError(error.message);
+        }
+      });
+
     return () => controller.abort();
   }, [isLoggedIn, userId]);
 
-  // 진단에서 넘어온 자격증을 자동 선택 (Q-Net 목록 조회 후)
+  // ==========================================
+  // 6. 학습 진단 결과 자동 선택
+  // ==========================================
+
   useEffect(() => {
-    if (!initialDiagnosis?.certificate || !certificates.length || !storageKey) return;
-    const match = certificates.find(c => c.name.replace(/\s/g,'') === initialDiagnosis.certificate.replace(/\s/g,''));
+    if (
+      !initialDiagnosis?.certificate ||
+      !certificates.length ||
+      !storageKey
+    ) {
+      return;
+    }
+
+    const match = certificates.find(
+      cert =>
+        normalizeName(cert.name) ===
+        normalizeName(initialDiagnosis.certificate)
+    );
+
     if (!match) return;
+
     setSelectedCertificates(prev => {
-      if (prev.some(c=>c.id===match.id)) return prev;
-      const next=[...prev,match];
-      localStorage.setItem(storageKey,JSON.stringify(next));
+      if (
+        prev.some(
+          cert => String(cert.id) === String(match.id)
+        )
+      ) {
+        return prev;
+      }
+
+      const next = [...prev, match];
+
+      localStorage.setItem(
+        storageKey,
+        JSON.stringify(next)
+      );
+
       return next;
     });
-    setPlannerCertId(match.id);
-    setPlannerType(initialDiagnosis.examType || 'written');
-  }, [initialDiagnosis?.certificate, initialDiagnosis?.examType, certificates, storageKey]);
 
-  async function previewStudyPlan() {
-    if (!plannerCert || !plannerDays.length) {setPlannerError('자격증과 공부 요일을 선택하세요.');return;}
-    setPreviewBusy(true);setPlannerError('');setPreview(null);
-    try {
-      const r=await fetch(`${API_BASE}/api/study/preview`,{
-        method:'POST',credentials:'include',headers:{'Content-Type':'application/json'},
-        body:JSON.stringify({certificateName:plannerCert.name,grade:plannerCert.gradeCode || '30',examType:plannerType,
-          level:plannerLevel,dailyHours:Number(plannerHours),studyDays:plannerDays})});
-      const data=await r.json();
-      if(!r.ok||!data.success)throw new Error(data.message||'미리보기 실패');
-      setPreview(data);
-    }catch(e){setPlannerError(e.message);}finally{setPreviewBusy(false);}
-  }
+    setPlannerCertId(String(match.id));
 
-  const plannerCert = selectedCertificates.find(c => String(c.id) === String(plannerCertId));
+    setPlannerType(
+      initialDiagnosis.examType || 'written'
+    );
+  }, [
+    initialDiagnosis?.certificate,
+    initialDiagnosis?.examType,
+    certificates,
+    storageKey
+  ]);
+
+  // ==========================================
+  // 7. 학습계획 대상 자격증
+  // ==========================================
+
+  const plannerCert = selectedCertificates.find(
+    cert =>
+      String(cert.id) === String(plannerCertId)
+  );
+
   const availableExamDates = useMemo(() => {
     if (!plannerCert) return [];
-    const label = plannerType === 'written' ? '필기시험' : '실기시험';
-    return [...new Set(scheduleState.events
-      .filter(e => e.name === plannerCert.name && e.label === label && e.start > new Date().toLocaleDateString('sv-SE'))
-      .map(e => e.start))].sort();
-  }, [plannerCertId, plannerType, scheduleState.events, selectedKey]);
 
+    const label = plannerType === 'written'
+      ? '필기시험'
+      : '실기시험';
 
-useEffect(() => {
-  setPlannerExamDate(prev => {
-    if (availableExamDates.includes(prev)) {
-      return prev;
+    return [
+      ...new Set(
+        scheduleState.events
+          .filter(event =>
+            event.name === plannerCert.name &&
+            event.label === label &&
+            event.start > todayKey()
+          )
+          .map(event => event.start)
+      )
+    ].sort();
+  }, [
+    plannerCertId,
+    plannerType,
+    scheduleState.events,
+    selectedKey
+  ]);
+
+  useEffect(() => {
+    setPlannerExamDate(prev => {
+      if (availableExamDates.includes(prev)) {
+        return prev;
+      }
+
+      return availableExamDates[0] || '';
+    });
+  }, [
+    plannerCertId,
+    plannerType,
+    availableExamDates.join('|')
+  ]);
+
+  // ==========================================
+  // 8. 학습기간 미리보기
+  // ==========================================
+
+  async function previewStudyPlan() {
+    if (!plannerCert || !plannerDays.length) {
+      setPlannerError(
+        '자격증과 공부 요일을 선택하세요.'
+      );
+      return;
     }
 
-    return availableExamDates[0] || '';
-  });
-}, [plannerCertId, plannerType, availableExamDates.join('|')]);
+    setPreviewBusy(true);
+    setPlannerError('');
+    setPreview(null);
+
+    try {
+      const data = await apiRequest(
+        '/api/study/preview',
+        {
+          method: 'POST',
+          headers: {
+            'Content-Type': 'application/json'
+          },
+          body: JSON.stringify({
+            certificateName: plannerCert.name,
+            grade: plannerCert.gradeCode || '30',
+            examType: plannerType,
+            level: plannerLevel,
+            dailyHours: Number(plannerHours),
+            studyDays: plannerDays
+          })
+        }
+      );
+
+      setPreview(data);
+    } catch (error) {
+      setPlannerError(error.message);
+    } finally {
+      setPreviewBusy(false);
+    }
+  }
+
+  // ==========================================
+  // 9. 모의고사 삭제
+  // ==========================================
 
   async function deleteMockResult(id) {
-  if (!window.confirm('이 모의고사 성적을 삭제할까요?')) return;
-
-  try {
-    setPlannerError('');
-
-    const response = await fetch(
-      `${API_BASE}/api/study/mock-results/${id}`,
-      {
-        method: 'DELETE',
-        credentials: 'include'
-      }
-    );
-
-    const data = await response.json();
-
-    if (!response.ok || !data.success) {
-      throw new Error(data.message || '성적 삭제 실패');
+    if (
+      !window.confirm(
+        '이 모의고사 성적을 삭제할까요?'
+      )
+    ) {
+      return;
     }
 
-    setMockResults(prev =>
-      prev.filter(item => item.id !== id)
-    );
+    try {
+      setPlannerError('');
 
-  } catch (error) {
-    setPlannerError(error.message);
+      await apiRequest(
+        `/api/study/mock-results/${id}`,
+        { method: 'DELETE' }
+      );
+
+      setMockResults(prev =>
+        prev.filter(item => item.id !== id)
+      );
+    } catch (error) {
+      setPlannerError(error.message);
+    }
   }
-}
+
+  // ==========================================
+  // 10. 학습계획 생성
+  // ==========================================
 
   async function createStudyPlan(event) {
     event.preventDefault();
-    const targetExamDate = manualExamDate || ''; // 시험일 미지정이면 추천 완료일 사용
-    if (!plannerCert) { setPlannerError('자격증을 선택하세요.'); return; }
-    setPlannerBusy(true); setPlannerError(''); setPlannerNotice('');
-    try {
-      const response = await fetch(`${API_BASE}/api/study/plans`, {
-        method: 'POST', credentials: 'include', headers: { 'Content-Type': 'application/json' },
-        body: JSON.stringify({ certificateName: plannerCert.name, grade: plannerCert.gradeCode || '30',
-          examType: plannerType, examDate: targetExamDate, level: plannerLevel,
-          dailyHours: Number(plannerHours), studyDays: plannerDays })
-      });
-      const data = await response.json();
-      if (!response.ok || !data.success) throw new Error(data.message || '학습계획 생성 실패');
-      setPlans(prev => [data.plan, ...prev]);
-      setPlannerNotice(`학습계획 생성 완료! ${data.plan.tasks.length}일의 학습 일정을 저장했습니다.${data.dataWarnings?.length ? ' (' + data.dataWarnings.join(', ') + ')' : ''}`);
-      setCurrentDate(new Date(`${data.plan.tasks[0]?.date || data.plan.examDate}T12:00:00`));
-    } catch (error) { setPlannerError(error.message); }
-    finally { setPlannerBusy(false); }
-  }
 
- 
-async function toggleStudyTask(task) {
-  const nextCompleted = !task.completed;
-
-  try {
-    setPlannerError('');
-
-    const response = await fetch(
-      `${API_BASE}/api/study/tasks/${task.id}`,
-      {
-        method: 'PATCH',
-        credentials: 'include',
-        headers: {
-          'Content-Type': 'application/json'
-        },
-        body: JSON.stringify({
-          completed: nextCompleted
-        })
-      }
-    );
-
-    const data = await response.json();
-
-    if (!response.ok || !data.success) {
-      throw new Error(
-        data.message || '공부 완료 상태 저장 실패'
-      );
+    if (!plannerCert) {
+      setPlannerError('자격증을 선택하세요.');
+      return;
     }
 
-    setPlans(prev =>
-      prev.map(plan => ({
-        ...plan,
-        tasks: plan.tasks.map(item =>
-          item.id === task.id
-            ? { ...item, completed: nextCompleted }
-            : item
-        )
-      }))
-    );
+    if (!plannerDays.length) {
+      setPlannerError('공부할 요일을 선택하세요.');
+      return;
+    }
 
-  } catch (error) {
-    setPlannerError(error.message);
+    // 직접 입력 날짜 우선
+    // 없으면 Q-Net에서 선택한 날짜
+    // 둘 다 없으면 백엔드 추천 목표일 사용
+    const targetExamDate =
+      manualExamDate ||
+      plannerExamDate ||
+      '';
+
+    setPlannerBusy(true);
+    setPlannerError('');
+    setPlannerNotice('');
+
+    try {
+      const data = await apiRequest(
+        '/api/study/plans',
+        {
+          method: 'POST',
+          headers: {
+            'Content-Type': 'application/json'
+          },
+          body: JSON.stringify({
+            certificateName: plannerCert.name,
+            grade: plannerCert.gradeCode || '30',
+            examType: plannerType,
+            examDate: targetExamDate,
+            level: plannerLevel,
+            dailyHours: Number(plannerHours),
+            studyDays: plannerDays
+          })
+        }
+      );
+
+      setPlans(prev => [
+        data.plan,
+        ...prev
+      ]);
+
+      setPlannerNotice(
+        `학습계획 생성 완료! ` +
+        `(${algorithmName(data.algorithmType)}) ` +
+        `${data.plan.tasks.length}일의 ` +
+        `학습 일정을 저장했습니다.`
+      );
+
+      const firstDate =
+        data.plan.tasks[0]?.date ||
+        data.plan.examDate;
+
+      if (firstDate) {
+        setCurrentDate(
+          new Date(`${firstDate}T12:00:00`)
+        );
+      }
+
+      setSelectedDate(null);
+
+    } catch (error) {
+      setPlannerError(error.message);
+    } finally {
+      setPlannerBusy(false);
+    }
   }
-}
 
+  // ==========================================
+  // 11. 공부 완료 체크
+  // ==========================================
+
+  async function toggleStudyTask(task) {
+    const nextCompleted = !task.completed;
+
+    try {
+      setPlannerError('');
+
+      await apiRequest(
+        `/api/study/tasks/${task.id}`,
+        {
+          method: 'PATCH',
+          headers: {
+            'Content-Type': 'application/json'
+          },
+          body: JSON.stringify({
+            completed: nextCompleted
+          })
+        }
+      );
+
+      setPlans(prev =>
+        prev.map(plan => ({
+          ...plan,
+          tasks: plan.tasks.map(item =>
+            item.id === task.id
+              ? {
+                  ...item,
+                  completed: nextCompleted
+                }
+              : item
+          )
+        }))
+      );
+    } catch (error) {
+      setPlannerError(error.message);
+    }
+  }
+
+  // ==========================================
+  // 12. 학습계획 삭제
+  // ==========================================
 
   async function deleteStudyPlan(planId) {
-    if (!window.confirm('이 학습계획과 공부 일정을 삭제할까요?')) return;
+    if (
+      !window.confirm(
+        '이 학습계획과 공부 일정을 삭제할까요?'
+      )
+    ) {
+      return;
+    }
+
     try {
-      const response = await fetch(`${API_BASE}/api/study/plans/${planId}`, { method: 'DELETE', credentials: 'include' });
-      const data = await response.json();
-      if (!response.ok || !data.success) throw new Error(data.message || '삭제 실패');
-      setPlans(prev => prev.filter(p => p.id !== planId));
-    } catch (error) { setPlannerError(error.message); }
+      await apiRequest(
+        `/api/study/plans/${planId}`,
+        { method: 'DELETE' }
+      );
+
+      setPlans(prev =>
+        prev.filter(plan => plan.id !== planId)
+      );
+    } catch (error) {
+      setPlannerError(error.message);
+    }
   }
 
-  // 달력 날짜 계산
-  const firstWeekday = new Date(year, month, 1).getDay();
-  const daysInMonth = new Date(year, month + 1, 0).getDate();
+  // ==========================================
+  // 13. 달력 날짜 계산
+  // ==========================================
+
+  const firstWeekday = new Date(
+    year,
+    month,
+    1
+  ).getDay();
+
+  const daysInMonth = new Date(
+    year,
+    month + 1,
+    0
+  ).getDate();
 
   const cells = [
     ...Array(firstWeekday).fill(null),
@@ -528,23 +911,30 @@ async function toggleStudyTask(task) {
     cells.push(null);
   }
 
-  const today = new Date();
+  const today = todayKey();
 
-  const todayKey = dateKey(
-    today.getFullYear(),
-    today.getMonth(),
-    today.getDate()
-  );
-
-  // 시험일정의 시작일부터 종료일까지 날짜에 매핑
   const eventsByDate = useMemo(() => {
     const map = new Map();
 
-    const studyEvents = plans.flatMap(plan => plan.tasks.map(task => ({
-      id: `study-${task.id}`, name: plan.certificateName, label: task.title,
-      kind: 'study', start: task.date, end: task.date, task
-    })));
-    for (const event of [...scheduleState.events, ...studyEvents]) {
+    const studyEvents = plans.flatMap(
+      plan => plan.tasks.map(task => ({
+        id: `study-${task.id}`,
+        name: plan.certificateName,
+        round: '',
+        label: task.title,
+        kind: 'study',
+        start: task.date,
+        end: task.date,
+        task
+      }))
+    );
+
+    for (
+      const event of [
+        ...scheduleState.events,
+        ...studyEvents
+      ]
+    ) {
       let date = event.start;
 
       for (
@@ -568,18 +958,17 @@ async function toggleStudyTask(task) {
     ? eventsByDate.get(selectedDate) || []
     : [];
 
-  const btnStyle = {
-    padding: '8px 14px',
-    borderRadius: 9,
-    border: '1px solid #cbd5e1',
-    background: '#fff',
-    cursor: 'pointer'
-  };
+  // ==========================================
+  // 14. 화면
+  // ==========================================
 
   return (
     <div
       className="calendar-page"
-      style={{ width: '100%', minWidth: 0 }}
+      style={{
+        width: '100%',
+        minWidth: 0
+      }}
     >
       <div
         className="calendar-header"
@@ -594,14 +983,17 @@ async function toggleStudyTask(task) {
         <div>
           <h2>나의 캘린더</h2>
           <p>
-            관심 자격증의 실제 Q-Net 시험일정을 확인하세요.
+            관심 자격증의 시험일정과
+            맞춤형 공부 일정을 확인하세요.
           </p>
         </div>
 
         <span
-          className={`calendar-status ${
-            isLoggedIn ? 'active' : ''
-          }`}
+          className={
+            `calendar-status ${
+              isLoggedIn ? 'active' : ''
+            }`
+          }
         >
           {isLoggedIn
             ? '맞춤형 캘린더'
@@ -609,21 +1001,20 @@ async function toggleStudyTask(task) {
         </span>
       </div>
 
+      {/* ==================================
+          관심 자격증 선택
+      ================================== */}
+
       {isLoggedIn && (
         <section
           className="certificate-selector"
-          style={{
-            background: '#fff',
-            border: '1px solid #e2e8f0',
-            borderRadius: 18,
-            padding: 24,
-            margin: '22px 0'
-          }}
+          style={panelStyle}
         >
           <h3>관심 자격증 선택</h3>
 
           <p style={{ color: '#64748b' }}>
-            Q-Net 실제 자격증을 검색하고 선택하세요.
+            Q-Net 및 별도 시행기관 자격증을
+            검색하고 선택하세요.
           </p>
 
           <div
@@ -637,7 +1028,9 @@ async function toggleStudyTask(task) {
             <input
               type="search"
               value={keyword}
-              onChange={e => setKeyword(e.target.value)}
+              onChange={e =>
+                setKeyword(e.target.value)
+              }
               placeholder="자격증 검색 (예: 정보처리기사)"
               style={{
                 flex: '1 1 240px',
@@ -650,17 +1043,24 @@ async function toggleStudyTask(task) {
 
             <select
               value={grade}
-              onChange={e => setGrade(e.target.value)}
+              onChange={e =>
+                setGrade(e.target.value)
+              }
               style={{
                 padding: 12,
                 border: '1px solid #cbd5e1',
                 borderRadius: 10
               }}
             >
-              <option value="all">전체 등급</option>
+              <option value="all">
+                전체 등급
+              </option>
 
               {grades.map(item => (
-                <option key={item} value={item}>
+                <option
+                  key={item}
+                  value={item}
+                >
                   {item}
                 </option>
               ))}
@@ -668,7 +1068,9 @@ async function toggleStudyTask(task) {
           </div>
 
           {loading && (
-            <p>Q-Net 자격증 목록을 불러오는 중...</p>
+            <p>
+              자격증 목록을 불러오는 중...
+            </p>
           )}
 
           {listError && (
@@ -680,14 +1082,14 @@ async function toggleStudyTask(task) {
           {!loading && !listError && (
             <>
               <p style={{ color: '#475569' }}>
-                전체 {certificates.length}개 중
-                {' '}{filtered.length}개 표시
+                전체 {certificates.length}개 중{' '}
+                {filtered.length}개 표시
               </p>
 
               {partial && (
                 <p style={{ color: '#b45309' }}>
-                  일부 등급 조회 실패:
-                  {' '}{failedGrades.join(', ')}
+                  일부 등급 조회 실패:{' '}
+                  {failedGrades.join(', ')}
                   {' '}— 전체 목록이 아닐 수 있습니다.
                 </p>
               )}
@@ -706,7 +1108,9 @@ async function toggleStudyTask(task) {
                 }}
               >
                 {filtered.length === 0 && (
-                  <p>검색 결과가 없습니다.</p>
+                  <p>
+                    검색 결과가 없습니다.
+                  </p>
                 )}
 
                 {filtered.map(cert => (
@@ -723,9 +1127,13 @@ async function toggleStudyTask(task) {
                   >
                     <input
                       type="checkbox"
-                      checked={selectedCertificates.some(
-                        item => item.id === cert.id
-                      )}
+                      checked={
+                        selectedCertificates.some(
+                          item =>
+                            String(item.id) ===
+                            String(cert.id)
+                        )
+                      }
                       onChange={() =>
                         toggleCertificate(cert)
                       }
@@ -762,7 +1170,8 @@ async function toggleStudyTask(task) {
           >
             {selectedCertificates.length === 0 && (
               <p style={{ color: '#64748b' }}>
-                자격증을 선택하면 시험일정을 자동 조회합니다.
+                자격증을 선택하면 시험일정을
+                자동 조회합니다.
               </p>
             )}
 
@@ -770,7 +1179,9 @@ async function toggleStudyTask(task) {
               <button
                 key={cert.id}
                 type="button"
-                onClick={() => toggleCertificate(cert)}
+                onClick={() =>
+                  toggleCertificate(cert)
+                }
                 style={{
                   ...btnStyle,
                   color: '#1d4ed8',
@@ -784,182 +1195,610 @@ async function toggleStudyTask(task) {
           </div>
 
           {scheduleState.loading && (
-            <p
-              style={{
-                marginTop: 12,
-                color: '#475569'
-              }}
-            >
-              선택한 자격증의 {year}년 실제 시험일정을
-              조회 중...
+            <p style={{ color: '#475569' }}>
+              선택한 자격증의 {year}년
+              시험일정을 조회 중...
             </p>
           )}
 
           {scheduleState.errors.map(error => (
             <p
               key={error}
-              style={{
-                color: '#dc2626',
-                marginTop: 10
-              }}
+              style={{ color: '#dc2626' }}
             >
               일정 조회 실패 — {error}
+            </p>
+          ))}
+
+          {scheduleState.unsupported.map(name => (
+            <p
+              key={name}
+              style={{ color: '#b45309' }}
+            >
+              {name}: Q-Net 시험일정이
+              제공되지 않습니다.
+              실제 응시일을 직접 입력해 주세요.
             </p>
           ))}
 
           {scheduleState.missing.map(name => (
             <p
               key={name}
-              style={{
-                color: '#b45309',
-                marginTop: 10
-              }}
+              style={{ color: '#b45309' }}
             >
-              {name}: {year}년 일정이 반환되지 않았습니다.
+              {name}: {year}년 일정이
+              반환되지 않았습니다.
             </p>
           ))}
 
           {!scheduleState.loading &&
             scheduleState.events.length > 0 && (
-              <p
-                style={{
-                  color: '#059669',
-                  marginTop: 12
-                }}
-              >
-                실제 Q-Net 일정
-                {' '}{scheduleState.events.length}개 구간을
-                달력에 표시합니다.
+              <p style={{ color: '#059669' }}>
+                실제 Q-Net 일정{' '}
+                {scheduleState.events.length}개
+                구간을 달력에 표시합니다.
               </p>
             )}
         </section>
       )}
 
-      {isLoggedIn && (
-        <section className="study-planner-panel" style={{ background:'#fff', border:'1px solid #e2e8f0', borderRadius:18, padding:24, margin:'22px 0' }}>
-          <h3>맞춤형 공부 일정 자동 생성</h3>
-          <p style={{color:'#475569'}}>학습 진단에서 입력한 최근 외부 CBT 점수와 과목별 취약도를 자동 반영합니다.</p>
-          {mockResults.length > 0 && <div style={{padding:12,background:'#eff6ff',borderRadius:10,marginBottom:12}}>
-            <strong>저장된 모의고사 성적</strong>
-            {mockResults.slice(0, 5).map(m => (
-  <div
-    key={m.id}
-    style={{
-      display: 'flex',
-      alignItems: 'center',
-      justifyContent: 'space-between',
-      gap: 10,
-      margin: '8px 0'
-    }}
-  >
-    <span>
-      {m.certificateName} ·
-      {m.examType === 'written' ? ' 필기' : ' 실기'} ·
-      {' '}{m.score}점 ({m.mockDate})
-    </span>
+      {/* ==================================
+          맞춤형 학습계획
+      ================================== */}
 
-    <button
-      type="button"
-      onClick={() => deleteMockResult(m.id)}
-      style={{
-        padding: '5px 10px',
-        border: '1px solid #fecaca',
-        borderRadius: 6,
-        background: '#fff',
-        color: '#dc2626',
-        cursor: 'pointer'
-      }}
-    >
-      삭제
-    </button>
-  </div>
-))}
-          </div>}
-          <p style={{color:'#64748b'}}>Q-Net 시험일정과 합격률·취득소요기간을 참고해 공부 일정을 만듭니다.</p>
-          <form onSubmit={createStudyPlan} style={{display:'grid',gridTemplateColumns:'repeat(auto-fit,minmax(190px,1fr))',gap:14,marginTop:16}}>
-            <label>목표 자격증
-              <select value={plannerCertId} onChange={e=>setPlannerCertId(e.target.value)} required style={{display:'block',width:'100%',padding:11,marginTop:6}}>
-                <option value="">자격증 선택</option>
-                {selectedCertificates.map(c=><option key={c.id} value={c.id}>{c.name}</option>)}
+      {isLoggedIn && (
+        <section
+          className="study-planner-panel"
+          style={panelStyle}
+        >
+          <h3>
+            맞춤형 공부 일정 자동 생성
+          </h3>
+
+          <p style={{ color: '#475569' }}>
+            합격률 데이터가 있으면 합격률 기반,
+            없으면 저장된 모의고사 점수 기반으로
+            학습계획을 생성합니다.
+          </p>
+
+          {/* 저장된 모의고사 */}
+
+          {mockResults.length > 0 && (
+            <div
+              style={{
+                padding: 12,
+                background: '#eff6ff',
+                borderRadius: 10,
+                marginBottom: 12
+              }}
+            >
+              <strong>
+                저장된 모의고사 성적
+              </strong>
+
+              {mockResults.slice(0, 5).map(mock => (
+                <div
+                  key={mock.id}
+                  style={{
+                    display: 'flex',
+                    alignItems: 'center',
+                    justifyContent: 'space-between',
+                    gap: 10,
+                    margin: '8px 0'
+                  }}
+                >
+                  <span>
+                    {mock.certificateName} ·{' '}
+                    {mock.examType === 'written'
+                      ? '필기'
+                      : '실기'} ·{' '}
+                    {mock.score}점
+                    ({mock.mockDate})
+                  </span>
+
+                  <button
+                    type="button"
+                    onClick={() =>
+                      deleteMockResult(mock.id)
+                    }
+                    style={{
+                      ...btnStyle,
+                      color: '#dc2626',
+                      borderColor: '#fecaca'
+                    }}
+                  >
+                    삭제
+                  </button>
+                </div>
+              ))}
+            </div>
+          )}
+
+          {/* 학습계획 입력 폼 */}
+
+          <form
+            onSubmit={createStudyPlan}
+            style={{
+              display: 'grid',
+              gridTemplateColumns:
+                'repeat(auto-fit,minmax(190px,1fr))',
+              gap: 14,
+              marginTop: 16
+            }}
+          >
+            <label>
+              목표 자격증
+
+              <select
+                value={plannerCertId}
+                onChange={e => {
+                  setPlannerCertId(e.target.value);
+                  setPreview(null);
+                }}
+                required
+                style={inputStyle}
+              >
+                <option value="">
+                  자격증 선택
+                </option>
+
+                {selectedCertificates.map(cert => (
+                  <option
+                    key={cert.id}
+                    value={cert.id}
+                  >
+                    {cert.name}
+                  </option>
+                ))}
               </select>
             </label>
-            <label>시험 유형
-              <select value={plannerType} onChange={e=>setPlannerType(e.target.value)} style={{display:'block',width:'100%',padding:11,marginTop:6}}>
-                <option value="written">필기</option><option value="practical">실기</option>
+
+            <label>
+              시험 유형
+
+              <select
+                value={plannerType}
+                onChange={e => {
+                  setPlannerType(e.target.value);
+                  setPreview(null);
+                }}
+                style={inputStyle}
+              >
+                <option value="written">
+                  필기
+                </option>
+
+                <option value="practical">
+                  실기
+                </option>
               </select>
             </label>
-            <label>목표 시험일
-              <select value={plannerExamDate} onChange={e=>setPlannerExamDate(e.target.value)} style={{display:'block',width:'100%',padding:11,marginTop:6}}>
-                <option value="">{scheduleState.loading?'시험일정 조회 중':'시험 시작일 선택'}</option>
-                {availableExamDates.map(d=><option key={d} value={d}>{d}</option>)}
+
+            <label>
+              목표 시험일
+
+              <select
+                value={plannerExamDate}
+                onChange={e =>
+                  setPlannerExamDate(e.target.value)
+                }
+                style={inputStyle}
+              >
+                <option value="">
+                  {scheduleState.loading
+                    ? '시험일정 조회 중'
+                    : '시험 시작일 선택'}
+                </option>
+
+                {availableExamDates.map(date => (
+                  <option
+                    key={date}
+                    value={date}
+                  >
+                    {date}
+                  </option>
+                ))}
               </select>
             </label>
-            <label>실제 응시일 직접 입력 (선택 가능)
-              <input type="date" value={manualExamDate} min={new Date(Date.now()+86400000).toLocaleDateString('sv-SE')} onChange={e=>setManualExamDate(e.target.value)} style={{display:'block',width:'100%',padding:11,marginTop:6}} />
+
+            <label>
+              실제 응시일 직접 입력 (선택)
+
+              <input
+                type="date"
+                value={manualExamDate}
+                min={addDays(todayKey(), 1)}
+                onChange={e =>
+                  setManualExamDate(e.target.value)
+                }
+                style={inputStyle}
+              />
             </label>
-            <label>현재 학습 수준
-              <select value={plannerLevel} onChange={e=>setPlannerLevel(e.target.value)} style={{display:'block',width:'100%',padding:11,marginTop:6}}>
-                <option value="beginner">초급</option><option value="intermediate">중급</option><option value="advanced">상급</option>
+
+            <label>
+              현재 학습 수준
+
+              <select
+                value={plannerLevel}
+                onChange={e => {
+                  setPlannerLevel(e.target.value);
+                  setPreview(null);
+                }}
+                style={inputStyle}
+              >
+                <option value="beginner">
+                  초급
+                </option>
+
+                <option value="intermediate">
+                  중급
+                </option>
+
+                <option value="advanced">
+                  상급
+                </option>
               </select>
             </label>
-            <label>하루 공부 가능 시간
-              <input type="number" min="1" max="8" step="0.5" value={plannerHours} onChange={e=>setPlannerHours(Number(e.target.value))} required style={{display:'block',width:'100%',padding:11,marginTop:6}} />
+
+            <label>
+              하루 공부 가능 시간
+
+              <input
+                type="number"
+                min="1"
+                max="8"
+                step="0.5"
+                value={plannerHours}
+                onChange={e => {
+                  setPlannerHours(
+                    Number(e.target.value)
+                  );
+                  setPreview(null);
+                }}
+                required
+                style={inputStyle}
+              />
             </label>
-            <fieldset style={{border:'1px solid #e2e8f0',borderRadius:10,padding:10}}>
-              <legend>공부 가능한 요일</legend>
-              <div style={{display:'flex',gap:8,flexWrap:'wrap'}}>
-                {WEEKDAYS.map((day,i)=><label key={day} style={{whiteSpace:'nowrap'}}>
-                  <input type="checkbox" checked={plannerDays.includes(i)} onChange={e=>setPlannerDays(prev=>e.target.checked?[...prev,i]:prev.filter(x=>x!==i))} /> {day}
-                </label>)}
+
+            <fieldset
+              style={{
+                border: '1px solid #e2e8f0',
+                borderRadius: 10,
+                padding: 10
+              }}
+            >
+              <legend>
+                공부 가능한 요일
+              </legend>
+
+              <div
+                style={{
+                  display: 'flex',
+                  gap: 8,
+                  flexWrap: 'wrap'
+                }}
+              >
+                {WEEKDAYS.map((day, index) => (
+                  <label
+                    key={day}
+                    style={{
+                      whiteSpace: 'nowrap'
+                    }}
+                  >
+                    <input
+                      type="checkbox"
+                      checked={
+                        plannerDays.includes(index)
+                      }
+                      onChange={e => {
+                        setPlannerDays(prev =>
+                          e.target.checked
+                            ? [...prev, index]
+                            : prev.filter(
+                                item => item !== index
+                              )
+                        );
+                        setPreview(null);
+                      }}
+                    />
+                    {' '}{day}
+                  </label>
+                ))}
               </div>
             </fieldset>
-            <button type="submit" disabled={plannerBusy || !plannerDays.length} style={{padding:12,background:'#2563eb',color:'#fff',border:0,borderRadius:10,cursor:'pointer'}}>
-              {plannerBusy?'학습계획 생성 중...':'학습계획 생성'}
+
+            <button
+              type="submit"
+              disabled={
+                plannerBusy ||
+                !plannerDays.length
+              }
+              style={{
+                padding: 12,
+                background: '#2563eb',
+                color: '#fff',
+                border: 0,
+                borderRadius: 10,
+                cursor: 'pointer'
+              }}
+            >
+              {plannerBusy
+                ? '학습계획 생성 중...'
+                : '학습계획 생성'}
             </button>
           </form>
-          <button type="button" disabled={previewBusy || !plannerCert || !plannerDays.length} onClick={previewStudyPlan}
-            style={{marginTop:12,padding:12,borderRadius:9,border:'1px solid #2563eb',background:'#eff6ff',color:'#1d4ed8'}}>
-            {previewBusy?'분석 중...':'모의고사 기반 추천 학습기간 분석'}
+
+          {/* 미리보기 버튼 */}
+
+          <button
+            type="button"
+            disabled={
+              previewBusy ||
+              !plannerCert ||
+              !plannerDays.length
+            }
+            onClick={previewStudyPlan}
+            style={{
+              marginTop: 12,
+              padding: 12,
+              borderRadius: 9,
+              border: '1px solid #2563eb',
+              background: '#eff6ff',
+              color: '#1d4ed8',
+              cursor: 'pointer'
+            }}
+          >
+            {previewBusy
+              ? '분석 중...'
+              : '추천 학습기간 분석'}
           </button>
-          {preview && <div style={{padding:14,marginTop:12,borderRadius:10,background:'#f0fdf4'}}>
-            <strong>예상 학습 완료일: {preview.estimate.completionDate}</strong>
-            <p>모의고사 목표 80점 · 80점 이상은 복습/기출 위주 유지 학습</p>
-            <p>예상 학습시간 {preview.estimate.estimatedHours}시간 · 학습일 {preview.estimate.studyDaysNeeded}일 · 모의고사 {preview.mockScore ?? '미입력'}점</p>
-            <p><strong>개인별 보정 합격률 지표: {preview.estimate.personalAdjustedRate == null ? '산출 불가' : preview.estimate.personalAdjustedRate+'%'}</strong> (65:35 참고 지표이며 학습시간 계산에는 미사용, 실제 합격 확률 아님)</p>
-            <p>필기 합격률 {preview.statistics?.writtenPassRate ?? '자료 없음'}% · 실기 합격률 {preview.statistics?.practicalPassRate ?? '자료 없음'}% · 취득소요기간 {preview.statistics?.averageDays ?? '자료 없음'}일</p>
-            <p>시험별 배분기간 {preview.estimate.allocatedDays == null ? '자료 없음' : preview.estimate.allocatedDays.toFixed(1)+'일'} · 기준 학습량 {preview.estimate.baseHours.toFixed(1)}시간</p>
-            <p>하루 공부시간 기본 4시간, 선택 1~8시간 · 모의고사 점수는 학습량에 한 번만 반영</p>
-            <p>임시 목표일 {preview.estimate.suggestedTargetDate} · {preview.estimate.assumption}</p>
-            <small>{preview.notice}</small>
-          </div>}
-          {!plannerExamDate && plannerCert && !scheduleState.loading && <p style={{color:'#b45309'}}>실제 시험일을 선택하지 않으면 분석된 추천 완료일 다음 날을 임시 목표일로 사용합니다. 이는 Q-Net 확정 시험일이 아닙니다.</p>}
-          {plannerError && <p style={{color:'#dc2626'}}>{plannerError}</p>}
-          {plannerNotice && <p style={{color:'#059669'}}>{plannerNotice}</p>}
-          {plans.map(plan=>{
-            const done=plan.tasks.filter(t=>t.completed).length;
-            return <div key={plan.id} style={{border:'1px solid #e2e8f0',borderRadius:12,padding:16,marginTop:14}}>
-              <div style={{display:'flex',justifyContent:'space-between',gap:12,flexWrap:'wrap'}}>
-                <strong>{plan.certificateName} · {plan.examType==='written'?'필기':'실기'} · {plan.examDate}</strong>
-                <button type="button" onClick={()=>deleteStudyPlan(plan.id)} style={{border:'1px solid #fecaca',background:'#fff',color:'#b91c1c',borderRadius:8,padding:'5px 10px',cursor:'pointer'}}>계획 삭제</button>
+
+          {/* 미리보기 결과 */}
+
+          {preview && (
+            <div
+              style={{
+                padding: 14,
+                marginTop: 12,
+                borderRadius: 10,
+                background: '#f0fdf4'
+              }}
+            >
+              <strong>
+                예상 학습 완료일:{' '}
+                {preview.estimate?.completionDate}
+              </strong>
+
+              <p>
+                적용 알고리즘:{' '}
+                <strong>
+                  {algorithmName(
+                    preview.algorithmType
+                  )}
+                </strong>
+              </p>
+
+              <p>
+                예상 학습시간{' '}
+                {preview.estimate?.estimatedHours}시간
+                {' '}· 학습일{' '}
+                {preview.estimate?.studyDaysNeeded}일
+              </p>
+
+              <p>
+                모의고사 점수:{' '}
+                {preview.mockScore ?? '미입력'}
+              </p>
+
+              <p>
+                필기 합격률:{' '}
+                {preview.statistics?.writtenPassRate == null
+                  ? '자료 없음'
+                  : `${preview.statistics.writtenPassRate}%`}
+              </p>
+
+              <p>
+                실기 합격률:{' '}
+                {preview.statistics?.practicalPassRate == null
+                  ? '자료 없음'
+                  : `${preview.statistics.practicalPassRate}%`}
+              </p>
+
+              <p>
+                평균 취득소요기간:{' '}
+                {preview.statistics?.averageDays == null
+                  ? '자료 없음'
+                  : `${preview.statistics.averageDays}일`}
+              </p>
+
+              <p>
+                개인별 보정 합격률 참고 지표:{' '}
+                {preview.estimate?.personalAdjustedRate == null
+                  ? '산출 불가'
+                  : `${preview.estimate.personalAdjustedRate}%`}
+              </p>
+
+              <p>
+                임시 목표일:{' '}
+                {preview.estimate?.suggestedTargetDate}
+              </p>
+
+              <small>
+                {preview.notice}
+              </small>
+
+              <p
+                style={{
+                  fontSize: 12,
+                  color: '#64748b'
+                }}
+              >
+                추정 학습량과 개인별 지표는
+                규칙 기반 참고값이며,
+                실제 합격확률을 의미하지 않습니다.
+              </p>
+            </div>
+          )}
+
+          {/* 시험일 미지정 안내 */}
+
+          {!plannerExamDate &&
+            !manualExamDate &&
+            plannerCert &&
+            !scheduleState.loading && (
+              <p style={{ color: '#b45309' }}>
+                시험일을 선택하지 않으면
+                추천 학습기간을 바탕으로
+                임시 목표일을 생성합니다.
+                실제 확정 시험일은 아닙니다.
+              </p>
+            )}
+
+          {plannerError && (
+            <p style={{ color: '#dc2626' }}>
+              {plannerError}
+            </p>
+          )}
+
+          {plannerNotice && (
+            <p style={{ color: '#059669' }}>
+              {plannerNotice}
+            </p>
+          )}
+
+          {/* 생성된 학습계획 */}
+
+          {plans.map(plan => {
+            const tasks = plan.tasks || [];
+
+            const done = tasks.filter(
+              task => task.completed
+            ).length;
+
+            const progress = tasks.length
+              ? Math.round(
+                  done / tasks.length * 100
+                )
+              : 0;
+
+            return (
+              <div
+                key={plan.id}
+                style={{
+                  border: '1px solid #e2e8f0',
+                  borderRadius: 12,
+                  padding: 16,
+                  marginTop: 14
+                }}
+              >
+                <div
+                  style={{
+                    display: 'flex',
+                    justifyContent: 'space-between',
+                    gap: 12,
+                    flexWrap: 'wrap'
+                  }}
+                >
+                  <strong>
+                    {plan.certificateName}
+                    {' '}·{' '}
+                    {plan.examType === 'written'
+                      ? '필기'
+                      : '실기'}
+                    {' '}· {plan.examDate}
+                  </strong>
+
+                  <button
+                    type="button"
+                    onClick={() =>
+                      deleteStudyPlan(plan.id)
+                    }
+                    style={{
+                      ...btnStyle,
+                      color: '#b91c1c',
+                      borderColor: '#fecaca'
+                    }}
+                  >
+                    계획 삭제
+                  </button>
+                </div>
+
+                <p style={{ color: '#2563eb' }}>
+                  적용 알고리즘:{' '}
+                  <strong>
+                    {algorithmName(
+                      plan.algorithmType
+                    )}
+                  </strong>
+                </p>
+
+                <p style={{ color: '#475569' }}>
+                  추정 학습량{' '}
+                  {plan.estimatedHours}시간
+                  {' '}· 권장 하루{' '}
+                  {plan.requiredDailyHours}시간
+                  {' '}· 확보 가능{' '}
+                  {plan.availableHours}시간
+                </p>
+
+                <p
+                  style={{
+                    color: plan.feasible
+                      ? '#059669'
+                      : '#b45309'
+                  }}
+                >
+                  {plan.feasible
+                    ? '현재 설정으로 추정 학습량 확보 가능'
+                    : '학습시간 부족 — 공부시간 또는 시험일 조정 권장'}
+                </p>
+
+                <p>
+                  학습 진도 {done}/{tasks.length}일
+                  {' '}({progress}%)
+                </p>
+
+                <div
+                  style={{
+                    height: 8,
+                    background: '#e2e8f0',
+                    borderRadius: 20,
+                    overflow: 'hidden'
+                  }}
+                >
+                  <div
+                    style={{
+                      width: `${progress}%`,
+                      height: '100%',
+                      background: '#16a34a'
+                    }}
+                  />
+                </div>
+
+                <small
+                  style={{
+                    display: 'block',
+                    color: '#64748b',
+                    marginTop: 10
+                  }}
+                >
+                  {plan.notice}
+                </small>
               </div>
-              <p style={{margin:'8px 0',color:'#475569'}}>추정 학습량 {plan.estimatedHours}시간 · 권장 하루 {plan.requiredDailyHours}시간 · 설정한 기간의 확보 가능 시간 {plan.availableHours}시간</p>
-              <p style={{margin:'8px 0',color:plan.feasible?'#059669':'#b45309'}}>{plan.feasible?'현재 설정으로 추정 학습량 확보 가능':'현재 설정으로 추정 학습량 부족 — 공부시간 또는 시험일 조정 권장'}</p>
-              <p style={{margin:'8px 0'}}>학습 진도 {done}/{plan.tasks.length}일 ({plan.tasks.length?Math.round(done/plan.tasks.length*100):0}%)</p>
-              <div style={{height:8,background:'#e2e8f0',borderRadius:20,overflow:'hidden'}}><div style={{width:`${plan.tasks.length?done/plan.tasks.length*100:0}%`,height:'100%',background:'#16a34a'}} /></div>
-              <small style={{color:'#64748b'}}>{plan.notice}</small>
-            </div>;
+            );
           })}
         </section>
       )}
 
+      {/* ==================================
+          달력
+      ================================== */}
+
       <section
         className="calendar-container"
         style={{
-          background: '#fff',
-          border: '1px solid #e2e8f0',
-          borderRadius: 18,
-          padding: 20,
-          marginTop: 20
+          ...panelStyle,
+          padding: 20
         }}
       >
         <div
@@ -1027,7 +1866,8 @@ async function toggleStudyTask(task) {
           className="calendar-grid"
           style={{
             display: 'grid',
-            gridTemplateColumns: 'repeat(7, minmax(0, 1fr))',
+            gridTemplateColumns:
+              'repeat(7, minmax(0, 1fr))',
             gap: 5
           }}
         >
@@ -1042,8 +1882,8 @@ async function toggleStudyTask(task) {
                   index === 0
                     ? '#dc2626'
                     : index === 6
-                    ? '#2563eb'
-                    : '#475569',
+                      ? '#2563eb'
+                      : '#475569',
                 fontWeight: 700
               }}
             >
@@ -1061,18 +1901,28 @@ async function toggleStudyTask(task) {
               );
             }
 
-            const key = dateKey(year, month, day);
-            const events = eventsByDate.get(key) || [];
+            const key = dateKey(
+              year,
+              month,
+              day
+            );
+
+            const events =
+              eventsByDate.get(key) || [];
 
             return (
               <button
                 type="button"
                 key={key}
-                onClick={() => setSelectedDate(key)}
+                onClick={() =>
+                  setSelectedDate(key)
+                }
                 className={[
                   'calendar-cell',
-                  key === todayKey ? 'today' : '',
-                  key === selectedDate ? 'selected' : ''
+                  key === today ? 'today' : '',
+                  key === selectedDate
+                    ? 'selected'
+                    : ''
                 ].join(' ')}
                 style={{
                   minWidth: 0,
@@ -1085,7 +1935,7 @@ async function toggleStudyTask(task) {
                       ? '2px solid #2563eb'
                       : '1px solid #e2e8f0',
                   background:
-                    key === todayKey
+                    key === today
                       ? '#eff6ff'
                       : '#fff',
                   cursor: 'pointer',
@@ -1102,11 +1952,11 @@ async function toggleStudyTask(task) {
                     height: 27,
                     borderRadius: '50%',
                     background:
-                      key === todayKey
+                      key === today
                         ? '#2563eb'
                         : 'transparent',
                     color:
-                      key === todayKey
+                      key === today
                         ? '#fff'
                         : '#334155',
                     fontWeight: 700
@@ -1127,13 +1977,15 @@ async function toggleStudyTask(task) {
                     <span
                       key={event.id}
                       title={
-                        `${event.name} ${event.round} ` +
-                        `${event.label}: ${event.start} ~ ${event.end}`
+                        `${event.name} ${event.round || ''} ` +
+                        `${event.label}: ` +
+                        `${event.start} ~ ${event.end}`
                       }
                       style={{
                         fontSize: 11,
                         color: COLOR[event.kind],
-                        background: `${COLOR[event.kind]}12`,
+                        background:
+                          `${COLOR[event.kind]}12`,
                         borderLeft:
                           `3px solid ${COLOR[event.kind]}`,
                         padding: '3px 4px',
@@ -1164,15 +2016,13 @@ async function toggleStudyTask(task) {
         </div>
       </section>
 
+      {/* ==================================
+          선택한 날짜의 상세 일정
+      ================================== */}
+
       <section
         className="calendar-detail"
-        style={{
-          marginTop: 18,
-          background: '#fff',
-          border: '1px solid #e2e8f0',
-          borderRadius: 18,
-          padding: 22
-        }}
+        style={panelStyle}
       >
         <h3>
           {selectedDate
@@ -1180,11 +2030,12 @@ async function toggleStudyTask(task) {
             : '날짜를 선택해 일정을 확인하세요'}
         </h3>
 
-        {selectedDate && selectedEvents.length === 0 && (
-          <p style={{ color: '#64748b' }}>
-            이 날짜에 조회된 시험일정이 없습니다.
-          </p>
-        )}
+        {selectedDate &&
+          selectedEvents.length === 0 && (
+            <p style={{ color: '#64748b' }}>
+              이 날짜에 조회된 일정이 없습니다.
+            </p>
+          )}
 
         {selectedEvents.map(event => (
           <div
@@ -1199,15 +2050,34 @@ async function toggleStudyTask(task) {
             }}
           >
             <strong>
-              {event.name} {event.round} — {event.label}
+              {event.name}{' '}
+              {event.round || ''}
+              {' '}— {event.label}
             </strong>
 
             {event.kind === 'study' && (
-              <label style={{display:'block',marginTop:8,color:'#166534'}}>
-                <input type="checkbox" checked={event.task.completed} onChange={()=>toggleStudyTask(event.task)} />
-                {' '}공부 완료 · 권장 {event.task.hours}시간
+              <label
+                style={{
+                  display: 'block',
+                  marginTop: 8,
+                  color: '#166534'
+                }}
+              >
+                <input
+                  type="checkbox"
+                  checked={
+                    Boolean(event.task.completed)
+                  }
+                  onChange={() =>
+                    toggleStudyTask(event.task)
+                  }
+                />
+
+                {' '}공부 완료 · 권장{' '}
+                {event.task.hours}시간
               </label>
             )}
+
             <div
               style={{
                 fontSize: 13,
@@ -1230,9 +2100,12 @@ async function toggleStudyTask(task) {
             marginTop: 16
           }}
         >
-          시험 일정은 Q-Net API 기반이며, 초록색 공부 일정은 사용자 입력에 따라 생성한 추정 학습계획입니다.
-          실제 개인별 시험일·접수 가능 기간은
-          Q-Net 공고에서 다시 확인하세요.
+          시험일정은 Q-Net API를 기반으로 표시하며,
+          초록색 공부 일정은 사용자 입력과
+          규칙 기반 알고리즘으로 생성한
+          추정 학습계획입니다.
+          실제 시험일과 접수기간은
+          해당 시험 시행기관의 공고를 확인하세요.
         </p>
       </section>
     </div>

@@ -1,4 +1,3 @@
-
 import { useState, useEffect, useRef } from 'react';
 import './JobSearch.css';
 
@@ -8,6 +7,9 @@ const PAGE_SIZE = 10;
 const SAMSUNG_URL = 'https://www.samsungcareers.com/hr/?ty=B';
 const HYUNDAI_URL = 'https://talent.hyundai.com/';
 const LG_URL = 'https://careers.lg.com/';
+const SK_URL = 'https://www.skcareers.com/';
+const HANWHA_URL = 'https://www.hanwhain.com/';
+const CJ_URL = 'https://recruit.cj.net/';
 
 const categories = [
   { value: '', label: '전체 기관' },
@@ -34,6 +36,10 @@ const initialFilters = {
   company: '',
   companySize: ''
 };
+
+// ==========================================
+// 날짜 관련 함수
+// ==========================================
 
 function displayDate(value) {
   if (!value) return '정보 없음';
@@ -65,9 +71,12 @@ function displayDate(value) {
   return text;
 }
 
-// 국내기업 마감일 및 마감시간 표시
 function displayDeadline(job) {
-  if (!job.endDate) return '정보 없음';
+  if (!job.endDate && !job.endDateTime) return '정보 없음';
+
+  if (job.endDateTime && /^\d{4}-\d{2}-\d{2} \d{2}:\d{2}/.test(job.endDateTime)) {
+    return job.endDateTime.slice(0, 16);
+  }
 
   const date = displayDate(job.endDate);
   const time = String(job.endTime || '').trim();
@@ -82,11 +91,11 @@ function displayDeadline(job) {
   return date;
 }
 
-// 한국시간 기준 모집 중인지 확인
+// 한국시간 기준 모집 여부 확인
 function isActiveJob(job) {
-  if (!job.endDate) return true;
+  if (!job.endDate && !job.endDateTime) return true;
 
-  const raw = String(job.endDate).trim();
+  const raw = String(job.endDateTime || job.endDate).trim();
   let normalized = raw;
 
   if (/^\d{8}$/.test(raw)) {
@@ -116,35 +125,85 @@ function isActiveJob(job) {
 
   const date = new Date(normalized);
 
+  // 날짜를 해석할 수 없는 경우 임의로 마감 처리하지 않음
   if (Number.isNaN(date.getTime())) return true;
 
   return date.getTime() >= Date.now();
 }
 
-// 기업별 공식 채용사이트
+// ==========================================
+// 기업 공식 사이트 관련 함수
+// ==========================================
+
 function getOfficialUrl(job) {
-  if (job.sourceCompany === 'LG') {
-    return job.url || LG_URL;
+  const url = String(job.url || '').trim();
+
+  if (/^https?:\/\//i.test(url)) {
+    return url;
+  }
+
+  const group = String(
+    job.sourceCompany || job.group || ''
+  );
+  if (
+  group === 'CJ' ||
+  String(job.company || '').startsWith('CJ')
+) {
+  return CJ_URL;
+}
+
+  if (group === '한화' || String(job.company || '').includes('한화')) {
+    return HANWHA_URL;
   }
 
   if (
-    job.sourceCompany === '현대자동차' ||
-    job.company === '현대자동차'
+    group === 'SK' ||
+    String(job.company || '').startsWith('SK')
   ) {
-    return job.url || HYUNDAI_URL;
+    return SK_URL;
   }
 
-  return job.url || SAMSUNG_URL;
+  if (
+    group === 'LG' ||
+    String(job.company || '').startsWith('LG')
+  ) {
+    return LG_URL;
+  }
+
+  if (
+    group === '현대' ||
+    group === '현대자동차' ||
+    job.company === '현대자동차'
+  ) {
+    return HYUNDAI_URL;
+  }
+
+  return SAMSUNG_URL;
 }
 
 function getOfficialLinkText(job) {
-  if (job.sourceCompany === 'LG') {
+  const group = String(
+    job.sourceCompany || job.group || ''
+  );
+
+  if (group === '한화') {
+    return '한화인에서 확인하기';
+  }
+  if (group === 'CJ') {
+  return 'CJ 채용사이트에서 확인하기';
+}
+
+  if (group === 'SK') {
+    return 'SK Careers에서 확인하기';
+  }
+
+  if (group === 'LG') {
     return 'LG Careers에서 확인하기';
   }
 
   if (
-    job.sourceCompany === '현대자동차' ||
-    job.company === '현대자동차'
+    group === '현대' ||
+    group === '현대자동차'
   ) {
     return '현대자동차 채용사이트에서 확인하기';
   }
@@ -152,84 +211,206 @@ function getOfficialLinkText(job) {
   return '삼성커리어스에서 확인하기';
 }
 
+// ==========================================
+// 채용공고 데이터 표시 관련 함수
+// ==========================================
+
 function getPositionNames(job) {
   if (
     Array.isArray(job.positions) &&
     job.positions.length > 0
   ) {
-    return (
-      job.positions
-        .map(position => position.name)
-        .filter(Boolean)
-        .join(', ') || '정보 없음'
-    );
+    const names = job.positions
+      .map(position => {
+        if (typeof position === 'string') {
+          return position;
+        }
+
+        return (
+          position.name ||
+          position.positionName ||
+          position.title ||
+          position.jobRole ||
+          ''
+        );
+      })
+      .filter(Boolean);
+
+    if (names.length > 0) {
+      return [...new Set(names)].join(', ');
+    }
   }
 
-  return job.position || '정보 없음';
+  return (
+    job.position ||
+    job.positionName ||
+    job.jobRole ||
+    '정보 없음'
+  );
 }
 
 function getLocation(job) {
   if (job.location) return job.location;
 
+  if (job.workingArea) return job.workingArea;
+
   if (Array.isArray(job.positions)) {
-    return (
-      job.positions
-        .map(position => position.location)
-        .filter(Boolean)
-        .join(', ') || '정보 없음'
-    );
+    const locations = job.positions
+      .filter(position => typeof position === 'object')
+      .map(position =>
+        position.location || position.workingArea
+      )
+      .filter(Boolean);
+
+    if (locations.length > 0) {
+      return [...new Set(locations)].join(', ');
+    }
   }
 
   return '정보 없음';
 }
 
-// 국내기업 API 응답을 동일한 구조로 변환
-function normalizeKoreanJobs(result) {
-  const { name, data } = result;
-
-  if (name === '삼성') {
-    const items = Array.isArray(data.items)
-      ? data.items
-      : [];
-
-    return items.map(job => ({
-      ...job,
-      companySize: job.companySize || '대기업',
-      sourceCompany: '삼성',
-      url: job.url || SAMSUNG_URL
-    }));
+// 문자열, 배열, 객체 형태의 상세 내용을 표시 가능한 문자열로 변환
+function displayDetail(value) {
+  if (value == null || value === '') {
+    return '정보 없음';
   }
 
-  if (name === '현대자동차') {
-    const items = Array.isArray(data.jobs)
-      ? data.jobs
-      : [];
-
-    return items.map(job => ({
-      ...job,
-      company: '현대자동차',
-      companySize: '대기업',
-      sourceCompany: '현대자동차',
-      url: job.url || HYUNDAI_URL
-    }));
+  if (typeof value === 'string') {
+    return value;
   }
 
-  if (name === 'LG') {
-    const items = Array.isArray(data.jobs)
-      ? data.jobs
-      : [];
-
-    return items.map(job => ({
-      ...job,
-      company: job.company || 'LG 계열사',
-      companySize: job.companySize || '대기업',
-      sourceCompany: 'LG',
-      url: job.url || LG_URL
-    }));
+  if (typeof value === 'number') {
+    return String(value);
   }
 
-  return [];
+  if (Array.isArray(value)) {
+    const result = value
+      .map(displayDetail)
+      .filter(text => text !== '정보 없음')
+      .join('\n');
+
+    return result || '정보 없음';
+  }
+
+  if (typeof value === 'object') {
+    const result = Object.entries(value)
+      .map(([key, item]) => {
+        const text = displayDetail(item);
+
+        return text === '정보 없음'
+          ? ''
+          : `${key}: ${text}`;
+      })
+      .filter(Boolean)
+      .join('\n');
+
+    return result || '정보 없음';
+  }
+
+  return '정보 없음';
 }
+
+// ==========================================
+// 국내기업 데이터 정규화
+// ==========================================
+
+function normalizeKoreanJob(job, index) {
+  const group = String(
+    job.group || job.sourceCompany || ''
+  );
+
+  const company = String(
+    job.company || group || '기업명 미확인'
+  );
+
+  const id = String(
+    job.id ||
+    job.jobNoticeId ||
+    job.noticeID ||
+    `${group}-${index}`
+  );
+
+  const positions = Array.isArray(job.positions)
+    ? job.positions
+    : [];
+
+  return {
+    ...job,
+    id,
+    group,
+    sourceCompany: group,
+    company,
+    companySize: job.companySize || '대기업',
+    title:
+      job.title ||
+      job.positionName ||
+      job.jobRole ||
+      '채용공고',
+    location:
+      job.location ||
+      job.workingArea ||
+      '',
+    startDate: job.startDate || null,
+    endDate: job.endDate || null,
+    positions,
+    url: job.url || null
+  };
+}
+
+// 검색어에 사용할 텍스트
+function getKoreanSearchText(job) {
+  const positionTexts = (job.positions || [])
+    .flatMap(position => {
+      if (typeof position === 'string') {
+        return [position];
+      }
+
+      return [
+        position.name,
+        position.positionName,
+        position.title,
+        position.jobRole,
+        position.description,
+        position.location,
+        position.qualifications,
+        position.requirements,
+        position.preferences,
+        ...(Array.isArray(position.requiredCertificates) ? position.requiredCertificates : []),
+        ...(Array.isArray(position.preferredCertificates) ? position.preferredCertificates : [])
+      ];
+    });
+
+  return [
+    job.company,
+    job.group,
+    job.title,
+    job.location,
+    job.category,
+    job.position,
+    job.positionName,
+    job.jobRole,
+    job.employmentType,
+    job.recruitmentType,
+    job.commonRequirements,
+    job.recruitmentProcess,
+    ...positionTexts,
+    ...(Array.isArray(job.requiredCertificates)
+      ? job.requiredCertificates
+      : []),
+    ...(Array.isArray(job.preferredCertificates)
+      ? job.preferredCertificates
+      : [])
+  ]
+    .filter(Boolean)
+    .map(value => String(value))
+    .join(' ')
+    .toLowerCase();
+}
+
+// ==========================================
+// 메인 컴포넌트
+// ==========================================
 
 function JobSearch() {
   const [jobType, setJobType] = useState('public');
@@ -259,7 +440,10 @@ function JobSearch() {
   const appliedFilters = useRef(initialFilters);
   const requestId = useRef(0);
 
-  // 공공기관 채용정보
+  // ==========================================
+  // 1. 공공기관 채용공고
+  // ==========================================
+
   const searchPublicJobs = async (
     nextPage = 1,
     filters = appliedFilters.current
@@ -318,6 +502,7 @@ function JobSearch() {
       setHasNext(Boolean(data.hasNext));
       setTotalCount(Number(data.totalCount || 0));
       setLastUpdated(null);
+
     } catch (err) {
       if (id !== requestId.current) return;
 
@@ -325,6 +510,7 @@ function JobSearch() {
       setHasNext(false);
       setTotalCount(0);
       setError(err.message);
+
     } finally {
       if (id === requestId.current) {
         setLoading(false);
@@ -332,7 +518,10 @@ function JobSearch() {
     }
   };
 
-  // 해외기업 채용정보
+  // ==========================================
+  // 2. 해외기업 채용공고
+  // ==========================================
+
   const searchPrivateJobs = async (
     nextPage = 1,
     filters = appliedFilters.current
@@ -384,24 +573,36 @@ function JobSearch() {
       });
 
       filtered.sort((a, b) => {
-        const dateA = Date.parse(a.updatedAt || '') || 0;
-        const dateB = Date.parse(b.updatedAt || '') || 0;
+        const dateA =
+          Date.parse(a.updatedAt || '') || 0;
+
+        const dateB =
+          Date.parse(b.updatedAt || '') || 0;
 
         return dateB - dateA;
       });
 
-      const startIndex = (nextPage - 1) * PAGE_SIZE;
+      const startIndex =
+        (nextPage - 1) * PAGE_SIZE;
 
       setPrivateJobs(allJobs);
+
       setJobs(
-        filtered.slice(startIndex, startIndex + PAGE_SIZE)
+        filtered.slice(
+          startIndex,
+          startIndex + PAGE_SIZE
+        )
       );
+
       setPage(nextPage);
       setTotalCount(filtered.length);
+
       setHasNext(
         startIndex + PAGE_SIZE < filtered.length
       );
+
       setLastUpdated(data.lastUpdated || null);
+
     } catch (err) {
       if (id !== requestId.current) return;
 
@@ -409,6 +610,7 @@ function JobSearch() {
       setHasNext(false);
       setTotalCount(0);
       setError(err.message);
+
     } finally {
       if (id === requestId.current) {
         setLoading(false);
@@ -416,7 +618,11 @@ function JobSearch() {
     }
   };
 
-  // 국내기업: 삼성 + 현대자동차 + LG
+  // ==========================================
+  // 3. 국내기업 통합 채용공고
+  // 삼성 + 현대 + LG + SK + 한화
+  // ==========================================
+
   const searchKoreanJobs = async (
     nextPage = 1,
     filters = appliedFilters.current
@@ -428,99 +634,44 @@ function JobSearch() {
     setSearched(true);
 
     try {
-      const endpoints = [
-        {
-          name: '삼성',
-          url: `${API_BASE}/api/samsung-jobs`
-        },
-        {
-          name: '현대자동차',
-          url: `${API_BASE}/api/hyundai-jobs`
-        },
-        {
-          name: 'LG',
-          url: `${API_BASE}/api/lg-jobs`
-        }
-      ];
-
-      // 한 기업 API에 오류가 발생해도
-      // 나머지 기업의 공고는 표시
-      const results = await Promise.allSettled(
-        endpoints.map(async endpoint => {
-          const response = await fetch(endpoint.url);
-          const data = await response.json();
-
-          if (!response.ok || !data.success) {
-            throw new Error(
-              data.message || `${endpoint.name} 조회 실패`
-            );
-          }
-
-          return {
-            name: endpoint.name,
-            data
-          };
-        })
+      // 백엔드 index.js의 통합 API 사용
+      const response = await fetch(
+        `${API_BASE}/api/korean-jobs`
       );
 
-      if (id !== requestId.current) return;
+      const data = await response.json();
 
-      const successful = results
-        .filter(result => result.status === 'fulfilled')
-        .map(result => result.value);
-
-      const failed = results
-        .filter(result => result.status === 'rejected')
-        .map(result =>
-          result.reason?.message || '알 수 없는 오류'
-        );
-
-      if (successful.length === 0) {
+      if (!response.ok || !data.success) {
         throw new Error(
-          failed.join(' / ') ||
-          '국내기업 채용공고 조회 실패'
+          data.message || '국내기업 채용정보 조회 실패'
         );
       }
 
-      let allJobs = successful.flatMap(
-        normalizeKoreanJobs
+      if (id !== requestId.current) return;
+
+      // 통합 API는 jobs 또는 items 배열 반환
+      const rawJobs = Array.isArray(data.jobs)
+        ? data.jobs
+        : Array.isArray(data.items)
+          ? data.items
+          : [];
+
+      const allJobs = rawJobs.map(
+        (job, index) => normalizeKoreanJob(job, index)
       );
 
-      // 기업별 ID를 사용해 중복 제거
-      allJobs = Array.from(
-        new Map(
-          allJobs.map((job, index) => [
-            `${job.sourceCompany}-${job.id ?? index}`,
-            job
-          ])
-        ).values()
+      // 그룹별 데이터 수 확인
+      console.log(
+        '[국내기업 채용공고]',
+        data.groupCounts || {}
       );
 
       const searchKeyword =
         filters.keyword.trim().toLowerCase();
 
       const filtered = allJobs.filter(job => {
-        const positions = Array.isArray(job.positions)
-          ? job.positions
-          : [];
-
-        const searchableText = [
-          job.company,
-          job.title,
-          job.location,
-          job.category,
-          job.position,
-          job.employmentType,
-          job.recruitmentType,
-          ...positions.flatMap(position => [
-            position.name,
-            position.location,
-            position.description
-          ])
-        ]
-          .filter(Boolean)
-          .join(' ')
-          .toLowerCase();
+        const searchableText =
+          getKoreanSearchText(job);
 
         const matchesKeyword =
           !searchKeyword ||
@@ -532,11 +683,11 @@ function JobSearch() {
 
         const matchesSize =
           !filters.companySize ||
-          (job.companySize || '미확인') ===
-            filters.companySize;
+          job.companySize === filters.companySize;
 
         const matchesActive =
-          !filters.activeOnly || isActiveJob(job);
+          !filters.activeOnly ||
+          isActiveJob(job);
 
         return (
           matchesKeyword &&
@@ -546,7 +697,7 @@ function JobSearch() {
         );
       });
 
-      // 시작일이 없는 LG 공고도 고려해 정렬
+      // 최신 공고 우선
       filtered.sort((a, b) => {
         const dateA = String(
           a.startDate || a.endDate || ''
@@ -559,38 +710,50 @@ function JobSearch() {
         return dateB.localeCompare(dateA);
       });
 
-      const startIndex = (nextPage - 1) * PAGE_SIZE;
+      const startIndex =
+        (nextPage - 1) * PAGE_SIZE;
 
       setKoreanJobs(allJobs);
+
       setJobs(
-        filtered.slice(startIndex, startIndex + PAGE_SIZE)
+        filtered.slice(
+          startIndex,
+          startIndex + PAGE_SIZE
+        )
       );
+
       setPage(nextPage);
       setTotalCount(filtered.length);
+
       setHasNext(
         startIndex + PAGE_SIZE < filtered.length
       );
+
       setLastUpdated(null);
 
-      if (failed.length > 0) {
-        setError(
-          '일부 기업의 채용공고를 가져오지 못했습니다: ' +
-          failed.join(' / ')
-        );
-      }
     } catch (err) {
       if (id !== requestId.current) return;
+
+      console.error(
+        '국내기업 채용공고 조회 오류:',
+        err
+      );
 
       setJobs([]);
       setHasNext(false);
       setTotalCount(0);
       setError(err.message);
+
     } finally {
       if (id === requestId.current) {
         setLoading(false);
       }
     }
   };
+
+  // ==========================================
+  // 4. 채용 유형별 검색 실행
+  // ==========================================
 
   const searchJobs = (
     nextPage = 1,
@@ -609,13 +772,20 @@ function JobSearch() {
   };
 
   useEffect(() => {
-    appliedFilters.current = { ...initialFilters };
+    appliedFilters.current = {
+      ...initialFilters
+    };
+
     searchPublicJobs(1, initialFilters);
 
     return () => {
       requestId.current++;
     };
   }, []);
+
+  // ==========================================
+  // 5. 탭 변경
+  // ==========================================
 
   const changeJobType = type => {
     if (type === jobType) return;
@@ -639,11 +809,18 @@ function JobSearch() {
     setLastUpdated(null);
     setSearched(false);
 
-    const filters = { ...initialFilters };
+    const filters = {
+      ...initialFilters
+    };
+
     appliedFilters.current = filters;
 
     searchJobs(1, filters, type);
   };
+
+  // ==========================================
+  // 6. 검색
+  // ==========================================
 
   const handleSearch = e => {
     e.preventDefault();
@@ -658,8 +835,13 @@ function JobSearch() {
     };
 
     appliedFilters.current = filters;
+
     searchJobs(1, filters);
   };
+
+  // ==========================================
+  // 7. 페이지 이동
+  // ==========================================
 
   const changePage = nextPage => {
     if (nextPage < 1 || loading) return;
@@ -671,21 +853,38 @@ function JobSearch() {
       return;
     }
 
-    searchJobs(nextPage, appliedFilters.current);
+    searchJobs(
+      nextPage,
+      appliedFilters.current
+    );
   };
+
+  // ==========================================
+  // 8. 기업 선택 목록
+  // ==========================================
 
   const companies = [
     ...new Set(
-      (jobType === 'korean' ? koreanJobs : privateJobs)
+      (
+        jobType === 'korean'
+          ? koreanJobs
+          : privateJobs
+      )
         .map(job => job.company)
         .filter(Boolean)
     )
-  ].sort((a, b) => a.localeCompare(b, 'ko'));
+  ].sort((a, b) =>
+    a.localeCompare(b, 'ko')
+  );
 
   const totalPages = Math.max(
     1,
     Math.ceil(totalCount / PAGE_SIZE)
   );
+
+  // ==========================================
+  // 9. 화면
+  // ==========================================
 
   return (
     <div className="job-page">
@@ -696,10 +895,13 @@ function JobSearch() {
         상세 채용정보를 확인할 수 있습니다.
       </p>
 
+      {/* 채용 유형 탭 */}
       <div className="job-type-tabs">
         <button
           type="button"
-          className={jobType === 'public' ? 'active' : ''}
+          className={
+            jobType === 'public' ? 'active' : ''
+          }
           onClick={() => changeJobType('public')}
         >
           공공기관
@@ -707,7 +909,9 @@ function JobSearch() {
 
         <button
           type="button"
-          className={jobType === 'private' ? 'active' : ''}
+          className={
+            jobType === 'private' ? 'active' : ''
+          }
           onClick={() => changeJobType('private')}
         >
           해외기업
@@ -715,13 +919,16 @@ function JobSearch() {
 
         <button
           type="button"
-          className={jobType === 'korean' ? 'active' : ''}
+          className={
+            jobType === 'korean' ? 'active' : ''
+          }
           onClick={() => changeJobType('korean')}
         >
           국내기업
         </button>
       </div>
 
+      {/* 검색창 */}
       <form
         className="job-search-bar"
         onSubmit={handleSearch}
@@ -741,7 +948,9 @@ function JobSearch() {
           <>
             <select
               value={category}
-              onChange={e => setCategory(e.target.value)}
+              onChange={e =>
+                setCategory(e.target.value)
+              }
             >
               {categories.map(item => (
                 <option
@@ -773,12 +982,19 @@ function JobSearch() {
           <>
             <select
               value={company}
-              onChange={e => setCompany(e.target.value)}
+              onChange={e =>
+                setCompany(e.target.value)
+              }
             >
-              <option value="">전체 기업</option>
+              <option value="">
+                전체 기업
+              </option>
 
               {companies.map(name => (
-                <option key={name} value={name}>
+                <option
+                  key={name}
+                  value={name}
+                >
                   {name}
                 </option>
               ))}
@@ -791,22 +1007,41 @@ function JobSearch() {
                   setCompanySize(e.target.value)
                 }
               >
-                <option value="">전체 규모</option>
-                <option value="대기업">대기업</option>
-                <option value="중견기업">중견기업</option>
-                <option value="중소기업">중소기업</option>
-                <option value="미확인">분류 미확인</option>
+                <option value="">
+                  전체 규모
+                </option>
+
+                <option value="대기업">
+                  대기업
+                </option>
+
+                <option value="중견기업">
+                  중견기업
+                </option>
+
+                <option value="중소기업">
+                  중소기업
+                </option>
+
+                <option value="미확인">
+                  분류 미확인
+                </option>
               </select>
             )}
           </>
         )}
 
-        <button type="submit" disabled={loading}>
+        <button
+          type="submit"
+          disabled={loading}
+        >
           {loading ? '검색 중...' : '검색'}
         </button>
       </form>
 
-      {(jobType === 'public' || jobType === 'korean') && (
+      {/* 모집 중 필터 */}
+      {(jobType === 'public' ||
+        jobType === 'korean') && (
         <div className="job-filter-options">
           <label>
             <input
@@ -821,42 +1056,50 @@ function JobSearch() {
         </div>
       )}
 
+      {/* 해외기업 안내 */}
       {jobType === 'private' && (
         <div className="job-source-info">
-          <span>Greenhouse 공개 채용정보 기반</span>
+          <span>
+            Greenhouse 공개 채용정보 기반
+          </span>
 
           {lastUpdated && (
             <span>
-              마지막 갱신: {displayDate(lastUpdated)}
+              마지막 갱신:{' '}
+              {displayDate(lastUpdated)}
             </span>
           )}
         </div>
       )}
 
+      {/* 국내기업 안내 */}
       {jobType === 'korean' && (
         <div className="job-source-info">
           <span>
-            삼성커리어스, 현대자동차, LG Careers
-            공식 채용사이트 수집 데이터
+           삼성커리어스, 현대자동차, LG Careers,
+           SK Careers, 한화인, CJ 채용사이트
+             수집 데이터
           </span>
 
           <span>
-            LG전자, LG CNS, LG화학, LG유플러스 등
-            LG 계열사 채용공고 포함
+            삼성·현대·LG·SK·한화 그룹 및
+            계열사 채용공고 포함
           </span>
 
           <span>
-            새로운 공고는 서버에서 수집 데이터를
-            갱신한 후 반영됩니다.
+            새로운 공고는 서버에서
+            수집 데이터를 갱신한 후
+            반영됩니다.
           </span>
 
           <span>
-            실제 모집 여부는 공식 채용사이트에서
-            확인하세요.
+            실제 모집 여부는 공식
+            채용사이트에서 확인하세요.
           </span>
         </div>
       )}
 
+      {/* 검색 결과 개수 */}
       {searched && !loading && (
         <div className="job-result-summary">
           <strong>검색 결과</strong>
@@ -869,18 +1112,21 @@ function JobSearch() {
         </div>
       )}
 
+      {/* 오류 */}
       {error && (
         <p className="job-error">
           {error}
         </p>
       )}
 
+      {/* 로딩 */}
       {loading && (
         <p className="job-loading">
           채용공고를 불러오는 중입니다...
         </p>
       )}
 
+      {/* 결과 없음 */}
       {!loading &&
         searched &&
         jobs.length === 0 &&
@@ -890,6 +1136,7 @@ function JobSearch() {
           </p>
         )}
 
+      {/* 채용공고 목록 */}
       {!loading && (
         <div className="job-list">
           {jobs.map((job, index) => (
@@ -918,7 +1165,9 @@ function JobSearch() {
                 </span>
               </div>
 
-              <h3>{job.title || '제목 없음'}</h3>
+              <h3>
+                {job.title || '제목 없음'}
+              </h3>
 
               <p>
                 <strong>
@@ -977,13 +1226,12 @@ function JobSearch() {
                     </p>
                   )}
 
-                  {job.sourceCompany === 'LG' &&
-                    job.recruitmentType && (
-                      <p>
-                        <strong>모집 방식:</strong>{' '}
-                        {job.recruitmentType}
-                      </p>
-                    )}
+                  {job.recruitmentType && (
+                    <p>
+                      <strong>모집 방식:</strong>{' '}
+                      {job.recruitmentType}
+                    </p>
+                  )}
                 </>
               ) : (
                 <>
@@ -999,12 +1247,15 @@ function JobSearch() {
                 </>
               )}
 
+              {/* 카드 하단 버튼 */}
               <div className="job-card-actions">
                 {jobType === 'korean' ? (
                   <>
                     <button
                       type="button"
-                      onClick={() => setSelectedJob(job)}
+                      onClick={() =>
+                        setSelectedJob(job)
+                      }
                     >
                       상세보기
                     </button>
@@ -1028,7 +1279,9 @@ function JobSearch() {
                       : '공고 상세보기'}
                   </a>
                 ) : (
-                  <span>상세정보 없음</span>
+                  <span>
+                    상세정보 없음
+                  </span>
                 )}
               </div>
             </div>
@@ -1036,6 +1289,7 @@ function JobSearch() {
         </div>
       )}
 
+      {/* 페이지 이동 */}
       {searched &&
         !loading &&
         totalCount > 0 && (
@@ -1044,7 +1298,9 @@ function JobSearch() {
               type="button"
               className="job-page-btn"
               disabled={page <= 1}
-              onClick={() => changePage(page - 1)}
+              onClick={() =>
+                changePage(page - 1)
+              }
             >
               ← 이전
             </button>
@@ -1063,34 +1319,48 @@ function JobSearch() {
               type="button"
               className="job-page-btn"
               disabled={!hasNext}
-              onClick={() => changePage(page + 1)}
+              onClick={() =>
+                changePage(page + 1)
+              }
             >
               다음 →
             </button>
           </div>
         )}
 
+      {/* ======================================
+          국내기업 채용공고 상세보기
+      ====================================== */}
+
       {selectedJob && (
         <div
           className="job-modal-overlay"
-          onClick={() => setSelectedJob(null)}
+          onClick={() =>
+            setSelectedJob(null)
+          }
         >
           <div
             className="job-modal"
             role="dialog"
             aria-modal="true"
             aria-label="채용공고 상세정보"
-            onClick={e => e.stopPropagation()}
+            onClick={e =>
+              e.stopPropagation()
+            }
           >
             <button
               type="button"
               className="job-modal-close"
-              onClick={() => setSelectedJob(null)}
+              onClick={() =>
+                setSelectedJob(null)
+              }
             >
               ✕ 닫기
             </button>
 
-            <h2>{selectedJob.title}</h2>
+            <h2>
+              {selectedJob.title}
+            </h2>
 
             <p>
               <strong>기업명:</strong>{' '}
@@ -1098,150 +1368,276 @@ function JobSearch() {
             </p>
 
             <p>
+              <strong>기업 그룹:</strong>{' '}
+              {selectedJob.group ||
+                selectedJob.sourceCompany ||
+                '정보 없음'}
+            </p>
+
+            <p>
               <strong>접수기간:</strong>{' '}
-              {displayDate(selectedJob.startDate)}
+              {displayDate(
+                selectedJob.startDate
+              )}
               {' ~ '}
               {displayDeadline(selectedJob)}
             </p>
 
-            {selectedJob.sourceCompany === 'LG' ? (
-              <>
-                <h3>LG 채용공고 정보</h3>
+            <p>
+              <strong>모집 직무:</strong>{' '}
+              {getPositionNames(selectedJob)}
+            </p>
 
-                <p>
-                  <strong>모집 직무:</strong>{' '}
-                  {getPositionNames(selectedJob)}
-                </p>
+            <p>
+              <strong>근무지역:</strong>{' '}
+              {getLocation(selectedJob)}
+            </p>
 
-                <p>
-                  <strong>근무지역:</strong>{' '}
-                  {getLocation(selectedJob)}
-                </p>
+            {selectedJob.category && (
+              <p>
+                <strong>직무 분야:</strong>{' '}
+                {selectedJob.category}
+              </p>
+            )}
 
-                <p>
-                  <strong>직무 분야:</strong>{' '}
-                  {selectedJob.category || '정보 없음'}
-                </p>
+            {selectedJob.employmentType && (
+              <p>
+                <strong>채용 유형:</strong>{' '}
+                {selectedJob.employmentType}
+              </p>
+            )}
 
-                <p>
-                  <strong>채용 유형:</strong>{' '}
-                  {selectedJob.employmentType ||
-                    '정보 없음'}
-                </p>
+            {selectedJob.recruitmentType && (
+              <p>
+                <strong>모집 방식:</strong>{' '}
+                {selectedJob.recruitmentType}
+              </p>
+            )}
+            {/* CJ 상세 채용정보 */}
+{selectedJob.jobDescription && (
+  <>
+    <h3>직무소개</h3>
+    <p className="job-detail-text" style={{ whiteSpace: 'pre-wrap' }}>
+      {displayDetail(selectedJob.jobDescription)}
+    </p>
+  </>
+)}
 
-                <p>
-                  <strong>모집 방식:</strong>{' '}
-                  {selectedJob.recruitmentType ||
-                    '정보 없음'}
-                </p>
+{selectedJob.requirements && (
+  <>
+    <h3>지원자격</h3>
+    <p className="job-detail-text" style={{ whiteSpace: 'pre-wrap' }}>
+      {displayDetail(selectedJob.requirements)}
+    </p>
+  </>
+)}
 
-                <p>
-                  <strong>접수 마감시간:</strong>{' '}
-                  {selectedJob.endTime || '정보 없음'}
-                </p>
+{selectedJob.otherInformation && (
+  <>
+    <h3>기타 안내사항</h3>
+    <p className="job-detail-text" style={{ whiteSpace: 'pre-wrap' }}>
+      {displayDetail(selectedJob.otherInformation)}
+    </p>
+  </>
+)}
 
-                <p className="job-detail-text">
-                  담당 업무, 지원자격, 우대사항 등
-                  상세 내용은 LG Careers 공식
-                  채용사이트에서 확인하세요.
-                </p>
-              </>
-            ) : selectedJob.company ===
-              '현대자동차' ? (
-              <>
-                <h3>채용공고 정보</h3>
-
-                <p>
-                  <strong>모집 직무:</strong>{' '}
-                  {selectedJob.position || '정보 없음'}
-                </p>
-
-                <p>
-                  <strong>근무지역:</strong>{' '}
-                  {selectedJob.location || '정보 없음'}
-                </p>
-
-                <p>
-                  <strong>직무 분야:</strong>{' '}
-                  {selectedJob.category || '정보 없음'}
-                </p>
-
-                <p>
-                  <strong>채용 유형:</strong>{' '}
-                  {selectedJob.employmentType ||
-                    '정보 없음'}
-                </p>
-
-                <p>
-                  <strong>접수 마감시간:</strong>{' '}
-                  {selectedJob.endTime || '정보 없음'}
-                </p>
-
-                <p className="job-detail-text">
-                  담당 업무와 지원자격의 상세 내용은
-                  현대자동차 공식 채용사이트에서
-                  확인하세요.
-                </p>
-              </>
-            ) : (
+            {/* 공통 지원자격 */}
+            {(selectedJob.commonRequirements || selectedJob.qualifications) && (
               <>
                 <h3>공통 지원자격</h3>
 
-                <p className="job-detail-text">
-                  {selectedJob.qualifications ||
-                    '정보 없음'}
-                </p>
-
-                <h3>모집 직무</h3>
-
-                {(selectedJob.positions || []).map(
-                  (position, index) => (
-                    <div
-                      className="job-position"
-                      key={index}
-                    >
-                      <h4>
-                        {position.name || '직무명 없음'}
-                      </h4>
-
-                      <p>
-                        <strong>근무지역:</strong>{' '}
-                        {position.location ||
-                          '정보 없음'}
-                      </p>
-
-                      <strong>담당 업무</strong>
-
-                      <p className="job-detail-text">
-                        {position.description ||
-                          '정보 없음'}
-                      </p>
-
-                      <strong>지원자격</strong>
-
-                      <p className="job-detail-text">
-                        {position.qualifications ||
-                          '정보 없음'}
-                      </p>
-
-                      <strong>우대사항</strong>
-
-                      <p className="job-detail-text">
-                        {position.preferences ||
-                          '정보 없음'}
-                      </p>
-                    </div>
-                  )
-                )}
-
-                <h3>지원 방법</h3>
-
-                <p className="job-detail-text">
-                  {selectedJob.applicationProcess ||
-                    '정보 없음'}
+                <p className="job-detail-text" style={{ whiteSpace: 'pre-wrap' }}>
+                  {displayDetail(
+                    selectedJob.commonRequirements || selectedJob.qualifications
+                  )}
                 </p>
               </>
             )}
+
+            {/* 공통 우대사항 */}
+            {selectedJob.preferences && (
+              <>
+                <h3>공통 우대사항</h3>
+
+                <p className="job-detail-text" style={{ whiteSpace: 'pre-wrap' }}>
+                  {displayDetail(
+                    selectedJob.preferences
+                  )}
+                </p>
+              </>
+            )}
+
+            {/* 자격증 정보 */}
+            {Array.isArray(
+              selectedJob.requiredCertificates
+            ) &&
+              selectedJob.requiredCertificates.length > 0 && (
+                <>
+                  <h3>필수 자격증</h3>
+
+                  <p className="job-detail-text" style={{ whiteSpace: 'pre-wrap' }}>
+                    {displayDetail(
+                      selectedJob.requiredCertificates
+                    )}
+                  </p>
+                </>
+              )}
+
+            {Array.isArray(
+              selectedJob.preferredCertificates
+            ) &&
+              selectedJob.preferredCertificates.length > 0 && (
+                <>
+                  <h3>우대 자격증</h3>
+
+                  <p className="job-detail-text" style={{ whiteSpace: 'pre-wrap' }}>
+                    {displayDetail(
+                      selectedJob.preferredCertificates
+                    )}
+                  </p>
+                </>
+              )}
+
+            {/* 직무별 상세정보 */}
+            {Array.isArray(selectedJob.positions) &&
+              selectedJob.positions.length > 0 && (
+                <>
+                  <h3>모집 직무 상세정보</h3>
+
+                  {selectedJob.positions.map(
+                    (position, index) => {
+                      const item =
+                        typeof position === 'string'
+                          ? { name: position }
+                          : position || {};
+
+                      return (
+                        <div
+                          className="job-position"
+                          key={index}
+                        >
+                          <h4>
+                            {item.name ||
+                              item.positionName ||
+                              item.title ||
+                              item.jobRole ||
+                              '직무명 없음'}
+                          </h4>
+
+                          <p>
+                            <strong>
+                              근무지역:
+                            </strong>{' '}
+                            {item.location ||
+                              item.workingArea ||
+                              '정보 없음'}
+                          </p>
+
+                          <strong>
+                            담당 업무
+                          </strong>
+
+                          <p className="job-detail-text" style={{ whiteSpace: 'pre-wrap' }}>
+                            {displayDetail(
+                              item.description ||
+                              item.duties ||
+                              item.jobDescription
+                            )}
+                          </p>
+
+                          <strong>
+                            지원자격
+                          </strong>
+
+                          <p className="job-detail-text" style={{ whiteSpace: 'pre-wrap' }}>
+                            {displayDetail(
+                              item.qualifications ||
+                              item.requirements
+                            )}
+                          </p>
+
+                          <strong>
+                            우대사항
+                          </strong>
+
+                          <p className="job-detail-text" style={{ whiteSpace: 'pre-wrap' }}>
+                            {displayDetail(
+                              item.preferences ||
+                              item.preferredQualifications
+                            )}
+                          </p>
+
+                          {item.requiredCertificates && (
+                            <>
+                              <strong>
+                                필수 자격증
+                              </strong>
+
+                              <p className="job-detail-text" style={{ whiteSpace: 'pre-wrap' }}>
+                                {displayDetail(
+                                  item.requiredCertificates
+                                )}
+                              </p>
+                            </>
+                          )}
+
+                          {item.preferredCertificates && (
+                            <>
+                              <strong>
+                                우대 자격증
+                              </strong>
+
+                              <p className="job-detail-text" style={{ whiteSpace: 'pre-wrap' }}>
+                                {displayDetail(
+                                  item.preferredCertificates
+                                )}
+                              </p>
+                            </>
+                          )}
+                        </div>
+                      );
+                    }
+                  )}
+                </>
+              )}
+
+            {/* 한화 상세 수집 데이터: 전형 절차 및 기타 안내 */}
+            {selectedJob.recruitmentProcess && (
+              <>
+                <h3>전형 절차</h3>
+                <p className="job-detail-text" style={{ whiteSpace: 'pre-wrap' }}>
+                  {displayDetail(selectedJob.recruitmentProcess)}
+                </p>
+              </>
+            )}
+
+            {selectedJob.additionalNotes && (
+              <>
+                <h3>기타 안내사항</h3>
+                <p className="job-detail-text" style={{ whiteSpace: 'pre-wrap' }}>
+                  {displayDetail(selectedJob.additionalNotes)}
+                </p>
+              </>
+            )}
+
+            {/* 지원 방법 */}
+            {(selectedJob.applicationGuide || selectedJob.applicationProcess) && (
+              <>
+                <h3>지원 방법</h3>
+
+                <p className="job-detail-text" style={{ whiteSpace: 'pre-wrap' }}>
+                  {displayDetail(
+                    selectedJob.applicationGuide || selectedJob.applicationProcess
+                  )}
+                </p>
+              </>
+            )}
+
+            <p className="job-detail-text" style={{ whiteSpace: 'pre-wrap' }}>
+              수집된 데이터에 없는 상세 조건과
+              실제 모집 상태는 공식 채용사이트에서
+              확인하세요.
+            </p>
 
             <a
               className="job-official-link"

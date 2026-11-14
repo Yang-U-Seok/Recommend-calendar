@@ -42,6 +42,21 @@ function Icon({ name, size = 20, className = '' }) {
   )
 }
 
+const FIELD_CATEGORY_MAP = {
+  '전체 분야': ['전체'],
+  'IT·소프트웨어': ['IT'],
+  '데이터·AI': ['IT'],
+  '네트워크·통신·클라우드': ['IT', '전자통신'],
+  '정보보안': ['보안'],
+  '전기·전자': ['전기', '전자통신'],
+  '기계·자동화': ['기계'],
+  '건설·토목·안전': ['건설', '안전'],
+  '경영·회계·금융': [],
+  '사무·무역·물류': [],
+  '환경·보건·서비스': ['환경', '안전']
+}
+
+
 const API_BASE = 'http://localhost:3001'
 
 function App() {
@@ -270,9 +285,19 @@ function App() {
     setHasRecommended(false)
 
     try {
-      const categories = selectedFields.includes('전체 분야')
-        ? '전체'
-        : selectedFields.join(',')
+     
+const mappedCategories = selectedFields.includes('전체 분야')
+  ? ['전체']
+  : [...new Set(
+      selectedFields.flatMap(field => FIELD_CATEGORY_MAP[field] || [])
+    )]
+
+if (mappedCategories.length === 0) {
+  throw new Error('선택한 분야는 아직 자격증 추천을 지원하지 않습니다.')
+}
+
+const categories = mappedCategories.join(',')
+
       const sizes = selectedCompanySizes.length
         ? selectedCompanySizes
         : ['전체']
@@ -622,7 +647,7 @@ function App() {
                 ) : (
                   <div className="recommend-results">
 
-                    {recommendations.slice(0, 5).map((item, index) => (
+                    {recommendations.map((item, index) => (
                       <div
                         className="recommend-result-item"
                         key={item.certificate}
@@ -636,6 +661,50 @@ function App() {
 
                         <strong>등장 횟수 기준 {index + 1}위</strong>
                         <p>언급 기업: {item.companies.join(', ')}</p>
+
+<details className="certificate-job-details">
+  <summary>
+    관련 채용공고 보기 ({item.positions.length}건)
+  </summary>
+
+  <div className="certificate-job-list">
+    {item.positions.map((position, index) => (
+      <div
+        key={`${position.jobNoticeId}-${index}`}
+        className="certificate-job-item"
+      >
+        <strong>{position.company}</strong>
+
+        <p>{position.positionName}</p>
+
+        <div className="certificate-job-tags">
+          {position.required && (
+            <span className="certificate-tag required">
+              필수 항목
+            </span>
+          )}
+
+          {position.preferred && (
+            <span className="certificate-tag preferred">
+              우대 항목
+            </span>
+          )}
+        </div>
+
+        {position.url && /^https?:\/\//i.test(position.url) && (
+          <a
+            href={position.url}
+            target="_blank"
+            rel="noopener noreferrer"
+            className="certificate-job-link"
+          >
+            채용공고 원문 보기 ↗
+          </a>
+        )}
+      </div>
+    ))}
+  </div>
+</details>
 
                         <button
                           type="button"
